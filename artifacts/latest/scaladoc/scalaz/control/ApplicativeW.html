@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>trait ApplicativeW in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.2.RC4)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">trait  ApplicativeW</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/ApplicativeW"><code>scalaz/control/ApplicativeW.scala</code></a>]
+      </div><hr></hr>
+      <a name="ApplicativeW"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>trait</code>
+        <em>ApplicativeW</em>[<em>AP</em>, <em>A</em>]
+      </dt>
+      <dd><code> extends </code><a href="../../scalaz/control/FunctorW.html" target="_self">FunctorW</a>[<a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>, <a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>]<code> with </code><a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>, <a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>]</dd>
+    </dl>
+      <dl><dd>Wraps <code>Applicative</code> and a value for which there exists an instance and provides additional methods.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>See Also</b></dt><dd><a href="../../scalaz/control/Applicative.html" target="_self">Applicative</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    <dl>
+      <dt style="margin:10px 0 0 20px;"><b>Direct Known Subclasses:</b></dt>
+      <dd><a href="../../scalaz/control/MonadW.html" target="_self">MonadW</a></dd>
+      </dl><hr></hr>
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#apply" target="_self">apply</a></em>
+         : <a href="../../scalaz/control/Apply.html" target="_self">Apply</a>[<a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>]
+        
+        <div>The apply implementation for this applicative.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#pure" target="_self">pure</a></em>
+         : <a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>]
+        
+        <div>The pure implementation for this applicative.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Values and Variables inherited from <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/ApplyW.html#v" target="_self">v</a> (abstract)
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Values and Variables inherited from <a href="../../scalaz/control/FunctorW.html" target="_self">FunctorW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/FunctorW.html#functor" target="_self">functor</a> (abstract)
+        </td></tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#*%3E%28AP%5BB%5D%29" target="_self">*&gt;</a></em>
+        [<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#*%3E%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#*%3E%28AP%5BB%5D%29#B" target="_self">B</a>]
+        
+        <div>Maps the given applicative constant across this applicative instance.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#%3C*%28AP%5BB%5D%29" target="_self">&lt;*</a></em>
+        [<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C*%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>]
+        
+        <div>Maps the given applicative constant across this applicative instance.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#%3C*%7C*%3E%28AP%5BB%5D%29" target="_self">&lt;*|*&gt;</a></em>
+        [<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C*%7C*%3E%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C*%7C*%3E%28AP%5BB%5D%29#B" target="_self">B</a>)]
+        
+        <div>Maps the given applicative constant across this applicative instance.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a></em>
+        [<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%29#B" target="_self">B</a>)]
+        
+        <div>Applicative lift arity-2 to product.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a></em>
+        [<em>B</em>, <em>C</em>, <em>D</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#D" target="_self">D</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#C" target="_self">C</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#D" target="_self">D</a>)]
+        
+        <div>Applicative lift arity-4 to product.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a></em>
+        [<em>B</em>, <em>C</em>, <em>D</em>, <em>E</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#D" target="_self">D</a>], <em>e</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#E" target="_self">E</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#C" target="_self">C</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#D" target="_self">D</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#E" target="_self">E</a>)]
+        
+        <div>Applicative lift arity-5 to product.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a></em>
+        [<em>B</em>, <em>C</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#C" target="_self">C</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#C" target="_self">C</a>)]
+        
+        <div>Applicative lift arity-3 to product.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29" target="_self">liftA</a></em>
+        [<em>B</em>, <em>C</em>, <em>D</em>, <em>E</em>, <em>F</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#D" target="_self">D</a>], <em>e</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#E" target="_self">E</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#B" target="_self">B</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#C" target="_self">C</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#D" target="_self">D</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#E" target="_self">E</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#F" target="_self">F</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#F" target="_self">F</a>]
+        
+        <div>Applicative lift arity-5.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29" target="_self">liftA</a></em>
+        [<em>B</em>, <em>C</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#B" target="_self">B</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#B" target="_self">B</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#C" target="_self">C</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#C" target="_self">C</a>]
+        
+        <div>Applicative lift arity-2.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29" target="_self">liftA</a></em>
+        [<em>B</em>, <em>C</em>, <em>D</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#C" target="_self">C</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#B" target="_self">B</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#C" target="_self">C</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#D" target="_self">D</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#D" target="_self">D</a>]
+        
+        <div>Applicative lift arity-3.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>final def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29" target="_self">liftA</a></em>
+        [<em>B</em>, <em>C</em>, <em>D</em>, <em>E</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#D" target="_self">D</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#B" target="_self">B</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#C" target="_self">C</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#D" target="_self">D</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#E" target="_self">E</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#E" target="_self">E</a>]
+        
+        <div>Applicative lift arity-4.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/ApplyW.html#%3C*%3E%28AP%5B%28A%29%3D%3EB%5D%29" target="_self">&lt;*&gt;</a>, <a href="../../scalaz/control/ApplyW.html#%3C*%3E%3A%28AP%5B%28A%29%3D%3EB%5D%29" target="_self">&lt;*&gt;:</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="../../scalaz/control/FunctorW.html" target="_self">FunctorW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/FunctorW.html#%3E%28%28A%29%3D%3EB%29" target="_self">&gt;</a>, <a href="../../scalaz/control/FunctorW.html#%3C-%3A%28%28A%29%3D%3EB%29" target="_self">&lt;-:</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="apply"></a><dl>
+      <dt>
+        
+        <code>abstract</code>
+        <code>val</code>
+        <em>apply</em> : <a href="../../scalaz/control/Apply.html" target="_self">Apply</a>[<a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>The apply implementation for this applicative.</dd></dl>
+      <dl></dl>
+    <dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>.<a href="../../scalaz/control/ApplyW.html#apply" target="_self">apply</a>
+        </dd>
+      </dl><hr></hr>
+<a name="pure"></a><dl>
+      <dt>
+        
+        <code>abstract</code>
+        <code>val</code>
+        <em>pure</em> : <a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>The pure implementation for this applicative.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="*%3E%28AP%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>*&gt;</em>[<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#*%3E%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#*%3E%28AP%5BB%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Maps the given applicative constant across this applicative instance.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3C*%28AP%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>&lt;*</em>[<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C*%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Maps the given applicative constant across this applicative instance.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3C*%7C*%3E%28AP%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>&lt;*|*&gt;</em>[<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C*%7C*%3E%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C*%7C*%3E%28AP%5BB%5D%29#B" target="_self">B</a>)]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Maps the given applicative constant across this applicative instance.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>liftA</em>[<em>B</em>, <em>C</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#B" target="_self">B</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#B" target="_self">B</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#C" target="_self">C</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29#C" target="_self">C</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-2.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>liftA</em>[<em>B</em>, <em>C</em>, <em>D</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#C" target="_self">C</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#B" target="_self">B</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#C" target="_self">C</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#D" target="_self">D</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29#D" target="_self">D</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-3.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>liftA</em>[<em>B</em>, <em>C</em>, <em>D</em>, <em>E</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#D" target="_self">D</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#B" target="_self">B</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#C" target="_self">C</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#D" target="_self">D</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#E" target="_self">E</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29#E" target="_self">E</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-4.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>liftA</em>[<em>B</em>, <em>C</em>, <em>D</em>, <em>E</em>, <em>F</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#D" target="_self">D</a>], <em>e</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#E" target="_self">E</a>], <em>f</em> : (<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#B" target="_self">B</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#C" target="_self">C</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#D" target="_self">D</a>) =&gt; (<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#E" target="_self">E</a>) =&gt; <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#F" target="_self">F</a>) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29#F" target="_self">F</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-5.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3C%3C*%3E%3E%28AP%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>&lt;&lt;*&gt;&gt;</em>[<em>B</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%29#B" target="_self">B</a>)]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-2 to product.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>&lt;&lt;*&gt;&gt;</em>[<em>B</em>, <em>C</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#C" target="_self">C</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29#C" target="_self">C</a>)]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-3 to product.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>&lt;&lt;*&gt;&gt;</em>[<em>B</em>, <em>C</em>, <em>D</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#D" target="_self">D</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#C" target="_self">C</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29#D" target="_self">D</a>)]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-4 to product.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29"></a><dl>
+      <dt>
+        
+        <code>final</code>
+        <code>def</code>
+        <em>&lt;&lt;*&gt;&gt;</em>[<em>B</em>, <em>C</em>, <em>D</em>, <em>E</em>](<em>b</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#B" target="_self">B</a>], <em>c</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#C" target="_self">C</a>], <em>d</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#D" target="_self">D</a>], <em>e</em> : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[<a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#E" target="_self">E</a>]) : <a href="../../scalaz/control/ApplicativeW.html#AP" target="_self">AP</a>[(<a href="../../scalaz/control/ApplicativeW.html#A" target="_self">A</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#C" target="_self">C</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#D" target="_self">D</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29#E" target="_self">E</a>)]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Applicative lift arity-5 to product.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

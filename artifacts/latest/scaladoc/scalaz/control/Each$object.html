@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object Each in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.2.RC4)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">object  Each</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/Each"><code>scalaz/control/Each.scala</code></a>]
+      </div><hr></hr>
+      <a name="Each"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>Each</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over each values.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#ArrayEach" target="_self">ArrayEach</a></em>
+         : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>]
+        
+        <div>An each for <code>scala.Array</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#IdEach" target="_self">IdEach</a></em>
+         : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Tuple1">scala.Tuple1</a>]
+        
+        <div>An each for identity.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#ListEach" target="_self">ListEach</a></em>
+         : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>]
+        
+        <div>An each for <code>scala.List</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#NonEmptyListEach" target="_self">NonEmptyListEach</a></em>
+         : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>]
+        
+        <div>An each for <code>scalaz.list.NonEmptyList</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#OptionEach" target="_self">OptionEach</a></em>
+         : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>]
+        
+        <div>An each for <code>scala.Option</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#StreamEach" target="_self">StreamEach</a></em>
+         : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>]
+        
+        <div>An each for <code>scala.Stream</code>.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#EitherEach" target="_self">EitherEach</a></em>
+        [<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>]
+        
+        <div>An each for <code>forall T. scala.Either[T, ?]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#EitherLeftEach" target="_self">EitherLeftEach</a></em>
+        [<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>]
+        
+        <div>An each for <code>forall T. scala.Either.LeftProjection[?, T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#EitherRightEach" target="_self">EitherRightEach</a></em>
+        [<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>]
+        
+        <div>An each for <code>forall T. scala.Either.RightProjection[T, ?]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Each$object.html#FlipEitherEach" target="_self">FlipEitherEach</a></em>
+        [<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>]
+        
+        <div>An each for <code>forall T. scala.Either[?, T]</code>.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="IdEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>IdEach</em> : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Tuple1">scala.Tuple1</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for identity.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OptionEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OptionEach</em> : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>scala.Option</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ListEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ListEach</em> : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>scala.List</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="NonEmptyListEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>NonEmptyListEach</em> : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>scalaz.list.NonEmptyList</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="StreamEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>StreamEach</em> : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>scala.Stream</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ArrayEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ArrayEach</em> : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>scala.Array</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="EitherEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherEach</em>[<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>forall T. scala.Either[T, ?]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="FlipEitherEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>FlipEitherEach</em>[<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>forall T. scala.Either[?, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherLeftEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherLeftEach</em>[<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>forall T. scala.Either.LeftProjection[?, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherRightEach"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherRightEach</em>[<em>X</em>] : <a href="../../scalaz/control/Each.html" target="_self">Each</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An each for <code>forall T. scala.Either.RightProjection[T, ?]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object ApplyW in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.2.RC4)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">object  ApplyW</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/ApplyW"><code>scalaz/control/ApplyW.scala</code></a>]
+      </div><hr></hr>
+      <a name="ApplyW"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>ApplyW</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over apply values.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#ArrayApply%28Array%5BA%5D%29" target="_self">ArrayApply</a></em>
+        [<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/ApplyW$object.html#ArrayApply%28Array%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>, <a href="../../scalaz/control/ApplyW$object.html#ArrayApply%28Array%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>An apply for <code>scala.Array</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#EitherApply%28Either%5BA%2CB%5D%29" target="_self">EitherApply</a></em>
+        [<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/ApplyW$object.html#EitherApply%28Either%5BA%2CB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherApply%28Either%5BA%2CB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherApply%28Either%5BA%2CB%5D%29#B" target="_self">B</a>]
+        
+        <div>An apply for <code>forall T. scala.Either[T, ?]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29" target="_self">EitherLeftApply</a></em>
+        [<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>[<a href="../../scalaz/control/ApplyW$object.html#EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29#B" target="_self">B</a>]
+        
+        <div>An apply for <code>forall T. scala.Either.LeftProjection[?, T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29" target="_self">EitherRightApply</a></em>
+        [<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>[<a href="../../scalaz/control/ApplyW$object.html#EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29#B" target="_self">B</a>]
+        
+        <div>An apply for <code>forall T. scala.Either.RightProjection[T, ?]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#FlipEitherApply%28Either%5BB%2CA%5D%29" target="_self">FlipEitherApply</a></em>
+        [<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/ApplyW$object.html#FlipEitherApply%28Either%5BB%2CA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplyW$object.html#FlipEitherApply%28Either%5BB%2CA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>, <a href="../../scalaz/control/ApplyW$object.html#FlipEitherApply%28Either%5BB%2CA%5D%29#B" target="_self">B</a>]
+        
+        <div>An apply for <code>forall T. scala.Either[?, T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#Function1Apply%28%28A%29%3D%3EB%29" target="_self">Function1Apply</a></em>
+        [<em>A</em>, <em>B</em>](<em>as</em> : (<a href="../../scalaz/control/ApplyW$object.html#Function1Apply%28%28A%29%3D%3EB%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/ApplyW$object.html#Function1Apply%28%28A%29%3D%3EB%29#B" target="_self">B</a>) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Function1">scala.Function1</a>, <a href="../../scalaz/control/ApplyW$object.html#Function1Apply%28%28A%29%3D%3EB%29#B" target="_self">B</a>]
+        
+        <div>An apply for <code>forall T. scala.Function[T, ?]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#IdApply%28%28A%2C%29%29" target="_self">IdApply</a></em>
+        [<em>A</em>](<em>as</em> : (<a href="../../scalaz/control/ApplyW$object.html#IdApply%28%28A%2C%29%29#A" target="_self">A</a>)) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Tuple1">scala.Tuple1</a>, <a href="../../scalaz/control/ApplyW$object.html#IdApply%28%28A%2C%29%29#A" target="_self">A</a>]
+        
+        <div>An apply for identity.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#ListApply%28List%5BA%5D%29" target="_self">ListApply</a></em>
+        [<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/ApplyW$object.html#ListApply%28List%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>, <a href="../../scalaz/control/ApplyW$object.html#ListApply%28List%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>An apply for <code>scala.List</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#NonEmptyListApply%28scalaz.list.NonEmptyList%5BA%5D%29" target="_self">NonEmptyListApply</a></em>
+        [<em>A</em>](<em>as</em> : <a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../../scalaz/control/ApplyW$object.html#NonEmptyListApply%28scalaz.list.NonEmptyList%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>, <a href="../../scalaz/control/ApplyW$object.html#NonEmptyListApply%28scalaz.list.NonEmptyList%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>An apply for <code>scalaz.list.NonEmptyList</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#OptionApply%28Option%5BA%5D%29" target="_self">OptionApply</a></em>
+        [<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/ApplyW$object.html#OptionApply%28Option%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>, <a href="../../scalaz/control/ApplyW$object.html#OptionApply%28Option%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>An apply for <code>scala.Option</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#StreamApply%28Stream%5BA%5D%29" target="_self">StreamApply</a></em>
+        [<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/ApplyW$object.html#StreamApply%28Stream%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>, <a href="../../scalaz/control/ApplyW$object.html#StreamApply%28Stream%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>An apply for <code>scala.Stream</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29" target="_self">ValidationApply</a></em>
+        [<em>A</em>, <em>B</em>](<em>as</em> : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#B" target="_self">B</a>])(<code>implicit </code><em>s</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>, <a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#B" target="_self">B</a>]
+        
+        <div>An apply for <code>forall T. scalaz.validation.Validation[T, ?]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/ApplyW$object.html#apply" target="_self">apply</a></em>
+        [<em>AP</em>] : <a href="../../scalaz/control/PartialWrap.html" target="_self">PartialWrap</a>[<a href="../../scalaz/control/ApplyW$object.html#apply#AP" target="_self">AP</a>, <a href="../../scalaz/control/Apply.html" target="_self">Apply</a>, <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>]
+        
+        <div>Constructs an apply from the given value and implementation.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="apply"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>apply</em>[<em>AP</em>] : <a href="../../scalaz/control/PartialWrap.html" target="_self">PartialWrap</a>[<a href="../../scalaz/control/ApplyW$object.html#apply#AP" target="_self">AP</a>, <a href="../../scalaz/control/Apply.html" target="_self">Apply</a>, <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Constructs an apply from the given value and implementation.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="IdApply%28%28A%2C%29%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>IdApply</em>[<em>A</em>](<em>as</em> : (<a href="../../scalaz/control/ApplyW$object.html#IdApply%28%28A%2C%29%29#A" target="_self">A</a>)) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Tuple1">scala.Tuple1</a>, <a href="../../scalaz/control/ApplyW$object.html#IdApply%28%28A%2C%29%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for identity.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OptionApply%28Option%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OptionApply</em>[<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/ApplyW$object.html#OptionApply%28Option%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>, <a href="../../scalaz/control/ApplyW$object.html#OptionApply%28Option%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>scala.Option</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ListApply%28List%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ListApply</em>[<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/ApplyW$object.html#ListApply%28List%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>, <a href="../../scalaz/control/ApplyW$object.html#ListApply%28List%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>scala.List</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="NonEmptyListApply%28scalaz.list.NonEmptyList%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>NonEmptyListApply</em>[<em>A</em>](<em>as</em> : <a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../../scalaz/control/ApplyW$object.html#NonEmptyListApply%28scalaz.list.NonEmptyList%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>, <a href="../../scalaz/control/ApplyW$object.html#NonEmptyListApply%28scalaz.list.NonEmptyList%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>scalaz.list.NonEmptyList</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="StreamApply%28Stream%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>StreamApply</em>[<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/ApplyW$object.html#StreamApply%28Stream%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>, <a href="../../scalaz/control/ApplyW$object.html#StreamApply%28Stream%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>scala.Stream</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ArrayApply%28Array%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ArrayApply</em>[<em>A</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/ApplyW$object.html#ArrayApply%28Array%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>, <a href="../../scalaz/control/ApplyW$object.html#ArrayApply%28Array%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>scala.Array</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="Function1Apply%28%28A%29%3D%3EB%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>Function1Apply</em>[<em>A</em>, <em>B</em>](<em>as</em> : (<a href="../../scalaz/control/ApplyW$object.html#Function1Apply%28%28A%29%3D%3EB%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/ApplyW$object.html#Function1Apply%28%28A%29%3D%3EB%29#B" target="_self">B</a>) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Function1">scala.Function1</a>, <a href="../../scalaz/control/ApplyW$object.html#Function1Apply%28%28A%29%3D%3EB%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>forall T. scala.Function[T, ?]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherApply%28Either%5BA%2CB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherApply</em>[<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/ApplyW$object.html#EitherApply%28Either%5BA%2CB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherApply%28Either%5BA%2CB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherApply%28Either%5BA%2CB%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>forall T. scala.Either[T, ?]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="FlipEitherApply%28Either%5BB%2CA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>FlipEitherApply</em>[<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/ApplyW$object.html#FlipEitherApply%28Either%5BB%2CA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplyW$object.html#FlipEitherApply%28Either%5BB%2CA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>, <a href="../../scalaz/control/ApplyW$object.html#FlipEitherApply%28Either%5BB%2CA%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>forall T. scala.Either[?, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherLeftApply</em>[<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>[<a href="../../scalaz/control/ApplyW$object.html#EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherLeftApply%28Either.LeftProjection%5BB%2CA%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>forall T. scala.Either.LeftProjection[?, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherRightApply</em>[<em>A</em>, <em>B</em>](<em>as</em> : <a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>[<a href="../../scalaz/control/ApplyW$object.html#EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>, <a href="../../scalaz/control/ApplyW$object.html#EitherRightApply%28Either.RightProjection%5BA%2CB%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>forall T. scala.Either.RightProjection[T, ?]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ValidationApply</em>[<em>A</em>, <em>B</em>](<em>as</em> : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#B" target="_self">B</a>])(<code>implicit </code><em>s</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>[<a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>, <a href="../../scalaz/control/ApplyW$object.html#ValidationApply%28scalaz.validation.Validation%5BA%2CB%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An apply for <code>forall T. scalaz.validation.Validation[T, ?]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

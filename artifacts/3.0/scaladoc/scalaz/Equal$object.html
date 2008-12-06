@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object Equal in scalaz</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.1.r15535-b20080712185233)" name="generator"></meta><link href="../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../scalaz$package.html" target="_self">scalaz</a>
+        <br></br>
+        <span class="entity">object  Equal</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/Equal"><code>scalaz/Equal.scala</code></a>]
+      </div><hr></hr>
+      <a name="Equal"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>Equal</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over equality.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualBoolean" target="_self">EqualBoolean</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+        
+        <div>Equality for booleans.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualByte" target="_self">EqualByte</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Byte.html" target="_self">Byte</a>]
+        
+        <div>Equality for bytes.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualChar" target="_self">EqualChar</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+        
+        <div>Equality for characters.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualCofunctor" target="_self">EqualCofunctor</a></em>
+         : <a href="../scalaz/control/Cofunctor.html" target="_self">Cofunctor</a>[<a href="../scalaz/Equal.html" target="_self">Equal</a>]
+        
+        <div>A contra-variant functor for <code>Equal</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualDouble" target="_self">EqualDouble</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>]
+        
+        <div>Equality for doubles.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualFloat" target="_self">EqualFloat</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Float.html" target="_self">Float</a>]
+        
+        <div>Equality for floats.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualInt" target="_self">EqualInt</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+        
+        <div>Equality for integers.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualLong" target="_self">EqualLong</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Long.html" target="_self">Long</a>]
+        
+        <div>Equality for longs.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualShort" target="_self">EqualShort</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Short.html" target="_self">Short</a>]
+        
+        <div>Equality for shorts.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualString" target="_self">EqualString</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+        
+        <div>Equality for strings.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualUnit" target="_self">EqualUnit</a></em>
+         : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>]
+        
+        <div>Equality for unit values.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualA" target="_self">EqualA</a></em>
+        [<em>A</em>] : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualA#A" target="_self">A</a>]
+        
+        <div>Constructs an <code>Equal</code> that uses <code>java.lang.Object.equals</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualArray%28scalaz.Equal%5BA%5D%29" target="_self">EqualArray</a></em>
+        [<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualArray%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../scalaz/Equal$object.html#EqualArray%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>Equality for arrays.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualCofunctorW%28scalaz.Equal%5BA%5D%29" target="_self">EqualCofunctorW</a></em>
+        [<em>A</em>](<em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualCofunctorW%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/control/CofunctorW.html" target="_self">CofunctorW</a>[<a href="../scalaz/Equal.html" target="_self">Equal</a>, <a href="../scalaz/Equal$object.html#EqualCofunctorW%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>A contra-variant functor wrapper for <code>Equal</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29" target="_self">EqualEither</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>ea</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>eb</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]]
+        
+        <div>Equality for either values.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualList%28scalaz.Equal%5BA%5D%29" target="_self">EqualList</a></em>
+        [<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/Equal$object.html#EqualList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>Equality for lists.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualNonEmptyList%28scalaz.Equal%5BA%5D%29" target="_self">EqualNonEmptyList</a></em>
+        [<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualNonEmptyList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/Equal$object.html#EqualNonEmptyList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>Equality for non-empty lists.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualOption%28scalaz.Equal%5BA%5D%29" target="_self">EqualOption</a></em>
+        [<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualOption%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../scalaz/Equal$object.html#EqualOption%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>Equality for options.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualStream%28scalaz.Equal%5BA%5D%29" target="_self">EqualStream</a></em>
+        [<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualStream%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../scalaz/Equal$object.html#EqualStream%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>Equality for streams.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29" target="_self">EqualValidation</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>ea</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>eb</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]]
+        
+        <div>Equality for validation values.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Equal$object.html#equal%28%28A%2CA%29%3D%3EBoolean%29" target="_self">equal</a></em>
+        [<em>A</em>](<em>f</em> : (<a href="../scalaz/Equal$object.html#equal%28%28A%2CA%29%3D%3EBoolean%29#A" target="_self">A</a>, <a href="../scalaz/Equal$object.html#equal%28%28A%2CA%29%3D%3EBoolean%29#A" target="_self">A</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#equal%28%28A%2CA%29%3D%3EBoolean%29#A" target="_self">A</a>]
+        
+        <div>Constructs an <code>Equal</code> from the given function.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="EqualBoolean"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualBoolean</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for booleans.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualByte"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualByte</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Byte.html" target="_self">Byte</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for bytes.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualChar"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualChar</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for characters.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualDouble"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualDouble</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for doubles.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualFloat"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualFloat</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Float.html" target="_self">Float</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for floats.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualInt"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualInt</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for integers.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualLong"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualLong</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Long.html" target="_self">Long</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for longs.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualShort"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualShort</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Short.html" target="_self">Short</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for shorts.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualString"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualString</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for strings.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualUnit"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualUnit</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for unit values.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualCofunctor"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>EqualCofunctor</em> : <a href="../scalaz/control/Cofunctor.html" target="_self">Cofunctor</a>[<a href="../scalaz/Equal.html" target="_self">Equal</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A contra-variant functor for <code>Equal</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="equal%28%28A%2CA%29%3D%3EBoolean%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>equal</em>[<em>A</em>](<em>f</em> : (<a href="../scalaz/Equal$object.html#equal%28%28A%2CA%29%3D%3EBoolean%29#A" target="_self">A</a>, <a href="../scalaz/Equal$object.html#equal%28%28A%2CA%29%3D%3EBoolean%29#A" target="_self">A</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#equal%28%28A%2CA%29%3D%3EBoolean%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Constructs an <code>Equal</code> from the given function.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualA"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>EqualA</em>[<em>A</em>] : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualA#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Constructs an <code>Equal</code> that uses <code>java.lang.Object.equals</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualStream%28scalaz.Equal%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualStream</em>[<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualStream%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../scalaz/Equal$object.html#EqualStream%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for streams.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualList%28scalaz.Equal%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualList</em>[<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/Equal$object.html#EqualList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for lists.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualArray%28scalaz.Equal%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualArray</em>[<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualArray%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../scalaz/Equal$object.html#EqualArray%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for arrays.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualOption%28scalaz.Equal%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualOption</em>[<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualOption%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../scalaz/Equal$object.html#EqualOption%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for options.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualNonEmptyList%28scalaz.Equal%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualNonEmptyList</em>[<em>A</em>](<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualNonEmptyList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/Equal$object.html#EqualNonEmptyList%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for non-empty lists.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualEither</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>ea</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>eb</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Equal$object.html#EqualEither%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for either values.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualValidation</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>ea</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>eb</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Equal$object.html#EqualValidation%28scalaz.Equal%5BA%5D%2Cscalaz.Equal%5BB%5D%29#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Equality for validation values.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EqualCofunctorW%28scalaz.Equal%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EqualCofunctorW</em>[<em>A</em>](<em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Equal$object.html#EqualCofunctorW%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/control/CofunctorW.html" target="_self">CofunctorW</a>[<a href="../scalaz/Equal.html" target="_self">Equal</a>, <a href="../scalaz/Equal$object.html#EqualCofunctorW%28scalaz.Equal%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A contra-variant functor wrapper for <code>Equal</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

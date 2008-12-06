@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>trait MonadW in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.2.RC4)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">trait  MonadW</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/MonadW"><code>scalaz/control/MonadW.scala</code></a>]
+      </div><hr></hr>
+      <a name="MonadW"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>trait</code>
+        <em>MonadW</em>[<em>M</em>, <em>A</em>]
+      </dt>
+      <dd><code> extends </code><a href="../../scalaz/control/BindW.html" target="_self">BindW</a>[<a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>, <a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]<code> with </code><a href="../../scalaz/control/ApplicativeW.html" target="_self">ApplicativeW</a>[<a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>, <a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]</dd>
+    </dl>
+      <dl><dd>Wraps <code>Monad</code> and a value for which there exists an instance and provides additional methods.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>See Also</b></dt><dd><a href="../../scalaz/control/Monad.html" target="_self">Monad</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadW.html#monad" target="_self">monad</a></em>
+         : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>]
+        
+        <div>The implementation for the monad value.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadW.html#v" target="_self">v</a></em>
+         : <a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>[<a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]
+        
+        <div>The monad value.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Values and Variables inherited from <a href="../../scalaz/control/ApplicativeW.html" target="_self">ApplicativeW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/ApplicativeW.html#apply" target="_self">apply</a> (abstract), <a href="../../scalaz/control/ApplicativeW.html#pure" target="_self">pure</a> (abstract)
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Values and Variables inherited from <a href="../../scalaz/control/FunctorW.html" target="_self">FunctorW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/FunctorW.html#functor" target="_self">functor</a> (abstract)
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Values and Variables inherited from <a href="../../scalaz/control/BindW.html" target="_self">BindW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/BindW.html#bind" target="_self">bind</a> (abstract)
+        </td></tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadW.html#mapM" target="_self">mapM</a></em>
+        [<em>N</em>, <em>O</em>] : <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Map the given function across this monad by sequencing.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadW.html#replicateM%28Int%29" target="_self">replicateM</a></em>
+        [<em>T</em>](<em>n</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>)(<code>implicit </code><em>m</em> : <a href="../../scalaz/control/MonadEmptyPlus.html" target="_self">MonadEmptyPlus</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>], <code>implicit </code><em>fr</em> : <a href="../../scalaz/control/FoldRight.html" target="_self">FoldRight</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>], <code>implicit </code><em>p</em> : <a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>], <code>implicit </code><em>mo</em> : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>[<a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]]) : <a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>[<a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]]
+        
+        <div>Sequence this monad the given number of times.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="../../scalaz/control/ApplicativeW.html" target="_self">ApplicativeW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/ApplicativeW.html#*%3E%28AP%5BB%5D%29" target="_self">*&gt;</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C*%28AP%5BB%5D%29" target="_self">&lt;*</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C*%7C*%3E%28AP%5BB%5D%29" target="_self">&lt;*|*&gt;</a>, <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2C%28A%29%3D%3E%28B%29%3D%3EC%29" target="_self">liftA</a>, <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3ED%29" target="_self">liftA</a>, <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3EE%29" target="_self">liftA</a>, <a href="../../scalaz/control/ApplicativeW.html#liftA%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%2C%28A%29%3D%3E%28B%29%3D%3E%28C%29%3D%3E%28D%29%3D%3E%28E%29%3D%3EF%29" target="_self">liftA</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a>, <a href="../../scalaz/control/ApplicativeW.html#%3C%3C*%3E%3E%28AP%5BB%5D%2CAP%5BC%5D%2CAP%5BD%5D%2CAP%5BE%5D%29" target="_self">&lt;&lt;*&gt;&gt;</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="../../scalaz/control/ApplyW.html" target="_self">ApplyW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/ApplyW.html#%3C*%3E%28AP%5B%28A%29%3D%3EB%5D%29" target="_self">&lt;*&gt;</a>, <a href="../../scalaz/control/ApplyW.html#%3C*%3E%3A%28AP%5B%28A%29%3D%3EB%5D%29" target="_self">&lt;*&gt;:</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="../../scalaz/control/FunctorW.html" target="_self">FunctorW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/FunctorW.html#%3E%28%28A%29%3D%3EB%29" target="_self">&gt;</a>, <a href="../../scalaz/control/FunctorW.html#%3C-%3A%28%28A%29%3D%3EB%29" target="_self">&lt;-:</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="../../scalaz/control/BindW.html" target="_self">BindW</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="../../scalaz/control/BindW.html#%3E%3E%3D%28%28A%29%3D%3EBD%5BB%5D%29" target="_self">&gt;&gt;=</a>, <a href="../../scalaz/control/BindW.html#%3E%3E%28BD%5BB%5D%29" target="_self">&gt;&gt;</a>, <a href="../../scalaz/control/BindW.html#%3D%3C%3C%3A%28%28A%29%3D%3EBD%5BB%5D%29" target="_self">=&lt;&lt;:</a>, <a href="../../scalaz/control/BindW.html#%3C%3C%3A%28BD%5BB%5D%29" target="_self">&lt;&lt;:</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="v"></a><dl>
+      <dt>
+        
+        <code>abstract</code>
+        <code>val</code>
+        <em>v</em> : <a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>[<a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>The monad value.</dd></dl>
+      <dl></dl>
+    <dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="../../scalaz/control/BindW.html" target="_self">BindW</a>.<a href="../../scalaz/control/BindW.html#v" target="_self">v</a>
+        </dd>
+      </dl><hr></hr>
+<a name="monad"></a><dl>
+      <dt>
+        
+        <code>abstract</code>
+        <code>val</code>
+        <em>monad</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>The implementation for the monad value.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="replicateM%28Int%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>replicateM</em>[<em>T</em>](<em>n</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>)(<code>implicit </code><em>m</em> : <a href="../../scalaz/control/MonadEmptyPlus.html" target="_self">MonadEmptyPlus</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>], <code>implicit </code><em>fr</em> : <a href="../../scalaz/control/FoldRight.html" target="_self">FoldRight</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>], <code>implicit </code><em>p</em> : <a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>], <code>implicit </code><em>mo</em> : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>[<a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]]) : <a href="../../scalaz/control/MonadW.html#M" target="_self">M</a>[<a href="../../scalaz/control/MonadW.html#replicateM%28Int%29#T" target="_self">T</a>[<a href="../../scalaz/control/MonadW.html#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Sequence this monad the given number of times.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="mapM"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>mapM</em>[<em>N</em>, <em>O</em>] : <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Map the given function across this monad by sequencing.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

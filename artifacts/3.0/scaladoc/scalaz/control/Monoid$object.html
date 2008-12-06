@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object Monoid in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.1.r15535-b20080712185233)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">object  Monoid</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/Monoid"><code>scalaz/control/Monoid.scala</code></a>]
+      </div><hr></hr>
+      <a name="Monoid"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>Monoid</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over monoids.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.html#StringMonoid" target="_self">StringMonoid</a></em>
+         : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+        
+        <div>A monoid for <code>String</code>.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.html#ArrayMonoid" target="_self">ArrayMonoid</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/Monoid$object.html#ArrayMonoid#A" target="_self">A</a>]]
+        
+        <div>A monoid for <code>scala.Array</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.html#Function1Monoid%28scalaz.control.Monoid%5BB%5D%29" target="_self">Function1Monoid</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>mb</em> : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="../../scalaz/control/Monoid$object.html#Function1Monoid%28scalaz.control.Monoid%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[(<a href="../../scalaz/control/Monoid$object.html#Function1Monoid%28scalaz.control.Monoid%5BB%5D%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Monoid$object.html#Function1Monoid%28scalaz.control.Monoid%5BB%5D%29#B" target="_self">B</a>]
+        
+        <div>A monoid for <code>scala.Function1</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.html#ListMonoid" target="_self">ListMonoid</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Monoid$object.html#ListMonoid#A" target="_self">A</a>]]
+        
+        <div>A monoid for <code>scala.List</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.html#OptionMonoid" target="_self">OptionMonoid</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/Monoid$object.html#OptionMonoid#A" target="_self">A</a>]]
+        
+        <div>A monoid for <code>scala.Option</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.html#StreamMonoid" target="_self">StreamMonoid</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/Monoid$object.html#StreamMonoid#A" target="_self">A</a>]]
+        
+        <div>A monoid for <code>scala.Stream</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29" target="_self">monoid</a></em>
+        [<em>A</em>](<em>aa</em> : (<a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>, <a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>, <em>z</em> : <a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>) : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>]
+        
+        <div>Construct a monoid from the given function and zero. These must satisfy the monoid laws.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Object Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.Conjunction$object.html" target="_self">Conjunction</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Monoids that use conjunction and true.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.Disjunction$object.html" target="_self">Disjunction</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Monoids that use disjunction and false.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.Multiplication$object.html" target="_self">Multiplication</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Monoids that use multiplication and 1.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Monoid$object.Plus$object.html" target="_self">Plus</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Monoids that use addition and 0.</div>
+      </td>
+    </tr>
+      </table>
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="StringMonoid"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>StringMonoid</em> : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monoid for <code>String</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="monoid%28%28A%2CA%29%3D%3EA%2CA%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>monoid</em>[<em>A</em>](<em>aa</em> : (<a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>, <a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>, <em>z</em> : <a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>) : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="../../scalaz/control/Monoid$object.html#monoid%28%28A%2CA%29%3D%3EA%2CA%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Construct a monoid from the given function and zero. These must satisfy the monoid laws.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OptionMonoid"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OptionMonoid</em>[<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/Monoid$object.html#OptionMonoid#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monoid for <code>scala.Option</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ListMonoid"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ListMonoid</em>[<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Monoid$object.html#ListMonoid#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monoid for <code>scala.List</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="StreamMonoid"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>StreamMonoid</em>[<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/Monoid$object.html#StreamMonoid#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monoid for <code>scala.Stream</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ArrayMonoid"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ArrayMonoid</em>[<em>A</em>] : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/Monoid$object.html#ArrayMonoid#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monoid for <code>scala.Array</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="Function1Monoid%28scalaz.control.Monoid%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>Function1Monoid</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>mb</em> : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[<a href="../../scalaz/control/Monoid$object.html#Function1Monoid%28scalaz.control.Monoid%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Monoid.html" target="_self">Monoid</a>[(<a href="../../scalaz/control/Monoid$object.html#Function1Monoid%28scalaz.control.Monoid%5BB%5D%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Monoid$object.html#Function1Monoid%28scalaz.control.Monoid%5BB%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monoid for <code>scala.Function1</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

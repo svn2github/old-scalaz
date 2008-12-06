@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object MonadPlus in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.1.r15535-b20080712185233)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">object  MonadPlus</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/MonadPlus"><code>scalaz/control/MonadPlus.scala</code></a>]
+      </div><hr></hr>
+      <a name="MonadPlus"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>MonadPlus</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over monad-plus values.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadPlus$object.html#ArrayMonadPlus" target="_self">ArrayMonadPlus</a></em>
+         : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>]
+        
+        <div>A monad-plus for <code>scala.Array</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadPlus$object.html#ListMonadPlus" target="_self">ListMonadPlus</a></em>
+         : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>]
+        
+        <div>A monad-plus for <code>scala.List</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadPlus$object.html#NonEmptyListMonadPlus" target="_self">NonEmptyListMonadPlus</a></em>
+         : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>]
+        
+        <div>A monad-plus for <code>NonEmptyList</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadPlus$object.html#OptionMonadPlus" target="_self">OptionMonadPlus</a></em>
+         : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>]
+        
+        <div>A monad-plus for <code>scala.Option</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadPlus$object.html#StreamMonadPlus" target="_self">StreamMonadPlus</a></em>
+         : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>]
+        
+        <div>A monad-plus for <code>scala.Stream</code>.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadPlus$object.html#EitherMonadPlus" target="_self">EitherMonadPlus</a></em>
+        [<em>X</em>] : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>]
+        
+        <div>A monad-plus for <code>scala.Either</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29" target="_self">unit</a></em>
+        [<em>A</em>, <em>U</em>](<em>a</em> : <a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>u</em> : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#U" target="_self">U</a>]) : <a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#U" target="_self">U</a>[<a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#A" target="_self">A</a>]
+        
+        <div>Lifts the given value into unit using the given monad-plus.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="OptionMonadPlus"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OptionMonadPlus</em> : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monad-plus for <code>scala.Option</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ListMonadPlus"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ListMonadPlus</em> : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monad-plus for <code>scala.List</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="StreamMonadPlus"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>StreamMonadPlus</em> : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monad-plus for <code>scala.Stream</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ArrayMonadPlus"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ArrayMonadPlus</em> : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monad-plus for <code>scala.Array</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="NonEmptyListMonadPlus"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>NonEmptyListMonadPlus</em> : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monad-plus for <code>NonEmptyList</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="unit%28A%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>unit</em>[<em>A</em>, <em>U</em>](<em>a</em> : <a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>u</em> : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#U" target="_self">U</a>]) : <a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#U" target="_self">U</a>[<a href="../../scalaz/control/MonadPlus$object.html#unit%28A%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Lifts the given value into unit using the given monad-plus.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherMonadPlus"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherMonadPlus</em>[<em>X</em>] : <a href="../../scalaz/control/MonadPlus.html" target="_self">MonadPlus</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A monad-plus for <code>scala.Either</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

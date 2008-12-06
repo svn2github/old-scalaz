@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object Show in scalaz</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.1.r15535-b20080712185233)" name="generator"></meta><link href="../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table><div><div align="right"><img alt="Workingmouse" src="http://projects.workingmouse.com/public/resources/images/logo_full_transparent.png"></img></div><p><em>Copyright Workingmouse Pty. Ltd. 2007, 2008</em></p>This software is released under an open source BSD licence.</div>
+        
+      <div class="entity">
+        <a href="../scalaz$package.html" target="_self">scalaz</a>
+        <br></br>
+        <span class="entity">object  Show</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/Show"><code>scalaz/Show.scala</code></a>]
+      </div><hr></hr>
+      <a name="Show"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>Show</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over show.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:research@workingmouse.com">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowBoolean" target="_self">ShowBoolean</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+        
+        <div>A show for booleans.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowByte" target="_self">ShowByte</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Byte.html" target="_self">Byte</a>]
+        
+        <div>A show for bytes.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowChar" target="_self">ShowChar</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+        
+        <div>A show for chars.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowCofunctor" target="_self">ShowCofunctor</a></em>
+         : <a href="../scalaz/control/Cofunctor.html" target="_self">Cofunctor</a>[<a href="../scalaz/Show.html" target="_self">Show</a>]
+        
+        <div>A contra-variant functor for <code>Show</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowDouble" target="_self">ShowDouble</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>]
+        
+        <div>A show for doubles.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowFloat" target="_self">ShowFloat</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Float.html" target="_self">Float</a>]
+        
+        <div>A show for floats.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowInt" target="_self">ShowInt</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+        
+        <div>A show for integers.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowLong" target="_self">ShowLong</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Long.html" target="_self">Long</a>]
+        
+        <div>A show for longs.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowShort" target="_self">ShowShort</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Short.html" target="_self">Short</a>]
+        
+        <div>A show for shorts.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowString" target="_self">ShowString</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+        
+        <div>A show for strings.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowUnit" target="_self">ShowUnit</a></em>
+         : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>]
+        
+        <div>A show for the unit value.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowA" target="_self">ShowA</a></em>
+        [<em>A</em>] : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowA#A" target="_self">A</a>]
+        
+        <div>Construct a show using the implementation of <code>java.lang.Object.toString</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowArray%28scalaz.Show%5BA%5D%29" target="_self">ShowArray</a></em>
+        [<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowArray%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../scalaz/Show$object.html#ShowArray%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>A show for arrays.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowCofunctorW%28scalaz.Show%5BA%5D%29" target="_self">ShowCofunctorW</a></em>
+        [<em>A</em>](<em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowCofunctorW%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/control/CofunctorW.html" target="_self">CofunctorW</a>[<a href="../scalaz/Show.html" target="_self">Show</a>, <a href="../scalaz/Show$object.html#ShowCofunctorW%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>A contra-variant functor wrapper for <code>Show</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29" target="_self">ShowEither</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>sb</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#B" target="_self">B</a>]]
+        
+        <div>A show for eithers.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowList%28scalaz.Show%5BA%5D%29" target="_self">ShowList</a></em>
+        [<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/Show$object.html#ShowList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>A show for lists.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowNonEmptyList%28scalaz.Show%5BA%5D%29" target="_self">ShowNonEmptyList</a></em>
+        [<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowNonEmptyList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/Show$object.html#ShowNonEmptyList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>A show for non-empty lists.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowOption%28scalaz.Show%5BA%5D%29" target="_self">ShowOption</a></em>
+        [<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowOption%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../scalaz/Show$object.html#ShowOption%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>A show for options.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#ShowStream%28scalaz.Show%5BA%5D%29" target="_self">ShowStream</a></em>
+        [<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowStream%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../scalaz/Show$object.html#ShowStream%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>A show for streams.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#print%28A%29" target="_self">print</a></em>
+        [<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#print%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#print%28A%29#A" target="_self">A</a>]) : <a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>
+        
+        <div>Prints the given value using its show implementation to the standard output stream.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#println%28A%29" target="_self">println</a></em>
+        [<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#println%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#println%28A%29#A" target="_self">A</a>]) : <a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>
+        
+        <div>Prints the given value using its show implementation to the standard output stream (following by a line).</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#show%28%28A%29%3D%3EList%5BChar%5D%29" target="_self">show</a></em>
+        [<em>A</em>](<em>f</em> : (<a href="../scalaz/Show$object.html#show%28%28A%29%3D%3EList%5BChar%5D%29#A" target="_self">A</a>) =&gt; <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#show%28%28A%29%3D%3EList%5BChar%5D%29#A" target="_self">A</a>]
+        
+        <div>Construct a show with the given function.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#showS%28%28A%29%3D%3EString%29" target="_self">showS</a></em>
+        [<em>A</em>](<em>f</em> : (<a href="../scalaz/Show$object.html#showS%28%28A%29%3D%3EString%29#A" target="_self">A</a>) =&gt; <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#showS%28%28A%29%3D%3EString%29#A" target="_self">A</a>]
+        
+        <div>Construct a show with the given function.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#shows%28A%29" target="_self">shows</a></em>
+        [<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#shows%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#shows%28A%29#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+        
+        <div>Returns the show for the given value.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Show$object.html#showv%28A%29" target="_self">showv</a></em>
+        [<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#showv%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#showv%28A%29#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+        
+        <div>Returns the show for the given value.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="ShowBoolean"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowBoolean</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for booleans.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowByte"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowByte</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Byte.html" target="_self">Byte</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for bytes.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowChar"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowChar</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for chars.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowDouble"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowDouble</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for doubles.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowFloat"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowFloat</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Float.html" target="_self">Float</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for floats.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowInt"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowInt</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for integers.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowLong"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowLong</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Long.html" target="_self">Long</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for longs.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowShort"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowShort</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Short.html" target="_self">Short</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for shorts.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowString"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowString</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for strings.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowUnit"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowUnit</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for the unit value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowCofunctor"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>ShowCofunctor</em> : <a href="../scalaz/control/Cofunctor.html" target="_self">Cofunctor</a>[<a href="../scalaz/Show.html" target="_self">Show</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A contra-variant functor for <code>Show</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="show%28%28A%29%3D%3EList%5BChar%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>show</em>[<em>A</em>](<em>f</em> : (<a href="../scalaz/Show$object.html#show%28%28A%29%3D%3EList%5BChar%5D%29#A" target="_self">A</a>) =&gt; <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#show%28%28A%29%3D%3EList%5BChar%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Construct a show with the given function.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="showS%28%28A%29%3D%3EString%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>showS</em>[<em>A</em>](<em>f</em> : (<a href="../scalaz/Show$object.html#showS%28%28A%29%3D%3EString%29#A" target="_self">A</a>) =&gt; <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#showS%28%28A%29%3D%3EString%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Construct a show with the given function.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="showv%28A%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>showv</em>[<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#showv%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#showv%28A%29#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns the show for the given value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="shows%28A%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>shows</em>[<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#shows%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#shows%28A%29#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns the show for the given value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowA"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>ShowA</em>[<em>A</em>] : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowA#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Construct a show using the implementation of <code>java.lang.Object.toString</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowStream%28scalaz.Show%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ShowStream</em>[<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowStream%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../scalaz/Show$object.html#ShowStream%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for streams.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowList%28scalaz.Show%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ShowList</em>[<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/Show$object.html#ShowList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for lists.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowArray%28scalaz.Show%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ShowArray</em>[<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowArray%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../scalaz/Show$object.html#ShowArray%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for arrays.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowNonEmptyList%28scalaz.Show%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ShowNonEmptyList</em>[<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowNonEmptyList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/Show$object.html#ShowNonEmptyList%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for non-empty lists.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowOption%28scalaz.Show%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ShowOption</em>[<em>A</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowOption%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../scalaz/Show$object.html#ShowOption%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for options.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ShowEither</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>sa</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>sb</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Show$object.html#ShowEither%28scalaz.Show%5BA%5D%2Cscalaz.Show%5BB%5D%29#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A show for eithers.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ShowCofunctorW%28scalaz.Show%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ShowCofunctorW</em>[<em>A</em>](<em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#ShowCofunctorW%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/control/CofunctorW.html" target="_self">CofunctorW</a>[<a href="../scalaz/Show.html" target="_self">Show</a>, <a href="../scalaz/Show$object.html#ShowCofunctorW%28scalaz.Show%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A contra-variant functor wrapper for <code>Show</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="print%28A%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>print</em>[<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#print%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#print%28A%29#A" target="_self">A</a>]) : <a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Prints the given value using its show implementation to the standard output stream.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="println%28A%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>println</em>[<em>A</em>](<em>a</em> : <a href="../scalaz/Show$object.html#println%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>s</em> : <a href="../scalaz/Show.html" target="_self">Show</a>[<a href="../scalaz/Show$object.html#println%28A%29#A" target="_self">A</a>]) : <a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Prints the given value using its show implementation to the standard output stream (following by a line).</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.0</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>
