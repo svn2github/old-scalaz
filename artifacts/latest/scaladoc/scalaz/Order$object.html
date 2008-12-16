@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object Order in scalaz</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.2.final)" name="generator"></meta><link href="../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.3</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../scalaz$package.html" target="_self">scalaz</a>
+        <br></br>
+        <span class="entity">object  Order</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/Order"><code>scalaz/Order.scala</code></a>]
+      </div><hr></hr>
+      <a name="Order"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>Order</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over order.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:code@tmorris.net">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderBoolean" target="_self">OrderBoolean</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+        
+        <div>An order for booleans.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderByte" target="_self">OrderByte</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Byte.html" target="_self">Byte</a>]
+        
+        <div>An order for bytes.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderChar" target="_self">OrderChar</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+        
+        <div>An order for characters.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderCofunctor" target="_self">OrderCofunctor</a></em>
+         : <a href="../scalaz/control/Cofunctor.html" target="_self">Cofunctor</a>[<a href="../scalaz/Order.html" target="_self">Order</a>]
+        
+        <div>A contra-variant functor for <code>Order</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderDouble" target="_self">OrderDouble</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>]
+        
+        <div>An order for doubles.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderFloat" target="_self">OrderFloat</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Float.html" target="_self">Float</a>]
+        
+        <div>An order for floats.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderInt" target="_self">OrderInt</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+        
+        <div>An order for integers.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderLong" target="_self">OrderLong</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Long.html" target="_self">Long</a>]
+        
+        <div>An order for longs.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderShort" target="_self">OrderShort</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Short.html" target="_self">Short</a>]
+        
+        <div>An order for shorts.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderString" target="_self">OrderString</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+        
+        <div>An order for strings.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderUnit" target="_self">OrderUnit</a></em>
+         : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>]
+        
+        <div>An order for the unit value.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderArray%28scalaz.Order%5BA%5D%29" target="_self">OrderArray</a></em>
+        [<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderArray%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../scalaz/Order$object.html#OrderArray%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>An order for the arrays.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderCofunctorW%28scalaz.Order%5BA%5D%29" target="_self">OrderCofunctorW</a></em>
+        [<em>A</em>](<em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderCofunctorW%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/control/CofunctorW.html" target="_self">CofunctorW</a>[<a href="../scalaz/Order.html" target="_self">Order</a>, <a href="../scalaz/Order$object.html#OrderCofunctorW%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>A contra-variant functor wrapper for <code>Order</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29" target="_self">OrderEither</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>oa</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>ob</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#B" target="_self">B</a>]]
+        
+        <div>An order for the eithers.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderList%28scalaz.Order%5BA%5D%29" target="_self">OrderList</a></em>
+        [<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderList%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/Order$object.html#OrderList%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>An order for the lists.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderOption%28scalaz.Order%5BA%5D%29" target="_self">OrderOption</a></em>
+        [<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderOption%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../scalaz/Order$object.html#OrderOption%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>An order for the options.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#OrderStream%28scalaz.Order%5BA%5D%29" target="_self">OrderStream</a></em>
+        [<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderStream%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../scalaz/Order$object.html#OrderStream%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>An order for the streams.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#order%28%28A%2CA%29%3D%3Escalaz.Ordering%29" target="_self">order</a></em>
+        [<em>A</em>](<em>f</em> : (<a href="../scalaz/Order$object.html#order%28%28A%2CA%29%3D%3Escalaz.Ordering%29#A" target="_self">A</a>, <a href="../scalaz/Order$object.html#order%28%28A%2CA%29%3D%3Escalaz.Ordering%29#A" target="_self">A</a>) =&gt; <a href="../scalaz/Ordering.html" target="_self">Ordering</a>) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#order%28%28A%2CA%29%3D%3Escalaz.Ordering%29#A" target="_self">A</a>]
+        
+        <div>Constructs an <code>Order</code> from the given function.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#orderEqual%28scalaz.Order%5BA%5D%29" target="_self">orderEqual</a></em>
+        [<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#orderEqual%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Order$object.html#orderEqual%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]
+        
+        <div>Constructs an <code>Equal</code> from an <code>Order</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/Order$object.html#ordered%28A%29" target="_self">ordered</a></em>
+        [<em>A</em>](<em>a</em> : <a href="../scalaz/Order$object.html#ordered%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#ordered%28A%29#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/Ordered">scala.Ordered</a>[<a href="../scalaz/Order$object.html#ordered%28A%29#A" target="_self">A</a>]
+        
+        <div>Constructs an <code>Ordered</code> (less general) from an <code>Order</code>.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="OrderBoolean"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderBoolean</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for booleans.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderByte"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderByte</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Byte.html" target="_self">Byte</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for bytes.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderChar"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderChar</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for characters.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderDouble"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderDouble</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for doubles.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderFloat"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderFloat</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Float.html" target="_self">Float</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for floats.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderInt"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderInt</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for integers.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderLong"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderLong</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Long.html" target="_self">Long</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for longs.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderShort"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderShort</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Short.html" target="_self">Short</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for shorts.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderString"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderString</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for strings.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderUnit"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderUnit</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Unit.html" target="_self">Unit</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for the unit value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderCofunctor"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>OrderCofunctor</em> : <a href="../scalaz/control/Cofunctor.html" target="_self">Cofunctor</a>[<a href="../scalaz/Order.html" target="_self">Order</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A contra-variant functor for <code>Order</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="order%28%28A%2CA%29%3D%3Escalaz.Ordering%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>order</em>[<em>A</em>](<em>f</em> : (<a href="../scalaz/Order$object.html#order%28%28A%2CA%29%3D%3Escalaz.Ordering%29#A" target="_self">A</a>, <a href="../scalaz/Order$object.html#order%28%28A%2CA%29%3D%3Escalaz.Ordering%29#A" target="_self">A</a>) =&gt; <a href="../scalaz/Ordering.html" target="_self">Ordering</a>) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#order%28%28A%2CA%29%3D%3Escalaz.Ordering%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Constructs an <code>Order</code> from the given function.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="orderEqual%28scalaz.Order%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>orderEqual</em>[<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#orderEqual%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/Order$object.html#orderEqual%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Constructs an <code>Equal</code> from an <code>Order</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ordered%28A%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ordered</em>[<em>A</em>](<em>a</em> : <a href="../scalaz/Order$object.html#ordered%28A%29#A" target="_self">A</a>)(<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#ordered%28A%29#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/Ordered">scala.Ordered</a>[<a href="../scalaz/Order$object.html#ordered%28A%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Constructs an <code>Ordered</code> (less general) from an <code>Order</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderStream%28scalaz.Order%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OrderStream</em>[<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderStream%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../scalaz/Order$object.html#OrderStream%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for the streams.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderList%28scalaz.Order%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OrderList</em>[<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderList%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/Order$object.html#OrderList%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for the lists.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderArray%28scalaz.Order%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OrderArray</em>[<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderArray%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../scalaz/Order$object.html#OrderArray%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for the arrays.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderOption%28scalaz.Order%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OrderOption</em>[<em>A</em>](<code>implicit </code><em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderOption%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../scalaz/Order$object.html#OrderOption%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for the options.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OrderEither</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>oa</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>ob</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#B" target="_self">B</a>]) : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#A" target="_self">A</a>, <a href="../scalaz/Order$object.html#OrderEither%28scalaz.Order%5BA%5D%2Cscalaz.Order%5BB%5D%29#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An order for the eithers.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OrderCofunctorW%28scalaz.Order%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OrderCofunctorW</em>[<em>A</em>](<em>o</em> : <a href="../scalaz/Order.html" target="_self">Order</a>[<a href="../scalaz/Order$object.html#OrderCofunctorW%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]) : <a href="../scalaz/control/CofunctorW.html" target="_self">CofunctorW</a>[<a href="../scalaz/Order.html" target="_self">Order</a>, <a href="../scalaz/Order$object.html#OrderCofunctorW%28scalaz.Order%5BA%5D%29#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A contra-variant functor wrapper for <code>Order</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.3</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>
