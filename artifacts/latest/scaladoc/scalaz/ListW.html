@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>trait ListW in scalaz</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.3.final)" name="generator"></meta><link href="../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.4</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../scalaz$package.html" target="_self">scalaz</a>
+        <br></br>
+        <span class="entity">trait  ListW</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/ListW"><code>scalaz/ListW.scala</code></a>]
+      </div><hr></hr>
+      <a name="ListW"></a><dl>
+      <dt>
+        
+        <code>sealed</code>
+        <code>trait</code>
+        <em>ListW</em>[<em>A</em>]
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Wraps <code>scala.List</code> and provides additional methods.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:code@tmorris.net">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#list" target="_self">list</a></em>
+         : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+        
+        <div>The value of this list.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#%3C%5E%3E%28%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3Escala.xml.NodeSeq%29" target="_self">&lt;^&gt;</a></em>
+        (<em>f</em> : (<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) =&gt; <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>) : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+        
+        <div>Returns an empty XML text node if this is an empty list or runs the given function on the head and tail.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29" target="_self">empty</a></em>
+        [<em>X</em>](<em>x</em> : =&gt; <a href="../scalaz/ListW.html#empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29#X" target="_self">X</a>, <em>f</em> : (<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) =&gt; <a href="../scalaz/ListW.html#empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29#X" target="_self">X</a>) : <a href="../scalaz/ListW.html#empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29#X" target="_self">X</a>
+        
+        <div>Returns the first argument if the list is empty, otherwise, executes the given function.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#intercalate%28List%5BA%5D%29" target="_self">intercalate</a></em>
+        (<em>as</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+        
+        <div>Intercalates the given elements between each element of the list.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#intersperse%28A%29" target="_self">intersperse</a></em>
+        (<em>a</em> : <a href="../scalaz/ListW.html#A" target="_self">A</a>) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+        
+        <div>Intersperses the given element between each element of the list.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#nub%28scalaz.Equal%5BA%5D%29" target="_self">nub</a></em>
+        (<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+        
+        <div>Removes duplicate elements in O(n^2) time.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#nubBy%28%28A%2CA%29%3D%3EBoolean%29" target="_self">nubBy</a></em>
+        (<em>f</em> : (<a href="../scalaz/ListW.html#A" target="_self">A</a>, <a href="../scalaz/ListW.html#A" target="_self">A</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+        
+        <div>Removes duplicate elements in O(n^2) time.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#sequence" target="_self">sequence</a></em>
+        [<em>M</em>] : <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Sequences each element of this list through a monad - given by a function to map on each element.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#string%28%28A%29%3D%3EChar%29" target="_self">string</a></em>
+        (<em>f</em> : (<a href="../scalaz/ListW.html#A" target="_self">A</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>) : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+        
+        <div>Converts this list to a string with each element corresponding to a character.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#stringj%28%28A%29%3D%3EList%5BChar%5D%29" target="_self">stringj</a></em>
+        (<em>f</em> : (<a href="../scalaz/ListW.html#A" target="_self">A</a>) =&gt; <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]) : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+        
+        <div>Converts this list to a string with each element corresponding to a list of characters.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/ListW.html#%7C*%7C%28%3D%3EX%29" target="_self">|*|</a></em>
+        [<em>X</em>](<em>e</em> : =&gt; <a href="../scalaz/ListW.html#%7C*%7C%28%3D%3EX%29#X" target="_self">X</a>) : <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Returns the first argument if this is an empty list or runs the given function on the head and tail.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="list"></a><dl>
+      <dt>
+        
+        <code>abstract</code>
+        <code>val</code>
+        <em>list</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>The value of this list.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="string%28%28A%29%3D%3EChar%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>string</em>(<em>f</em> : (<a href="../scalaz/ListW.html#A" target="_self">A</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>) : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Converts this list to a string with each element corresponding to a character.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="stringj%28%28A%29%3D%3EList%5BChar%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>stringj</em>(<em>f</em> : (<a href="../scalaz/ListW.html#A" target="_self">A</a>) =&gt; <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Char.html" target="_self">Char</a>]) : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Converts this list to a string with each element corresponding to a list of characters.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%7C*%7C%28%3D%3EX%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>|*|</em>[<em>X</em>](<em>e</em> : =&gt; <a href="../scalaz/ListW.html#%7C*%7C%28%3D%3EX%29#X" target="_self">X</a>) : <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns the first argument if this is an empty list or runs the given function on the head and tail.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="sequence"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>sequence</em>[<em>M</em>] : <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Sequences each element of this list through a monad - given by a function to map on each element.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="intersperse%28A%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>intersperse</em>(<em>a</em> : <a href="../scalaz/ListW.html#A" target="_self">A</a>) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Intersperses the given element between each element of the list.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="intercalate%28List%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>intercalate</em>(<em>as</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Intercalates the given elements between each element of the list.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>empty</em>[<em>X</em>](<em>x</em> : =&gt; <a href="../scalaz/ListW.html#empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29#X" target="_self">X</a>, <em>f</em> : (<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) =&gt; <a href="../scalaz/ListW.html#empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29#X" target="_self">X</a>) : <a href="../scalaz/ListW.html#empty%28%3D%3EX%2C%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3EX%29#X" target="_self">X</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns the first argument if the list is empty, otherwise, executes the given function.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="nub%28scalaz.Equal%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>nub</em>(<code>implicit </code><em>e</em> : <a href="../scalaz/Equal.html" target="_self">Equal</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Removes duplicate elements in O(n^2) time.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="nubBy%28%28A%2CA%29%3D%3EBoolean%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>nubBy</em>(<em>f</em> : (<a href="../scalaz/ListW.html#A" target="_self">A</a>, <a href="../scalaz/ListW.html#A" target="_self">A</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>) : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Removes duplicate elements in O(n^2) time.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3C%5E%3E%28%28scalaz.list.NonEmptyList%5BA%5D%29%3D%3Escala.xml.NodeSeq%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>&lt;^&gt;</em>(<em>f</em> : (<a href="../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../scalaz/ListW.html#A" target="_self">A</a>]) =&gt; <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>) : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns an empty XML text node if this is an empty list or runs the given function on the head and tail.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.4</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>
