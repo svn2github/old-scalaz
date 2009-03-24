@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>trait Memo in scalaz.memo</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.3.final)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.4</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../../scalaz/memo$package.html" target="_self">scalaz.memo</a>
+        <br></br>
+        <span class="entity">trait  Memo</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/memo/Memo"><code>scalaz/memo/Memo.scala</code></a>]
+      </div><hr></hr>
+      <a name="Memo"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>trait</code>
+        <em>Memo</em>[<em>K</em>, <em>V</em>]
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>An abstraction representing memoisation used in many dynamic programming (DPA) algorithms and code that makes efforts
+ to follow a purely functional style. Loosely inspired by
+ <a href="http://research.microsoft.com/Users/simonpj/Papers/weak.ps.gz">Stretching the storage manager: weak pointers
+  and stable names in Haskell (Simon Peyton Jones, Simon Marlow, and Conal Elliott, IFL'99.)</a>
+ Further abstractions, such as purging the memoisation table, are achieved by abstracting over the type that maintains
+ the assocation (and so, may define means of purging themselves).</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:code@tmorris.net">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/memo/Memo.html#apply%28%28K%29%3D%3EV%29" target="_self">apply</a></em>
+        (<em>f</em> : (<a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) =&gt; <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>)(<em>k</em> : =&gt; <a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) : <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>
+        
+        <div>Given a function <code>f</code> and an argument to be applied <code>k</code>, return the result of such an
+   application. Implementations are free (encouraged) to store the computation for future invocations. It is paramount
+   for function <code>f</code> to <strong>NOT</strong> be side-effecting and maintain referential transparency.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/memo/Memo.html#get%28%28K%29%3D%3EV%29" target="_self">get</a></em>
+        (<em>f</em> : (<a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) =&gt; <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>)(<em>k</em> : =&gt; <a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) : <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>
+        
+        <div>Given a function <code>f</code> and an argument to be applied <code>k</code>, return the result of such an
+   application. Implementations are free (encouraged) to store the computation for future invocations. It is paramount
+   for function <code>f</code> to <strong>NOT</strong> be side-effecting and maintain referential transparency.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="apply%28%28K%29%3D%3EV%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>apply</em>(<em>f</em> : (<a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) =&gt; <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>)(<em>k</em> : =&gt; <a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) : <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Given a function <code>f</code> and an argument to be applied <code>k</code>, return the result of such an
+   application. Implementations are free (encouraged) to store the computation for future invocations. It is paramount
+   for function <code>f</code> to <strong>NOT</strong> be side-effecting and maintain referential transparency.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Parameters</b></dt><dd><code>f - </code>The function to apply to <code>k</code>.</dd><dd><code>k - </code>The argument to pass to function <code>f</code>.</dd><dt style="margin:10px 0 0 20px;">
+        <b>Returns</b></dt><dd>The result of applying function <code>f</code> to <code>k</code>, under the assumption that <code>f</code>   is free of side-effects.</dd><dt style="margin:10px 0 0 20px;">
+        <b>See Also</b></dt><dd><code><a href="#get%28%28K%29%3D%3EV%29">get</a></code></dd></dl>
+    <hr></hr>
+<a name="get%28%28K%29%3D%3EV%29"></a><dl>
+      <dt>
+        
+        <code>abstract</code>
+        <code>def</code>
+        <em>get</em>(<em>f</em> : (<a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) =&gt; <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>)(<em>k</em> : =&gt; <a href="../../scalaz/memo/Memo.html#K" target="_self">K</a>) : <a href="../../scalaz/memo/Memo.html#V" target="_self">V</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Given a function <code>f</code> and an argument to be applied <code>k</code>, return the result of such an
+   application. Implementations are free (encouraged) to store the computation for future invocations. It is paramount
+   for function <code>f</code> to <strong>NOT</strong> be side-effecting and maintain referential transparency.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Parameters</b></dt><dd><code>f - </code>The function to apply to <code>k</code>.</dd><dd><code>k - </code>The argument to pass to function <code>f</code>.</dd><dt style="margin:10px 0 0 20px;">
+        <b>Returns</b></dt><dd>The result of applying function <code>f</code> to <code>k</code>, under the assumption that <code>f</code>   is free of side-effects.</dd></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.4</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>
