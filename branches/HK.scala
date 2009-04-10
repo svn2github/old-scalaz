@@ -62,12 +62,37 @@ sealed trait Applicative[Z[_]] {
     def fmap[A, B](fa: Z[A], f: A => B) = apply(pure.pure(f), fa)
   }
 
-  val pointed = Pointed.pointed[Z]
+  implicit val pointed = Pointed.pointed[Z]
 }
 
 object Applicative {
   def applicative[Z[_]](implicit p: Pure[Z], a: Apply[Z]) = new Applicative[Z] {
     val pure = p
     val apply = a
+  }
+}
+
+trait Bind[Z[_]] {
+  def bind[A, B](a: Z[A], f: A => Z[B]): Z[B]
+}
+
+object Bind {
+  implicit def IdentityBind = new Bind[Identity] {
+    def bind[A, B](a: Identity[A], f: A => Identity[B]) = f(a)
+  }
+}
+
+sealed trait Monad[M[_]] {
+  implicit val pure: Pure[M]
+  implicit val bind: Bind[M]
+
+  implicit val functor = new Functor[M] {
+    def fmap[A, B](fa: M[A], f: A => B) = bind.bind(fa, (a: A) => pure.pure(f(a)))
+  }
+
+  implicit val pointed = Pointed.pointed[M]
+
+  implicit val apply = new Apply[M] {
+    def apply[A, B](f: M[A => B], a: M[A]): M[B] = bind.bind(f, (k: A => B) => functor.fmap(a, k(_: A)))
   }
 }
