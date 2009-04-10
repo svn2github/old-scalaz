@@ -365,16 +365,38 @@ object ApplyW {
   implicit def IdentityApply[A](a: Identity[A]) = apply[Identity](a)
 }
 
+trait BindW[Z[_], A] {
+  val v: Z[A]
+  val bind: Bind[Z]
+
+  def >>=[B](f: A => Z[B]) = bind.bind(v, f)
+
+  def flatMap[B](f: A => Z[B]) = >>=(f)
+}
+
+object BindW {
+  def bind[Z[_]] = new PartialWrap1[Z, Bind, BindW] {
+    def apply[A](z: Z[A])(implicit b: Bind[Z]) = new BindW[Z, A] {
+      val v = z
+      val bind = b
+    }
+  }
+
+  implicit def IdentityBind[A](a: Identity[A]) = bind[Identity](a)
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 
 object Demo {
   import Identity._
   import FunctorW._
   import ApplyW._
+  import BindW._
 
   def main(args: Array[String]) {
-    val k: Identity[Int] = 7
+    val k: Identity[Int] = 72
     val f: Identity[Int => Int] = ((_: Int) + 1)
+    val g: Int => Identity[String] = ((n: Int) => Identity.id(n.toString.reverse))
 
     // Functor
     println(k |> ((_: Int) + 1))
@@ -382,5 +404,9 @@ object Demo {
 
     // Apply
     println(k <*> f)
+
+    // Bind
+    println(k >>= g)
+    println(for(z <- k; n <- g(z)) yield n)
   }
 }
