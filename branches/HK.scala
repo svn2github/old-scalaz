@@ -338,13 +338,29 @@ trait FunctorW[F[_], A] {
 
 object FunctorW {
   def functor[F[_]] = new PartialWrap1[F, Functor, FunctorW] {
-    def apply[A](ft: F[A])(implicit f: Functor[F]) = new FunctorW[F, A] {
-      val v = ft
+    def apply[A](k: F[A])(implicit f: Functor[F]) = new FunctorW[F, A] {
+      val v = k
       val functor = f
     }
   }
 
   implicit def IdentityFunctor[A](a: Identity[A]) = functor[Identity](a)
+}
+
+trait ApplyW[Z[_], A] {
+  val v: Z[A]
+  val apply: Apply[Z]
+
+  def <*>[B](f: Z[A => B]) = apply(f, v)
+}
+
+object ApplyW {
+  def apply[Z[_]] = new PartialWrap1[Z, Apply, ApplyW] {
+    def apply[A](k: Z[A])(implicit a: Apply[Z]) = new ApplyW[Z, A] {
+      val v = k
+      val apply = a
+    }
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
