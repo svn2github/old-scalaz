@@ -361,6 +361,8 @@ object ApplyW {
       val apply = a
     }
   }
+
+  implicit def IdentityApply[A](a: Identity[A]) = apply[Identity](a)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -368,10 +370,17 @@ object ApplyW {
 object Demo {
   import Identity._
   import FunctorW._
+  import ApplyW._
 
   def main(args: Array[String]) {
     val k: Identity[Int] = 7
+    val f: Identity[Int => Int] = ((_: Int) + 1)
+
+    // Functor
     println(k |> ((_: Int) + 1))
     println(for(z <- k) yield z + 1)
+
+    // Apply
+    println(k <*> f)
   }
 }
