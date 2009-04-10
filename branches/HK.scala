@@ -57,6 +57,10 @@ trait PartialApplyK[T[_[_], _, _], M[_]] {
   type Apply[A, B] = T[M, A, B]
 }
 
+trait PartialWrap2[T[_], V[_[_], _]] {
+  def apply[A](a: T[T[A]]): V[T, A]
+}
+
 sealed trait Identity[+A] {
   val value: A
 
@@ -389,6 +393,22 @@ object BindW {
   implicit def IdentityBind[A](a: Identity[A]) = bind[Identity](a)
 }
 
+trait ZZW[M[_], A] {
+  val v: M[M[A]]
+
+  def join(implicit b: Bind[M]) = b.bind(v, (x: M[A]) => x)
+}
+
+object ZZW {
+  def zz[M[_]] = new PartialWrap2[M, ZZW] {
+    def apply[A](m: M[M[A]]) = new ZZW[M, A] {
+      val v = m
+    }
+  }
+
+  implicit def IdentityZZ[A](a: Identity[Identity[A]]) = zz[Identity](a)
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 
 object Demo {
@@ -396,8 +416,10 @@ object Demo {
   import FunctorW._
   import ApplyW._
   import BindW._
+  import ZZW._
 
   def main(args: Array[String]) {
+    val j: Identity[Identity[Int]] = (93: Identity[Int])
     val k: Identity[Int] = 72
     val f: Identity[Int => Int] = ((_: Int) + 1)
     val g: Int => Identity[String] = ((n: Int) => Identity.id(n.toString.reverse))
@@ -415,5 +437,8 @@ object Demo {
     // Bind
     println(k >>= g)
     println(for(z <- k; n <- g(z)) yield n)
+
+    // ZZ
+    println(j.join)
   }
 }
