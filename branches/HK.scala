@@ -360,6 +360,8 @@ trait ApplyW[Z[_], A] {
   val apply: Apply[Z]
 
   def <*>[B](f: Z[A => B]) = apply(f, v)
+
+  def <*>:[B](f: Z[A => B]) = <*>(f)
 }
 
 object ApplyW {
