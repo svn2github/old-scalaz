@@ -96,3 +96,45 @@ sealed trait Monad[M[_]] {
     def apply[A, B](f: M[A => B], a: M[A]): M[B] = bind.bind(f, (k: A => B) => functor.fmap(a, k(_: A)))
   }
 }
+
+trait Empty[E[_]] {
+  def empty[A]: E[A]
+}
+
+trait Plus[P[_]] {
+  def plus[A](a1: P[A], a2: P[A]): P[A]
+}
+
+sealed trait Semigroup[S] {
+  def append(s1: S, s2: S): S
+}
+
+object Semigroup {
+  def semigroup[S](f: (S, S) => S) = new Semigroup[S] {
+    def append(s1: S, s2: S) = f(s1, s2)
+  }
+}
+
+sealed trait Zero[Z] {
+  val zero: Z
+}
+
+object Zero {
+  def zero[Z](z: Z) = new Zero[Z] {
+    val zero = z
+  }
+}
+
+sealed trait Monoid[M] {
+  implicit val semigroup: Semigroup[M]
+  val zero: Zero[M]
+}
+
+object Monoid {
+  def monoid[M](implicit s: Semigroup[M], z: Zero[M]) = new Monoid[M] {
+    val semigroup = s
+    val zero = z
+  }
+}
+
+// todo Kleisli, Bifunctor, Cofunctor, Each, Empty, FoldLeft, FoldRight, Paramorphism, Traverse, Arrow, MonadPlus
