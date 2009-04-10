@@ -137,4 +137,45 @@ object Monoid {
   }
 }
 
-// todo Kleisli, Bifunctor, Cofunctor, Each, Empty, FoldLeft, FoldRight, Paramorphism, Traverse, Arrow, MonadPlus
+trait Kleisli[M[_], -A, B] {
+  def kleisli(a: A): M[B]
+}
+
+trait Cofunctor[F[_]] {
+  def comap[A, B](fa: F[A], f: B => A): F[B]
+}
+
+trait Bifunctor[F[_, _]] {
+  def bimap[A, B, C, D](k: F[A, B], f: A => C, g: B => D): F[C, D]
+}
+
+trait Each[E[_]] {
+  def each[A](e: E[A], f: A => Unit): Unit
+}
+
+trait FoldLeft[F[_]] {
+  def foldLeft[B, A](t: F[A], b: B, f: (B, A) => B): B
+}
+
+trait FoldRight[F[_]] {
+  def foldRight[A, B](t: F[A], b: B, f: (A, B) => B): B
+}
+
+trait Paramorphism[P[_]] {
+  def para[A, B](fa: P[A], b: B, f: (A, P[A], B) => B): B
+}
+
+trait Traverse[T[_]] {
+  def trav[F[_], A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
+
+  trait TraverseApply[F[_]] {
+    def apply[A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
+  }
+
+  def traverse[F[_]] = new TraverseApply[F] {
+    def apply[A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]) = trav[F, A, B](f, ta)
+  }
+}
+
+
+// todo Traverse, Arrow
