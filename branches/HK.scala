@@ -1,3 +1,30 @@
+/*
+Java
+----
+ArrayList
+HashMap
+HashSet
+Hashtable
+IdentityHashMap
+LinkedHashMap
+LinkedHashSet
+LinkedList
+PriorityQueue
+Stack
+TreeMap
+TreeSet
+Vector
+WeakHashMap
+ArrayBlockingQueue
+ConcurrentHashMap
+ConcurrentLinkedQueue
+CopyOnWriteArrayList
+CopyOnWriteArraySet
+LinkedBlockingQueue
+PriorityBlockingQueue
+SynchronousQueue
+*/
+
 trait PartialApply1Of2[T[_, _], A] {
   type Apply[B] = T[A, B]
 
