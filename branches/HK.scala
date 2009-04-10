@@ -439,6 +439,6 @@ object Demo {
     println(for(z <- k; n <- g(z)) yield n)
 
     // ZZ
-    println(j.join)
+    println(j join)
   }
 }
