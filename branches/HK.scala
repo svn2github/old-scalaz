@@ -23,6 +23,21 @@ CopyOnWriteArraySet
 LinkedBlockingQueue
 PriorityBlockingQueue
 SynchronousQueue
+
+Scala
+-----
+Unit
+TupleN
+FunctionN
+PartialFunction
+scala.collection.*
+scala.collection.mutable.*
+scala.collection.immutable.*
+List
+Stream
+Either
+Option
+Array
 */
 
 trait PartialApply1Of2[T[_, _], A] {
