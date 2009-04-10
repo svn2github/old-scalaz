@@ -1,3 +1,13 @@
+trait PartialApply1Of2[T[_, _], A] {
+  type Apply[B] = T[A, B]
+
+  type Flip[B] = T[B, A]
+}
+
+trait PartialApplyK[T[_[_], _, _], M[_]] {
+  type Apply[A, B] = T[M, A, B]
+}
+
 sealed trait Identity[+A] {
   val a: A
 }
@@ -138,7 +148,19 @@ object Monoid {
 }
 
 trait Kleisli[M[_], -A, B] {
-  def kleisli(a: A): M[B]
+  def apply(a: A): M[B]
+}
+
+object Kleisli {
+  sealed trait KleisliApply[M[_]] {
+    def apply[A, B](f: A => M[B]): Kleisli[M, A, B]
+  }
+
+  def kleisli[M[_]] = new KleisliApply[M] {
+    def apply[A, B](f: A => M[B]) = new Kleisli[M, A, B] {
+      def apply(a: A) = f(a)
+    }
+  }
 }
 
 trait Cofunctor[F[_]] {
@@ -168,7 +190,7 @@ trait Paramorphism[P[_]] {
 trait Traverse[T[_]] {
   def trav[F[_], A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
 
-  trait TraverseApply[F[_]] {
+  sealed trait TraverseApply[F[_]] {
     def apply[A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
   }
 
@@ -186,3 +208,36 @@ trait Arrow[A[_, _]] {
 
   def second[B, C, D](a: A[B, C]): A[(D, B), (D, C)]
 }
+
+object Arrow {
+  val Function1Arrow = new Arrow[Function1] {
+    def arrow[B, C](f: B => C) = f
+
+    def compose[B, C, D](a1: B => C, a2: C => D) =
+      a2 compose a1
+
+    def first[B, C, D](a: B => C) =
+      (bd: (B, D)) => (a(bd._1), bd._2)
+
+    def second[B, C, D](a: B => C) =
+      (db: (D, B)) => (db._1, a(db._2))
+  }
+
+  def KleisliArrow[M[+_]](implicit m: Monad[M]) =
+        new Arrow[PartialApplyK[Kleisli, M]#Apply] {
+    import Kleisli.kleisli
+
+    def arrow[B, C](f: B => C) =
+      kleisli[M]((b: B) => m.pure.pure(f(b)))
+
+    def compose[B, C, D](a1: Kleisli[M, B, C], a2: Kleisli[M, C, D]) =
+      kleisli[M]((b: B) => m.bind.bind(a1(b), (c: C) => a2(c)))
+
+    def first[B, C, D](a: Kleisli[M, B, C]) =
+      kleisli[M].apply[(B, D), (C, D)] { case (b, d) => m.functor.fmap(a(b), (c: C) => (c, d)) }
+
+    def second[B, C, D](a: Kleisli[M, B, C]) =
+      kleisli[M].apply[(D, B), (D, C)]{ case (d, b) => m.functor.fmap(a(b), (c: C) => (d, c)) }
+  }
+}
+
