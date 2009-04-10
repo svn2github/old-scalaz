@@ -47,6 +47,16 @@ object Identity {
   implicit def di[A](i: Identity[A]) = i.a
 }
 
+sealed trait Continuation[-A, R] {
+  def apply(r: R, a: A): R
+}
+
+object Continuation {
+  def continuation[A, R](f: (R, A) => R) = new Continuation[A, R] {
+    def apply(r: R, a: A) = f(r, a)
+  }
+}
+
 trait Functor[F[_]] {
   def fmap[A, B](fa: F[A], f: A => B): F[B]
 }
