@@ -51,15 +51,19 @@ trait PartialApplyK[T[_[_], _, _], M[_]] {
 }
 
 sealed trait Identity[+A] {
-  val a: A
+  val value: A
+
+  override def toString = value.toString
+
+  override def hashCode = value.hashCode
+
+  override def equals(o: Any) = o.isInstanceOf[Identity[_]] && value == o.asInstanceOf[Identity[_]].value
 }
 
 object Identity {
   implicit def id[A](x: A) = new Identity[A] {
-    val a = x
+    val value = x
   }
-
-  implicit def di[A](i: Identity[A]) = i.a
 }
 
 sealed trait Continuation[-A, R] {
@@ -78,7 +82,7 @@ trait Functor[F[_]] {
 
 object Functor {
   implicit val IdentityFunctor: Functor[Identity] = new Functor[Identity] {
-    def fmap[A, B](fa: Identity[A], f: A => B) = Identity.id(f(fa))
+    def fmap[A, B](fa: Identity[A], f: A => B) = Identity.id(f(fa.value))
   }
 }
 
@@ -112,7 +116,7 @@ trait Apply[Z[_]] {
 
 object Apply {
   implicit val IdentityApply: Apply[Identity] = new Apply[Identity] {
-    def apply[A, B](f: Identity[A => B], a: Identity[A]): Identity[B] = Identity.id(f(a))
+    def apply[A, B](f: Identity[A => B], a: Identity[A]): Identity[B] = Identity.id(f.value(a.value))
   }
 }
 
@@ -140,7 +144,7 @@ trait Bind[Z[_]] {
 
 object Bind {
   implicit def IdentityBind = new Bind[Identity] {
-    def bind[A, B](a: Identity[A], f: A => Identity[B]) = f(a)
+    def bind[A, B](a: Identity[A], f: A => Identity[B]) = f(a.value)
   }
 }
 
@@ -293,3 +297,44 @@ object Arrow {
   }
 }
 
+///////////////////////////////////////////////////////////////////////////////
+
+
+trait PartialWrap1[T[_], U[_[_]], V[_[_], _]] {
+  def apply[A](a: T[A])(implicit t: U[T]): V[T, A]
+}
+
+trait FunctorW[F[_], A] {
+  val v: F[A]
+  val functor: Functor[F]
+
+  def map[B](f: A => B) = functor.fmap(v, f)
+
+  def |>[B](f: A => B) = map(f)
+
+  def <|:[B](f: A => B) = map(f)
+}
+
+object FunctorW {
+  def functor[F[_]] = new PartialWrap1[F, Functor, FunctorW] {
+    def apply[A](ft: F[A])(implicit f: Functor[F]) = new FunctorW[F, A] {
+      val v = ft
+      val functor = f
+    }
+  }
+
+  implicit def IdentityFunctor[A](a: Identity[A]) = functor[Identity](a)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+object Demo {
+  import Identity._
+  import FunctorW._
+
+  def main(args: Array[String]) {
+    val k: Identity[Int] = 7
+    println(k |> ((_: Int) + 1))
+    println(for(z <- k) yield z + 1)
+  }
+}
