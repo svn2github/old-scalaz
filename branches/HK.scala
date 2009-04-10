@@ -112,6 +112,14 @@ trait Pure[P[_]] {
 }
 
 object Pure {
+  trait PureApply[P[_]] {
+    def apply[A](a: A)(implicit p: Pure[P]): P[A]
+  }
+
+  def pure[P[_]] = new PureApply[P] {
+    def apply[A](a: A)(implicit p: Pure[P]) = p pure a
+  }
+
   implicit val IdentityPure = new Pure[Identity] {
     def pure[A](a: A) = Identity.id(a)
   }
