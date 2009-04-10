@@ -177,5 +177,12 @@ trait Traverse[T[_]] {
   }
 }
 
+trait Arrow[A[_, _]] {
+  def arrow[B, C](f: B => C): A[B, C]
 
-// todo Traverse, Arrow
+  def compose[B, C, D](a1: A[B, C], a2: A[C, D]): A[B, D]
+
+  def first[B, C, D](a: A[B, C]): A[(B, D), (C, D)]
+
+  def second[B, C, D](a: A[B, C]): A[(D, B), (D, C)]
+}
