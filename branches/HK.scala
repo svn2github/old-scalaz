@@ -60,6 +60,8 @@ trait PartialApplyK[T[_[_], _, _], M[_]] {
 sealed trait Identity[+A] {
   val value: A
 
+  def pure[P[+_]](implicit p: Pure[P]) = p pure value
+
   override def toString = value.toString
 
   override def hashCode = value.hashCode
@@ -112,14 +114,6 @@ trait Pure[P[_]] {
 }
 
 object Pure {
-  trait PureApply[P[_]] {
-    def apply[A](a: A)(implicit p: Pure[P]): P[A]
-  }
-
-  def pure[P[_]] = new PureApply[P] {
-    def apply[A](a: A)(implicit p: Pure[P]) = p pure a
-  }
-
   implicit val IdentityPure = new Pure[Identity] {
     def pure[A](a: A) = Identity.id(a)
   }
@@ -407,6 +401,9 @@ object Demo {
     val k: Identity[Int] = 72
     val f: Identity[Int => Int] = ((_: Int) + 1)
     val g: Int => Identity[String] = ((n: Int) => Identity.id(n.toString.reverse))
+
+    // Pure
+    println(7.pure[Identity])
 
     // Functor
     println(k |> ((_: Int) + 1))
