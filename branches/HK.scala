@@ -38,6 +38,13 @@ Stream
 Either
 Option
 Array
+
+Other
+-----
+Identity
+Continuation
+NonEmptyList
+Validation
 */
 
 trait PartialApply1Of2[T[_, _], A] {
@@ -66,13 +73,27 @@ object Identity {
   }
 }
 
-sealed trait Continuation[-A, R] {
-  def apply(r: R, a: A): R
+sealed trait Continuation[R, +A] {
+  def apply(f: A => R): R
+
+  import Continuation._
+
+  def using[AA >: A, B](f: (B => R) => AA => R) = {
+    continuation[R, B](f andThen apply)
+  }
 }
 
 object Continuation {
-  def continuation[A, R](f: (R, A) => R) = new Continuation[A, R] {
-    def apply(r: R, a: A) = f(r, a)
+  def continuation[R, A](f: (A => R) => R) = new Continuation[R, A] {
+    def apply(k: A => R) = f(k)
+  }
+
+  trait ContinuationConstant[A] {
+    def apply[R](r: => R): Continuation[R, A]
+  }
+
+  def constant[A] = new ContinuationConstant[A] {
+    def apply[R](r: => R) = continuation[R, A](_ => r)
   }
 }
 
