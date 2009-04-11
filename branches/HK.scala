@@ -351,6 +351,21 @@ trait Bifunctor[F[_, _]] {
   def bimap[A, B, C, D](k: F[A, B], f: A => C, g: B => D): F[C, D]
 }
 
+object Bifunctor {
+  implicit def Tuple2Bifunctor = new Bifunctor[Tuple2] {
+    def bimap[A, B, C, D](k: (A, B), f: A => C, g: B => D) =
+      (f(k._1), g(k._2))
+  }
+
+  implicit def EitherBifunctor = new Bifunctor[Either] {
+    def bimap[A, B, C, D](k: Either[A, B], f: A => C, g: B => D) =
+      k match {
+        case Left(a) => Left(f(a))
+        case Right(b) => Right(g(b))
+      }
+  }
+}
+
 trait Each[E[_]] {
   def each[A](e: E[A], f: A => Unit): Unit
 }
@@ -457,7 +472,6 @@ sealed trait MA[M[_], A] {
   def <**>[B](k: M[B])(implicit f: Functor[M], a: Apply[M]) = a(f.fmap(v, (a: A) => (b: B) => (a, b)), k)
 
   def liftA[B, C](b: M[B], z: A => B => C)(implicit f: Functor[M], a: Apply[M]) = a(f.fmap(v, z), b)
-
 
   def liftA[B, C, D](b: M[B], c: M[C], z: A => B => C => D)(implicit f: Functor[M], a: Apply[M]) =
     a(a(f.fmap(v, z), b), c)
