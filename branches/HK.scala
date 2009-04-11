@@ -123,7 +123,7 @@ sealed trait Identity[A] {
 
   def pure[P[_]](implicit p: Pure[P]) = p pure value
 
-  def ||+||(a: A)(implicit s: Semigroup[A]) = s append (value, a)
+  def |+|(a: => A)(implicit s: Semigroup[A]) = s append (value, a)
 
   def ===(a: A)(implicit e: Equal[A]) = e equal (value, a)
 
@@ -331,22 +331,22 @@ object Empty {
 }
 
 trait Plus[P[_]] {
-  def plus[A](a1: P[A], a2: P[A]): P[A]
+  def plus[A](a1: P[A], a2: => P[A]): P[A]
 }
 
 object Plus {
   implicit val OptionPlus = new Plus[Option] {
-    def plus[A](a1: Option[A], a2: Option[A]) = a1 orElse a2
+    def plus[A](a1: Option[A], a2: => Option[A]) = a1 orElse a2
   }
 }
 
 sealed trait Semigroup[S] {
-  def append(s1: S, s2: S): S
+  def append(s1: S, s2: => S): S
 }
 
 object Semigroup {
-  def semigroup[S](f: (S, S) => S) = new Semigroup[S] {
-    def append(s1: S, s2: S) = f(s1, s2)
+  def semigroup[S](f: (S, => S) => S) = new Semigroup[S] {
+    def append(s1: S, s2: => S) = f(s1, s2)
   }
 
   implicit val StringSemigroup = semigroup[String](_ + _)
@@ -617,7 +617,7 @@ sealed trait MA[M[_], A] {
 
   def >->[B](f: => M[B])(implicit b: Bind[M]) = >>=(_ => f)
 
-  def <<+>>(z: M[A])(implicit p: Plus[M]) = p.plus(v, z)
+  def <+>(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
 
   def ::+::(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
 
