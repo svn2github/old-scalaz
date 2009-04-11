@@ -113,6 +113,10 @@ object Functor {
   implicit def ContinuationFunctor[R] = new Functor[PartialApply1Of2[Continuation, R]#Apply] {
     def fmap[A, B](r: Continuation[R, A], f: A => B) = Continuation.continuation[R, B](k => r(k compose f))
   }
+
+  implicit val OptionFunctor = new Functor[Option] {
+    def fmap[A, B](r: Option[A], f: A => B) = r map f
+  }
 }
 
 trait Pure[P[_]] {
@@ -126,6 +130,10 @@ object Pure {
 
   implicit def ContinuationPure[R] = new Pure[PartialApply1Of2[Continuation, R]#Apply] {
     def pure[A](a: A) = Continuation.continuation[R, A](_(a))
+  }
+
+  implicit def OptionPure = new Pure[Option] {
+    def pure[A](a: A) = Some(a)
   }
 }
 
@@ -143,6 +151,8 @@ object Pointed {
   implicit val IdentityPointed = pointed[Identity]
 
   implicit def ContinuationPointed[R] = pointed[PartialApply1Of2[Continuation, R]#Apply]
+
+  implicit val OptionPointed = pointed[Option]
 }
 
 trait Apply[Z[_]] {
@@ -159,6 +169,8 @@ object Apply {
   implicit val IdentityApply: Apply[Identity] = FunctorBindApply[Identity]
 
   implicit def ContinuationApply[R] = FunctorBindApply[PartialApply1Of2[Continuation, R]#Apply]
+
+  implicit def OptionApply = FunctorBindApply[Option]
 }
 
 sealed trait Applicative[Z[_]] {
@@ -181,6 +193,8 @@ object Applicative {
   implicit val IdentityApplicative = applicative[Identity]
 
   implicit def ContinuationApplicative[R] = applicative[PartialApply1Of2[Continuation, R]#Apply]
+
+  implicit def OptionApplicative = applicative[Option]
 }
 
 trait Bind[Z[_]] {
@@ -194,6 +208,10 @@ object Bind {
 
   implicit def ContinuationBind[R]: Bind[PartialApply1Of2[Continuation, R]#Apply] = new Bind[PartialApply1Of2[Continuation, R]#Apply] {
     def bind[A, B](a: Continuation[R, A], f: A => Continuation[R, B]) = Continuation.continuation[R, B](c => a(p => f(p)(c)))
+  }
+
+  implicit def OptionBind: Bind[Option] = new Bind[Option] {
+    def bind[A, B](a: Option[A], f: A => Option[B]) = a flatMap f
   }
 }
 
@@ -212,8 +230,25 @@ sealed trait Monad[M[_]] {
   }
 }
 
+object Monad {
+  def monad[M[_]](implicit b: Bind[M], p: Pure[M]) = new Monad[M] {
+    val pure = p
+    val bind = b
+  }
+
+  implicit val IdentityMonad = monad[Identity]
+
+  implicit def ContinuationMonad[R] = monad[PartialApply1Of2[Continuation, R]#Apply]
+
+  implicit def OptionMonad = monad[Option]
+}
+
 trait Empty[E[_]] {
   def empty[A]: E[A]
+}
+
+object Empty {
+
 }
 
 trait Plus[P[_]] {
