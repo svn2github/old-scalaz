@@ -57,10 +57,6 @@ trait PartialApplyK[T[_[_], _, _], M[_]] {
   type Apply[A, B] = T[M, A, B]
 }
 
-trait PartialWrap2[T[_], V[_[_], _]] {
-  def apply[A](a: T[T[A]]): V[T, A]
-}
-
 sealed trait Identity[+A] {
   val value: A
 
@@ -179,6 +175,10 @@ object Applicative {
     val pure = p
     val apply = a
   }
+
+  implicit val IdentityApplicative = applicative[Identity]
+
+  implicit def ContinuationApplicative[R] = applicative[PartialApply1Of2[Continuation, R]#Apply]
 }
 
 trait Bind[Z[_]] {
@@ -347,96 +347,71 @@ object Arrow {
 ///////////////////////////////////////////////////////////////////////////////
 
 
-trait PartialWrap1[T[_], U[_[_]], V[_[_], _]] {
-  def apply[A](a: T[A])(implicit t: U[T]): V[T, A]
+
+trait PartialWrapMA[M[_], V[_[_], _]] {
+  def apply[A](a: M[A]): V[M, A]
 }
 
-trait FunctorW[F[_], A] {
-  val v: F[A]
-  val functor: Functor[F]
-
-  def map[B](f: A => B) = functor.fmap(v, f)
-
-  def |>[B](f: A => B) = map(f)
-
-  def <|:[B](f: A => B) = map(f)
+trait PartialWrapMMA[M[_], V[_[_], _]] {
+  def apply[A](a: M[M[A]]): V[M, A]
 }
 
-object FunctorW {
-  def functor[F[_]] = new PartialWrap1[F, Functor, FunctorW] {
-    def apply[A](k: F[A])(implicit f: Functor[F]) = new FunctorW[F, A] {
-      val v = k
-      val functor = f
+trait MA[M[_], A] {
+  val v: M[A]
+
+  def map[B](f: A => B)(implicit t: Functor[M]) = t.fmap(v, f)
+
+  def |>[B](f: A => B)(implicit t: Functor[M]) = map(f)
+
+  def <|:[B](f: A => B)(implicit t: Functor[M]) = map(f)
+
+  def <*>[B](f: M[A => B])(implicit a: Apply[M]) = a(f, v)
+
+  def <*>:[B](f: M[A => B])(implicit a: Apply[M]) = <*>(f)
+
+  // todo other Applicative
+
+  def >>=[B](f: A => M[B])(implicit b: Bind[M]) = b.bind(v, f)
+
+  def flatMap[B](f: A => M[B])(implicit b: Bind[M]) = >>=(f)
+
+  def >->[B](f: => M[B])(implicit b: Bind[M]) = >>=(_ => f)
+}
+
+object MA {
+  def ma[M[_]] = new PartialWrapMA[M, MA] {
+    def apply[A](a: M[A]) = new MA[M, A] {
+      val v = a
     }
   }
 
-  implicit def IdentityFunctor[A](a: Identity[A]) = functor[Identity](a)
+  implicit def IdentityMA[A](a: Identity[A]) = ma[Identity](a)
+
+  implicit def ContinuationMA[R, A](a: Continuation[R, A]) = ma[PartialApply1Of2[Continuation, R]#Apply](a)
 }
 
-trait ApplyW[Z[_], A] {
-  val v: Z[A]
-  val apply: Apply[Z]
-
-  def <*>[B](f: Z[A => B]) = apply(f, v)
-
-  def <*>:[B](f: Z[A => B]) = <*>(f)
-}
-
-object ApplyW {
-  def apply[Z[_]] = new PartialWrap1[Z, Apply, ApplyW] {
-    def apply[A](k: Z[A])(implicit a: Apply[Z]) = new ApplyW[Z, A] {
-      val v = k
-      val apply = a
-    }
-  }
-
-  implicit def IdentityApply[A](a: Identity[A]) = apply[Identity](a)
-}
-
-trait BindW[Z[_], A] {
-  val v: Z[A]
-  val bind: Bind[Z]
-
-  def >>=[B](f: A => Z[B]) = bind.bind(v, f)
-
-  def flatMap[B](f: A => Z[B]) = >>=(f)
-}
-
-object BindW {
-  def bind[Z[_]] = new PartialWrap1[Z, Bind, BindW] {
-    def apply[A](z: Z[A])(implicit b: Bind[Z]) = new BindW[Z, A] {
-      val v = z
-      val bind = b
-    }
-  }
-
-  implicit def IdentityBind[A](a: Identity[A]) = bind[Identity](a)
-}
-
-trait ZZW[M[_], A] {
+trait MMA[M[_], A] {
   val v: M[M[A]]
 
   def join(implicit b: Bind[M]) = b.bind(v, (x: M[A]) => x)
 }
 
-object ZZW {
-  def zz[M[_]] = new PartialWrap2[M, ZZW] {
-    def apply[A](m: M[M[A]]) = new ZZW[M, A] {
+object MMA {
+  def mma[M[_]] = new PartialWrapMMA[M, MMA] {
+    def apply[A](m: M[M[A]]) = new MMA[M, A] {
       val v = m
     }
   }
 
-  implicit def IdentityZZ[A](a: Identity[Identity[A]]) = zz[Identity](a)
+  implicit def IdentityZZ[A](a: Identity[Identity[A]]) = mma[Identity](a)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 object Demo {
   import Identity._
-  import FunctorW._
-  import ApplyW._
-  import BindW._
-  import ZZW._
+  import MA._
+  import MMA._
 
   def main(args: Array[String]) {
     val j: Identity[Identity[Int]] = (93: Identity[Int])
