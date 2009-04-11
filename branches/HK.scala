@@ -370,6 +370,12 @@ trait Each[E[_]] {
   def each[A](e: E[A], f: A => Unit): Unit
 }
 
+object Each {
+  implicit val IdentityEach = new Each[Identity] {
+    def each[A](e: Identity[A], f: A => Unit) = f(e.value)
+  }
+}
+
 trait FoldLeft[F[_]] {
   def foldLeft[B, A](t: F[A], b: B, f: (B, A) => B): B
 }
@@ -512,6 +518,8 @@ sealed trait MA[M[_], A] {
   def -<|[B](f: => A)(implicit t: Cofunctor[M]) = <|((_: B) => f)
 
   def |>-:[B](f: => A)(implicit t: Cofunctor[M]) = -<|(f)
+
+  def foreach(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
 }
 
 object MA {
