@@ -299,6 +299,8 @@ object Monoid {
     val semigroup = s
     val zero = z
   }
+
+  implicit val StringMonoid = monoid[String]
 }
 
 trait Kleisli[M[_], -A, B] {
