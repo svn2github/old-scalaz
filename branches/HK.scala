@@ -520,6 +520,8 @@ sealed trait MA[M[_], A] {
   def |>-:[B](f: => A)(implicit t: Cofunctor[M]) = -<|(f)
 
   def foreach(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
+
+  def ->>(f: A => Unit)(implicit e: Each[M]) = foreach(f)
 }
 
 object MA {
