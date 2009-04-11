@@ -591,7 +591,11 @@ sealed trait MA[M[_], A] {
 
   def items(implicit r: FoldLeft[M]) = foldl[Int](0, (b, _) => b + 1)
 
-  // todo min.max with Order
+  def max(implicit r: FoldLeft[M], ord: Order[A]) =
+    foldl1((x: A, y: A) => if(ord.order(x, y) == GT) x else y)
+
+  def min(implicit r: FoldLeft[M], ord: Order[A]) =
+    foldl1((x: A, y: A) => if(ord.order(x, y) == LT) x else y)
 }
 
 object MA {
