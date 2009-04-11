@@ -380,8 +380,20 @@ trait FoldLeft[F[_]] {
   def foldLeft[B, A](t: F[A], b: B, f: (B, A) => B): B
 }
 
+object FoldLeft {
+  implicit val IdentityFoldLeft = new FoldLeft[Identity] {
+    def foldLeft[B, A](t: Identity[A], b: B, f: (B, A) => B) = f(b, t.value)
+  }
+}
+
 trait FoldRight[F[_]] {
   def foldRight[A, B](t: F[A], b: B, f: (A, B) => B): B
+}
+
+object FoldRight {
+  implicit val IdentityFoldRight = new FoldRight[Identity] {
+    def foldRight[A, B](t: Identity[A], b: B, f: (A, B) => B) = f(t.value, b)
+  }
 }
 
 trait Paramorphism[P[_]] {
