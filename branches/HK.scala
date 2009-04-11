@@ -455,7 +455,13 @@ object Paramorphism {
 }
 
 trait Traverse[T[_]] {
-  def traverse[F[_], A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
+  def traverse[F[_], A, B](f: A => F[B], t: T[A])(implicit a: Applicative[F]): F[T[B]]
+}
+
+object Traverse {
+  implicit val IdentityTraverse: Traverse[Identity] = new Traverse[Identity] {
+    def traverse[F[_], A, B](f: A => F[B], t: Identity[A])(implicit a: Applicative[F]) = a.functor.fmap(f(t.value), Identity.id(_: B))
+  }
 }
 
 trait Arrow[A[_, _]] {
@@ -643,6 +649,32 @@ a, b) => {
     })._1
 
   def para[B](b: B, f: (=> A, => M[A], B) => B)(implicit p: Paramorphism[M]) = p.para(v, b, f)
+
+  trait TraverseM[F[_]] {
+    def apply[B](f: A => F[B])(implicit a: Applicative[F]): F[M[B]]
+  }
+
+  def traverse[F[_]](implicit t: Traverse[M]) = new TraverseM[F] {
+    def apply[B](f: A => F[B])(implicit a: Applicative[F]) = t.traverse[F, A, B](f, v)
+  }
+
+  def ==>>[B](f: A => B)(implicit t: Traverse[M], m: Monoid[B]): B = {
+    case class Acc[B, A](acc: B)
+
+    implicit val AccApply = new Apply[PartialApply1Of2[Acc, B]#Apply] {
+      def apply[A, X](f: Acc[B, A => X], fa: Acc[B, A]) = Acc[B, X](m.semigroup append (f.acc, fa.acc))
+    }
+
+    implicit val AccPure = new Pure[PartialApply1Of2[Acc, B]#Apply] {
+      def pure[A](a: A) = Acc[B, A](m.zero.zero)
+    }
+
+    implicit val AccApplicative = Applicative.applicative[PartialApply1Of2[Acc, B]#Apply]
+
+    traverse[PartialApply1Of2[Acc, B]#Apply](t)(a => Acc[B, B](f(a))).acc
+  }
+
+  def =>>(implicit t: Traverse[M], m: Monoid[A]) = ==>>(identity[A])
 }
 
 object MA {
