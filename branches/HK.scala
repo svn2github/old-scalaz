@@ -352,6 +352,18 @@ object Semigroup {
   implicit val StringSemigroup = semigroup[String](_ + _)
 }
 
+sealed trait LazySemigroup[S] {
+  def append(s1: => S, s2: => S): S
+}
+
+object LazySemigroup {
+  def semigroup[S](f: (=> S, => S) => S) = new LazySemigroup[S] {
+    def append(s1: => S, s2: => S) = f(s1, s2)
+  }
+
+  implicit val StringLazySemigroup = semigroup[String](_ + _)
+}
+
 sealed trait Zero[Z] {
   val zero: Z
 }
