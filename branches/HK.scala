@@ -712,9 +712,13 @@ sealed trait MAB[M[_, _], A, B] {
 
   def >>>[C](k: M[B, C])(implicit a: Arrow[M]) = a compose (v, k)
 
-  def fst[C](implicit a: Arrow[M]) = a first v
+  def fst[C](implicit a: Arrow[M]): M[(A, C), (B, C)] = a first v
 
-  def snd[C](implicit a: Arrow[M]) = a second v
+  def snd[C](implicit a: Arrow[M]): M[(C, A), (C, B)] = a second v
+
+  def ***[C, D](k: M[C, D])(implicit a: Arrow[M]) = a.compose(fst[C], a.second[C, D, B](k))
+
+  def &&&[C](k: M[A, C])(implicit a: Arrow[M]): M[A, (B, C)] = a.compose(a.arrow(a => (a, a)), ***(k))
 }
 
 object MAB {
