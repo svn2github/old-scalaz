@@ -479,7 +479,7 @@ object Traverse {
 }
 
 trait Arrow[A[_, _]] {
-  def arrow[B, C](f: B => C): A[B, C] // todo add to Function1
+  def arrow[B, C](f: B => C): A[B, C]
 
   def compose[B, C, D](a1: A[B, C], a2: A[C, D]): A[B, D]
 
@@ -709,6 +709,12 @@ sealed trait MAB[M[_, _], A, B] {
   def :->[D](g: B => D)(implicit b: Bifunctor[M]) = b.bimap(v, identity[A], g)
 
   def <-:[C](f: A => C)(implicit b: Bifunctor[M]) = b.bimap(v, f, identity[B])
+
+  def >>>[C](k: M[B, C])(implicit a: Arrow[M]) = a compose (v, k)
+
+  def fst[C](implicit a: Arrow[M]) = a first v
+
+  def snd[C](implicit a: Arrow[M]) = a second v
 }
 
 object MAB {
