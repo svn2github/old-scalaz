@@ -572,8 +572,6 @@ sealed trait MA[M[_], A] {
 
   def ->>(f: A => Unit)(implicit e: Each[M]) = foreach(f)
 
-  // def foldRight[A, B](t: F[A], b: B, f: (A, B) => B): B
-  //  def foldLeft[B, A](t: F[A], b: B, f: (B, A) => B): B
   def foldl[B](b: B, f: (B, A) => B)(implicit r: FoldLeft[M]) = r.foldLeft[B, A](v, b, f)
 
   def foldl1(f: (A, A) => A)(implicit r: FoldLeft[M]) = foldl[Option[A]](None, (a1, a2) => Some(a1 match {
@@ -581,7 +579,7 @@ sealed trait MA[M[_], A] {
     case Some(x) => f(a2, x)
   })) getOrElse (error("foldl1 on empty"))
 
-  def list(implicit r: FoldLeft[M]) = {
+  def listl(implicit r: FoldLeft[M]) = {
     val b = new scala.collection.mutable.ListBuffer[A]
     foldl[scala.Unit]((), (x, a) => b += a)
     b.toList
@@ -596,6 +594,20 @@ sealed trait MA[M[_], A] {
 
   def min(implicit r: FoldLeft[M], ord: Order[A]) =
     foldl1((x: A, y: A) => if(ord.order(x, y) == LT) x else y)
+
+  def foldr[B](b: B, f: (A, B) => B)(implicit r: FoldRight[M]) = r.foldRight(v, b, f)
+
+  def foldr1(f: (A, A) => A)(implicit r: FoldRight[M]) = foldr[Option[A]](None, (a1, a2) => Some(a2 match {
+    case None => a1
+    case Some(x) => f(a1, x)
+  })) getOrElse (error("foldr1 on empty"))
+
+  def suml(implicit r: FoldRight[M], m: Monoid[A]) = foldr[A](m.zero.zero, m.semigroup append (_, _))
+
+  def listr(implicit r: FoldRight[M]) = foldr[List[A]](Nil, _ :: _)
+
+  def stream(implicit r: FoldRight[M]) = foldr[Stream[A]](Stream.empty, Stream.cons(_, _))
+
 }
 
 object MA {
