@@ -338,7 +338,13 @@ object Kleisli {
 }
 
 trait Cofunctor[F[_]] {
-  def comap[A, B](fa: F[A], f: B => A): F[B]
+  def comap[A, B](r: F[A], f: B => A): F[B]
+}
+
+object Cofunctor {
+  implicit def Function1Cofunctor[X]: Cofunctor[PartialApply1Of2[Function1, X]#Flip] = new Cofunctor[PartialApply1Of2[Function1, X]#Flip] {
+    def comap[A, B](r: A => X, f: B => A) = r compose f
+  }
 }
 
 trait Bifunctor[F[_, _]] {
@@ -480,6 +486,14 @@ sealed trait MA[M[_], A] {
   def >->[B](f: => M[B])(implicit b: Bind[M]) = >>=(_ => f)
 
   def <+>(z: M[A])(implicit p: Plus[M]) = p.plus(v, z)
+
+  def <|[B](f: B => A)(implicit t: Cofunctor[M]) = t.comap(v, f)
+
+  def <|:[B](f: B => A)(implicit t: Cofunctor[M]) = <|(f)
+
+  def -<|[B](f: => A)(implicit t: Cofunctor[M]) = <|((_: B) => f)
+
+  def |>-:[B](f: => A)(implicit t: Cofunctor[M]) = -<|(f)
 }
 
 object MA {
