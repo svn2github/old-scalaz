@@ -125,6 +125,8 @@ sealed trait Identity[A] {
 
   def /=(a: A)(implicit e: Equal[A]) = !(===(a))
 
+  def compare(a: A)(implicit o: Order[A]) = o order (value, a)
+
   override def toString = value.toString
 
   override def hashCode = value.hashCode
