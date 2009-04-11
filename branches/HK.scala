@@ -104,12 +104,16 @@ object Continuation {
 }
 
 trait Functor[F[_]] {
-  def fmap[A, B](fa: F[A], f: A => B): F[B]
+  def fmap[A, B](r: F[A], f: A => B): F[B]
 }
 
 object Functor {
   implicit val IdentityFunctor: Functor[Identity] = new Functor[Identity] {
-    def fmap[A, B](fa: Identity[A], f: A => B) = Identity.id(f(fa.value))
+    def fmap[A, B](r: Identity[A], f: A => B) = Identity.id(f(r.value))
+  }
+
+  implicit def ContinuationFunctor[R] = new Functor[PartialApply1Of2[Continuation, R]#Apply] {
+    def fmap[A, B](r: Continuation[R, A], f: A => B) = Continuation.continuation[R, B](k => r(k compose f))
   }
 }
 
@@ -120,6 +124,10 @@ trait Pure[P[_]] {
 object Pure {
   implicit val IdentityPure = new Pure[Identity] {
     def pure[A](a: A) = Identity.id(a)
+  }
+
+  implicit def ContinuationPure[R] = new Pure[PartialApply1Of2[Continuation, R]#Apply] {
+    def pure[A](a: A) = Continuation.continuation[R, A](_(a))
   }
 }
 
@@ -135,6 +143,8 @@ object Pointed {
   }
 
   implicit val IdentityPointed = pointed[Identity]
+
+  implicit def ContinuationPointed[R] = pointed[PartialApply1Of2[Continuation, R]#Apply]
 }
 
 trait Apply[Z[_]] {
@@ -142,9 +152,15 @@ trait Apply[Z[_]] {
 }
 
 object Apply {
-  implicit val IdentityApply: Apply[Identity] = new Apply[Identity] {
-    def apply[A, B](f: Identity[A => B], a: Identity[A]): Identity[B] = Identity.id(f.value(a.value))
+  def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
+    def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
+      b.bind(f, (g: A => B) => t.fmap(a, g(_: A)))
+    }
   }
+
+  implicit val IdentityApply: Apply[Identity] = FunctorBindApply[Identity]
+
+  implicit def ContinuationApply[R] = FunctorBindApply[PartialApply1Of2[Continuation, R]#Apply]
 }
 
 sealed trait Applicative[Z[_]] {
@@ -170,8 +186,12 @@ trait Bind[Z[_]] {
 }
 
 object Bind {
-  implicit def IdentityBind = new Bind[Identity] {
+  implicit val IdentityBind: Bind[Identity] = new Bind[Identity] {
     def bind[A, B](a: Identity[A], f: A => Identity[B]) = f(a.value)
+  }
+
+  implicit def ContinuationBind[R]: Bind[PartialApply1Of2[Continuation, R]#Apply] = new Bind[PartialApply1Of2[Continuation, R]#Apply] {
+    def bind[A, B](a: Continuation[R, A], f: A => Continuation[R, B]) = Continuation.continuation[R, B](c => a(p => f(p)(c)))
   }
 }
 
