@@ -114,12 +114,16 @@ object Show {
   }
 }
 
-sealed trait Identity[+A] {
+sealed trait Identity[A] {
   val value: A
 
-  def pure[P[+_]](implicit p: Pure[P]) = p pure value
+  def pure[P[_]](implicit p: Pure[P]) = p pure value
 
-  def |+|[AA >: A](a: AA)(implicit s: Semigroup[AA]) = s append (value, a)
+  def |+|(a: A)(implicit s: Semigroup[A]) = s append (value, a)
+
+  def ===(a: A)(implicit e: Equal[A]) = e equal (value, a)
+
+  def /=(a: A)(implicit e: Equal[A]) = !(===(a))
 
   override def toString = value.toString
 
