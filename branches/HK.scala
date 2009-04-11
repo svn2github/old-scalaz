@@ -267,6 +267,7 @@ sealed trait Semigroup[S] {
   def append(s1: S, s2: S): S
 }
 
+
 object Semigroup {
   def semigroup[S](f: (S, S) => S) = new Semigroup[S] {
     def append(s1: S, s2: S) = f(s1, s2)
@@ -452,6 +453,8 @@ sealed trait MA[M[_], A] {
   def flatMap[B](f: A => M[B])(implicit b: Bind[M]) = >>=(f)
 
   def >->[B](f: => M[B])(implicit b: Bind[M]) = >>=(_ => f)
+
+  def <+>(z: M[A])(implicit p: Plus[M]) = p.plus(v, z)
 }
 
 object MA {
