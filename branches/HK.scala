@@ -73,6 +73,8 @@ object Identity {
   implicit def id[A](x: A) = new Identity[A] {
     val value = x
   }
+
+  val u = id(())
 }
 
 sealed trait Continuation[R, +A] {
