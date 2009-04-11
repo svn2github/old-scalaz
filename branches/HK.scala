@@ -305,6 +305,24 @@ object Monoid {
 
 trait Kleisli[M[_], -A, B] {
   def apply(a: A): M[B]
+
+  def |=>(a: A) = apply(a)
+
+  import Kleisli.kleisli
+
+  def >=>[C](k: Kleisli[M, B, C])(implicit b: Bind[M]) = kleisli[M]((a: A) => b.bind(this(a), k(_: B)))
+
+  def >=>[C](k: B => M[C])(implicit b: Bind[M]): Kleisli[M, A, C] = >=>(kleisli[M](k))
+
+  def compose[N[_]](f: M[B] => N[B]) = kleisli[N]((a: A) => f(this(a)))
+
+  trait TraverseK[F[_]] {
+    def apply[AA <: A](f: F[AA])(implicit a: Applicative[M], t: Traverse[F]): M[F[B]]
+  }
+
+  def traverse[F[_]] = new TraverseK[F] {
+    def apply[AA <: A](f: F[AA])(implicit a: Applicative[M], t: Traverse[F]): M[F[B]] = t.trav[M, AA, B](Kleisli.this(_), f)
+  }
 }
 
 object Kleisli {
