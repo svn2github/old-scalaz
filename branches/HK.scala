@@ -106,12 +106,16 @@ object Order {
 
 trait Show[-A] {
   def show(a: A): List[Char]
+
+  def shows(a: A) = show(a).mkString
 }
 
 object Show {
   def show[A](f: A => List[Char]) = new Show[A] {
     def show(a: A) = f(a)
   }
+
+  def shows[A](f: A => String) = show[A](f(_).toList)
 }
 
 sealed trait Identity[A] {
@@ -126,6 +130,14 @@ sealed trait Identity[A] {
   def /=(a: A)(implicit e: Equal[A]) = !(===(a))
 
   def compare(a: A)(implicit o: Order[A]) = o order (value, a)
+
+  def show(implicit s: Show[A]) = s.show(value)
+
+  def shows(implicit s: Show[A]) = s.shows(value)
+
+  def print(implicit s: Show[A]) = Console.print(shows)
+
+  def println(implicit s: Show[A]) = Console.println(shows)
 
   override def toString = value.toString
 
