@@ -62,6 +62,8 @@ sealed trait Identity[+A] {
 
   def pure[P[+_]](implicit p: Pure[P]) = p pure value
 
+  def |+|[AA >: A](a: AA)(implicit s: Semigroup[AA]) = s append (value, a)
+
   override def toString = value.toString
 
   override def hashCode = value.hashCode
@@ -267,11 +269,12 @@ sealed trait Semigroup[S] {
   def append(s1: S, s2: S): S
 }
 
-
 object Semigroup {
   def semigroup[S](f: (S, S) => S) = new Semigroup[S] {
     def append(s1: S, s2: S) = f(s1, s2)
   }
+
+  implicit val StringSemigroup = semigroup[String](_ + _)
 }
 
 sealed trait Zero[Z] {
