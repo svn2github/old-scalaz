@@ -321,7 +321,7 @@ trait Kleisli[M[_], -A, B] {
   }
 
   def traverse[F[_]] = new TraverseK[F] {
-    def apply[AA <: A](f: F[AA])(implicit a: Applicative[M], t: Traverse[F]): M[F[B]] = t.trav[M, AA, B](Kleisli.this(_), f)
+    def apply[AA <: A](f: F[AA])(implicit a: Applicative[M], t: Traverse[F]): M[F[B]] = t.traverse[M, AA, B](Kleisli.this(_), f)
   }
 }
 
@@ -389,15 +389,7 @@ trait Paramorphism[P[_]] {
 }
 
 trait Traverse[T[_]] {
-  def trav[F[_], A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
-
-  sealed trait TraverseApply[F[_]] {
-    def apply[A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
-  }
-
-  def traverse[F[_]] = new TraverseApply[F] {
-    def apply[A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]) = trav[F, A, B](f, ta)
-  }
+  def traverse[F[_], A, B](f: A => F[B], ta: T[A])(implicit a: Applicative[F]): F[T[B]]
 }
 
 trait Arrow[A[_, _]] {
