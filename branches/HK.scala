@@ -282,6 +282,8 @@ sealed trait Zero[Z] {
 }
 
 object Zero {
+  def z[Z](implicit x: Zero[Z]) = x.zero
+
   def zero[Z](z: Z) = new Zero[Z] {
     val zero = z
   }
@@ -526,6 +528,24 @@ sealed trait MA[M[_], A] {
   def foreach(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
 
   def ->>(f: A => Unit)(implicit e: Each[M]) = foreach(f)
+
+  // def foldRight[A, B](t: F[A], b: B, f: (A, B) => B): B
+  //  def foldLeft[B, A](t: F[A], b: B, f: (B, A) => B): B
+  def foldl[B](b: B, f: (B, A) => B)(implicit r: FoldLeft[M]) = r.foldLeft[B, A](v, b, f)
+
+  def foldl1(f: (A, A) => A)(implicit r: FoldLeft[M]) = foldl[Option[A]](None, (a1, a2) => Some(a1 match {
+    case None => a2
+    case Some(x) => f(a2, x)
+  })) getOrElse (error("foldl1 on empty"))
+
+  def list(implicit r: FoldLeft[M]) = {
+    val b = new scala.collection.mutable.ListBuffer[A]
+    foldl[scala.Unit]((), (x, a) => b += a)
+    b.toList
+  }
+
+  def suml(implicit r: FoldLeft[M], m: Monoid[A]) = foldl[A](m.zero.zero, m.semigroup append (_, _))
+
 }
 
 object MA {
