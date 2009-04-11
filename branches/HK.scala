@@ -356,7 +356,7 @@ trait PartialWrapMMA[M[_], V[_[_], _]] {
   def apply[A](a: M[M[A]]): V[M, A]
 }
 
-trait MA[M[_], A] {
+sealed trait MA[M[_], A] {
   val v: M[A]
 
   def map[B](f: A => B)(implicit t: Functor[M]) = t.fmap(v, f)
@@ -365,11 +365,42 @@ trait MA[M[_], A] {
 
   def <|:[B](f: A => B)(implicit t: Functor[M]) = map(f)
 
+  def |>-[B](f: => B)(implicit t: Functor[M]) = map(_ => f)
+
+  def -<|:[B](f: => B)(implicit t: Functor[M]) = |>-(f)
+
   def <*>[B](f: M[A => B])(implicit a: Apply[M]) = a(f, v)
 
   def <*>:[B](f: M[A => B])(implicit a: Apply[M]) = <*>(f)
 
-  // todo other Applicative
+  def *>[B](k: M[B])(implicit f: Functor[M], a: Apply[M]) = a(f.fmap(v, (_: A) => (b: B) => b), k)
+
+  def <*[B](k: M[B])(implicit f: Functor[M], a: Apply[M]) = a(f.fmap(v, (a: A) => (_: B) => a), k)
+
+  def <**>[B](k: M[B])(implicit f: Functor[M], a: Apply[M]) = a(f.fmap(v, (a: A) => (b: B) => (a, b)), k)
+
+  def liftA[B, C](b: M[B], z: A => B => C)(implicit f: Functor[M], a: Apply[M]) = a(f.fmap(v, z), b)
+
+
+  def liftA[B, C, D](b: M[B], c: M[C], z: A => B => C => D)(implicit f: Functor[M], a: Apply[M]) =
+    a(a(f.fmap(v, z), b), c)
+
+  def liftA[B, C, D, E](b: M[B], c: M[C], d: M[D], z: A => B => C => D => E)(implicit f: Functor[M], a: Apply[M]) =
+    a(a(a(f.fmap(v, z), b), c), d)
+
+  def liftA[B, C, D, E, F](b: M[B], c: M[C], d: M[D], e: M[E], z: A => B => C => D =>
+ E => F)(implicit f: Functor[M], a: Apply[M]) =
+    a(a(a(a(f.fmap(v, z), b), c), d), e)
+
+  def <<*>>[B](b: M[B])(implicit f: Functor[M], a: Apply[M]) = liftA(b, a => (b: B) => (a, b))
+
+  def <<*>>[B, C](b: M[B], c: M[C])(implicit f: Functor[M], a: Apply[M]) = liftA(b, c, a => (b: B) => (c: C) => (a, b, c))
+
+  def <<*>>[B, C, D](b: M[B], c: M[C], d: M[D])(implicit f: Functor[M], a: Apply[M]) = liftA(b, c, d, a => (b: B) => (c: C)
+ => (d: D) => (a, b, c, d))
+
+  def <<*>>[B, C, D, E](b: M[B], c: M[C], d: M[D], e: M[E])(implicit f: Functor[M], a: Apply[M]) = liftA(b, c, d, e, a =>
+(b: B) => (c: C) => (d: D) => (e: E) => (a, b, c, d, e))
 
   def >>=[B](f: A => M[B])(implicit b: Bind[M]) = b.bind(v, f)
 
@@ -390,7 +421,7 @@ object MA {
   implicit def ContinuationMA[R, A](a: Continuation[R, A]) = ma[PartialApply1Of2[Continuation, R]#Apply](a)
 }
 
-trait MMA[M[_], A] {
+sealed trait MMA[M[_], A] {
   val v: M[M[A]]
 
   def join(implicit b: Bind[M]) = b.bind(v, (x: M[A]) => x)
