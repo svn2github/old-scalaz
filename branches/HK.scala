@@ -248,11 +248,19 @@ trait Empty[E[_]] {
 }
 
 object Empty {
-
+  implicit val OptionEmpty = new Empty[Option] {
+    def empty[A] = None
+  }
 }
 
 trait Plus[P[_]] {
   def plus[A](a1: P[A], a2: P[A]): P[A]
+}
+
+object Plus {
+  implicit val OptionPlus = new Plus[Option] {
+    def plus[A](a1: Option[A], a2: Option[A]) = a1 orElse a2
+  }
 }
 
 sealed trait Semigroup[S] {
