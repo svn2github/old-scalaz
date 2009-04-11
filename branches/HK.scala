@@ -432,12 +432,12 @@ object FoldLeft {
 }
 
 trait FoldRight[F[_]] {
-  def foldRight[A, B](t: F[A], b: B, f: (A, B) => B): B
+  def foldRight[A, B](t: F[A], b: B, f: (A, => B) => B): B
 }
 
 object FoldRight {
   implicit val IdentityFoldRight = new FoldRight[Identity] {
-    def foldRight[A, B](t: Identity[A], b: B, f: (A, B) => B) = f(t.value, b)
+    def foldRight[A, B](t: Identity[A], b: B, f: (A, => B) => B) = f(t.value, b)
   }
 }
 
@@ -595,9 +595,9 @@ sealed trait MA[M[_], A] {
   def min(implicit r: FoldLeft[M], ord: Order[A]) =
     foldl1((x: A, y: A) => if(ord.order(x, y) == LT) x else y)
 
-  def foldr[B](b: B, f: (A, B) => B)(implicit r: FoldRight[M]) = r.foldRight(v, b, f)
+  def foldr[B](b: B, f: (A, => B) => B)(implicit r: FoldRight[M]) = r.foldRight(v, b, f)
 
-  def foldr1(f: (A, A) => A)(implicit r: FoldRight[M]) = foldr[Option[A]](None, (a1, a2) => Some(a2 match {
+  def foldr1(f: (A, => A) => A)(implicit r: FoldRight[M]) = foldr[Option[A]](None, (a1, a2) => Some(a2 match {
     case None => a1
     case Some(x) => f(a1, x)
   })) getOrElse (error("foldr1 on empty"))
@@ -608,6 +608,30 @@ sealed trait MA[M[_], A] {
 
   def stream(implicit r: FoldRight[M]) = foldr[Stream[A]](Stream.empty, Stream.cons(_, _))
 
+  def !(n: Int)(implicit r: FoldRight[M]) = stream(r)(n)
+
+  def any(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[Boolean](false, p(_) || _)
+
+  def all(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[Boolean](true, p(_) && _)
+
+  def nil(implicit r: FoldRight[M]) = all(_ => false)
+
+  def splitWith(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Option[Boolean])]((Nil, None), (
+a, b) => {
+      val pa = p(a)
+      (b match {
+        case (_, None) => List(List(a))
+        case (x, Some(q)) => if(pa == q) (a :: x.head) :: x.tail else List(a) :: x
+      }, Some(pa))
+    })._1
+
+  def selectSplit(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Boolean)]((Nil, false), (a, xb
+) => xb match {
+      case (x, b) => {
+        val pa = p(a)
+        (if(pa) if(b) (a :: x.head) :: x.tail else List(a) :: x else x, pa)
+      }
+    })._1
 }
 
 object MA {
