@@ -285,6 +285,8 @@ object Zero {
   def zero[Z](z: Z) = new Zero[Z] {
     val zero = z
   }
+
+  implicit val StringZero = zero("")
 }
 
 sealed trait Monoid[M] {
