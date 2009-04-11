@@ -57,6 +57,49 @@ trait PartialApplyK[T[_[_], _, _], M[_]] {
   type Apply[A, B] = T[M, A, B]
 }
 
+sealed trait Equal[-A] {
+  def equal(a1: A, a2: A): Boolean
+}
+
+object Equal {
+  def equal[A](f: (A, A) => Boolean): Equal[A] = new Equal[A] {
+    def equal(a1: A, a2: A) = f(a1, a2)
+  }
+}
+
+sealed trait Ordering {
+  val toInt: Int
+}
+final case object LT extends Ordering {
+  val toInt = -1
+}
+final case object EQ extends Ordering {
+  val toInt = 0
+}
+final case object GT extends Ordering {
+  val toInt = 1
+}
+
+sealed trait Order[-A] {
+  def order(a1: A, a2: A): Ordering
+}
+
+object Order {
+  def order[A](f: (A, A) => Ordering): Order[A] = new Order[A] {
+    def order(a1: A, a2: A) = f(a1, a2)
+  }
+}
+
+trait Show[-A] {
+  def show(a: A): List[Char]
+}
+
+object Show {
+  def show[A](f: A => List[Char]) = new Show[A] {
+    def show(a: A) = f(a)
+  }
+}
+
 sealed trait Identity[+A] {
   val value: A
 
@@ -546,6 +589,9 @@ sealed trait MA[M[_], A] {
 
   def suml(implicit r: FoldLeft[M], m: Monoid[A]) = foldl[A](m.zero.zero, m.semigroup append (_, _))
 
+  def items(implicit r: FoldLeft[M]) = foldl[Int](0, (b, _) => b + 1)
+
+  // todo min.max with Order
 }
 
 object MA {
