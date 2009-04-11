@@ -47,6 +47,20 @@ NonEmptyList
 Validation
 */
 
+sealed trait Function1W[-T, +R] {
+  val k: T => R
+
+  def on[X](f: (R, R) => X, t1: T, t2: T) = f(k(t1), k(t2))
+
+  def arrow[A[-_, +_]](implicit a: Arrow[A]) = a arrow k
+}
+
+object Function1W {
+  def function1[T, R](f: T => R) = new Function1W[T, R] {
+    val k = f
+  }
+}
+
 trait PartialApply1Of2[T[_, _], A] {
   type Apply[B] = T[A, B]
 
@@ -465,7 +479,7 @@ object Traverse {
 }
 
 trait Arrow[A[_, _]] {
-  def arrow[B, C](f: B => C): A[B, C]
+  def arrow[B, C](f: B => C): A[B, C] // todo add to Function1
 
   def compose[B, C, D](a1: A[B, C], a2: A[C, D]): A[B, D]
 
