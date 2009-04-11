@@ -123,7 +123,7 @@ sealed trait Identity[A] {
 
   def pure[P[_]](implicit p: Pure[P]) = p pure value
 
-  def |+|(a: A)(implicit s: Semigroup[A]) = s append (value, a)
+  def ||+||(a: A)(implicit s: Semigroup[A]) = s append (value, a)
 
   def ===(a: A)(implicit e: Equal[A]) = e equal (value, a)
 
@@ -617,7 +617,9 @@ sealed trait MA[M[_], A] {
 
   def >->[B](f: => M[B])(implicit b: Bind[M]) = >>=(_ => f)
 
-  def <+>(z: M[A])(implicit p: Plus[M]) = p.plus(v, z)
+  def <<+>>(z: M[A])(implicit p: Plus[M]) = p.plus(v, z)
+
+  def ::+::(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
 
   def <|[B](f: B => A)(implicit t: Cofunctor[M]) = t.comap(v, f)
 
@@ -625,7 +627,7 @@ sealed trait MA[M[_], A] {
 
   def -<|[B](f: => A)(implicit t: Cofunctor[M]) = <|((_: B) => f)
 
-  def |>-:[B](f: => A)(implicit t: Cofunctor[M]) = -<|(f)
+  def |>-:[B](f: => A)(implicit t: Cofunctor[M]) = -<|[B](f)
 
   def foreach(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
 
@@ -742,6 +744,8 @@ sealed trait MAB[M[_, _], A, B] {
 
   def >>>[C](k: M[B, C])(implicit a: Arrow[M]) = a compose (v, k)
 
+  def <<<[C](k: M[C, A])(implicit a: Arrow[M]) = a compose (k, v)
+
   def fst[C](implicit a: Arrow[M]): M[(A, C), (B, C)] = a first v
 
   def snd[C](implicit a: Arrow[M]): M[(C, A), (C, B)] = a second v
@@ -749,6 +753,14 @@ sealed trait MAB[M[_, _], A, B] {
   def ***[C, D](k: M[C, D])(implicit a: Arrow[M]) = a.compose(fst[C], a.second[C, D, B](k))
 
   def &&&[C](k: M[A, C])(implicit a: Arrow[M]): M[A, (B, C)] = a.compose(a.arrow(a => (a, a)), ***(k))
+
+  def ^>>[C, D](f: C => A)(implicit a: Arrow[M]) = a.compose(a.arrow(f), v)
+
+  def >>^[C](f: B => C)(implicit a: Arrow[M]) = a.compose(v, a.arrow(f))
+
+  def <<^[C](f: C => A)(implicit a: Arrow[M]) = a.compose(a.arrow(f), v)
+
+  def ^<<[C](f: B => C)(implicit a: Arrow[M]) = a.compose(v, a.arrow(f))
 }
 
 object MAB {
