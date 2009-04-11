@@ -448,6 +448,10 @@ trait PartialWrapMMA[M[_], V[_[_], _]] {
   def apply[A](a: M[M[A]]): V[M, A]
 }
 
+trait PartialWrapMAB[M[_, _], V[_[_, _], _, _]] {
+  def apply[A, B](a: M[A, B]): V[M, A, B]
+}
+
 sealed trait MA[M[_], A] {
   val v: M[A]
 
@@ -520,6 +524,22 @@ object MA {
   implicit def IdentityMA[A](a: Identity[A]) = ma[Identity](a)
 
   implicit def ContinuationMA[R, A](a: Continuation[R, A]) = ma[PartialApply1Of2[Continuation, R]#Apply](a)
+}
+
+sealed trait MAB[M[_, _], A, B] {
+  val v: M[A, B]
+
+  def :->[D](g: B => D)(implicit b: Bifunctor[M]) = b.bimap(v, identity[A], g)
+
+  def <-:[C](f: A => C)(implicit b: Bifunctor[M]) = b.bimap(v, f, identity[B])
+}
+
+object MAB {
+  def mab[M[_, _]] = new PartialWrapMAB[M, MAB] {
+    def apply[A, B](a: M[A, B]) = new MAB[M, A, B] {
+      val v = a
+    }
+  }
 }
 
 sealed trait MMA[M[_], A] {
