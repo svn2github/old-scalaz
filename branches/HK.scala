@@ -79,6 +79,8 @@ object Equal {
   def equal[A](f: (A, A) => Boolean): Equal[A] = new Equal[A] {
     def equal(a1: A, a2: A) = f(a1, a2)
   }
+
+  implicit val StringEqual = equal[String](_ == _)
 }
 
 sealed trait Ordering {
@@ -96,12 +98,20 @@ final case object GT extends Ordering {
 
 sealed trait Order[-A] {
   def order(a1: A, a2: A): Ordering
+
+  def equal = Equal.equal[A](order(_, _) == EQ)
 }
 
 object Order {
   def order[A](f: (A, A) => Ordering): Order[A] = new Order[A] {
     def order(a1: A, a2: A) = f(a1, a2)
   }
+
+  implicit def ordered[A](a: A)(implicit o: Order[A]): Ordered[A] = new Ordered[A] {
+    def compare(aa: A) = o.order(a, aa).toInt
+  }
+
+  implicit val StringOrder: Order[String] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 }
 
 trait Show[-A] {
@@ -116,6 +126,10 @@ object Show {
   }
 
   def shows[A](f: A => String) = show[A](f(_).toList)
+
+  def showA[A] = show[A](_.toString.toList)
+
+  implicit def StringShow = showA[String]
 }
 
 sealed trait Identity[A] {
@@ -799,6 +813,17 @@ object Demo {
     val k: Identity[Int] = 72
     val f: Identity[Int => Int] = ((_: Int) + 1)
     val g: Int => Identity[String] = ((n: Int) => Identity.id(n.toString.reverse))
+
+
+    // Identity methods
+    println("abc" |+| "def")
+    println("abc" === "def")
+    println("abc" /= "def")
+    println("abc" compare "def")
+    println("abc".show)
+    println("abc".shows)
+    "abc".print
+    "abc".println
 
     // Pure
     println(7.pure[Identity])
