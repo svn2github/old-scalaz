@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>trait Kleisli in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.3.final)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">trait  Kleisli</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/Kleisli"><code>scalaz/control/Kleisli.scala</code></a>]
+      </div><hr></hr>
+      <a name="Kleisli"></a><dl>
+      <dt>
+        
+        <code>sealed</code>
+        <code>trait</code>
+        <em>Kleisli</em>[<em>M</em>, -<em>A</em>, <em>B</em>]
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>The Kleisli data structure. <code>(Monad m) => a -> m b</code>.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:code@tmorris.net">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28%28B%29%3D%3EM%5BC%5D%29" target="_self">&gt;=&gt;</a></em>
+        [<em>C</em>](<em>k</em> : (<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>) =&gt; <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28%28B%29%3D%3EM%5BC%5D%29#C" target="_self">C</a>])(<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28%28B%29%3D%3EM%5BC%5D%29#C" target="_self">C</a>]
+        
+        <div>Kleisli composition.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28scalaz.control.Kleisli%5BM%2CB%2CC%5D%29" target="_self">&gt;=&gt;</a></em>
+        [<em>C</em>](<em>k</em> : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>, <a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28scalaz.control.Kleisli%5BM%2CB%2CC%5D%29#C" target="_self">C</a>])(<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28scalaz.control.Kleisli%5BM%2CB%2CC%5D%29#C" target="_self">C</a>]
+        
+        <div>Kleisli composition.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#apply%28A%29" target="_self">apply</a></em>
+        (<em>a</em> : <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+        
+        <div>Apply the given value to produce a monadic value.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#comap%28%28C%29%3D%3EA%29" target="_self">comap</a></em>
+        [<em>C</em>](<em>f</em> : (<a href="../../scalaz/control/Kleisli.html#comap%28%28C%29%3D%3EA%29#C" target="_self">C</a>) =&gt; <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#comap%28%28C%29%3D%3EA%29#C" target="_self">C</a>, <a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+        
+        <div>Contra-variant map for the given function across a kleisli structure.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#compose%28%28M%5BB%5D%29%3D%3EN%5BB%5D%29" target="_self">compose</a></em>
+        [<em>N</em>](<em>f</em> : (<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]) =&gt; <a href="../../scalaz/control/Kleisli.html#compose%28%28M%5BB%5D%29%3D%3EN%5BB%5D%29#N" target="_self">N</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#compose%28%28M%5BB%5D%29%3D%3EN%5BB%5D%29#N" target="_self">N</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+        
+        <div>Composes the given function with the kleisli function to construct a new kleisli structure.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#map%28%28B%29%3D%3EC%29" target="_self">map</a></em>
+        [<em>C</em>](<em>f</em> : (<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>) =&gt; <a href="../../scalaz/control/Kleisli.html#map%28%28B%29%3D%3EC%29#C" target="_self">C</a>)(<code>implicit </code><em>ftr</em> : <a href="../../scalaz/control/Functor.html" target="_self">Functor</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#map%28%28B%29%3D%3EC%29#C" target="_self">C</a>]
+        
+        <div>Maps the given function across a kleisli structure.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#traverse%28F%5BA%5D%29" target="_self">traverse</a></em>
+        [<em>F</em>](<em>f</em> : <a href="../../scalaz/control/Kleisli.html#traverse%28F%5BA%5D%29#F" target="_self">F</a>[<a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>])(<code>implicit </code><em>a</em> : <a href="../../scalaz/control/Applicative.html" target="_self">Applicative</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>], <code>implicit </code><em>t</em> : <a href="../../scalaz/control/Traverse.html" target="_self">Traverse</a>[<a href="../../scalaz/control/Kleisli.html#traverse%28F%5BA%5D%29#F" target="_self">F</a>]) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#traverse%28F%5BA%5D%29#F" target="_self">F</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]]
+        
+        <div>Traverse the kleisli structure using the given traversal.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#traverses%28List%5BA%5D%29" target="_self">traverses</a></em>
+        (<em>as</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>])(<code>implicit </code><em>a</em> : <a href="../../scalaz/control/Applicative.html" target="_self">Applicative</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]]
+        
+        <div>Traverse the kleisli structure as a list.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Kleisli.html#%7C%3D%3E%28A%29" target="_self">|=&gt;</a></em>
+        (<em>a</em> : <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+        
+        <div>An alias for apply.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="apply%28A%29"></a><dl>
+      <dt>
+        
+        <code>abstract</code>
+        <code>def</code>
+        <em>apply</em>(<em>a</em> : <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Apply the given value to produce a monadic value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%7C%3D%3E%28A%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>|=&gt;</em>(<em>a</em> : <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>An alias for apply.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3E%3D%3E%28scalaz.control.Kleisli%5BM%2CB%2CC%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>&gt;=&gt;</em>[<em>C</em>](<em>k</em> : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>, <a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28scalaz.control.Kleisli%5BM%2CB%2CC%5D%29#C" target="_self">C</a>])(<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28scalaz.control.Kleisli%5BM%2CB%2CC%5D%29#C" target="_self">C</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Kleisli composition.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="%3E%3D%3E%28%28B%29%3D%3EM%5BC%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>&gt;=&gt;</em>[<em>C</em>](<em>k</em> : (<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>) =&gt; <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28%28B%29%3D%3EM%5BC%5D%29#C" target="_self">C</a>])(<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#%3E%3D%3E%28%28B%29%3D%3EM%5BC%5D%29#C" target="_self">C</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Kleisli composition.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="map%28%28B%29%3D%3EC%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>map</em>[<em>C</em>](<em>f</em> : (<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>) =&gt; <a href="../../scalaz/control/Kleisli.html#map%28%28B%29%3D%3EC%29#C" target="_self">C</a>)(<code>implicit </code><em>ftr</em> : <a href="../../scalaz/control/Functor.html" target="_self">Functor</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#map%28%28B%29%3D%3EC%29#C" target="_self">C</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Maps the given function across a kleisli structure.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="comap%28%28C%29%3D%3EA%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>comap</em>[<em>C</em>](<em>f</em> : (<a href="../../scalaz/control/Kleisli.html#comap%28%28C%29%3D%3EA%29#C" target="_self">C</a>) =&gt; <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>, <a href="../../scalaz/control/Kleisli.html#comap%28%28C%29%3D%3EA%29#C" target="_self">C</a>, <a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Contra-variant map for the given function across a kleisli structure.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="compose%28%28M%5BB%5D%29%3D%3EN%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>compose</em>[<em>N</em>](<em>f</em> : (<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]) =&gt; <a href="../../scalaz/control/Kleisli.html#compose%28%28M%5BB%5D%29%3D%3EN%5BB%5D%29#N" target="_self">N</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]) : <a href="../../scalaz/control/Kleisli.html" target="_self">Kleisli</a>[<a href="../../scalaz/control/Kleisli.html#compose%28%28M%5BB%5D%29%3D%3EN%5BB%5D%29#N" target="_self">N</a>, <a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>, <a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Composes the given function with the kleisli function to construct a new kleisli structure.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="traverse%28F%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>traverse</em>[<em>F</em>](<em>f</em> : <a href="../../scalaz/control/Kleisli.html#traverse%28F%5BA%5D%29#F" target="_self">F</a>[<a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>])(<code>implicit </code><em>a</em> : <a href="../../scalaz/control/Applicative.html" target="_self">Applicative</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>], <code>implicit </code><em>t</em> : <a href="../../scalaz/control/Traverse.html" target="_self">Traverse</a>[<a href="../../scalaz/control/Kleisli.html#traverse%28F%5BA%5D%29#F" target="_self">F</a>]) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="../../scalaz/control/Kleisli.html#traverse%28F%5BA%5D%29#F" target="_self">F</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Traverse the kleisli structure using the given traversal.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="traverses%28List%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>traverses</em>(<em>as</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Kleisli.html#A" target="_self">A</a>])(<code>implicit </code><em>a</em> : <a href="../../scalaz/control/Applicative.html" target="_self">Applicative</a>[<a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>]) : <a href="../../scalaz/control/Kleisli.html#M" target="_self">M</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Kleisli.html#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Traverse the kleisli structure as a list.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

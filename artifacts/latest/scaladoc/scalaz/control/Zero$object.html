@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object Zero in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.3.final)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">object  Zero</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/Zero"><code>scalaz/control/Zero.scala</code></a>]
+      </div><hr></hr>
+      <a name="Zero"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>Zero</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over zero values.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:code@tmorris.net">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#BooleanConjunctionZero" target="_self">BooleanConjunctionZero</a></em>
+         : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+        
+        <div>A zero for boolean conjunction.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#BooleanDisjunctionZero" target="_self">BooleanDisjunctionZero</a></em>
+         : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+        
+        <div>A zero for boolean disjunction.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#IntAdditionZero" target="_self">IntAdditionZero</a></em>
+         : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+        
+        <div>A zero for integer addition.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#IntMultiplicationZero" target="_self">IntMultiplicationZero</a></em>
+         : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+        
+        <div>A zero for integer multiplication.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#StringZero" target="_self">StringZero</a></em>
+         : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+        
+        <div>A zero for <code>Predef.String</code>.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#ArrayZero" target="_self">ArrayZero</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/Zero$object.html#ArrayZero#A" target="_self">A</a>]]
+        
+        <div>A zero for <code>forall T. scala.Array[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#EitherLeftZero%28scalaz.control.Zero%5BA%5D%29" target="_self">EitherLeftZero</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#EitherLeftZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>[<a href="../../scalaz/control/Zero$object.html#EitherLeftZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/Zero$object.html#EitherLeftZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>]]
+        
+        <div>A zero for <code>forall T U. scala.Either.LeftProjection[U, T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#EitherRightZero%28scalaz.control.Zero%5BA%5D%29" target="_self">EitherRightZero</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#EitherRightZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>[<a href="../../scalaz/control/Zero$object.html#EitherRightZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/Zero$object.html#EitherRightZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>A zero for <code>forall T U. scala.Either.RightProjection[T, U]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#EitherZero%28scalaz.control.Zero%5BA%5D%29" target="_self">EitherZero</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#EitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Zero$object.html#EitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/Zero$object.html#EitherZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>]]
+        
+        <div>A zero for <code>forall T U. scala.Either[T, U]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#FlipEitherZero%28scalaz.control.Zero%5BA%5D%29" target="_self">FlipEitherZero</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#FlipEitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Zero$object.html#FlipEitherZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/Zero$object.html#FlipEitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]]
+        
+        <div>A zero for <code>forall T U. scala.Either[U, T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#Function1Zero%28scalaz.control.Zero%5BB%5D%29" target="_self">Function1Zero</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#Function1Zero%28scalaz.control.Zero%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[(<a href="../../scalaz/control/Zero$object.html#Function1Zero%28scalaz.control.Zero%5BB%5D%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Zero$object.html#Function1Zero%28scalaz.control.Zero%5BB%5D%29#B" target="_self">B</a>]
+        
+        <div>A zero for <code>forall T U. scala.Function1[T, U]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#ListZero" target="_self">ListZero</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Zero$object.html#ListZero#A" target="_self">A</a>]]
+        
+        <div>A zero for <code>forall T. scala.List[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#MapZero" target="_self">MapZero</a></em>
+        [<em>K</em>, <em>V</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/collection/immutable/Map">scala.collection.immutable.Map</a>[<a href="../../scalaz/control/Zero$object.html#MapZero#K" target="_self">K</a>, <a href="../../scalaz/control/Zero$object.html#MapZero#V" target="_self">V</a>]]
+        
+        <div>A zero for <code>forall K V. scala.collection.immutable.Map[K, V]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#NodeSeqZero" target="_self">NodeSeqZero</a></em>
+         : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>]
+        
+        <div>A zero for XML node sequences - an empty element.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#OptionZero" target="_self">OptionZero</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/Zero$object.html#OptionZero#A" target="_self">A</a>]]
+        
+        <div>A zero for <code>forall T. scala.Option[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#PureZero%28scalaz.control.Monad%5BM%5D%29" target="_self">PureZero</a></em>
+        [<em>M</em>](<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Zero$object.html#PureZero%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/Zero$object.html#PureZero%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]]
+        
+        <div>A zero for <code>forall M. scalaz.control.Pure[M]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#StreamZero" target="_self">StreamZero</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/Zero$object.html#StreamZero#A" target="_self">A</a>]]
+        
+        <div>A zero for <code>forall T. scala.Stream[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#z%28Z%29" target="_self">z</a></em>
+        [<em>Z</em>](<em>z</em> : <a href="../../scalaz/control/Zero$object.html#z%28Z%29#Z" target="_self">Z</a>) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#z%28Z%29#Z" target="_self">Z</a>]
+        
+        <div>Construct a zero from the given value.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Zero$object.html#zero%28scalaz.control.Zero%5BA%5D%29" target="_self">zero</a></em>
+        [<em>A</em>](<code>implicit </code><em>z</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#zero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero$object.html#zero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>
+        
+        <div>Return the zero value for the given implementation.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="StringZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>StringZero</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>Predef.String</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="IntAdditionZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>IntAdditionZero</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for integer addition.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="IntMultiplicationZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>IntMultiplicationZero</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for integer multiplication.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="BooleanDisjunctionZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>BooleanDisjunctionZero</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for boolean disjunction.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="BooleanConjunctionZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>BooleanConjunctionZero</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for boolean conjunction.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="z%28Z%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>z</em>[<em>Z</em>](<em>z</em> : <a href="../../scalaz/control/Zero$object.html#z%28Z%29#Z" target="_self">Z</a>) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#z%28Z%29#Z" target="_self">Z</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Construct a zero from the given value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OptionZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OptionZero</em>[<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/Zero$object.html#OptionZero#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T. scala.Option[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ListZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ListZero</em>[<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Zero$object.html#ListZero#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T. scala.List[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="StreamZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>StreamZero</em>[<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/Zero$object.html#StreamZero#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T. scala.Stream[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ArrayZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ArrayZero</em>[<em>A</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/Zero$object.html#ArrayZero#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T. scala.Array[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="Function1Zero%28scalaz.control.Zero%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>Function1Zero</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#Function1Zero%28scalaz.control.Zero%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[(<a href="../../scalaz/control/Zero$object.html#Function1Zero%28scalaz.control.Zero%5BB%5D%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Zero$object.html#Function1Zero%28scalaz.control.Zero%5BB%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T U. scala.Function1[T, U]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherZero%28scalaz.control.Zero%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherZero</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#EitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Zero$object.html#EitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/Zero$object.html#EitherZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T U. scala.Either[T, U]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="FlipEitherZero%28scalaz.control.Zero%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>FlipEitherZero</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#FlipEitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Zero$object.html#FlipEitherZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/Zero$object.html#FlipEitherZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T U. scala.Either[U, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherLeftZero%28scalaz.control.Zero%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherLeftZero</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#EitherLeftZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>[<a href="../../scalaz/control/Zero$object.html#EitherLeftZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/Zero$object.html#EitherLeftZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T U. scala.Either.LeftProjection[U, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherRightZero%28scalaz.control.Zero%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherRightZero</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>zz</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#EitherRightZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>[<a href="../../scalaz/control/Zero$object.html#EitherRightZero%28scalaz.control.Zero%5BA%5D%29#B" target="_self">B</a>, <a href="../../scalaz/control/Zero$object.html#EitherRightZero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall T U. scala.Either.RightProjection[T, U]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="MapZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>MapZero</em>[<em>K</em>, <em>V</em>] : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/collection/immutable/Map">scala.collection.immutable.Map</a>[<a href="../../scalaz/control/Zero$object.html#MapZero#K" target="_self">K</a>, <a href="../../scalaz/control/Zero$object.html#MapZero#V" target="_self">V</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall K V. scala.collection.immutable.Map[K, V]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="NodeSeqZero"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>NodeSeqZero</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for XML node sequences - an empty element.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="PureZero%28scalaz.control.Monad%5BM%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>PureZero</em>[<em>M</em>](<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Zero$object.html#PureZero%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]) : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/Zero$object.html#PureZero%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A zero for <code>forall M. scalaz.control.Pure[M]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="zero%28scalaz.control.Zero%5BA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>zero</em>[<em>A</em>](<code>implicit </code><em>z</em> : <a href="../../scalaz/control/Zero.html" target="_self">Zero</a>[<a href="../../scalaz/control/Zero$object.html#zero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>]) : <a href="../../scalaz/control/Zero$object.html#zero%28scalaz.control.Zero%5BA%5D%29#A" target="_self">A</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Return the zero value for the given implementation.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

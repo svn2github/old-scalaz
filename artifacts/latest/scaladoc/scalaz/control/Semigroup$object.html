@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>object Semigroup in scalaz.control</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.3.final)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../../scalaz/control$package.html" target="_self">scalaz.control</a>
+        <br></br>
+        <span class="entity">object  Semigroup</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/control/Semigroup"><code>scalaz/control/Semigroup.scala</code></a>]
+      </div><hr></hr>
+      <a name="Semigroup"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>object</code>
+        <em>Semigroup</em>
+      </dt>
+      <dd><code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <dl><dd>Functions over pure values.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Author</b></dt><dd><a href="mailto:code@tmorris.net">Tony Morris</a></dd><dt style="margin:10px 0 0 20px;">
+        <b>Version</b></dt><dd>$LastChangedRevision$<br>          $LastChangedDate$<br>
+          $LastChangedBy$</dd></dl>
+    
+      
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#BooleanConjunctionSemigroup" target="_self">BooleanConjunctionSemigroup</a></em>
+         : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+        
+        <div>A semigroup for boolean conjunction.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#BooleanDisjunctionSemigroup" target="_self">BooleanDisjunctionSemigroup</a></em>
+         : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+        
+        <div>A semigroup for boolean disjunction.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#IntAdditionSemigroup" target="_self">IntAdditionSemigroup</a></em>
+         : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+        
+        <div>A semigroup for integer addition.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#IntMultiplicationSemigroup" target="_self">IntMultiplicationSemigroup</a></em>
+         : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+        
+        <div>A semigroup for integer multiplication.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#StringSemigroup" target="_self">StringSemigroup</a></em>
+         : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+        
+        <div>A semigroup for <code>Predef.String</code>.</div>
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#ArraySemigroup" target="_self">ArraySemigroup</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/Semigroup$object.html#ArraySemigroup#A" target="_self">A</a>]]
+        
+        <div>A semigroup for <code>forall T. scala.Array[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#EitherLeftSemigroup" target="_self">EitherLeftSemigroup</a></em>
+        [<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>[<a href="../../scalaz/control/Semigroup$object.html#EitherLeftSemigroup#A" target="_self">A</a>, <a href="../../scalaz/control/Semigroup$object.html#EitherLeftSemigroup#B" target="_self">B</a>]]
+        
+        <div>A semigroup for <code>forall T U. scala.Either.LeftProjection[U, T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#EitherRightSemigroup" target="_self">EitherRightSemigroup</a></em>
+        [<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>[<a href="../../scalaz/control/Semigroup$object.html#EitherRightSemigroup#B" target="_self">B</a>, <a href="../../scalaz/control/Semigroup$object.html#EitherRightSemigroup#A" target="_self">A</a>]]
+        
+        <div>A semigroup for <code>forall T U. scala.Either.RightProjection[T, U]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#EitherSemigroup" target="_self">EitherSemigroup</a></em>
+        [<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Semigroup$object.html#EitherSemigroup#A" target="_self">A</a>, <a href="../../scalaz/control/Semigroup$object.html#EitherSemigroup#B" target="_self">B</a>]]
+        
+        <div>A semigroup for <code>forall T U. scala.Either[T, U]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#FlipEitherSemigroup" target="_self">FlipEitherSemigroup</a></em>
+        [<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Semigroup$object.html#FlipEitherSemigroup#B" target="_self">B</a>, <a href="../../scalaz/control/Semigroup$object.html#FlipEitherSemigroup#A" target="_self">A</a>]]
+        
+        <div>A semigroup for <code>forall T U. scala.Either[U, T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29" target="_self">Function1Semigroup</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>s</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[(<a href="../../scalaz/control/Semigroup$object.html#Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Semigroup$object.html#Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]
+        
+        <div>A semigroup for <code>forall T U. scala.Function1[T, U]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#ListSemigroup" target="_self">ListSemigroup</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Semigroup$object.html#ListSemigroup#A" target="_self">A</a>]]
+        
+        <div>A semigroup for <code>forall T. scala.List[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#MapSemigroup" target="_self">MapSemigroup</a></em>
+        [<em>K</em>, <em>V</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/collection/immutable/Map">scala.collection.immutable.Map</a>[<a href="../../scalaz/control/Semigroup$object.html#MapSemigroup#K" target="_self">K</a>, <a href="../../scalaz/control/Semigroup$object.html#MapSemigroup#V" target="_self">V</a>]]
+        
+        <div>A semigroup for <code>forall K V. scala.collection.immutable.Map[K, V]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#NonEmptyListSemigroup" target="_self">NonEmptyListSemigroup</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../../scalaz/control/Semigroup$object.html#NonEmptyListSemigroup#A" target="_self">A</a>]]
+        
+        <div>A semigroup for <code>forall T. scalaz.list.NonEmptyList[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#OptionSemigroup" target="_self">OptionSemigroup</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/Semigroup$object.html#OptionSemigroup#A" target="_self">A</a>]]
+        
+        <div>A semigroup for <code>forall T. scala.Option[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#PureSemigroup%28scalaz.control.Monad%5BM%5D%29" target="_self">PureSemigroup</a></em>
+        [<em>M</em>](<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Semigroup$object.html#PureSemigroup%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/Semigroup$object.html#PureSemigroup%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]]
+        
+        <div>A semigroup for <code>forall M. scalaz.control.Pure[M]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#StreamSemigroup" target="_self">StreamSemigroup</a></em>
+        [<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/Semigroup$object.html#StreamSemigroup#A" target="_self">A</a>]]
+        
+        <div>A semigroup for <code>forall T. scala.Stream[T]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>implicit def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29" target="_self">ValidationRightSemigroup</a></em>
+        [<em>A</em>, <em>B</em>](<code>implicit </code><em>sa</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>sb</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]]
+        
+        <div>A semigroup for <code>forall T U. scalaz.validation.Validation[T, U]</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29" target="_self">semigroup</a></em>
+        [<em>S</em>](<em>f</em> : (=&gt; <a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>) =&gt; (=&gt; <a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>) =&gt; <a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>]
+        
+        <div>Constructs a semigroup from the given function implementation.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="StringSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>StringSemigroup</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>Predef.String</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="IntAdditionSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>IntAdditionSemigroup</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for integer addition.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="IntMultiplicationSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>IntMultiplicationSemigroup</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for integer multiplication.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="BooleanDisjunctionSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>BooleanDisjunctionSemigroup</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for boolean disjunction.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="BooleanConjunctionSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>val</code>
+        <em>BooleanConjunctionSemigroup</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for boolean conjunction.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>semigroup</em>[<em>S</em>](<em>f</em> : (=&gt; <a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>) =&gt; (=&gt; <a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>) =&gt; <a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#semigroup%28%28%3D%3ES%29%3D%3E%28%3D%3ES%29%3D%3ES%29#S" target="_self">S</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Constructs a semigroup from the given function implementation.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="OptionSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>OptionSemigroup</em>[<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/control/Semigroup$object.html#OptionSemigroup#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T. scala.Option[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ListSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ListSemigroup</em>[<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../scalaz/control/Semigroup$object.html#ListSemigroup#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T. scala.List[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="NonEmptyListSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>NonEmptyListSemigroup</em>[<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/list/NonEmptyList.html" target="_self">NonEmptyList</a>[<a href="../../scalaz/control/Semigroup$object.html#NonEmptyListSemigroup#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T. scalaz.list.NonEmptyList[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="StreamSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>StreamSemigroup</em>[<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Stream">scala.Stream</a>[<a href="../../scalaz/control/Semigroup$object.html#StreamSemigroup#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T. scala.Stream[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ArraySemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ArraySemigroup</em>[<em>A</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Array">scala.Array</a>[<a href="../../scalaz/control/Semigroup$object.html#ArraySemigroup#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T. scala.Array[T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>Function1Semigroup</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>s</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[(<a href="../../scalaz/control/Semigroup$object.html#Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29#A" target="_self">A</a>) =&gt; <a href="../../scalaz/control/Semigroup$object.html#Function1Semigroup%28scalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T U. scala.Function1[T, U]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherSemigroup</em>[<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Semigroup$object.html#EitherSemigroup#A" target="_self">A</a>, <a href="../../scalaz/control/Semigroup$object.html#EitherSemigroup#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T U. scala.Either[T, U]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="FlipEitherSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>FlipEitherSemigroup</em>[<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either">scala.Either</a>[<a href="../../scalaz/control/Semigroup$object.html#FlipEitherSemigroup#B" target="_self">B</a>, <a href="../../scalaz/control/Semigroup$object.html#FlipEitherSemigroup#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T U. scala.Either[U, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherLeftSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherLeftSemigroup</em>[<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either/LeftProjection">scala.Either.LeftProjection</a>[<a href="../../scalaz/control/Semigroup$object.html#EitherLeftSemigroup#A" target="_self">A</a>, <a href="../../scalaz/control/Semigroup$object.html#EitherLeftSemigroup#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T U. scala.Either.LeftProjection[U, T]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="EitherRightSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>EitherRightSemigroup</em>[<em>A</em>, <em>B</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/Either/RightProjection">scala.Either.RightProjection</a>[<a href="../../scalaz/control/Semigroup$object.html#EitherRightSemigroup#B" target="_self">B</a>, <a href="../../scalaz/control/Semigroup$object.html#EitherRightSemigroup#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T U. scala.Either.RightProjection[T, U]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="MapSemigroup"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>MapSemigroup</em>[<em>K</em>, <em>V</em>] : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="" target="contentFrame" class="scala/collection/immutable/Map">scala.collection.immutable.Map</a>[<a href="../../scalaz/control/Semigroup$object.html#MapSemigroup#K" target="_self">K</a>, <a href="../../scalaz/control/Semigroup$object.html#MapSemigroup#V" target="_self">V</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall K V. scala.collection.immutable.Map[K, V]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29"></a><dl>
+      <dt>
+        
+        <code>implicit</code>
+        <code>def</code>
+        <em>ValidationRightSemigroup</em>[<em>A</em>, <em>B</em>](<code>implicit </code><em>sa</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#A" target="_self">A</a>], <code>implicit </code><em>sb</em> : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#A" target="_self">A</a>, <a href="../../scalaz/control/Semigroup$object.html#ValidationRightSemigroup%28scalaz.control.Semigroup%5BA%5D%2Cscalaz.control.Semigroup%5BB%5D%29#B" target="_self">B</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall T U. scalaz.validation.Validation[T, U]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="PureSemigroup%28scalaz.control.Monad%5BM%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>PureSemigroup</em>[<em>M</em>](<code>implicit </code><em>m</em> : <a href="../../scalaz/control/Monad.html" target="_self">Monad</a>[<a href="../../scalaz/control/Semigroup$object.html#PureSemigroup%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]) : <a href="../../scalaz/control/Semigroup.html" target="_self">Semigroup</a>[<a href="../../scalaz/control/Pure.html" target="_self">Pure</a>[<a href="../../scalaz/control/Semigroup$object.html#PureSemigroup%28scalaz.control.Monad%5BM%5D%29#M" target="_self">M</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>A semigroup for <code>forall M. scalaz.control.Pure[M]</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>
