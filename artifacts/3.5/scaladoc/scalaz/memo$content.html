@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>All classes and objects in scalaz.memo</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.3.final)" name="generator"></meta><link href="../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../script.js"></script>
+        </head>
+        <body onload="init()"><div class="page-title"><div>Scalaz 3.5 API Specification</div></div><p><div>This document is the API specification for Scalaz 3.5</div></p><table summary="" cellpadding="3" class="member">
+        <tr><td class="title" colspan="2">Class Summary</td></tr>
+        <tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/ImmutableAssociation.html" target="_self">ImmutableAssociation</a></em>
+        [<em>K</em>, <em>V</em>, <em>T</em>]<code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Represents any association from a <code>K</code> (key) to <code>V</code> (value) over the immutable type
+ <code>T</code>, which represents the association.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/Memo.html" target="_self">Memo</a></em>
+        [<em>K</em>, <em>V</em>]<code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>An abstraction representing memoisation used in many dynamic programming (DPA) algorithms and code that makes efforts
+ to follow a purely functional style. Loosely inspired by
+ <a href="http://research.microsoft.com/Users/simonpj/Papers/weak.ps.gz">Stretching the storage manager: weak pointers
+  and stable names in Haskell (Simon Peyton Jones, Simon Marlow, and Conal Elliott, IFL'99.)</a>
+ Further abstractions, such as purging the memoisation table, are achieved by abstracting over the type that maintains
+ the assocation (and so, may define means of purging themselves).</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/MutableAssociation.html" target="_self">MutableAssociation</a></em>
+        [<em>K</em>, <em>V</em>, <em>T</em>]<code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Represents any association from a <code>K</code> (key) to <code>V</code> (value) over the mutable type
+ <code>T</code>, which represents the association.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/SizedMemo.html" target="_self">SizedMemo</a></em>
+        [<em>K</em>]<code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Memoisation within a given range or size.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/TMemo.html" target="_self">TMemo</a></em>
+        [<em>K</em>, <em>V</em>, <em>T</em>]<code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>An association from some type to a memoisation technique backed by that type.</div>
+      </td>
+    </tr>        
+        </table>
+<table summary="" cellpadding="3" class="member">
+        <tr><td class="title" colspan="2">Object Summary</td></tr>
+        <tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/ImmutableAssociation$object.html" target="_self">ImmutableAssociation</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Functions creating immutable associative types.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/Memo$object.html" target="_self">Memo</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Functions creating memoisation types.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/MutableAssociation$object.html" target="_self">MutableAssociation</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Functions creating mutable associative types.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/SizedMemo$object.html" target="_self">SizedMemo</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Functions creating sized memoisation types.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../scalaz/memo/TMemo$object.html" target="_self">TMemo</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Functions creating a type association to memoisation techniques.</div>
+      </td>
+    </tr>        
+        </table></body>
+      </html>

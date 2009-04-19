@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>class FailProjection in scalaz.validation.Validation</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.3.final)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../../scalaz/validation/Validation$object.html" target="_self">scalaz.validation.Validation</a>
+        <br></br>
+        <span class="entity">class  FailProjection</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="scalaz/validation/Validation"><code>scalaz/validation/Validation.scala</code></a>]
+      </div><hr></hr>
+      <a name="FailProjection"></a><dl>
+      <dt>
+        
+        <code>case final</code>
+        <code>class</code>
+        <em>FailProjection</em>[+<em>E</em>, +<em>A</em>](<code>val </code><em>v</em> : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>])
+      </dt>
+      <dd><code> extends </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a></dd>
+    </dl>
+      <dl><dd>A failing projection of a validation.</dd></dl>
+      <dl></dl>
+    
+      
+
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29" target="_self">apply</a></em>
+        [<em>F</em>, <em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>v</em> : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[(<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#AA" target="_self">AA</a>]) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#AA" target="_self">AA</a>]
+        
+        <div>Function application through the failing side of validation.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>override def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#equals%28Any%29" target="_self">equals</a></em>
+        (<em>arg0</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>) : <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>
+        
+        <div>This method is used to compare the receiver object (<code>this</code>)
+    with the argument object (<code>arg0</code>) for equivalence.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#filter%28%28E%29%3D%3EBoolean%29" target="_self">filter</a></em>
+        (<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>) : <a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>]]
+        
+        <div>Returns <code>None</code> if this is a projection of success or if the given predicate does not hold for the
+     failing value, otherwise, returns a fail in <code>Some</code>.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#filterOr%28%28E%29%3D%3EBoolean%2C%3D%3EAA%29" target="_self">filterOr</a></em>
+        [<em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>, <em>a</em> : =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#filterOr%28%28E%29%3D%3EBoolean%2C%3D%3EAA%29#AA" target="_self">AA</a>) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#filterOr%28%28E%29%3D%3EBoolean%2C%3D%3EAA%29#AA" target="_self">AA</a>]
+        
+        <div>Returns failure if this is a failure and if the value meets the given predicate or if the predicate is not met,
+     then return the given value.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29" target="_self">flatMap</a></em>
+        [<em>F</em>, <em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]
+        
+        <div>Binds the given function across the failing side of a validation.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>override def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#hashCode%28%29" target="_self">hashCode</a></em>
+         : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>
+        
+        <div>Returns a hash code value for the object.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#map%28%28E%29%3D%3EF%29" target="_self">map</a></em>
+        [<em>F</em>](<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#map%28%28E%29%3D%3EF%29#F" target="_self">F</a>) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#map%28%28E%29%3D%3EF%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>]
+        
+        <div>Maps the given function across the failing side of a validation.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>override def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#productArity" target="_self">productArity</a></em>
+         : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>override def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#productElement%28Int%29" target="_self">productElement</a></em>
+        (<em>arg0</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>) : <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>override def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#productPrefix" target="_self">productPrefix</a></em>
+         : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29" target="_self">sequence</a></em>
+        [<em>F</em>, <em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>v</em> : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]
+        
+        <div>Binds anonymously the given value across the failing side of a validation.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>override def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#toString%28%29" target="_self">toString</a></em>
+         : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+        
+        <div>Returns a string representation of the object.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../scalaz/validation/Validation$object.FailProjection.html#%7C%28%3D%3EEE%29" target="_self">|</a></em>
+        [<em>EE</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>](<em>e</em> : =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#%7C%28%3D%3EEE%29#EE" target="_self">EE</a>) : <a href="../../scalaz/validation/Validation$object.FailProjection.html#%7C%28%3D%3EEE%29#EE" target="_self">EE</a>
+        
+        <div>Returns the error value or the given value.</div>
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      
+
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="%7C%28%3D%3EEE%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>|</em>[<em>EE</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>](<em>e</em> : =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#%7C%28%3D%3EEE%29#EE" target="_self">EE</a>) : <a href="../../scalaz/validation/Validation$object.FailProjection.html#%7C%28%3D%3EEE%29#EE" target="_self">EE</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns the error value or the given value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="map%28%28E%29%3D%3EF%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>map</em>[<em>F</em>](<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#map%28%28E%29%3D%3EF%29#F" target="_self">F</a>) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#map%28%28E%29%3D%3EF%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Maps the given function across the failing side of a validation.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>flatMap</em>[<em>F</em>, <em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#flatMap%28%28E%29%3D%3Escalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Binds the given function across the failing side of a validation.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>sequence</em>[<em>F</em>, <em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>v</em> : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#sequence%28scalaz.validation.Validation%5BF%2CAA%5D%29#AA" target="_self">AA</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Binds anonymously the given value across the failing side of a validation.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="filter%28%28E%29%3D%3EBoolean%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>filter</em>(<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>) : <a href="" target="contentFrame" class="scala/Option">scala.Option</a>[<a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>]]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns <code>None</code> if this is a projection of success or if the given predicate does not hold for the
+     failing value, otherwise, returns a fail in <code>Some</code>.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="filterOr%28%28E%29%3D%3EBoolean%2C%3D%3EAA%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>filterOr</em>[<em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>f</em> : (<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>, <em>a</em> : =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#filterOr%28%28E%29%3D%3EBoolean%2C%3D%3EAA%29#AA" target="_self">AA</a>) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#filterOr%28%28E%29%3D%3EBoolean%2C%3D%3EAA%29#AA" target="_self">AA</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns failure if this is a failure and if the value meets the given predicate or if the predicate is not met,
+     then return the given value.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>apply</em>[<em>F</em>, <em>AA</em> &gt;: <a href="../../scalaz/validation/Validation$object.FailProjection.html#A" target="_self">A</a>](<em>v</em> : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[(<a href="../../scalaz/validation/Validation$object.FailProjection.html#E" target="_self">E</a>) =&gt; <a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#AA" target="_self">AA</a>]) : <a href="../../scalaz/validation/Validation.html" target="_self">Validation</a>[<a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#F" target="_self">F</a>, <a href="../../scalaz/validation/Validation$object.FailProjection.html#apply%28scalaz.validation.Validation%5B%28E%29%3D%3EF%2CAA%5D%29#AA" target="_self">AA</a>]
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Function application through the failing side of validation.</dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="hashCode%28%29"></a><dl>
+      <dt>
+        
+        <code>override</code>
+        <code>def</code>
+        <em>hashCode</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns a hash code value for the object.  
+    <p>
+    The default hashing algorithm is platform dependent.  
+    Note that it is allowed for two objects to have identical hash
+    codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+    equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+    degenerate implementation could always return <code>0</code>.
+    However, it is required that if two objects are equal
+    (<code>o1.equals(o2)</code> returns <code>true</code>) that they
+    have identical hash codes
+    (<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+    overriding this method, be sure to verify that the behavior is
+    consistent with the <code>equals</code> method.
+    </p>
+    <p></dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Returns</b></dt><dd>the hash code value for the object.      </p></dd></dl>
+    <hr></hr>
+<a name="toString%28%29"></a><dl>
+      <dt>
+        
+        <code>override</code>
+        <code>def</code>
+        <em>toString</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Returns a string representation of the object.  
+    <p>
+    The default representation is platform dependent.</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Returns</b></dt><dd>a string representation of the object.     </p></dd></dl>
+    <hr></hr>
+<a name="equals%28Any%29"></a><dl>
+      <dt>
+        
+        <code>override</code>
+        <code>def</code>
+        <em>equals</em>(<em>arg0</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>) : <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>This method is used to compare the receiver object (<code>this</code>)
+    with the argument object (<code>arg0</code>) for equivalence.  
+    
+    <p>
+    The default implementations of this method is an <a
+    href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+    relation</a>:
+      <ul>
+      <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>, 
+      <code>x.equals(x)</code> should return <code>true</code>.</li>
+      <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type 
+      <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only 
+      if <code>y.equals(x)</code> returns <code>true</code>.</li>
+      <li>It is transitive: for any instances 
+      <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+      if <code>x.equals(y)</code> returns <code>true</code> and 
+      <code>y.equals(z)</code> returns 
+      <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+    </ul>
+    </p>
+    <p>
+    If you override this method, you should verify that
+    your implementation remains an equivalence relation.
+    Additionally, when overriding this method it is often necessary to
+    override <code>hashCode</code> to ensure that objects that are
+    "equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+    hash to the same <a href="Int.html"><code>Int</code></a>
+    (<code>o1.hashCode.equals(o2.hashCode)</code>).</dd></dl>
+      <dl><dt style="margin:10px 0 0 20px;">
+        <b>Parameters</b></dt><dd><code>arg0 - </code>the object to compare against this object for equality.</dd><dt style="margin:10px 0 0 20px;">
+        <b>Returns</b></dt><dd><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.    </p></dd></dl>
+    <hr></hr>
+<a name="productPrefix"></a><dl>
+      <dt>
+        
+        <code>override</code>
+        <code>def</code>
+        <em>productPrefix</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>
+      </dt>
+      <dd></dd>
+    </dl><dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="" target="contentFrame" class="scala/Product">scala.Product</a>.<a href="#productPrefix" target="contentFrame" class="scala/Product">scala.Product.productPrefix</a>
+        </dd>
+      </dl><hr></hr>
+<a name="productArity"></a><dl>
+      <dt>
+        
+        <code>override</code>
+        <code>def</code>
+        <em>productArity</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>
+      </dt>
+      <dd></dd>
+    </dl><dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="" target="contentFrame" class="scala/Product">scala.Product</a>.<a href="#productArity" target="contentFrame" class="scala/Product">scala.Product.productArity</a>
+        </dd>
+      </dl><hr></hr>
+<a name="productElement%28Int%29"></a><dl>
+      <dt>
+        
+        <code>override</code>
+        <code>def</code>
+        <em>productElement</em>(<em>arg0</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>) : <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+      </dt>
+      <dd></dd>
+    </dl><dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="" target="contentFrame" class="scala/Product">scala.Product</a>.<a href="#productElement" target="contentFrame" class="scala/Product">scala.Product.productElement</a>
+        </dd>
+      </dl><hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scalaz 3.5</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>
