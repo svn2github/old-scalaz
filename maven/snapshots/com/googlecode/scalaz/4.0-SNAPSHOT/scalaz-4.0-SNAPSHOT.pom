@@ -65,9 +65,8 @@
         </dependency>
     </dependencies>
     <build>
-        <!-- Should be src/main/scala, but need to hide the svn:externals from this build. -->
-        <sourceDirectory>src/main/scala/scalaz</sourceDirectory>
-        <testSourceDirectory>src/test/scala/scalaz</testSourceDirectory>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -78,7 +77,7 @@
                         <jvmArg>-Xmx300M</jvmArg>
                     </jvmArgs>
                     <sendJavaToScalac>false</sendJavaToScalac>
-                    <sourceDir>src/main/scala/scalaz</sourceDir>
+                    <sourceDir>src/main/scala</sourceDir>
                 </configuration>
                 <executions>
                     <execution>
