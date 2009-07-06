@@ -74,7 +74,7 @@
                 <configuration>
                     <scalaVersion>${scala.version}</scalaVersion>
                     <jvmArgs>
-                        <jvmArg>-Xmx300M</jvmArg>
+                        <jvmArg>-Xmx900M</jvmArg>
                     </jvmArgs>
                     <sendJavaToScalac>false</sendJavaToScalac>
                     <sourceDir>src/main/scala</sourceDir>
@@ -87,6 +87,26 @@
                             <goal>add-source</goal>
                             <goal>compile</goal>
                         </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-xray</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <displayCmd>true</displayCmd>
+                            <args>
+                                <arg>-P:sxr:base-directory:src/main/scala</arg>
+                            </args>
+                            <compilerPlugins>
+                                <compilerPlugin>
+                                    <groupId>org.scala-tools.sxr</groupId>
+                                    <artifactId>sxr_2.7.5</artifactId>
+                                    <version>0.2.1</version>
+                                </compilerPlugin>
+                            </compilerPlugins>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
