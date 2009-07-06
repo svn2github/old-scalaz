@@ -78,7 +78,9 @@ object Index {
       k
     }
   }
+}
 
+object IndexScalaCheck {
   import org.scalacheck.Constraint
 
   implicit val ConstraintIndex = new Index[Constraint] {

@@ -91,7 +91,9 @@ object Each {
       }
     }
   }
+}
 
+object EachScalacheck { 
   import org.scalacheck.Constraint
 
   implicit val ConstraintEach = new Each[Constraint] {

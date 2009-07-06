@@ -86,7 +86,9 @@ object Length {
       n
     }
   }
+}
 
+object LengthScalaCheck {
   import org.scalacheck.Constraint
 
   implicit val ConstraintLength = new Length[Constraint] {

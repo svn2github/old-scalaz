@@ -94,8 +94,15 @@ object Pointed {
   implicit val JavaLinkedBlockingQueuePointed = pointed[LinkedBlockingQueue]
 
   implicit val JavaSynchronousQueuePointed = pointed[SynchronousQueue]
+}
 
+object PointedScalaCheck {
   import org.scalacheck.{Gen, Arbitrary}
+  import Pointed._
+  import Scalaz._
+  import ScalazScalaCheck._
+  import FunctorScalaCheck._
+  import PureScalaCheck._
 
   implicit val GenPointed = pointed[Gen]
 

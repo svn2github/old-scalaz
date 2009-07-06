@@ -247,7 +247,9 @@ object Bind {
       a
     }
   }
+}
 
+object BindScalaCheck {
   import org.scalacheck.{Gen, Arbitrary}
 
   implicit val GenBind: Bind[Gen] = new Bind[Gen] {

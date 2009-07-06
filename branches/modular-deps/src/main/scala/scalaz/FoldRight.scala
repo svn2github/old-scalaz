@@ -105,7 +105,9 @@ object FoldRight {
       IterableFoldRight.foldRight(i, b, f)
     }
   }
+}
 
+object FoldRightScalaCheck {
   import org.scalacheck.Constraint
 
   implicit val ConstraintFoldRight = new FoldRight[Constraint] {

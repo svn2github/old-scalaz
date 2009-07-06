@@ -249,9 +249,14 @@ object Functor {
       a
     }
   }
+}
 
+object FunctorScalaCheck {
   import org.scalacheck.{Gen, Arbitrary, Constraint}
-  import Constraint.{Pos, Neg, Alpha, Numeric, AlphaNum, Small, Large}
+  import Functor._
+  import Scalaz._
+  import ScalazScalaCheck._
+  import Constraint.{Pos, Neg, Alpha, Numeric, AlphaNum, Small, Large} 
 
   implicit val GenFunctor: Functor[Gen] = new Functor[Gen] {
     def fmap[A, B](r: Gen[A], f: A => B) = r map f

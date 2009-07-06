@@ -45,7 +45,9 @@ object Copure {
   implicit val PromiseCopure = new Copure[Promise] {
     def copure[A](a: Promise[A]) = a.get
   }
+}
 
+object CopureScalaCheck {
   import org.scalacheck.Constraint
 
   implicit val ConstraintCopure = new Copure[Constraint] {

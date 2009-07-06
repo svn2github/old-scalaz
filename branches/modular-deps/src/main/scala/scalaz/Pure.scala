@@ -252,7 +252,9 @@ object Pure {
       k
     }
   }
+}
 
+object PureScalaCheck {
   import org.scalacheck.{Gen, Arbitrary}
 
   implicit val GenPure: Pure[Gen] = new Pure[Gen] {

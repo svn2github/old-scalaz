@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.googlecode</groupId>
     <artifactId>scalaz</artifactId>
-    <version>4.0-SNAPSHOT</version>
+    <version>4.0-modular-SNAPSHOT</version>
     <name>scalaz</name>
     <properties>
         <scala.version>2.7.5</scala.version>
@@ -44,7 +44,6 @@
             <artifactId>scala-compiler</artifactId>
             <version>${scala.version}</version>
         </dependency>
-        <!-- Uses released versions of these dependencies, rather than the building the svn:externals -->
         <dependency>
             <groupId>org.functionaljava</groupId>
             <artifactId>fj</artifactId>
@@ -66,8 +65,8 @@
     </dependencies>
     <build>
         <!-- Should be src/main/scala, but need to hide the svn:externals from this build. -->
-        <sourceDirectory>src/main/scala/scalaz</sourceDirectory>
-        <testSourceDirectory>src/test/scala/scalaz</testSourceDirectory>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -78,7 +77,7 @@
                         <jvmArg>-Xmx300M</jvmArg>
                     </jvmArgs>
                     <sendJavaToScalac>false</sendJavaToScalac>
-                    <sourceDir>src/main/scala/scalaz</sourceDir>
+                    <sourceDir>src/main/scala</sourceDir>
                 </configuration>
                 <executions>
                     <execution>

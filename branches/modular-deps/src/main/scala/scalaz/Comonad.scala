@@ -1,6 +1,7 @@
 package scalaz
 
 
+
 trait Comonad[W[_]] extends Copointed[W] with Cojoin[W] {
   def cobind[A, B](a: W[A], f: W[A] => B) : W[B] = fmap(cojoin(a), f)
 }
@@ -30,8 +31,16 @@ object Comonad {
 
   import concurrent.Promise
   implicit val PromiseComonad = comonad[Promise]
+}
 
+object ComonadScalaCheck {
   import org.scalacheck.Constraint
+  import Comonad._
+  import Scalaz._
+  import ScalazScalaCheck._
+  import CojoinScalaCheck._
+  import ComonadScalaCheck._
+  import CopointedScalaCheck._
 
   implicit val ConstraintComonad = comonad[Constraint]
 }

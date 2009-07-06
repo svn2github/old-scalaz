@@ -59,7 +59,9 @@ object Cojoin {
   implicit val PromiseCojoin: Cojoin[Promise] = new Cojoin[Promise] {
     def cojoin[A](a: Promise[A]) = Promise.promise(a)(a.strategy)
   }
+}
 
+object CojoinScalaCheck {
   import org.scalacheck.Constraint
   import Constraint.{Pos, Neg, Alpha, Numeric, AlphaNum, Small, Large}
 

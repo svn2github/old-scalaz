@@ -96,7 +96,9 @@ object FoldLeft {
       x
     }
   }
+}
 
+object FoldLeftScalaCheck {
   import org.scalacheck.Constraint
 
   implicit val ConstraintFoldLeft = new FoldLeft[Constraint] {

@@ -152,8 +152,13 @@ object Semigroup {
     k addAll b
     k
   })
+}
 
+object SemigroupScalaCheck {
   import org.scalacheck.{Gen, Arbitrary}
+  import Semigroup._
+  import Scalaz._
+  import ScalazScalaCheck._
 
   implicit def GenSemigroup[A](implicit s: Semigroup[A]) = semigroup[Gen[A]]((a, b) => Gen(p => a(p) |+| (b apply p)))
 
