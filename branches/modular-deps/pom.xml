@@ -76,6 +76,7 @@
                     <jvmArgs>
                         <jvmArg>-Xmx900M</jvmArg>
                     </jvmArgs>
+                    <displayCmd>true</displayCmd>                    
                     <sendJavaToScalac>false</sendJavaToScalac>
                     <sourceDir>src/main/scala</sourceDir>
                 </configuration>
@@ -95,7 +96,6 @@
                             <goal>compile</goal>
                         </goals>
                         <configuration>
-                            <displayCmd>true</displayCmd>
                             <args>
                                 <arg>-P:sxr:base-directory:src/main/scala</arg>
                             </args>

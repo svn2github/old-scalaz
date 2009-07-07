@@ -95,16 +95,3 @@ object Applicative {
 
   implicit val JavaSynchronousQueueApplicative = applicative[SynchronousQueue]
 }
-
-object ApplicativeScalaCheck {
-  import org.scalacheck.{Gen, Arbitrary}
-  import Applicative._
-  import Scalaz._
-  import ScalazScalaCheck._
-  import PureScalaCheck._
-  import ApplyScalaCheck._
-
-  implicit val GenApplicative = applicative[Gen]
-
-  implicit val ArbitraryApplicative = applicative[Arbitrary]
-}

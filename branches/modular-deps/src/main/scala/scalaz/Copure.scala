@@ -46,11 +46,3 @@ object Copure {
     def copure[A](a: Promise[A]) = a.get
   }
 }
-
-object CopureScalaCheck {
-  import org.scalacheck.Constraint
-
-  implicit val ConstraintCopure = new Copure[Constraint] {
-    def copure[A](a: Constraint[A]) = a.unbox
-  }
-}

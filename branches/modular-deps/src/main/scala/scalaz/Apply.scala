@@ -129,16 +129,3 @@ object Apply {
 
   implicit val JavaSynchronousQueueApply = FunctorBindApply[SynchronousQueue]
 }
-
-object ApplyScalaCheck {
-  import org.scalacheck.{Gen, Arbitrary}
-  import Apply._
-  import Scalaz._
-  import ScalazScalaCheck._
-  import FunctorScalaCheck._
-  import BindScalaCheck._
-
-  implicit val GenApply = FunctorBindApply[Gen]
-
-  implicit val ArbitraryApply = FunctorBindApply[Arbitrary]
-}

@@ -93,16 +93,3 @@ object Monad {
 
   implicit val JavaSynchronousQueueMonad = monad[SynchronousQueue]
 }
-
-object MonadScalaCheck {
-  import org.scalacheck.{Gen, Arbitrary}
-  import Monad._
-  import Scalaz._
-  import ScalazScalaCheck._
-  import BindScalaCheck._
-  import PureScalaCheck._
-
-  implicit val GenMonad = monad[Gen]
-
-  implicit val ArbitraryMonad = monad[Arbitrary]
-}
