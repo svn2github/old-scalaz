@@ -2,8 +2,6 @@ import sbt._
 import java.util.jar.Attributes.Name._
 
 final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
-  val servlet = "javax.servlet" % "servlet-api" % "2.5"
-  val scalacheck = "org.scala-tools.testing" % "scalacheck" % "1.5"
 
   override def compileOrder = CompileOrder.JavaThenScala
 
