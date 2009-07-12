@@ -1,6 +1,6 @@
 package scalaz.scalacheck
 
-object Applicative {
+trait Applicative {
   import org.scalacheck.{Gen, Arbitrary}
   import Scalaz._
   import scalaz.Applicative._

@@ -2,6 +2,8 @@ import sbt._
 import java.util.jar.Attributes.Name._
 
 final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
+  val scalazSnapshots = "scalaz-snapshots" at "http://scalaz.googlecode.com/svn/maven/snapshots"
+  val scalazReleases = "scalaz-releases" at "http://scalaz.googlecode.com/svn/maven/releases"
 
   override def compileOrder = CompileOrder.JavaThenScala
 

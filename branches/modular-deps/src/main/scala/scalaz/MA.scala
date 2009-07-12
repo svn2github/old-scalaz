@@ -4,6 +4,7 @@ sealed trait MA[M[_], A] {
   val v: M[A]
 
   import Scalaz._
+  import ScalazScalaCheck._
 
   def map[B](f: A => B)(implicit t: Functor[M]) = t.fmap(v, f)
 
@@ -34,7 +35,7 @@ sealed trait MA[M[_], A] {
     a(a(a(f.fmap(v, z), b), c), d)
 
   def liftA[B, C, D, E, F](b: M[B], c: M[C], d: M[D], e: M[E], z: A => B => C => D =>
-      E => F)(implicit f: Functor[M], a: Apply[M]) =
+          E => F)(implicit f: Functor[M], a: Apply[M]) =
     a(a(a(a(f.fmap(v, z), b), c), d), e)
 
   def <<*>>[B](b: M[B])(implicit f: Functor[M], a: Apply[M]) = liftA(b, a => (b: B) => (a, b))
@@ -42,10 +43,10 @@ sealed trait MA[M[_], A] {
   def <<*>>[B, C](b: M[B], c: M[C])(implicit f: Functor[M], a: Apply[M]) = liftA(b, c, a => (b: B) => (c: C) => (a, b, c))
 
   def <<*>>[B, C, D](b: M[B], c: M[C], d: M[D])(implicit f: Functor[M], a: Apply[M]) = liftA(b, c, d, a => (b: B) => (c: C)
-      => (d: D) => (a, b, c, d))
+          => (d: D) => (a, b, c, d))
 
   def <<*>>[B, C, D, E](b: M[B], c: M[C], d: M[D], e: M[E])(implicit f: Functor[M], a: Apply[M]) = liftA(b, c, d, e, a =>
-      (b: B) => (c: C) => (d: D) => (e: E) => (a, b, c, d, e))
+          (b: B) => (c: C) => (d: D) => (e: E) => (a, b, c, d, e))
 
   def >>=[B](f: A => M[B])(implicit b: Bind[M]) = b.bind(v, f)
 
@@ -137,7 +138,7 @@ sealed trait MA[M[_], A] {
   def empty(implicit r: FoldRight[M]) = foldr[Boolean](true, (_, _) => false)
 
   def splitWith(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Option[Boolean])]((Nil, None), (
-      a, b) => {
+          a, b) => {
     val pa = p(a)
     (b match {
       case (_, None) => List(List(a))
@@ -146,7 +147,7 @@ sealed trait MA[M[_], A] {
   })._1
 
   def selectSplit(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Boolean)]((Nil, false), (a, xb
-      ) => xb match {
+          ) => xb match {
     case (x, b) => {
       val pa = p(a)
       (if (pa) if (b) (a :: x.head) :: x.tail else List(a) :: x else x, pa)
