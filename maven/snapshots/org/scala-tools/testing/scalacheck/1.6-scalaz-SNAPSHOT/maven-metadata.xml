@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.scala-tools.testing</groupId>
+  <artifactId>scalacheck</artifactId>
+  <version>1.6-scalaz-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20090712190605</lastUpdated>
+  </versioning>
+</metadata>
