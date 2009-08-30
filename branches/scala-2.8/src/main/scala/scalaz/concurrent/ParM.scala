@@ -1,5 +1,7 @@
 package scalaz.concurrent
 
+import scalaz._
+
 trait ParM[M[_]] {
   def apply[A](as: M[() => A])(implicit m: Functor[M], s: Strategy[A]): () => M[A] = {
     val v = m.fmap(as, s)

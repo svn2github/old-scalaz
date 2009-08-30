@@ -6,15 +6,15 @@ trait Zip[F[_]] {
   import Scalaz._
   import MA._
   def zipWith[A, B, C](h: (A, B) => C, a: F[A], b: F[B])(implicit f: Functor[F]): F[C] = {
-    def map[M[_], X, Y](implicit t: Functor[M]) = (g: X => Y) => (m: M[X]) => ma[M](m).map(g)
-    (map[PartialApply1Of2[Function1, F[A]]#Apply, (F[B] => F[(A, B)]), (F[B] => F[C])]
-        compose map[PartialApply1Of2[Function1, F[B]]#Apply, F[(A, B)], F[C]]
-        compose map[F, (A, B), C])(h.tupled)((zip(_: F[A], _: F[B])).curry)(a)(b)
+    error("2.8 compiler can't handle this")
+//    def map[M[_], X, Y](implicit t: Functor[M]): ((X=>Y) => (M[X]) => M[Y]) = (g: X => Y) => (m: M[X]) => ma[M](m).map(g
+//    (map[PartialApply1Of2[Function1, F[A]]#Apply, (F[B] => F[(A, B)]), (F[B] => F[C])]
+//        compose map[PartialApply1Of2[Function1, F[B]]#Apply, F[(A, B)], F[C]]
+//        compose map[F, (A, B), C])(h.tupled)((zip(_: F[A], _: F[B])).curry)(a)(b)
   }
 
   def zipWith[A, B, C, D](h: (A, B, C) => D, as: F[A], bs: F[B], cs: F[C])(implicit f: Functor[F]): F[D] =
     zipWith((ab: (A, B), c: C) => h(ab._1, ab._2, c), zip(as, bs), cs)
-
 }
 
 object Zip {
@@ -81,7 +81,7 @@ object Zip {
 
   implicit val OptionZip = applicativeZip[Option]
 
-  implicit val ArrayZip = new Zip[Array] {
+  implicit object ArrayZip extends Zip[Array] {
     def zip[A, B](a: Array[A], b: Array[B]): Array[(A, B)] = a.zip(b)
   }
 

@@ -27,7 +27,7 @@ object Plus {
     def plus[A](a1: Option[A], a2: => Option[A]) = a1 orElse a2
   }
 
-  implicit val ArrayPlus = new Plus[Array] {
+  implicit object ArrayPlus extends Plus[Array] {
     def plus[A](a1: Array[A], a2: => Array[A]) = a1 ++ a2
   }
 
@@ -55,7 +55,7 @@ object Plus {
     def plus[A](a1: Validation[X, A], a2: => Validation[X, A]) = a1 match {
       case Success(_) => a1
       case Failure(_) => a2 match {
-        case Success() => a2
+        case Success(_) => a2
         case Failure(_) => a1
       }
     }

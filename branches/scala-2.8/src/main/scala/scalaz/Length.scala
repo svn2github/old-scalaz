@@ -64,7 +64,7 @@ object Length {
   implicit val IterableLength: Length[Iterable] = new Length[Iterable] {
     def len[A](a: Iterable[A]) = {
       var n = 0
-      val i = a.elements
+      val i = a.iterator
       while(i.hasNext) {
         n = n + 1
         i.next

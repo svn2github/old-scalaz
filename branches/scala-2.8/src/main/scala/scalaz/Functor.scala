@@ -85,19 +85,19 @@ object Functor {
     def fmap[A, B](r: (R, S, T, U, V, W) => A, f: A => B) = (t1: R, t2: S, t3: T, t4: U, t5: V, t6: W) => f(r(t1, t2, t3, t4, t5, t6))
   }
 
-  implicit val ListFunctor = new Functor[List] {
+  implicit object ListFunctor extends Functor[List] {
     def fmap[A, B](r: List[A], f: A => B) = r map f
   }
 
-  implicit val StreamFunctor = new Functor[Stream] {
+  implicit object StreamFunctor extends Functor[Stream] {
     def fmap[A, B](r: Stream[A], f: A => B) = r map f
   }
 
-  implicit val OptionFunctor = new Functor[Option] {
+  implicit object OptionFunctor extends Functor[Option] {
     def fmap[A, B](r: Option[A], f: A => B) = r map f
   }
 
-  implicit val ArrayFunctor = new Functor[Array] {
+  implicit object ArrayFunctor extends Functor[Array] {
     def fmap[A, B](r: Array[A], f: A => B) = r map f
   }
 
@@ -123,7 +123,7 @@ object Functor {
     }).fail
   }
 
-  implicit val ZipperFunctor = new Functor[Zipper] {
+  implicit object ZipperFunctor extends Functor[Zipper] {
     def fmap[A, B](z: Zipper[A], f: A => B) = Zipper.zipper(z.lefts map f, f(z.focus), z.rights map f)
   }
 

@@ -31,7 +31,15 @@ object Traverse {
   }
 
   implicit val StreamTraverse: Traverse[Stream] = new Traverse[Stream] {
-    def traverse[F[_], A, B](f: A => F[B], as: Stream[A])(implicit a: Applicative[F]): F[Stream[B]] = as.foldr[F[Stream[B]]](a.pure(Stream.empty), (x, ys) => a(a.fmap(f(x), (a: B) => (b: Stream[B]) => Stream.cons(a, b)), ys))
+    def traverse[F[_], A, B](f: A => F[B], as: Stream[A])(implicit a: Applicative[F]): F[Stream[B]] = {
+      // TODO extra type annotations required here w/ scala 2.8. Extract a minimal test case and submit a
+      //      bug against scalac.
+      val f1 : ((A, => F[Stream[B]]) => F[Stream[B]]) = (x, ys) => {
+        val fmapResult: F[Stream[B] => Stream[B]] = a.fmap(f(x), (a: B) => (b: Stream[B]) => Stream.cons(a, b))
+        a(fmapResult, ys)
+      }
+      as.foldr[F[Stream[B]]](a.pure(Stream.empty), f1)
+    }
   }
 
   implicit val OptionTraverse: Traverse[Option] = new Traverse[Option] {
@@ -44,6 +52,7 @@ object Traverse {
 
   import concurrent.Promise
   import concurrent.Promise._
+
   implicit val PromiseTraverse: Traverse[Promise] = new Traverse[Promise] {
     def traverse[F[_], A, B](f: A => F[B], ta: Promise[A])(implicit a: Applicative[F]): F[Promise[B]] =
       a.fmap(f(ta.get), promise(_: B)(ta.strategy))

@@ -59,8 +59,11 @@ sealed trait Identity[A] {
 
   import StreamW._
   def unfoldTree[B](f: A => (B, () => Stream[A])): Tree[B] = f(value) match {
-    case (a, bs) => Tree.node(a, bs.apply.unfoldForest(f))
+    case (a, bs) => {
+      Tree.node(a, bs.apply().unfoldForest(f))
+    }
   }
+
 
   def unfoldTreeM[B, M[_]](f: A => M[(B, Stream[A])])(implicit m: Monad[M]): M[Tree[B]] = {
     m.bind(f(value), (abs: (B, Stream[A])) =>

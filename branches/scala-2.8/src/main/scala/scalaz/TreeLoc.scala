@@ -14,33 +14,33 @@ sealed trait TreeLoc[+A] {
   import TreeLoc._
   def parent = parents match {
     case Stream.cons((pls, v, prs), ps) => Some(loc(node(v, combChildren(lefts, tree, rights)), pls, prs, ps))
-    case Stream.empty => None
+    case Stream.Empty => None
   }
 
   def root: TreeLoc[A] = parent.some(_.root).none(this)
 
   def left = lefts match {
-    case Stream.cons(t, ts) => Some(loc(t, ts, tree lazy_:: rights, parents))
-    case Stream.empty => None
+    case Stream.cons(t, ts) => Some(loc(t, ts, tree #:: rights, parents))
+    case Stream.Empty => None
   }
 
   def right = rights match {
-    case Stream.cons(t, ts) => Some(loc(t, tree lazy_:: lefts, ts, parents))
-    case Stream.empty => None
+    case Stream.cons(t, ts) => Some(loc(t, tree #:: lefts, ts, parents))
+    case Stream.Empty => None
   }
 
   def firstChild = tree.subForest match {
     case Stream.cons(t, ts) => Some(loc(t, Stream.empty, ts, downParents))
-    case Stream.empty => None
+    case Stream.Empty => None
   }
 
   def lastChild = tree.subForest.reverse match {
     case Stream.cons(t, ts) => Some(loc(t, ts, Stream.empty, downParents))
-    case Stream.empty => None
+    case Stream.Empty => None
   }
 
   def getChild(n: Int) =
-    for (val lr <- splitChildren(Stream.empty, tree.subForest, n)) {
+    for (lr <- splitChildren(Stream.empty, tree.subForest, n)) {
       val ls = lr._1
       loc(ls.head, ls.tail, lr._2, downParents)
     }
@@ -51,7 +51,7 @@ sealed trait TreeLoc[+A] {
         case (acc, Stream.cons(x, xs)) => if (p(x)) Some((acc, x, xs)) else split(Stream.cons(x, acc), xs)
         case _ => None
       }
-    for (val ltr <- split(Stream.empty, tree.subForest)) yield loc(ltr._2, ltr._1, ltr._3, downParents)
+    for (ltr <- split(Stream.empty, tree.subForest)) yield loc(ltr._2, ltr._1, ltr._3, downParents)
   }
 
   def toTree = root.tree
@@ -95,11 +95,11 @@ sealed trait TreeLoc[+A] {
     case Stream.cons(t, ts) => Some(loc(t, lefts, ts, parents))
     case _ => lefts match {
       case Stream.cons(t, ts) => Some(loc(t, ts, rights, parents))
-      case _ => for (val loc1 <- parent) yield loc1.modifyTree((t: Tree[A]) => node(t.rootLabel, Stream.empty))
+      case _ => for (loc1 <- parent) yield loc1.modifyTree((t: Tree[A]) => node(t.rootLabel, Stream.empty))
     }
   }
 
-  private def downParents = (lefts, tree.rootLabel, rights) lazy_:: parents
+  private def downParents = (lefts, tree.rootLabel, rights) #:: parents
 }
 
 object TreeLoc {
@@ -116,7 +116,7 @@ object TreeLoc {
   }
 
   private def combChildren[A](ls: Stream[A], t: A, rs: Stream[A]) =
-    ls.foldl(t lazy_:: rs, ((_: A) lazy_:: (_: Stream[A])).flip)
+    ls.foldl(t #:: rs, ((_: A) #:: (_: Stream[A])).flip)
 
   private def splitChildren[A](acc: Stream[A], xs: Stream[A], n: Int): Option[(Stream[A], Stream[A])] =
     (acc, xs, n) match {

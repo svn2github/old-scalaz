@@ -1,10 +1,10 @@
 package scalaz.memo
 
+import scalaz._
 import scala.collection.mutable.HashMap
-import scala.collection.immutable.EmptyMap
 import scala.collection.immutable.ListMap
 import scala.collection.immutable.TreeMap
-import scala.collection.immutable.UnbalancedTreeMap
+import collection.immutable.Map.EmptyMap
 
 trait Memo[K, V] {
   def apply(z: K => V): K => V
@@ -16,11 +16,13 @@ object Memo {
   def memo[K, V](f: (K => V) => K => V) = new Memo[K, V] {
     def apply(z: K => V) = f(z)
   }
-  
+
   def nilMemo[K, V] = memo[K, V](z => z)
 
   import MutableAssociation._
   import ImmutableAssociation._
+
+  def arrayMemo[K, V](size: Int) = ArrayMutableAssociation.comemo(new Array[V](size))
 
   def mutableHashMapMemo[K, V] = MapMutableAssociation.comemo(new HashMap[K, V])
 
@@ -30,7 +32,13 @@ object Memo {
 
   def immutableListMapMemo[K, V] = ImmutableMapAssociation.comemo(new ListMap[K, V])
 
-  def immutableListMapMemo[K <% Ordered[K], V] = ImmutableMapAssociation.comemo(new TreeMap[K, V])
+  def immutableTreeMapMemo[K <% Ordered[K], V]: Memo[K, V] = {
+    val ordering = new scala.Ordering[K] {
+      def compare(x: K, y: K) = x.compare(y);
+    }
+    ImmutableMapAssociation.comemo(new TreeMap[K, V]()(ordering))
+  }
 
-  def immutableUnbalancedTreeMapMemo[K <% Ordered[K], V] = ImmutableMapAssociation.comemo(new UnbalancedTreeMap[K, V])
+  // todo 2.8 UnbalancedTreeMap not yet available
+  //  def immutableUnbalancedTreeMapMemo[K <% Ordered[K], V] = ImmutableMapAssociation.comemo(new UnbalancedTreeMap[K, V])
 }

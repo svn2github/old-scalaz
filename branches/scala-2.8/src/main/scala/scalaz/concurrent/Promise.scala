@@ -1,5 +1,6 @@
 package scalaz.concurrent
 
+import scalaz._
 import java.util.concurrent.{ConcurrentLinkedQueue, CountDownLatch}
 import Effect._
 import Actor._

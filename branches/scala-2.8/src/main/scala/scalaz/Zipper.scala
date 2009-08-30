@@ -19,7 +19,7 @@ sealed trait Zipper[+A] {
    * Possibly moves to next element to the right of focus.
    */
   def next = rights match {
-    case Stream.empty => None
+    case Stream.Empty => None
     case Stream.cons(r, rs) => Some(zipper(Stream.cons(focus, lefts), r, rs))
   }
 
@@ -32,7 +32,7 @@ sealed trait Zipper[+A] {
    * Possibly moves to the previous element to the left of focus.
    */
   def previous = lefts match {
-    case Stream.empty => None
+    case Stream.Empty => None
     case Stream.cons(l, ls) => Some(zipper(ls, l, Stream.cons(focus, rights)))
   }
 
@@ -66,9 +66,9 @@ sealed trait Zipper[+A] {
    * focus is moved to the right.
    */
   def deleteLeft = (lefts, rights) match {
-    case (Stream.empty, Stream.empty) => None
+    case (Stream.Empty, Stream.Empty) => None
     case (Stream.cons(l, ls), rs) => Some(zipper(ls, l, rs))
-    case (Stream.empty, Stream.cons(r, rs)) => Some(zipper(Stream.empty, r, rs))
+    case (Stream.Empty, Stream.cons(r, rs)) => Some(zipper(Stream.empty, r, rs))
   }
 
   /**
@@ -76,9 +76,9 @@ sealed trait Zipper[+A] {
    * focus is moved to the left.
    */
   def deleteRight = (lefts, rights) match {
-    case (Stream.empty, Stream.empty) => None
+    case (Stream.Empty, Stream.Empty) => None
     case (Stream.cons(l, ls), rs) => Some(zipper(ls, l, rs))
-    case (Stream.empty, Stream.cons(r, rs)) => Some(zipper(Stream.empty, r, rs))
+    case (Stream.Empty, Stream.cons(r, rs)) => Some(zipper(Stream.empty, r, rs))
   }
 
   /**
@@ -101,7 +101,7 @@ sealed trait Zipper[+A] {
   /**
    * Pairs each element with a boolean indicating whether that element has focus.
    */
-  def withFocus = zipper(lefts.zip(Stream.const(false)), (focus, true), rights.zip(Stream.const(false)))
+  def withFocus = zipper(lefts.zip(Stream.continually(false)), (focus, true), rights.zip(Stream.continually(false)))
 
   /**
    * Moves focus to the nth element of the zipper, or None if there is no such element.
@@ -165,8 +165,8 @@ sealed trait Zipper[+A] {
    * Moves focus to the next element. If the last element is currently focused, loop to the first element.
    */
   def nextC = (lefts, rights) match {
-    case (Stream.empty, Stream.empty) => this
-    case (_, Stream.empty) => {
+    case (Stream.Empty, Stream.Empty) => this
+    case (_, Stream.Empty) => {
       val xs = lefts.reverse
       zipper(rights, xs.head, xs.tail.append(Stream(focus)))
     }
@@ -177,8 +177,8 @@ sealed trait Zipper[+A] {
    * Moves focus to the previous element. If the first element is currently focused, loop to the last element.
    */
   def previousC = (lefts, rights) match {
-    case (Stream.empty, Stream.empty) => this
-    case (Stream.empty, _) => {
+    case (Stream.Empty, Stream.Empty) => this
+    case (Stream.Empty, _) => {
       val xs = rights.reverse
       zipper(xs.tail.append(Stream(focus)), xs.head, lefts)
     }
@@ -190,9 +190,9 @@ sealed trait Zipper[+A] {
    * focus is moved to the last element.
    */
   def deleteLeftC = (lefts, rights) match {
-    case (Stream.empty, Stream.empty) => None
+    case (Stream.Empty, Stream.Empty) => None
     case (Stream.cons(l, ls), rs) => Some(zipper(ls, l, rs))
-    case (Stream.empty, rs) => {
+    case (Stream.Empty, rs) => {
       val xs = rs.reverse
       Some(zipper(xs.tail, xs.head, Stream.empty))
     }
@@ -203,9 +203,9 @@ sealed trait Zipper[+A] {
    * focus is moved to the first element.
    */
   def deleteRightC = (lefts, rights) match {
-    case (Stream.empty, Stream.empty) => None
+    case (Stream.Empty, Stream.Empty) => None
     case (ls, Stream.cons(r, rs)) => Some(zipper(ls, r, rs))
-    case (ls, Stream.empty) => {
+    case (ls, Stream.Empty) => {
       val xs = ls.reverse
       Some(zipper(Stream.empty, xs.head, xs.tail))
     }

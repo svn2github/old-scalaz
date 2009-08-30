@@ -98,8 +98,8 @@ object Order {
   implicit def Function0Order[A](implicit oa: Order[A]) = order[Function0[A]](_.apply ?:? _.apply)
 
   implicit def IterableOrder[A](implicit oa: Order[A]): Order[Iterable[A]] = order((a1, a2) => {
-    val i1 = a1.elements
-    val i2 = a2.elements
+    val i1 = a1.iterator
+    val i2 = a2.iterator
     var b = true
     var r: Ordering = EQ
 

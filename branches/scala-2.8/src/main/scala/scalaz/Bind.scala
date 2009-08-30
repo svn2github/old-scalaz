@@ -95,19 +95,19 @@ object Bind {
     def bind[A, B](r: (R, S, T, U, V, W) => A, f: A => (R, S, T, U, V, W) => B) = (t1: R, t2: S, t3: T, t4: U, t5: V, t6: W) => f(r(t1, t2, t3, t4, t5, t6))(t1, t2, t3, t4, t5, t6)
   }
 
-  implicit val ListBind = new Bind[List] {
+  implicit object ListBind extends Bind[List] {
     def bind[A, B](r: List[A], f: A => List[B]) = r flatMap f
   }
 
-  implicit val StreamBind = new Bind[Stream] {
+  implicit object StreamBind extends Bind[Stream] {
     def bind[A, B](r: Stream[A], f: A => Stream[B]) = r flatMap f
   }
 
-  implicit val OptionBind = new Bind[Option] {
+  implicit object OptionBind extends Bind[Option] {
     def bind[A, B](r: Option[A], f: A => Option[B]) = r flatMap f
   }
 
-  implicit val ArrayBind = new Bind[Array] {
+  implicit object ArrayBind extends Bind[Array] {
     def bind[A, B](r: Array[A], f: A => Array[B]) = r flatMap f
   }
 

@@ -34,7 +34,7 @@ sealed trait BKTree[+A] {
 
   def values: List[A] = this match {
     case BKTreeEmpty => Nil
-    case BKTreeNode(v, _, c) => v :: c.values.toList.flatMap(_.values)
+    case BKTreeNode(v, _, c) => v :: c.valuesIterator.toList.flatMap(_.values)
   }
 
   def -?-[AA >: A](a: AA)(implicit m: MetricSpace[AA]): Boolean = this match {
@@ -60,7 +60,7 @@ sealed trait BKTree[+A] {
     case BKTreeEmpty => Nil
     case BKTreeNode(v, _, c) => {
       val d = (v: AA) <===> a
-      val k = subChildren(d, n).values.toList flatMap (_ |=| (a, n))
+      val k = subChildren(d, n).valuesIterator.toList flatMap (_ |=| (a, n))
       if(d <= n)
         v :: k
       else

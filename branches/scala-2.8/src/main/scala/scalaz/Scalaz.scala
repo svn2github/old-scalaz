@@ -194,7 +194,7 @@ object Scalaz {
 
   implicit def ListMA[A](a: List[A]) = ma[List](a)
 
-  implicit def StreamMA[A](a: Stream[A]) = ma[Stream](a)
+  implicit def StreamMA[A](a: Stream[A]): MA[Stream, A] = ma[Stream](a)
 
   implicit def OptionMA[A](a: Option[A]) = ma[Option](a)
 

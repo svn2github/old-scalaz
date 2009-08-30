@@ -1,5 +1,6 @@
 package scalaz.concurrent
 
+import scalaz._
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.ConcurrentLinkedQueue
 

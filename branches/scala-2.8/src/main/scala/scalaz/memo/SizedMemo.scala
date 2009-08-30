@@ -7,6 +7,8 @@
 
 package scalaz.memo
 
+import scalaz._
+
 /**
  * Memoisation within a given range or size.
  *
@@ -104,9 +106,9 @@ object SizedMemo {
    *
    * @return a sized memoisation technique.
    */
-  def immutableTreeMapSizedMemo = new SizedMemo[Int] {
-    override def m[V](n: Int) = Memo.immutableTreeMapMemo
-  }
+//  def immutableTreeMapSizedMemo = new SizedMemo[Int] {
+//    override def m[V](n: Int) = Memo.immutableTreeMapMemo
+//  }
 
 
   /**
@@ -114,7 +116,7 @@ object SizedMemo {
    *
    * @return a sized memoisation technique.
    */
-  def immutableUnbalancedTreeMapSizedMemo = new SizedMemo[Int] {
-    override def m[V](n: Int) = Memo.immutableUnbalancedTreeMapMemo
-  }
+//  def immutableUnbalancedTreeMapSizedMemo = new SizedMemo[Int] {
+//    override def m[V](n: Int) = Memo.immutableUnbalancedTreeMapMemo
+//  }
 }

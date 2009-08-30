@@ -40,7 +40,7 @@ sealed trait NonEmptyList[+A] {
   
   val list = head :: tail
 
-  val stream = Stream.cons(head, tail.projection)
+  val stream = Stream.cons(head, tail.toStream)
 
   def tails : NonEmptyList[NonEmptyList[A]] = tail match {
     case Nil => nel(this)

@@ -1,10 +1,12 @@
 package scalaz
 
+import collection.JavaConversions.JIterableWrapper
+
 sealed trait IterableW[+A] {
   val value: Iterable[A]
 
   def toJava[AA >: A]: java.lang.Iterable[AA] = new java.lang.Iterable[AA] {
-    val i = value.elements
+    val i = value.iterator
     def iterator = new java.util.Iterator[AA] {
       def hasNext = i.hasNext
       def next = i.next
@@ -21,12 +23,6 @@ object IterableW {
   implicit def IterableFrom[A](i: IterableW[A]) = i.value
 
   implicit def JavaIterableTo[A](i: java.lang.Iterable[A]): IterableW[A] = new IterableW[A] {
-    val value = new Iterable[A] {
-      val k = i.iterator
-      def elements = new Iterator[A] {
-        def hasNext = k.hasNext
-        def next = k.next
-      }
-    }
+    val value = JIterableWrapper(i)
   }
 }

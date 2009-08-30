@@ -7,7 +7,7 @@ sealed trait DList[A] {
 
   import DList._
 
-  def head = toList.firstOption
+  def head = toList.headOption
 
   def tail = toList match {
     case Nil => None

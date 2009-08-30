@@ -95,13 +95,7 @@ object FoldRight {
 
   implicit def JavaIterableFoldRight[A] = new FoldRight[java.lang.Iterable] {
     def foldRight[A, B](t: java.lang.Iterable[A], b: B, f: (A, => B) => B) = {
-      val i = new Iterable[A] {
-        def elements = new Iterator[A] {
-          val k = t.iterator
-          def hasNext = k.hasNext
-          def next = k.next
-        }
-      }
+      val i = scala.collection.JavaConversions.JIterableWrapper(t)
       IterableFoldRight.foldRight(i, b, f)
     }
   }
@@ -109,6 +103,8 @@ object FoldRight {
   import org.scalacheck.Constraint
 
   implicit val ConstraintFoldRight = new FoldRight[Constraint] {
-    def foldRight[A, B](t: Constraint[A], b: B, f: (A, => B) => B) = f(t.unbox, b)
+import collection.JavaConversions.JIterableWrapper
+
+def foldRight[A, B](t: Constraint[A], b: B, f: (A, => B) => B) = f(t.unbox, b)
   }
 }

@@ -1,5 +1,6 @@
 package scalaz.concurrent
 
+import scalaz._
 import java.util.concurrent.Callable
 
 object strategies {

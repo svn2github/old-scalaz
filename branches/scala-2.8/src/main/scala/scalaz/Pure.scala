@@ -94,7 +94,8 @@ object Pure {
   }
 
   implicit val ArrayPure = new Pure[Array] {
-    def pure[A](a: => A) = Array.make(1, a)
+    def pure[A](a: => A) = Array.fill(1)(a)
+
   }
 
   implicit def EitherLeftPure[X] = new Pure[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
