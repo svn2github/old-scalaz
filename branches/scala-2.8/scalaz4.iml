@@ -18,7 +18,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="scala-2.8.0.r18478-b20090814020235" level="application" />
+    <orderEntry type="library" name="scala-sdk-scalacheck" level="application" />
+    <orderEntry type="library" exported="" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.functionaljava:fj:2.19" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-tools.testing:scalacheck:1.5" level="project" />
     <orderEntry type="module-library">
       <library name="sbt">
         <CLASSES>
@@ -30,9 +33,6 @@
         <jarDirectory url="file://$MODULE_DIR$/project/boot/scala-2.7.5/sbt-0.5.2" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
-    <orderEntry type="library" name="Maven: org.functionaljava:fj:2.19" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-tools.testing:scalacheck:1.5" level="project" />
   </component>
 </module>
 

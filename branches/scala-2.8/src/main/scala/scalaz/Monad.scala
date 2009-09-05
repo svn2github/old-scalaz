@@ -68,7 +68,7 @@ object Monad {
   implicit val TreeMonad = monad[Tree]
 
   import concurrent._
-  implicit def PromiseMonad(implicit s: Strategy[Unit]) = monad[Promise]
+  implicit def PromiseMonad(implicit s: Strategy[Unit]) = monad[Promise](Bind.PromiseBind, Pure.PromisePure(s))
 
   import java.util._
   import java.util.concurrent._

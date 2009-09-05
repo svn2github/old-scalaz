@@ -93,9 +93,11 @@ object Pure {
     def pure[A](a: => A) = Some(a)
   }
 
-  implicit val ArrayPure = new Pure[Array] {
-    def pure[A](a: => A) = Array.fill(1)(a)
-
+  implicit object ArrayPure extends Pure[Array] {
+    def pure[A](a: => A) = error("Erasure sucks :(")
+    // todo need a class manifest of A to call Array.fill. Should we add this to Pure.pure, and then to all callers?
+    //      Remove support for Array altogether? Or something else?
+    //    def pure[A: ClassManifest](a: => A) = Array.fill(1)(a)
   }
 
   implicit def EitherLeftPure[X] = new Pure[PartialApply1Of2[Either.LeftProjection, X]#Flip] {

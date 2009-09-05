@@ -70,7 +70,7 @@ object Pointed {
   implicit val TreeLocPointed = pointed[TreeLoc]
 
   import concurrent._
-  implicit def PromisePointed(implicit s: Strategy[Unit]) = pointed[Promise]
+  implicit def PromisePointed(implicit s: Strategy[Unit]) = pointed[Promise](Functor.PromiseFunctor, Pure.PromisePure(s))
 
   import java.util._
   import java.util.concurrent._

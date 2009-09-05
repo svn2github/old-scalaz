@@ -8,10 +8,9 @@ final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
 
   override def compileOrder = CompileOrder.JavaThenScala
 
-  override def compileOptions = Verbose ::
-                                target(Target.Java1_5) ::
-                                Unchecked ::
-                                super.compileOptions.toList
+  override def compileOptions = target(Target.Java1_5) ::
+          Unchecked ::
+          super.compileOptions.toList
 
   override def packageOptions = ManifestAttributes((IMPLEMENTATION_TITLE, "Scalaz"), (IMPLEMENTATION_URL, "http://code.google.com/p/scalaz"), (IMPLEMENTATION_VENDOR, "The Scalaz Project"), (SEALED, "true")) :: Nil
 
@@ -33,10 +32,10 @@ final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
     private val compileMemoryOptions = Seq("-Xmx512M", "-Xss2M")
 
     private def compileDebugOptions = {
-      if (doFork.get.get)
-        Seq.empty
-      else
+      if (debugScalac.get.get)
         Seq("-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005")
+      else
+        Seq.empty
     }
   }) else super.fork
 }
