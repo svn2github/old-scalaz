@@ -67,12 +67,11 @@ sealed trait Zipper[+A] {
    * focus is moved to the right.
    */
   def deleteLeft: Option[Zipper[A]] = {
-    val cases = List[PartialFunction[(Stream[A], Stream[A]), Option[Zipper[A]]]](
+    (lefts, rights) `match` (
       {case (Stream.Empty, Stream.Empty) => None},
       {case (l #:: ls, rs) => Some(zipper(ls, l, rs))},
       {case (Stream.Empty, r #:: rs) => Some(zipper(Stream.empty, r, rs))}
-      )
-    (lefts, rights) `match` cases
+    )
   }
 
   /**
@@ -80,11 +79,11 @@ sealed trait Zipper[+A] {
    * focus is moved to the left.
    */
   def deleteRight: Option[Zipper[A]] = {
-    val cases = List[PartialFunction[(Stream[A], Stream[A]), Option[Zipper[A]]]](
-      {case (Stream.Empty, Stream.Empty) => None},
-      {case (l #:: ls, rs) => Some(zipper(ls, l, rs))},
-      {case (Stream.Empty, r #:: rs) => Some(zipper(Stream.empty, r, rs))})
-    (lefts, rights) `match` cases
+    (lefts, rights) `match` (
+        {case (Stream.Empty, Stream.Empty) => None},
+        {case (l #:: ls, rs) => Some(zipper(ls, l, rs))},
+        {case (Stream.Empty, r #:: rs) => Some(zipper(Stream.empty, r, rs))}
+    )
   }
 
   /**
@@ -171,32 +170,28 @@ sealed trait Zipper[+A] {
    * Moves focus to the next element. If the last element is currently focused, loop to the first element.
    */
   def nextC = {
-    val cases = List[PartialFunction[(Stream[A], Stream[A]), Zipper[A]]](
+    (lefts, rights) `match` (
       {case (Stream.Empty, Stream.Empty) => this},
-      {
-        case (_, Stream.Empty) => {
-          val xs = lefts.reverse
-          zipper(rights, xs.head, xs.tail.append(Stream(focus)))
-        }
-      },
-      {case (_, _) => tryNext})
-    (lefts, rights) `match` cases
+      {case (_, Stream.Empty) => {
+        val xs = lefts.reverse
+        zipper(rights, xs.head, xs.tail.append(Stream(focus)))
+      }},
+      {case (_, _) => tryNext}
+    )
   }
 
   /**
    * Moves focus to the previous element. If the first element is currently focused, loop to the last element.
    */
   def previousC = {
-    val cases = List[PartialFunction[(Stream[A], Stream[A]), Zipper[A]]](
+    (lefts, rights) `match` (
       {case (Stream.Empty, Stream.Empty) => this},
-      {
-        case (Stream.Empty, _) => {
-          val xs = rights.reverse
-          zipper(xs.tail.append(Stream(focus)), xs.head, lefts)
-        }
-      },
-      {case (_, _) => tryPrevious})
-    (lefts, rights) `match` cases
+      {case (Stream.Empty, _) => {
+        val xs = rights.reverse
+        zipper(xs.tail.append(Stream(focus)), xs.head, lefts)
+      }},
+      {case (_, _) => tryPrevious}
+    )
   }
 
   /**
@@ -204,16 +199,14 @@ sealed trait Zipper[+A] {
    * focus is moved to the last element.
    */
   def deleteLeftC = {
-    val cases = List[PartialFunction[(Stream[A], Stream[A]), Option[Zipper[A]]]](
+    (lefts, rights) `match` (
       {case (Stream.Empty, Stream.Empty) => None},
       {case (Stream.cons(l, ls), rs) => Some(zipper(ls, l, rs))},
-      {
-        case (Stream.Empty, rs) => {
-          val xs = rs.reverse
-          Some(zipper(xs.tail, xs.head, Stream.empty))
-        }
-      })
-    (lefts, rights) `match` cases
+      {case (Stream.Empty, rs) => {
+        val xs = rs.reverse
+        Some(zipper(xs.tail, xs.head, Stream.empty))
+      }}
+    )
   }
 
   /**
@@ -221,16 +214,14 @@ sealed trait Zipper[+A] {
    * focus is moved to the first element.
    */
   def deleteRightC = {
-    val cases = List[PartialFunction[(Stream[A], Stream[A]), Option[Zipper[A]]]](
+    (lefts, rights) `match` (
       {case (Stream.Empty, Stream.Empty) => None},
       {case (ls, Stream.cons(r, rs)) => Some(zipper(ls, r, rs))},
-      {
-        case (ls, Stream.Empty) => {
-          val xs = ls.reverse
-          Some(zipper(Stream.empty, xs.head, xs.tail))
-        }
-      })
-    (lefts, rights) `match` cases
+      {case (ls, Stream.Empty) => {
+        val xs = ls.reverse
+        Some(zipper(Stream.empty, xs.head, xs.tail))
+      }}
+    )
   }
 
   /**
@@ -239,19 +230,19 @@ sealed trait Zipper[+A] {
   def deleteC = deleteRightC
 
   /**
-   * Workaround for <a href="https://lampsvn.epfl.ch/trac/scala/ticket/2310">2310</a> is fixed.
+   * Workaround for <a href="https://lampsvn.epfl.ch/trac/scala/ticket/2310">2310</a>.
    */
   // todo remove once scalac bug is fixed!
-  trait Matchable[A] { 
-    def `match`[B](cases: Seq[PartialFunction[A, B]]): B
+  trait Matchable[A] {
+    def `match`[B](cases: PartialFunction[A, B]*): B
   }
-  
-  implicit def anyToMatchable[A](a: A): Matchable[A] = new Matchable[A]{
-    def `match`[B](cases: Seq[PartialFunction[A, B]]) = {
-      cases match {
+
+  implicit def anyToMatchable[A](a: A): Matchable[A] = new Matchable[A] {
+    def `match`[B](cases: PartialFunction[A, B]*) = {
+      cases.toList match {
         case Nil => throw new MatchError(a)
         case x :: _ if x.isDefinedAt(a) => x(a)
-        case _ :: xs => a `match` xs
+        case _ :: xs => a `match` (xs: _*)
       }
     }
   }
