@@ -1,6 +1,6 @@
-package scalaz.memo
+package scalaz
+package memo
 
-import scalaz._
 import scala.collection.immutable.Map
 
 trait ImmutableAssociation[T, K, V] {

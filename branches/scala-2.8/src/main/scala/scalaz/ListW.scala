@@ -33,7 +33,9 @@ sealed trait ListW[A] {
 
   // def dlist[A](as: List[A]): DList[A] = dlist(as ::: _)
 
-  def dlist = DList.dlist(value ::: (_: List[A])) 
+  def dlist = DList.dlist(value ::: (_: List[A]))
+
+  def break(p: A => Boolean): (List[A], List[A]) = value.span(!p(_))
 }
 
 object ListW {

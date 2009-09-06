@@ -1,6 +1,5 @@
-package scalaz.memo
-
-import scalaz._
+package scalaz
+package memo
 
 sealed trait Comemo[-T, K, V] {
   def apply(t: T): Memo[K, V]

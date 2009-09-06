@@ -1,6 +1,6 @@
-package scalaz.memo
+package scalaz
+package memo
 
-import scalaz._
 import scala.collection.mutable.Map
 
 trait MutableAssociation[-T, K, V] {

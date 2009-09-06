@@ -5,9 +5,8 @@
 // $LastChangedDate$
 
 
-package scalaz.memo
-
-import scalaz._
+package scalaz
+package memo
 
 /**
  * Memoisation within a given range or size.
