@@ -58,8 +58,8 @@ object SizedMemo {
    *
    * @return a sized memoisation technique.
    */
-  def arraySizedMemo = new SizedMemo[Int] {
-    override def m[V](n: Int) = Memo.arrayMemo(n)
+  def genericArraySizedMemo = new SizedMemo[Int] {
+    override def m[V](n: Int) = Memo.genericArrayMemo(n)
   }
 
   /**

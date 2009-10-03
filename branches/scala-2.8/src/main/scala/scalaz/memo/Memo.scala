@@ -1,10 +1,10 @@
 package scalaz
 package memo
 
-import scala.collection.mutable.HashMap
 import scala.collection.immutable.ListMap
 import scala.collection.immutable.TreeMap
 import collection.immutable.Map.EmptyMap
+import collection.mutable.{GenericArray, HashMap}
 
 trait Memo[K, V] {
   def apply(z: K => V): K => V
@@ -22,7 +22,7 @@ object Memo {
   import MutableAssociation._
   import ImmutableAssociation._
 
-  def arrayMemo[K, V](size: Int) = ArrayMutableAssociation.comemo(new Array[V](size))
+  def genericArrayMemo[K, V](size: Int) = GenericArrayMutableAssociation.comemo(new GenericArray[V](size))
 
   def mutableHashMapMemo[K, V] = MapMutableAssociation.comemo(new HashMap[K, V])
 

@@ -59,7 +59,7 @@ object FoldRight {
     def foldRight[A, B](t: ZipStream[A], b: B, f: (A, => B) => B): B = StreamFoldRight.foldRight(t.value, b, f)     
   }
 
-  implicit val ArrayFoldRight = new FoldRight[Array] {
+  implicit object ArrayFoldRight extends FoldRight[Array] {
     def foldRight[A, B](t: Array[A], b: B, f: (A, => B) => B) = t.foldRight(b)(f(_, _))
   }
 

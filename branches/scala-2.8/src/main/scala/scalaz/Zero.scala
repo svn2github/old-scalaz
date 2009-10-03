@@ -1,6 +1,7 @@
 package scalaz
 
 import concurrent.Strategy
+import collection.mutable.GenericArray
 
 trait Zero[+Z] {
   val zero: Z
@@ -69,7 +70,7 @@ object Zero {
 
   implicit def OptionZero[A] = zero[Option[A]](None)
 
-  implicit def ArrayZero[A] = zero(new Array[A](0))
+  implicit def GenericArrayZero[A] = zero(GenericArray[A]())
 
   implicit def EitherLeftZero[A, B](implicit za: Zero[A]) = zero[Either.LeftProjection[A, B]](Left(za.zero).left)
 

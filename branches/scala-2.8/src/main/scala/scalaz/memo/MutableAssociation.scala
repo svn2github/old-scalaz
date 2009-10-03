@@ -1,7 +1,7 @@
 package scalaz
 package memo
 
-import scala.collection.mutable.Map
+import collection.mutable.{GenericArray, Map}
 
 trait MutableAssociation[-T, K, V] {
   def apply(t: T, k: K): Option[V]
@@ -24,6 +24,11 @@ object MutableAssociation {
   implicit def ArrayMutableAssociation[V] = new MutableAssociation[Array[V], Int, V] {
     def apply(t: Array[V], k: Int) = if(t(k) == null) None else Some(t(k))
     def insert(t: Array[V], k: Int, v: V) = t(k) = v
+  }
+
+  implicit def GenericArrayMutableAssociation[V] = new MutableAssociation[GenericArray[V], Int, V] {
+    def apply(t: GenericArray[V], k: Int) = if(t(k) == null) None else Some(t(k))
+    def insert(t: GenericArray[V], k: Int, v: V) = t(k) = v
   }
   
   implicit def MapMutableAssociation[K, V] = new MutableAssociation[Map[K, V], K, V] {

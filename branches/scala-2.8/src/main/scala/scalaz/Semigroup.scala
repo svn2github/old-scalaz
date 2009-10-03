@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Semigroup[S] {
   def append(s1: S, s2: => S): S
 }
@@ -71,7 +73,7 @@ object Semigroup {
 
   implicit def OptionSemigroup[A] = semigroup[Option[A]]((a, b) => if (a.isDefined) a else b)
 
-  implicit def ArraySemigroup[A] = semigroup[Array[A]](_ ++ _)
+  implicit def GenericArraySemigroup[A] = semigroup[GenericArray[A]](_ ++ _)
 
   implicit def EitherLeftSemigroup[A, B] = semigroup[Either.LeftProjection[A, B]]((a, b) => if (a.e.isRight) a else b)
 
