@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Pointed[P[_]] extends Functor[P] with Pure[P]
 
 object Pointed {
@@ -53,7 +55,7 @@ object Pointed {
 
   implicit val OptionPointed = pointed[Option]
 
-  implicit val ArrayPointed = pointed[Array]
+  implicit val GenericArrayPointed = pointed[GenericArray]
 
   implicit def EitherLeftPointed[X] = pointed[PartialApply1Of2[Either.LeftProjection, X]#Flip]
 

@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Applicative[Z[_]] extends Pointed[Z] with Apply[Z] {
   override def fmap[A, B](fa: Z[A], f: A => B): Z[B] = apply(pure(f), fa)
 }
@@ -53,7 +55,7 @@ object Applicative {
 
   implicit val OptionApplicative = applicative[Option]
 
-  implicit val ArrayApplicative = applicative[Array]
+  implicit val GenericArrayApplicative = applicative[GenericArray]
 
   implicit def EitherLeftApplicative[X] = applicative[PartialApply1Of2[Either.LeftProjection, X]#Flip]
 

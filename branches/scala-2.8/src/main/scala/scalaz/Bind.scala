@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Bind[Z[_]] {
   def bind[A, B](a: Z[A], f: A => Z[B]): Z[B]
 }
@@ -107,8 +109,8 @@ object Bind {
     def bind[A, B](r: Option[A], f: A => Option[B]) = r flatMap f
   }
 
-  implicit object ArrayBind extends Bind[Array] {
-    def bind[A, B](r: Array[A], f: A => Array[B]) = r flatMap f
+  implicit object GenericArrayBind extends Bind[GenericArray] {
+    def bind[A, B](r: GenericArray[A], f: A => GenericArray[B]) = r flatMap f
   }
 
   implicit def EitherLeftBind[X] = new Bind[PartialApply1Of2[Either.LeftProjection, X]#Flip] {

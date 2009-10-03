@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Apply[Z[_]] {
   def apply[A, B](f: Z[A => B], a: Z[A]): Z[B]
 }
@@ -55,7 +57,7 @@ object Apply {
 
   implicit val OptionApply = FunctorBindApply[Option]
 
-  implicit val ArrayApply = FunctorBindApply[Array]
+  implicit val GenericArrayApply = FunctorBindApply[GenericArray]
 
   implicit def EitherLeftApply[X] = FunctorBindApply[PartialApply1Of2[Either.LeftProjection, X]#Flip]
 

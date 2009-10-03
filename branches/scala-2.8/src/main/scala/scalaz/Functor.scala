@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Functor[F[_]] {
   def fmap[A, B](r: F[A], f: A => B): F[B]
 }
@@ -97,8 +99,8 @@ object Functor {
     def fmap[A, B](r: Option[A], f: A => B) = r map f
   }
 
-  implicit object ArrayFunctor extends Functor[Array] {
-    def fmap[A, B](r: Array[A], f: A => B) = r map f
+  implicit object GenericArrayFunctor extends Functor[GenericArray] {
+    def fmap[A, B](r: GenericArray[A], f: A => B) = r map f
   }
 
   implicit def EitherLeftFunctor[X] = new Functor[PartialApply1Of2[Either.LeftProjection, X]#Flip] {

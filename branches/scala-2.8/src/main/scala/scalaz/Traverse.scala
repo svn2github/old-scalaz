@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Traverse[T[_]] extends Functor[T] {
   def traverse[F[_], A, B](f: A => F[B], t: T[A])(implicit a: Applicative[F]): F[T[B]]
 
@@ -81,13 +83,9 @@ object Traverse {
     }
   }
 
-  // todo need a class manifest of B to call List.toArray. But we can't get one without changing
-  // the signature of Traverse.traverse. We have the same problem with Pure.ArrayPure.
-  implicit object ArrayTraverse extends Traverse[Array] {
-    def traverse[F[_], A, B](f: A => F[B], as: Array[A])(implicit a: Applicative[F]): F[Array[B]] = error("Erasure sucks :(")
-    
-//    def traverse[F[_], A, B](f: A => F[B], as: Array[A])(implicit a: Applicative[F], b: reflect.ClassManifest[B]): F[Array[B]] =
-//      a.fmap(ListTraverse.traverse[F, A, B](f, as.toList), ((_: List[B]).toArray[B]))
+  implicit object GenericArrayTraverse extends Traverse[GenericArray] {
+    def traverse[F[_], A, B](f: A => F[B], as: GenericArray[A])(implicit a: Applicative[F]): F[GenericArray[B]] =
+      a.fmap(ListTraverse.traverse[F, A, B](f, as.toList), GenericArray((_: List[B]): _*))
   }
 
   implicit def EitherLeftTraverse[X]: Traverse[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Traverse[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
