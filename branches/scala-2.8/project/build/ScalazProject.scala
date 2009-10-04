@@ -19,6 +19,7 @@ final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
 
   val scalaTools2_8_0Snapshots = Resolver.url("2.8.0 snapshots") artifacts "http://scala-tools.org/repo-snapshots/org/scala-lang/[module]/2.8.0-SNAPSHOT/[artifact]-[revision].[ext]"
 
+
   val forkedCompilerJar = property[File]
   val forkedLibraryJar = property[File]
   val doFork = propertyOptional[Boolean](false)
@@ -41,6 +42,18 @@ final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
     }
   }) else super.fork
 
+  // todo configure publishing to scala-tools once credentials for scala-tools are obtained.
   override def managedStyle = ManagedStyle.Maven
-  val publishTo = "Scalaz SVN Snapshot" at "http://nexus.scala-tools.org/content/repositories/releases/"
+  val localFileRepo = Resolver.file("local-file-repo", new java.io.File("/Users/jason/code/scalaz-maven/snapshots")) 
+  val publishTo = localFileRepo
+
+  // todo scaladoc blows up with:
+  // java.lang.NullPointerException
+  //  at scala.tools.nsc.typechecker.Typers$Typer.checkNoDoubleDefsAndAddSynthetics$1(Typers.scala:1866)
+  //
+  //  override def packageDocsJar = defaultJarPath("-javadoc.jar")
+  //  val docsArtifact = Artifact(artifactID, "docs", "jar", Some("javadoc"), Nil, None)
+  override def packageSrcJar= defaultJarPath("-sources.jar")
+  val sourceArtifact = Artifact(artifactID, "src", "jar", Some("sources"), Nil, None)
+  override def packageToPublishActions = super.packageToPublishActions ++ Seq(/*packageDocs,*/ packageSrc)
 }
