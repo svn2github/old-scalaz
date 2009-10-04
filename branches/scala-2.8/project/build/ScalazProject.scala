@@ -17,6 +17,8 @@ final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
   override def documentOptions = documentTitle("Scalaz " + projectVersion + " API Specification") :: windowTitle("Scalaz " + projectVersion) ::
           super.documentOptions.toList
 
+  val scalaTools2_8_0Snapshots = Resolver.url("2.8.0 snapshots") artifacts "http://scala-tools.org/repo-snapshots/org/scala-lang/[module]/2.8.0-SNAPSHOT/[artifact]-[revision].[ext]"
+
   val forkedCompilerJar = property[File]
   val forkedLibraryJar = property[File]
   val doFork = propertyOptional[Boolean](false)
@@ -38,4 +40,7 @@ final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
         Seq.empty
     }
   }) else super.fork
+
+  override def managedStyle = ManagedStyle.Maven
+  val publishTo = "Scalaz SVN Snapshot" at "http://nexus.scala-tools.org/content/repositories/releases/"
 }
