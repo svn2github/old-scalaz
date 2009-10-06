@@ -43,9 +43,8 @@ final class ScalazProject(info: ProjectInfo) extends DefaultProject(info) {
   }) else super.fork
 
   // todo configure publishing to scala-tools once credentials for scala-tools are obtained.
-  override def managedStyle = ManagedStyle.Maven
-  val localFileRepo = Resolver.file("local-file-repo", new java.io.File("/Users/jason/code/scalaz-maven/snapshots")) 
-  val publishTo = localFileRepo
+  Credentials(Path.userHome / ".ivy2" / ".credentials", log)
+  val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots/"  
 
   // todo scaladoc blows up with:
   // java.lang.NullPointerException
