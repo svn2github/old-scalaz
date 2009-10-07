@@ -1,0 +1,96 @@
+Index: src/main/scala/org/scalacheck/Shrink.scala
+===================================================================
+--- src/main/scala/org/scalacheck/Shrink.scala	(revision 422)
++++ src/main/scala/org/scalacheck/Shrink.scala	Wed Oct 07 07:52:14 CEST 2009
+@@ -11,6 +11,7 @@
+ 
+ import util.Buildable
+ import scala.collection.{ JavaConversions => jcl }
++import collection.mutable.GenericArray
+ 
+ sealed abstract class Shrink[T] {
+   def shrink(x: T): Stream[T]
+@@ -106,8 +107,8 @@
+     shrinkContainer[Stream,T]
+ 
+   /** Shrink instance of Array */
+-  implicit def shrinkArray[T](implicit s: Shrink[T]): Shrink[Array[T]] =
+-    shrinkContainer[Array,T](Predef.identity _, s, Buildable.buildableArray)
++  implicit def shrinkGenericArray[T](implicit s: Shrink[T]): Shrink[GenericArray[T]] =
++    shrinkContainer[GenericArray,T](Predef.identity _, s, Buildable.buildableGenericArray)
+ 
+   /** Shrink instance of Set */
+   implicit def shrinkSet[T](implicit s: Shrink[T]): Shrink[Set[T]] =
+@@ -245,12 +246,7 @@
+   implicit lazy val shrinkBooleanStream: Shrink[Stream[Boolean]] = shrinkStream[Boolean]
+   implicit lazy val shrinkStringStream: Shrink[Stream[String]] = shrinkStream[String]
+   implicit lazy val shrinkDoubleStream: Shrink[Stream[Double]] = shrinkStream[Double]
+-
++  
+-  implicit lazy val shrinkIntArray: Shrink[Array[Int]] = shrinkArray[Int]
+-  implicit lazy val shrinkBooleanArray: Shrink[Array[Boolean]] = shrinkArray[Boolean]
+-  implicit lazy val shrinkStringArray: Shrink[Array[String]] = shrinkArray[String]
+-  implicit lazy val shrinkDoubleArray: Shrink[Array[Double]] = shrinkArray[Double]
+-
+   implicit lazy val shrinkIntSet: Shrink[Set[Int]] = shrinkSet[Int]
+   implicit lazy val shrinkBooleanSet: Shrink[Set[Boolean]] = shrinkSet[Boolean]
+   implicit lazy val shrinkStringSet: Shrink[Set[String]] = shrinkSet[String]
+Index: src/main/scala/org/scalacheck/Arbitrary.scala
+===================================================================
+--- src/main/scala/org/scalacheck/Arbitrary.scala	(revision 422)
++++ src/main/scala/org/scalacheck/Arbitrary.scala	Wed Oct 07 07:47:56 CEST 2009
+@@ -10,6 +10,7 @@
+ package org.scalacheck
+ 
+ import util.{FreqMap,Buildable,Builder}
++import collection.mutable.GenericArray
+ 
+ sealed abstract class Arbitrary[T] {
+   val arbitrary: Gen[T]
+@@ -211,8 +212,8 @@
+   implicit def arbStream[T](implicit a: Arbitrary[T]): Arbitrary[Stream[T]] =
+     Arbitrary(containerOf[Stream,T](arbitrary[T]))
+ 
+-  implicit def arbArray[T](implicit a: Arbitrary[T]): Arbitrary[Array[T]] =
+-    Arbitrary(containerOf[Array,T](arbitrary[T]))
++  implicit def arbGenericArray[T](implicit a: Arbitrary[T]): Arbitrary[GenericArray[T]] =
++    Arbitrary(containerOf[GenericArray,T](arbitrary[T]))
+ 
+   implicit def arbImmutableSet[T](implicit a: Arbitrary[T]): Arbitrary[collection.immutable.Set[T]] =
+     Arbitrary(containerOf[collection.immutable.Set,T](arbitrary[T]))
+Index: src/main/scala/org/scalacheck/util/Buildable.scala
+===================================================================
+--- src/main/scala/org/scalacheck/util/Buildable.scala	(revision 422)
++++ src/main/scala/org/scalacheck/util/Buildable.scala	Wed Oct 07 07:45:32 CEST 2009
+@@ -9,6 +9,8 @@
+ 
+ package org.scalacheck.util
+ 
++import collection.mutable.GenericArray
++
+ trait Builder[C[_], T] {
+   def +=(x: T)
+   def finalise: C[T]
+@@ -45,17 +47,13 @@
+     }
+   }
+ 
+-  implicit object buildableArray extends Buildable[Array] {
+-    def builder[T] = new Builder[Array,T] {
++  implicit object buildableGenericArray extends Buildable[GenericArray] {
++    def builder[T] = new Builder[GenericArray,T] {
+       val buf = new scala.collection.mutable.ArrayBuffer[T]
+       def +=(x: T) = buf += x
+-      def finalise = {
+-        val arr = new Array[T](buf.size)
+-        buf.copyToArray(arr, 0)
+-        arr
++      def finalise = GenericArray[T](buf: _*)      
+-      }
+-    }
++    }
++  }
+-  }
+ 
+   implicit object buildableMutableSet extends Buildable[mutable.Set] {
+     def builder[T] = new Builder[mutable.Set,T] {
