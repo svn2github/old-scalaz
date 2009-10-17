@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Traverse[T[_]] extends Functor[T] {
   def traverse[F[_], A, B](f: A => F[B], t: T[A])(implicit a: Applicative[F]): F[T[B]]
 
@@ -35,8 +37,16 @@ object Traverse {
       as.reverse.foldLeft[F[List[B]]](a.pure(Nil))((ys, x) => a(a.fmap(f(x), (a: B) => (b: List[B]) => a :: b), ys))
   }
 
-  implicit val StreamTraverse: Traverse[Stream] = new Traverse[Stream] {
-    def traverse[F[_], A, B](f: A => F[B], as: Stream[A])(implicit a: Applicative[F]): F[Stream[B]] = as.foldr[F[Stream[B]]](a.pure(Stream.empty), (x, ys) => a(a.fmap(f(x), (a: B) => (b: Stream[B]) => Stream.cons(a, b)), ys))
+  implicit object StreamTraverse extends Traverse[Stream] {
+    def traverse[F[_], A, B](f: A => F[B], as: Stream[A])(implicit a: Applicative[F]): F[Stream[B]] = {
+      // TODO extra type annotations required here w/ scala 2.8. Extract a minimal test case and submit a
+      //      bug against scalac.
+      val f1 : ((A, => F[Stream[B]]) => F[Stream[B]]) = (x, ys) => {
+        val fmapResult: F[Stream[B] => Stream[B]] = a.fmap(f(x), (a: B) => (b: Stream[B]) => Stream.cons(a, b))
+        a(fmapResult, ys)
+      }
+      as.foldr[F[Stream[B]]](a.pure(Stream.empty), f1)
+    }
   }
 
   implicit val OptionTraverse: Traverse[Option] = new Traverse[Option] {
@@ -77,9 +87,9 @@ object Traverse {
     }
   }
 
-  implicit val ArrayTraverse: Traverse[Array] = new Traverse[Array] {
-    def traverse[F[_], A, B](f: A => F[B], as: Array[A])(implicit a: Applicative[F]): F[Array[B]] =
-      a.fmap(ListTraverse.traverse[F, A, B](f, as.toList), ((_: List[B]).toArray))
+  implicit val GenericArrayTraverse: Traverse[GenericArray] = new Traverse[GenericArray] {
+    def traverse[F[_], A, B](f: A => F[B], as: GenericArray[A])(implicit a: Applicative[F]): F[GenericArray[B]] =
+      a.fmap(ListTraverse.traverse[F, A, B](f, as.toList), ((x: List[B]) => GenericArray((x: _*))))
   }
 
   implicit def EitherLeftTraverse[X]: Traverse[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Traverse[PartialApply1Of2[Either.LeftProjection, X]#Flip] {

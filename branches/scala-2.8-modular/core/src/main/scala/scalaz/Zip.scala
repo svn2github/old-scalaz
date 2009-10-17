@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Zip[F[_]] {
   def zip[A, B](a: F[A], b: F[B]): F[(A, B)]
 
@@ -81,8 +83,8 @@ object Zip {
 
   implicit val OptionZip = applicativeZip[Option]
 
-  implicit val ArrayZip = new Zip[Array] {
-    def zip[A, B](a: Array[A], b: Array[B]): Array[(A, B)] = a.zip(b)
+  implicit object GenericArrayZip extends Zip[GenericArray] {
+    def zip[A, B](a: GenericArray[A], b: GenericArray[B]): GenericArray[(A, B)] = a.zip(b)
   }
 
   implicit def EitherLeftZip[X] = applicativeZip[PartialApply1Of2[Either.LeftProjection, X]#Flip]

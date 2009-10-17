@@ -1,6 +1,8 @@
 package scalaz
 package memo
 
+import collection.mutable.GenericArray
+
 sealed trait Comemo[-T, K, V] {
   def apply(t: T): Memo[K, V]
 }
@@ -16,5 +18,5 @@ object Comemo {
     def comap[A, B](r: Comemo[A, K, V], f: B => A) = comemo[B, K, V](b => r(f(b)))
   }
 
-  def arraySizeComemo[V] = MutableAssociation.ArrayMutableAssociation.comemo <| ((sz: Int) => new Array[V](sz))
+  def genericArraySizeComemo[V] = MutableAssociation.GenericArrayMutableAssociation.comemo <| ((sz: Int) => new GenericArray[V](sz))
 }

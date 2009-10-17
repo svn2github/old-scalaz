@@ -77,7 +77,7 @@ object Show {
       t.toTree.show ++ "@" ++ t.parents.map(_._1.length).reverse.show)
 
   implicit def IterableShow[A](implicit sa: Show[A]) = show[Iterable[A]](as => {
-    val i = as.elements
+    val i = as.iterator
     val k = new collection.mutable.ListBuffer[Char]
     k += '['
     while (i.hasNext) {

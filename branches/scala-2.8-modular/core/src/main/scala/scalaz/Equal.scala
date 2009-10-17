@@ -128,8 +128,8 @@ object Equal {
     equal[Promise[A]]((a1, a2) => a1.get === a2.get)
 
   implicit def IterableEqual[A](implicit ea: Equal[A]) = equal[Iterable[A]]((a1, a2) => {
-    val i1 = a1.elements
-    val i2 = a2.elements
+    val i1 = a1.iterator
+    val i2 = a2.iterator
     var b = false
 
     while (i1.hasNext && i2.hasNext && !b) {

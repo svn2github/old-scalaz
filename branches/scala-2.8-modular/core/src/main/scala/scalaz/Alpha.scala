@@ -3,7 +3,7 @@ package scalaz
 sealed trait Alpha {
   val toChar: Char
 
-  def toUpperChar = toChar.toUpperCase
+  def toUpperChar = toChar.toUpper
 
   override def equals(o: Any) = o.isInstanceOf[Alpha] && o.asInstanceOf[Alpha].toChar == toChar
 

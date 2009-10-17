@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Pure[+P[_]] {
   def pure[A](a: => A): P[A]
 }
@@ -93,8 +95,8 @@ object Pure {
     def pure[A](a: => A) = Some(a)
   }
 
-  implicit val ArrayPure = new Pure[Array] {
-    def pure[A](a: => A) = Array.make(1, a)
+  implicit object GenericArrayPure extends Pure[GenericArray] {
+    def pure[A](a: => A) = GenericArray(a)
   }
 
   implicit def EitherLeftPure[X] = new Pure[PartialApply1Of2[Either.LeftProjection, X]#Flip] {

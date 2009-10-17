@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Plus[P[_]] {
   def plus[A](a1: P[A], a2: => P[A]): P[A]
 }
@@ -27,8 +29,8 @@ object Plus {
     def plus[A](a1: Option[A], a2: => Option[A]) = a1 orElse a2
   }
 
-  implicit val ArrayPlus = new Plus[Array] {
-    def plus[A](a1: Array[A], a2: => Array[A]) = a1 ++ a2
+  implicit object GenericArrayPlus extends Plus[GenericArray] {
+    def plus[A](a1: GenericArray[A], a2: => GenericArray[A]) = a1 ++ a2
   }
 
   implicit def EitherLeftPlus[X] = new Plus[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
@@ -55,7 +57,7 @@ object Plus {
     def plus[A](a1: Validation[X, A], a2: => Validation[X, A]) = a1 match {
       case Success(_) => a1
       case Failure(_) => a2 match {
-        case Success() => a2
+        case Success(_) => a2
         case Failure(_) => a1
       }
     }

@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Empty[+E[_]] {
   def empty[A]: E[A]
 }
@@ -21,8 +23,8 @@ object Empty {
     def empty[A] = None
   }
 
-  implicit val ArrayEmpty = new Empty[Array] {
-    def empty[A] = new Array(0)
+  implicit object GenericArrayEmpty extends Empty[GenericArray] {
+    def empty[A] = GenericArray()
   }
 
   implicit def EitherLeftEmpty[X](implicit z: Zero[X]) = new Empty[PartialApply1Of2[Either.LeftProjection, X]#Flip] {

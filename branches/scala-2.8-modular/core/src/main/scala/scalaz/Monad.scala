@@ -1,5 +1,7 @@
 package scalaz
 
+import collection.mutable.GenericArray
+
 trait Monad[M[_]] extends Applicative[M] with Bind[M] with Pointed[M] {
   override def fmap[A, B](fa: M[A], f: A => B) = bind(fa, (a: A) => pure(f(a)))
 
@@ -55,7 +57,7 @@ object Monad {
 
   implicit val OptionMonad = monad[Option]
 
-  implicit val ArrayMonad = monad[Array]
+  implicit val GenericArrayMonad = monad[GenericArray]
 
   implicit def EitherLeftMonad[X] = monad[PartialApply1Of2[Either.LeftProjection, X]#Flip]
 

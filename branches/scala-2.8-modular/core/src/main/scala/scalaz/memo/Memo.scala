@@ -2,10 +2,9 @@ package scalaz
 package memo
 
 import scala.collection.mutable.HashMap
-import scala.collection.immutable.EmptyMap
 import scala.collection.immutable.ListMap
 import scala.collection.immutable.TreeMap
-import scala.collection.immutable.UnbalancedTreeMap
+import collection.immutable.Map.EmptyMap
 
 trait Memo[K, V] {
   def apply(z: K => V): K => V
@@ -31,7 +30,10 @@ object Memo {
 
   def immutableListMapMemo[K, V] = ImmutableMapAssociation.comemo(new ListMap[K, V])
 
-  def immutableListMapMemo[K <% Ordered[K], V] = ImmutableMapAssociation.comemo(new TreeMap[K, V])
-
-  def immutableUnbalancedTreeMapMemo[K <% Ordered[K], V] = ImmutableMapAssociation.comemo(new UnbalancedTreeMap[K, V])
+  def immutableTreeMapMemo[K <% Ordered[K], V]: Memo[K, V] = {
+    val ordering = new scala.Ordering[K] {
+      def compare(x: K, y: K) = x.compare(y);
+    }
+    ImmutableMapAssociation.comemo(new TreeMap[K, V]()(ordering))
+  }
 }

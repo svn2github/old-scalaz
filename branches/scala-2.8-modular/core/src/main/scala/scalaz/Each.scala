@@ -61,7 +61,7 @@ object Each {
     def each[A](e: Option[A], f: A => Unit) = e foreach f
   }
 
-  implicit val ArrayEach = new Each[Array] {
+  implicit object ArrayEach extends Each[Array] {
     def each[A](e: Array[A], f: A => Unit) = e foreach f
   }
 

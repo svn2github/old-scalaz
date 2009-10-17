@@ -17,12 +17,12 @@ sealed trait StreamW[A] {
     else Stream.cons(value.head, s.merge(value.tail))
 
   def zipper = value match {
-    case Stream.empty => None
+    case Stream.Empty => None
     case Stream.cons(h, t) => Some(Scalaz.zipper(Stream.empty, h, t))
   }
 
   def zipperEnd = value match {
-    case Stream.empty => None
+    case Stream.Empty => None
     case _ => {
       val x = value.reverse
       Some(Scalaz.zipper(x.tail, x.head, Stream.empty))

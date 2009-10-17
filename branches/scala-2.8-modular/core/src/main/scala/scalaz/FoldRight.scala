@@ -59,7 +59,7 @@ object FoldRight {
     def foldRight[A, B](t: ZipStream[A], b: B, f: (A, => B) => B): B = StreamFoldRight.foldRight(t.value, b, f)     
   }
 
-  implicit val ArrayFoldRight = new FoldRight[Array] {
+  implicit object ArrayFoldRight extends FoldRight[Array] {
     def foldRight[A, B](t: Array[A], b: B, f: (A, => B) => B) = t.foldRight(b)(f(_, _))
   }
 
@@ -95,13 +95,7 @@ object FoldRight {
 
   implicit def JavaIterableFoldRight[A] = new FoldRight[java.lang.Iterable] {
     def foldRight[A, B](t: java.lang.Iterable[A], b: B, f: (A, => B) => B) = {
-      val i = new Iterable[A] {
-        def elements = new Iterator[A] {
-          val k = t.iterator
-          def hasNext = k.hasNext
-          def next = k.next
-        }
-      }
+      val i = scala.collection.JavaConversions.JIterableWrapper(t)
       IterableFoldRight.foldRight(i, b, f)
     }
   }
