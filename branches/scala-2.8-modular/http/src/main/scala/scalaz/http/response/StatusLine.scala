@@ -1,4 +1,6 @@
-package scalaz.http.response
+package scalaz
+package http
+package response
 
 /**
  * HTTP response status line.

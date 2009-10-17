@@ -1,4 +1,5 @@
-package scalaz.http
+package scalaz
+package http
 
 import response.{Body, Response, OK}
 import request.Request

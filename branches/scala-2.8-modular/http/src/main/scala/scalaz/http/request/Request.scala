@@ -1,4 +1,6 @@
-package scalaz.http.request
+package scalaz
+package http
+package request
 
 import scalaz.memo.Memo._
 import Scalaz._

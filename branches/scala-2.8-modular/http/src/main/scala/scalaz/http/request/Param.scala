@@ -1,4 +1,6 @@
-package scalaz.http.request
+package scalaz
+package http
+package request
 
 import Scalaz._
 

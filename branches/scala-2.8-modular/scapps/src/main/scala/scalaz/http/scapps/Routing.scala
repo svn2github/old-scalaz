@@ -1,4 +1,6 @@
-package scalaz.http.scapps
+package scalaz
+package http
+package scapps
 
 import scalaz.http.request._
 import scalaz.http.response.Response

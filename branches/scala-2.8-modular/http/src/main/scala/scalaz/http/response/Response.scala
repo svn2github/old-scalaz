@@ -1,5 +1,6 @@
-package scalaz.http.response
-
+package scalaz
+package http
+package response
 
 import request.Request
 import request.UserAgent

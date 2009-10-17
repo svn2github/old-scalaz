@@ -1,4 +1,6 @@
-package scalaz.http.servlet
+package scalaz
+package http
+package servlet
 
 import javax.servlet.{ServletRequest, ServletResponse, Filter, FilterChain, FilterConfig}
 import servlet.HttpServletRequest._

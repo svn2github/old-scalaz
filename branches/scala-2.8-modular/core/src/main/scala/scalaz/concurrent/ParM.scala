@@ -1,4 +1,5 @@
-package scalaz.concurrent
+package scalaz
+package concurrent
 
 trait ParM[M[_]] {
   def apply[A](as: M[() => A])(implicit m: Functor[M], s: Strategy[A]): () => M[A] = {

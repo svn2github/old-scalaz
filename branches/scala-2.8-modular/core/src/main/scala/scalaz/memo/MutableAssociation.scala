@@ -1,4 +1,5 @@
-package scalaz.memo
+package scalaz
+package memo
 
 import scala.collection.mutable.Map
 

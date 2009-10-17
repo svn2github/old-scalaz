@@ -1,4 +1,5 @@
-package scalaz.http
+package scalaz
+package http
 
 import collection.immutable.{Map, HashMap}
 import Scalaz._

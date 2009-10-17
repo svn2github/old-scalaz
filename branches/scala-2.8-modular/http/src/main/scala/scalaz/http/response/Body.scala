@@ -1,4 +1,6 @@
-package scalaz.http.response
+package scalaz
+package http
+package response
 
 /**
  * Type constructors that can be used in request and response bodies.

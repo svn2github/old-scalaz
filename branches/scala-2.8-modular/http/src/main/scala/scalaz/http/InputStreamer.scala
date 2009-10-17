@@ -1,4 +1,5 @@
-package scalaz.http
+package scalaz
+package http
 
 import java.io.InputStream
 import Scalaz._

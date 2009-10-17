@@ -5,7 +5,9 @@
 //// $LastChangedDate: 2009-09-02 20:42:27 +1000 (Wed, 02 Sep 2009) $
 //
 //
-//package scalaz.memo
+//package scalaz
+package memo
+
 //
 ///**
 // * Memoisation within a given range or size.

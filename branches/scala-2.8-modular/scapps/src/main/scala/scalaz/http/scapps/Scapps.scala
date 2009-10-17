@@ -1,4 +1,6 @@
-package scalaz.http.scapps
+package scalaz
+package http
+package scapps
 
 import Routing._
 import scala.xml.{Elem, Node, NodeSeq, Null}

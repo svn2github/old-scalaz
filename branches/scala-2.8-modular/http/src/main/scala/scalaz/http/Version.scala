@@ -1,4 +1,5 @@
-package scalaz.http
+package scalaz
+package http
 
 import Scalaz._
 import java.lang.Character.isDigit

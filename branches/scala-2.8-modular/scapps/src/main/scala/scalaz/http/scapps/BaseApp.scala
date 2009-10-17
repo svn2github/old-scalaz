@@ -1,4 +1,6 @@
-package scalaz.http.scapps
+package scalaz
+package http
+package scapps
 
 import java.util.Date
 import scalaz.Scalaz._

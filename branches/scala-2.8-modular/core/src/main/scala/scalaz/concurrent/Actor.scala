@@ -1,4 +1,5 @@
-package scalaz.concurrent
+package scalaz
+package concurrent
 
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.ConcurrentLinkedQueue
