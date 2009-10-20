@@ -4,7 +4,8 @@ import java.util.jar.Attributes.Name._
 import java.io.File
 
 abstract class ScalazDefaults(info: ProjectInfo, component: String) extends DefaultProject(info) {
-  override def compileOptions = target(Target.Java1_5) :: Unchecked :: super.compileOptions.toList
+  override def compileOptions = target(Target.Java1_5) :: Unchecked :: CompileOption("-Ydebug") :: CompileOption("-Ylog:all") ::
+                                super.compileOptions.toList
   override def packageOptions = ManifestAttributes((IMPLEMENTATION_TITLE, "Scalaz"), (IMPLEMENTATION_URL, "http://code.google.com/p/scalaz"), (IMPLEMENTATION_VENDOR, "The Scalaz Project"), (SEALED, "true")) :: Nil
   override def documentOptions = documentTitle("Scalaz " + component + projectVersion + " API Specification") :: windowTitle("Scalaz " + projectVersion) :: super.documentOptions.toList
   //  override def defaultJarBaseName = "scalaz-" + component.toLowerCase + "-" + version.toString
@@ -15,6 +16,7 @@ abstract class ScalazDefaults(info: ProjectInfo, component: String) extends Defa
   override def packageSrcJar = defaultJarPath("-sources.jar")
   val sourceArtifact = Artifact(artifactID, "src", "jar", Some("sources"), Nil, None)
   val docsArtifact = Artifact(artifactID, "docs", "jar", Some("javadoc"), Nil, None)
+  val scalaTools2_8_0Snapshots = Resolver.url("2.8.0 snapshots") artifacts "http://scala-tools.org/repo-snapshots/org/scala-lang/[module]/2.8.0-SNAPSHOT/[artifact]-[revision].[ext]"
 
   override def packageToPublishActions = super.packageToPublishActions ++ Seq(packageDocs, packageSrc)
 
@@ -57,7 +59,7 @@ protected final class ScalazCoreProject(info: ProjectInfo) extends ScalazDefault
 
 protected final class ScalazTestProject(info: ProjectInfo) extends ScalazDefaults(info, "Test") {
   val fjRepo = "Functional Java Repository" at "http://functionaljava.googlecode.com/svn/maven"
-  val scalacheck = "org.scala-tools.testing" % "scalacheck" % "1.5" withSources
+  val scalacheck = "org.scala-tools.testing" % "scalacheck_2.8.0-20091013.004057-+" % "1.7-SNAPSHOT" withSources
   val functionaljava = "org.functionaljava" % "fj" % "2.19" withSources
 }
 

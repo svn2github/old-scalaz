@@ -292,7 +292,11 @@
     <option name="projectName" value="scalaz" />
   </component>
   <component name="ProjectDictionaryState">
-    <dictionary name="jason" />
+    <dictionary name="jason">
+      <words>
+        <w>implicits</w>
+      </words>
+    </dictionary>
   </component>
   <component name="ProjectKey">
     <option name="state" value="https://scalaz.googlecode.com/svn/branches/scala-2.8-modular/scalaz4.ipr" />
@@ -339,6 +343,15 @@
       <SOURCES>
         <root url="jar:///Users/jason/usr/scala-2.8.0.r19120-b20091017023354/src/scala-compiler-src.jar!/" />
         <root url="jar:///Users/jason/usr/scala-2.8.0.r19120-b20091017023354/src/scala-library-src.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="SBT">
+      <CLASSES>
+        <root url="jar:///Users/jason/.ivy2/local/sbt/simple-build-tool/0.5.6-SNAPSHOT/jars/sbt_2.8.0-20091017.011744-+.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file:///Users/jason/code/simple-build-tool/src/main/scala" />
       </SOURCES>
     </library>
   </component>
