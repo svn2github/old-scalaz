@@ -11,7 +11,7 @@
 
 Once we sidestep the bugs, there are some new features to use.
 
-  * `def foo[B](implicit zb: Z[B]) => def foo[B: Z]`. We can use this for Semigroup, Show, etc.
+  * `def foo[B](implicit zb: Z[B]) === def foo[B: Z]`. We can use this for Semigroup, Show, etc.
   * Can we use `Predef.<:<` anywhere? It works like this: https://gist.github.com/0f636f6209a4db1d51d4  . See recent changes made to Option and Either in the standard library: https://lampsvn.epfl.ch/trac/scala/changeset/19364
   * `scala.Zero` introduced. Will it last?
   * Type Constructor Polymorphism Inference: https://lampsvn.epfl.ch/trac/scala/changeset/19245
