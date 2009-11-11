@@ -1,4 +1,4 @@
-#summary Scala 2.8 Bugs that affect Scalaz
+#summary Scala 2.8 Bugs and Features that affect Scalaz
 
 == Bugs ==
 
@@ -18,3 +18,23 @@ Once we sidestep the bugs, there are some new features to use.
   * Implicits can be de-prioritized by placing then in a supertype. e.g `Predef extends LowPriorityImplicits`.
   * new collections library -- check coverage of our type class instances.
   * equality can o' worms. A good selling point for `Identity.===`, perhaps :) http://article.gmane.org/gmane.comp.lang.scala.internals/1894
+
+=== tcpoly infer ===
+This works now! https://gist.github.com/397af93afa78ca7c92f8
+{{{
+//...
+trait MA[M[_], A] {
+  val value: M[A]
+  def convertTo[N[_]](implicit c: M #==> N): N[A] = c[A](value)
+}
+ 
+object Implicits {
+  implicit def ToMA[M[_], A](ma: M[A]) = new MA[M, A] {val value = ma }
+  implicit def ToIdentity[A](a: A) = new Identity[A] {val value = a }
+}
+ 
+import Implicits._
+ 
+println((1.convertTo[String], "true".convertTo[Boolean]))
+println((Set(1).convertTo[List]))
+}}}
