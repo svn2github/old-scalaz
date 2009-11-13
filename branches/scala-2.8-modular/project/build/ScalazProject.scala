@@ -4,30 +4,35 @@ import java.util.jar.Attributes.Name._
 import java.io.File
 
 abstract class ScalazDefaults(info: ProjectInfo, component: String) extends DefaultProject(info) {
-  override def compileOptions = target(Target.Java1_5) :: Unchecked :: CompileOption("-Ydebug") :: CompileOption("-Ylog:all") ::
-                                super.compileOptions.toList
+  override def compileOptions = target(Target.Java1_5) :: Unchecked :: super.compileOptions.toList
+
   override def packageOptions = ManifestAttributes((IMPLEMENTATION_TITLE, "Scalaz"), (IMPLEMENTATION_URL, "http://code.google.com/p/scalaz"), (IMPLEMENTATION_VENDOR, "The Scalaz Project"), (SEALED, "true")) :: Nil
+
   override def documentOptions = documentTitle("Scalaz " + component + projectVersion + " API Specification") :: windowTitle("Scalaz " + projectVersion) :: super.documentOptions.toList
   //  override def defaultJarBaseName = "scalaz-" + component.toLowerCase + "-" + version.toString
 
   override def managedStyle = ManagedStyle.Maven
 
   override def packageDocsJar = defaultJarPath("-javadoc.jar")
+
   override def packageSrcJar = defaultJarPath("-sources.jar")
+
   val sourceArtifact = Artifact(artifactID, "src", "jar", Some("sources"), Nil, None)
   val docsArtifact = Artifact(artifactID, "docs", "jar", Some("javadoc"), Nil, None)
   val scalaTools2_8_0Snapshots = Resolver.url("2.8.0 snapshots") artifacts "http://scala-tools.org/repo-snapshots/org/scala-lang/[module]/2.8.0-SNAPSHOT/[artifact]-[revision].[ext]"
 
   override def packageToPublishActions = super.packageToPublishActions ++ Seq(packageDocs, packageSrc)
 
-  // override def fork = Some(new ForkScalaCompiler {
-  //     override def javaHome: Option[File] = None
-  //     override def scalaJars: Iterable[File] = List(
-  //       new File("/Users/nkpart/p/x/am-scala/lib/scala-compiler.jar"),
-  //       new File("/Users/nkpart/p/x/am-scala/lib/scala-library.jar")
-  //       )
-  //   }
-  //   )
+  override def localScala = defineScala("2.8.0-latest", new File("/Users/jason/usr/scala-2.8.0.latest/lib")) :: Nil
+
+//  override def fork = Some(new ForkScalaCompiler {
+//    override def javaHome: Option[File] = None
+//
+//    override def scalaJars: Iterable[File] = List(
+//      new File("/Users/jason/usr/scala-2.8.0.latest/lib/scala-compiler.jar"),
+//      new File("/Users/jason/usr/scala-2.8.0.latest/lib/scala-library.jar")
+//      )
+//  })
 }
 
 final class ScalazProject(info: ProjectInfo) extends ParentProject(info) {
@@ -43,7 +48,7 @@ final class ScalazProject(info: ProjectInfo) extends ParentProject(info) {
   val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots/"
   Credentials(Path.userHome / ".ivy2" / ".credentials", log)
 
-  override def publishAction = task { None }
+  override def publishAction = task {None}
 
   // TODO Package the project up
   //packageProjectZip

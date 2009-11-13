@@ -68,7 +68,6 @@
   </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
-    <option name="DEPLOY_AFTER_MAKE" value="0" />
     <resourceExtensions>
       <entry name=".+\.(properties|xml|html|dtd|tld)" />
       <entry name=".+\.(gif|png|jpeg|jpg)" />
@@ -295,6 +294,7 @@
     <dictionary name="jason">
       <words>
         <w>implicits</w>
+        <w>levenshtein</w>
       </words>
     </dictionary>
   </component>
@@ -320,7 +320,179 @@
     <option name="GENERATE_IIOP_STUBS" value="false" />
     <option name="ADDITIONAL_OPTIONS_STRING" value="" />
   </component>
+  <component name="ScalacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-Yhigher-kinded-raw" />
+  </component>
   <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchMap">
+                <map>
+                  <entry key="https://scalaz.googlecode.com/svn/artifacts">
+                    <value>
+                      <list>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1240138419623" />
+                          <option name="revision" value="362" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/artifacts/latest" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1240138300599" />
+                          <option name="revision" value="357" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/artifacts/3.5" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1237882294061" />
+                          <option name="revision" value="171" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/artifacts/3.4" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1229399692319" />
+                          <option name="revision" value="54" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/artifacts/3.3" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1228551981912" />
+                          <option name="revision" value="3" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/artifacts/3.0" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1228551981912" />
+                          <option name="revision" value="3" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/artifacts/3.2" />
+                        </SvnBranchItem>
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="https://scalaz.googlecode.com/svn/branches">
+                    <value>
+                      <list>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1256082313550" />
+                          <option name="revision" value="866" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/scala-2.8-modular" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1254895091932" />
+                          <option name="revision" value="849" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/scala-2.8" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1247435096063" />
+                          <option name="revision" value="812" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/modular-deps" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1246170321181" />
+                          <option name="revision" value="757" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/database" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1244864846754" />
+                          <option name="revision" value="741" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/http" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1242715968308" />
+                          <option name="revision" value="645" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/test2" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1241741420107" />
+                          <option name="revision" value="621" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/test" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1239538576406" />
+                          <option name="revision" value="274" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/branches/HK.scala" />
+                        </SvnBranchItem>
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="https://scalaz.googlecode.com/svn/maven">
+                    <value>
+                      <list>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1254895302731" />
+                          <option name="revision" value="850" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/maven/snapshots" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1244759411037" />
+                          <option name="revision" value="711" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/maven/releases" />
+                        </SvnBranchItem>
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="https://scalaz.googlecode.com/svn/tags">
+                    <value>
+                      <list>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1240138401369" />
+                          <option name="revision" value="361" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/tags/latest" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1240138357320" />
+                          <option name="revision" value="358" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/tags/3.5" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1237882339332" />
+                          <option name="revision" value="172" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/tags/3.4" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1229399753704" />
+                          <option name="revision" value="55" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/tags/3.3" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1228552771773" />
+                          <option name="revision" value="4" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/tags/3.0" />
+                        </SvnBranchItem>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1228552771773" />
+                          <option name="revision" value="4" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/tags/3.2" />
+                        </SvnBranchItem>
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="https://scalaz.googlecode.com/svn/wiki">
+                    <value>
+                      <list>
+                        <SvnBranchItem>
+                          <option name="creationDateMillis" value="1257231027634" />
+                          <option name="revision" value="867" />
+                          <option name="url" value="https://scalaz.googlecode.com/svn/wiki/Scala28Port.wiki" />
+                        </SvnBranchItem>
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://scalaz.googlecode.com/svn/artifacts" />
+                  <option value="https://scalaz.googlecode.com/svn/branches" />
+                  <option value="https://scalaz.googlecode.com/svn/maven" />
+                  <option value="https://scalaz.googlecode.com/svn/tags" />
+                  <option value="https://scalaz.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://scalaz.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="myVersion" value="124" />
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
@@ -336,22 +508,22 @@
   <component name="libraryTable">
     <library name="Scala">
       <CLASSES>
-        <root url="jar:///Users/jason/usr/scala-2.8.0.r19120-b20091017023354/lib/scala-compiler.jar!/" />
-        <root url="jar:///Users/jason/usr/scala-2.8.0.r19120-b20091017023354/lib/scala-library.jar!/" />
+        <root url="jar://$TEMPLATE$/usr/scala-2.8.0.latest/lib/scala-library.jar!/" />
+        <root url="jar://$TEMPLATE$/usr/scala-2.8.0.latest/lib/scala-compiler.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar:///Users/jason/usr/scala-2.8.0.r19120-b20091017023354/src/scala-compiler-src.jar!/" />
-        <root url="jar:///Users/jason/usr/scala-2.8.0.r19120-b20091017023354/src/scala-library-src.jar!/" />
+        <root url="jar://$TEMPLATE$/usr/scala-2.8.0.latest/src/scala-library-src.jar!/" />
+        <root url="jar://$TEMPLATE$/usr/scala-2.8.0.latest/src/scala-compiler-src.jar!/" />
       </SOURCES>
     </library>
     <library name="SBT">
       <CLASSES>
-        <root url="jar:///Users/jason/.ivy2/local/sbt/simple-build-tool/0.5.6-SNAPSHOT/jars/sbt_2.8.0-20091017.011744-+.jar!/" />
+        <root url="jar://$TEMPLATE$/.ivy2/local/sbt/simple-build-tool/0.5.6-SNAPSHOT/jars/sbt_2.8.0-20091017.011744-+.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file:///Users/jason/code/simple-build-tool/src/main/scala" />
+        <root url="file://$TEMPLATE$/code/simple-build-tool/src/main/scala" />
       </SOURCES>
     </library>
   </component>
