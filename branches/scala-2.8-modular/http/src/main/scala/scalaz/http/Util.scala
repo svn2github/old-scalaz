@@ -62,21 +62,19 @@ object Util {
    */
   def asHashMap[T[_], SM[_]] = new AsHashMap[T, SM] {
     def apply[K, V](kvs: T[(K, V)])(implicit f: FoldLeft[T], s: Semigroup[SM[V]], md: Monad[SM]) =
-      asMap[T, SM](new HashMap[K, SM[V]], kvs)
+      asMap(new HashMap[K, SM[V]], kvs)
   }
 
   /**
    * Indexes the given sequence of key/value pairs using the given map. The key/value pair type constructor must support
    * fold-left and the index is created in constant space.
    */
-  def asMap[T[_], SM[_]] = new {
-    def apply[K, V](e: Map[K, SM[V]], kvs: T[(K, V)])
-                   (implicit f: FoldLeft[T], s: Semigroup[SM[V]], md: Monad[SM]): Map[K, SM[V]] =
+  def asMap[T[_], SM[_], K, V](e: Map[K, SM[V]], kvs: T[(K, V)])
+                              (implicit f: FoldLeft[T], s: Semigroup[SM[V]], md: Monad[SM]): Map[K, SM[V]] =
       f.foldLeft[Map[K, SM[V]], (K, V)](kvs, e, (m, kv) => m + ((kv._1, m.get(kv._1) match {
         case None => md.pure(kv._2)
         case Some(vv) => s.append(md.pure(kv._2), vv)
       })))
-  }
 
   object Nel {
     /**

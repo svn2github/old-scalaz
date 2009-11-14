@@ -139,7 +139,7 @@ object Method {
     case "trace" => TRACE
     case "connect" => CONNECT
     case m => {
-      val t = (s: scala.runtime.RichString).toList
+      val t = List(s: _*)
       ExtensionMethod(NonEmptyList.nel(t.head, t.tail))
     }
   })

@@ -23,7 +23,7 @@ abstract class ScalazDefaults(info: ProjectInfo, component: String) extends Defa
 
   override def packageToPublishActions = super.packageToPublishActions ++ Seq(packageDocs, packageSrc)
 
-  override def localScala = defineScala("2.8.0-latest", new File("/Users/jason/usr/scala-2.8.0.latest/lib")) :: Nil
+  override def localScala = defineScala("2.8.0-latest", new File("/Users/jason/usr/scala-2.8.0.latest")) :: Nil
 
 //  override def fork = Some(new ForkScalaCompiler {
 //    override def javaHome: Option[File] = None

@@ -42,13 +42,13 @@ object ContentTypeResolver {
    */
   def contentTypeResolverMap(m: Map[String, NonEmptyList[Char]]) = contentTypeResolver(m.get(_))
 
-  import collection.immutable.TreeHashMap
+  import collection.immutable.HashMap
 
   /**
    * A content-type resolver using the table on the W3C Schools website at
    * http://www.w3schools.com/media/media_mimeref.asp. 
    */
-  val w3cMimeReference = contentTypeResolverMap(TreeHashMap(
+  val w3cMimeReference = contentTypeResolverMap(HashMap(
     "323" -> "text/h323",
     "acx" -> "application/internet-property-stream",
     "ai" -> "application/postscript",

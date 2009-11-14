@@ -170,7 +170,7 @@ object EntityHeader {
     case "expires" => Expires
     case "last-modified" => LastModified
     case h => {
-      val t = (s: scala.runtime.RichString).toList
+      val t = List(s: _*)
       ExtensionHeader(NonEmptyList.nel(t.head, t.tail))
     }
   })

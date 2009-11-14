@@ -21,7 +21,7 @@ sealed trait ListW[A] {
     case h :: t => h :: as ::: t.intercalate(as)
   }
 
-  def nel = value match {
+  def nel: Option[NonEmptyList[A]] = value match {
     case Nil => None
     case h :: t => Some(NonEmptyList.nel(h, t))
   }
@@ -33,7 +33,9 @@ sealed trait ListW[A] {
 
   // def dlist[A](as: List[A]): DList[A] = dlist(as ::: _)
 
-  def dlist = DList.dlist(value ::: (_: List[A])) 
+  def dlist = DList.dlist(value ::: (_: List[A]))
+
+  def break(f: A => Boolean): (List[A], List[A]) = value span {a => !f(a)}
 }
 
 object ListW {
