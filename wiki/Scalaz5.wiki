@@ -18,3 +18,4 @@ Scalaz 5.0 will target Scala 2.8.0.
   * Find the limits of named default arguments and usability.
   * Only two code branches; experimental and core.
   * `scalaz.geo` include Vincenty's direct/inverse algorithms
+  * Is there a continuous build that works yet?
