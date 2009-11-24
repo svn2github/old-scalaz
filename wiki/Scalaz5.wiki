@@ -7,12 +7,12 @@ Scalaz 5.0 will target Scala 2.8.0.
 
 = Details =
 
-* Can SBT handle shifting around the Scala version so we can build against trunk?
-* Will SBT handle incremental updates during development well?
-* Will SBT handle releases?
-* There should be a join (***) function in the library if not already
-* Arrow should inherit from Category (see Haskell's Control.Category)
-* Use mixins so users only need one import.
-* Organise source files and implicits better.
-* Find the limits of type constructor inference and usability.
-* Only two code branches; experimental and core.Z
+  * Can SBT handle shifting around the Scala version so we can build against trunk?
+  * Will SBT handle incremental updates during development well?
+  * Will SBT handle releases?
+  * There should be a join (***) function in the library if not already
+  * Arrow should inherit from Category (see Haskell's Control.Category)
+  * Use mixins so users only need one import.
+  * Organise source files and implicits better.
+  * Find the limits of type constructor inference and usability.
+  * Only two code branches; experimental and core.Z
