@@ -15,4 +15,5 @@ Scalaz 5.0 will target Scala 2.8.0.
   * Use mixins so users only need one import.
   * Organise source files and implicits better.
   * Find the limits of type constructor inference and usability.
+  * Find the limits of named default arguments and usability.
   * Only two code branches; experimental and core.
