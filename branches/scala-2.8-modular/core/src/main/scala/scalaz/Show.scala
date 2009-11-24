@@ -7,13 +7,13 @@ trait Show[-A] {
 }
 
 object Show {
-  def show[A](f: A => List[Char]) = new Show[A] {
+  def show[A](f: A => List[Char]): Show[A] = new Show[A] {
     def show(a: A) = f(a)
   }
 
-  def shows[A](f: A => String) = show[A](f(_).toList)
+  def shows[A](f: A => String): Show[A] = show[A](f(_).toList)
 
-  def showA[A] = shows[A](_.toString)
+  def showA[A]: Show[A] = shows[A](_.toString)
 
   import Scalaz._
 

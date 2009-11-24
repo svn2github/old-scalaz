@@ -8,7 +8,7 @@ trait Zip[F[_]] {
   import Scalaz._
   import MA._
   def zipWith[A, B, C](h: (A, B) => C, a: F[A], b: F[B])(implicit f: Functor[F]): F[C] = {
-    def map[M[_], X, Y](implicit t: Functor[M]) = (g: X => Y) => (m: M[X]) => ma[M](m).map(g)
+    def map[M[_], X, Y](implicit t: Functor[M]) = (g: X => Y) => (m: M[X]) => maPartial[M](m).map(g)
     (map[PartialApply1Of2[Function1, F[A]]#Apply, (F[B] => F[(A, B)]), (F[B] => F[C])]
         compose map[PartialApply1Of2[Function1, F[B]]#Apply, F[(A, B)], F[C]]
         compose map[F, (A, B), C])(h.tupled)((zip(_: F[A], _: F[B])).curry)(a)(b)
@@ -25,7 +25,7 @@ object Zip {
   import Copure._
   import Traverse._
   def applicativeZip[F[_]](implicit f: Applicative[F]) = new Zip[F] {
-    def zip[A, B](a: F[A], b: F[B]) = ma[F](a).liftA(b, (Tuple2(_: A, _: B)).curry)
+    def zip[A, B](a: F[A], b: F[B]) = maPartial[F](a).liftA(b, (Tuple2(_: A, _: B)).curry)
   }
 
   def zipApply[Z[_]](implicit f: Functor[Z], z: Zip[Z]) = new Apply[Z] {

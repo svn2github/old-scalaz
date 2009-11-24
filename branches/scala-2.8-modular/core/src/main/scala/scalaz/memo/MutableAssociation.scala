@@ -8,7 +8,7 @@ trait MutableAssociation[-T, K, V] {
 
   def insert(t: T, k: K, v: V): Unit
 
-  def comemo = Comemo.comemo[T, K, V](t => Memo.memo[K, V](f => k => {
+  def comemo: Comemo[T, K, V] = Comemo.comemo[T, K, V](t => Memo.memo[K, V](f => k => {
     this(t, k) match {
       case Some(v) => v
       case None => {

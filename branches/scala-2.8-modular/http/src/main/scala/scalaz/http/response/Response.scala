@@ -5,7 +5,7 @@ package response
 import request.Request
 import request.UserAgent
 import Scalaz._
-import scalaz.MA.ma
+import scalaz.MA.maPartial
 import Util._
 import Util.Nel._
 
@@ -141,7 +141,7 @@ sealed trait Response[OUT[_]] {
   /**
    * The length of the response body.
    */
-  def bodyLength(implicit f: FoldLeft[OUT]) = ma[OUT](body).items
+  def bodyLength(implicit f: FoldLeft[OUT]) = maPartial[OUT](body).items
 
   /**
    * Returns the response body as a string.

@@ -15,14 +15,14 @@ sealed trait MetricSpace[-A] {
 }
 
 object MetricSpace {
-  def metricSpace[A](f: (A, A) => Int) = new MetricSpace[A] {
+  def metricSpace[A](f: (A, A) => Int): MetricSpace[A] = new MetricSpace[A] {
     def distance(a1: A, a2: A) = f(a1, a2)
   }
 
   import Scalaz._
 
   def levenshtein[M[_], A](implicit l: Length[M], i: Index[M], e: Equal[A]) = metricSpace[M[A]]((a1, a2) => {
-    implicit def XMA[A](a: M[A]) = MA.ma[M](a)
+    implicit def XMA[A](a: M[A]) = MA.maPartial[M](a)
     a1 <---> a2
   })
 

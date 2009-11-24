@@ -1,6 +1,6 @@
 package scalaz
 
-object Scalaz {
+object Scalaz extends ScalazLowPriorityImplicits {
   import java.math.BigInteger
 
   implicit def IdentityTo[A](x: A) = Identity.IdentityTo(x)
@@ -139,236 +139,99 @@ object Scalaz {
   implicit def StrategyFrom[A](s: (() => A) => () => A) = Strategy.strategyFrom(s)
 
   // MA
+  import MA._
 
-  import MA.ma
+  implicit def ContinuationMA[R, A](a: Continuation[R, A]): MA[PartialApply1Of2[Continuation, R]#Apply, A] = maPartial[PartialApply1Of2[Continuation, R]#Apply](a)
 
-  implicit def IdentityMA[A](a: Identity[A]): MA[Identity, A] = ma[Identity](a)
+  implicit def StateMA[S, A](a: State[S, A]): MA[PartialApply1Of2[State, S]#Apply, A] = ma[PartialApply1Of2[State, S]#Apply, A](a)
 
-  implicit def ContinuationMA[R, A](a: Continuation[R, A]): MA[PartialApply1Of2[Continuation, R]#Apply, A] = ma[PartialApply1Of2[Continuation, R]#Apply](a)
+  implicit def ComemoMA[T, K, V](a: memo.Comemo[T, K, V]): MA[PartialApply2Of3[memo.Comemo, K, V]#ApplyA, T] = maPartial[PartialApply2Of3[memo.Comemo, K, V]#ApplyA].apply[T](a)
 
-  implicit def NonEmptyListMA[A](a: NonEmptyList[A]): MA[NonEmptyList, A] = ma[NonEmptyList](a)
+  implicit def Tuple2MA[R, A](a: (R, A)): MA[PartialApply1Of2[Tuple2, R]#Apply, A] = maPartial[PartialApply1Of2[Tuple2, R]#Apply](a)
 
-  implicit def DListMA[A](a: DList[A]): MA[DList, A] = ma[DList](a)
+  implicit def Tuple3MA[R, S, A](a: (R, S, A)): MA[PartialApply2Of3[Tuple3, R, S]#Apply, A] = maPartial[PartialApply2Of3[Tuple3, R, S]#Apply](a)
 
-  implicit def StateMA[S, A](a: State[S, A]): MA[PartialApply1Of2[State, S]#Apply, A] = ma[PartialApply1Of2[State, S]#Apply](a)
+  implicit def Tuple4MA[R, S, T, A](a: (R, S, T, A)): MA[PartialApply3Of4[Tuple4, R, S, T]#Apply, A] = maPartial[PartialApply3Of4[Tuple4, R, S, T]#Apply](a)
 
-  implicit def EqualMA[A](a: Equal[A]): MA[Equal, A] = ma[Equal](a)
+  implicit def Tuple5MA[R, S, T, U, A](a: (R, S, T, U, A)): MA[PartialApply4Of5[Tuple5, R, S, T, U]#Apply, A] = maPartial[PartialApply4Of5[Tuple5, R, S, T, U]#Apply](a)
 
-  implicit def OrderMA[A](a: Order[A]): MA[Order, A] = ma[Order](a)
+  implicit def Tuple6MA[R, S, T, U, V, A](a: (R, S, T, U, V, A)): MA[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply, A] = maPartial[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply](a)
 
-  implicit def ShowMA[A](a: Show[A]): MA[Show, A] = ma[Show](a)
+  implicit def Tuple7MA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W, A)): MA[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply, A] = maPartial[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply](a)
 
-  implicit def ZipStreamMA[A](a: ZipStream[A]): MA[ZipStream, A] = ma[ZipStream](a)
+  implicit def Function1MA[R, A](a: R => A) = maPartial[PartialApply1Of2[Function1, R]#Apply](a)
 
-  implicit def ComemoMA[T, K, V](a: memo.Comemo[T, K, V]): MA[PartialApply2Of3[memo.Comemo, K, V]#ApplyA, T] = ma[PartialApply2Of3[memo.Comemo, K, V]#ApplyA].apply[T](a)
+  implicit def Function2MA[R, S, A](a: (R, S) => A): MA[PartialApply2Of3[Function2, R, S]#Apply, A] = maPartial[PartialApply2Of3[Function2, R, S]#Apply](a)
 
-  implicit def MetricSpaceStreamMA[A](a: MetricSpace[A]): MA[MetricSpace, A] = ma[MetricSpace](a)
+  implicit def Function3MA[R, S, T, A](a: (R, S, T) => A): MA[PartialApply3Of4[Function3, R, S, T]#Apply, A] = maPartial[PartialApply3Of4[Function3, R, S, T]#Apply](a)
 
-  implicit def Tuple1MA[A](a: Tuple1[A]): MA[Tuple1, A] = ma[Tuple1](a)
+  implicit def Function4MA[R, S, T, U, A](a: (R, S, T, U) => A): MA[PartialApply4Of5[Function4, R, S, T, U]#Apply, A] = maPartial[PartialApply4Of5[Function4, R, S, T, U]#Apply](a)
 
-  implicit def Tuple2MA[R, A](a: (R, A)): MA[PartialApply1Of2[Tuple2, R]#Apply, A] = ma[PartialApply1Of2[Tuple2, R]#Apply](a)
+  implicit def Function5MA[R, S, T, U, V, A](a: (R, S, T, U, V) => A): MA[PartialApply5Of6[Function5, R, S, T, U, V]#Apply, A] = maPartial[PartialApply5Of6[Function5, R, S, T, U, V]#Apply](a)
 
-  implicit def Tuple3MA[R, S, A](a: (R, S, A)): MA[PartialApply2Of3[Tuple3, R, S]#Apply, A] = ma[PartialApply2Of3[Tuple3, R, S]#Apply](a)
+  implicit def Function6MA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W) => A): MA[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply, A] = maPartial[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply](a)
 
-  implicit def Tuple4MA[R, S, T, A](a: (R, S, T, A)): MA[PartialApply3Of4[Tuple4, R, S, T]#Apply, A] = ma[PartialApply3Of4[Tuple4, R, S, T]#Apply](a)
+  // todo: Remove this and get errors about "scalaz is not an enclosing class" when trying to rely on ScalazLowPriorityImplicits.ma
+  //       Boil the problem down and submit a bug.
+  implicit def ListMA[A](a: List[A]): MA[List, A] = ma(a)
 
-  implicit def Tuple5MA[R, S, T, U, A](a: (R, S, T, U, A)): MA[PartialApply4Of5[Tuple5, R, S, T, U]#Apply, A] = ma[PartialApply4Of5[Tuple5, R, S, T, U]#Apply](a)
+  // This must stay as Stream[A] <:< (Int => A). Otherwise, Function1MA and ScalazLowPriorityImplicits.ma are ambiguous on account
+  // of specificity and subclass implicit search rules.
+  implicit def StreamMA[A](a: Stream[A]): MA[Stream, A] = ma(a)
 
-  implicit def Tuple6MA[R, S, T, U, V, A](a: (R, S, T, U, V, A)): MA[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply, A] = ma[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply](a)
+  implicit def EitherLeftMA[X, A](a: Either.LeftProjection[A, X]) = maPartial[PartialApply1Of2[Either.LeftProjection, X]#Flip](a)
 
-  implicit def Tuple7MA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W, A)): MA[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply, A] = ma[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply](a)
+  implicit def EitherRightMA[X, A](a: Either.RightProjection[X, A]): MA[PartialApply1Of2[Either.RightProjection, X]#Apply, A] = maPartial[PartialApply1Of2[Either.RightProjection, X]#Apply](a)
 
-  implicit def Function0MA[A](a: Function0[A]): MA[Function0, A] = ma[Function0](a)
+  implicit def ValidationMA[E, A](a: Validation[E, A]): MA[PartialApply1Of2[Validation, E]#Apply, A] = maPartial[PartialApply1Of2[Validation, E]#Apply](a)
 
-  implicit def Function1MA[R, A](a: R => A) = ma[PartialApply1Of2[Function1, R]#Apply](a)
+  implicit def ValidationFailureMA[A, E](a: Validation.FailureProjection[E, A]) = maPartial[PartialApply1Of2[Validation.FailureProjection, A]#Flip](a)
 
-  implicit def Function2MA[R, S, A](a: (R, S) => A): MA[PartialApply2Of3[Function2, R, S]#Apply, A] = ma[PartialApply2Of3[Function2, R, S]#Apply](a)
+  // MMA
 
-  implicit def Function3MA[R, S, T, A](a: (R, S, T) => A): MA[PartialApply3Of4[Function3, R, S, T]#Apply, A] = ma[PartialApply3Of4[Function3, R, S, T]#Apply](a)
+  import MMA._
 
-  implicit def Function4MA[R, S, T, U, A](a: (R, S, T, U) => A): MA[PartialApply4Of5[Function4, R, S, T, U]#Apply, A] = ma[PartialApply4Of5[Function4, R, S, T, U]#Apply](a)
+  implicit def ContinuationMMA[R, A](a: Continuation[R, Continuation[R, A]]): MMA[PartialApply1Of2[Continuation, R]#Apply, A] = mmaPartial[PartialApply1Of2[Continuation, R]#Apply](a)
 
-  implicit def Function5MA[R, S, T, U, V, A](a: (R, S, T, U, V) => A): MA[PartialApply5Of6[Function5, R, S, T, U, V]#Apply, A] = ma[PartialApply5Of6[Function5, R, S, T, U, V]#Apply](a)
+  implicit def StateMMA[S, A](a: State[S, State[S, A]]): MMA[PartialApply1Of2[State, S]#Apply, A] = mmaPartial[PartialApply1Of2[State, S]#Apply](a)
 
-  implicit def Function6MA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W) => A): MA[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply, A] = ma[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply](a)
+  implicit def Tuple2MMA[R, A](a: (R, (R, A))): MMA[PartialApply1Of2[Tuple2, R]#Apply, A] = mmaPartial[PartialApply1Of2[Tuple2, R]#Apply](a)
 
-  implicit def ListMA[A](a: List[A]): MA[List, A] = ma[List](a)
+  implicit def Tuple3MMA[R, S, A](a: (R, S, (R, S, A))): MMA[PartialApply2Of3[Tuple3, R, S]#Apply, A] = mmaPartial[PartialApply2Of3[Tuple3, R, S]#Apply](a)
 
-  implicit def StreamMA[A](a: Stream[A]): MA[Stream, A] = ma[Stream](a)
+  implicit def Tuple4MMA[R, S, T, A](a: (R, S, T, (R, S, T, A))): MMA[PartialApply3Of4[Tuple4, R, S, T]#Apply, A] = mmaPartial[PartialApply3Of4[Tuple4, R, S, T]#Apply](a)
 
-  implicit def OptionMA[A](a: Option[A]): MA[Option, A] = ma[Option](a)
+  implicit def Tuple5MMA[R, S, T, U, A](a: (R, S, T, U, (R, S, T, U, A))): MMA[PartialApply4Of5[Tuple5, R, S, T, U]#Apply, A] = mmaPartial[PartialApply4Of5[Tuple5, R, S, T, U]#Apply](a)
 
-  implicit def ArrayMA[A](a: Array[A]): MA[Array, A] = ma[Array](a)
+  implicit def Tuple6MMA[R, S, T, U, V, A](a: (R, S, T, U, V, (R, S, T, U, V, A))): MMA[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply, A] = mmaPartial[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply](a)
 
-  implicit def EitherLeftMA[X, A](a: Either.LeftProjection[A, X]) = ma[PartialApply1Of2[Either.LeftProjection, X]#Flip](a)
+  implicit def Tuple7MMA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W, (R, S, T, U, V, W, A))): MMA[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply, A] = mmaPartial[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply](a)
 
-  implicit def EitherRightMA[X, A](a: Either.RightProjection[X, A]): MA[PartialApply1Of2[Either.RightProjection, X]#Apply, A] = ma[PartialApply1Of2[Either.RightProjection, X]#Apply](a)
+  implicit def Function1MMA[R, A](a: R => R => A): MMA[PartialApply1Of2[Function1, R]#Apply, A] = mmaPartial[PartialApply1Of2[Function1, R]#Apply](a)
 
-  implicit def ValidationMA[E, A](a: Validation[E, A]): MA[PartialApply1Of2[Validation, E]#Apply, A] = ma[PartialApply1Of2[Validation, E]#Apply](a)
+  implicit def Function2MMA[R, S, A](a: (R, S) => (R, S) => A): MMA[PartialApply2Of3[Function2, R, S]#Apply, A] = mmaPartial[PartialApply2Of3[Function2, R, S]#Apply](a)
 
-  implicit def ValidationFailureMA[A, E](a: Validation.FailureProjection[E, A]) = ma[PartialApply1Of2[Validation.FailureProjection, A]#Flip](a)
+  implicit def Function3MMA[R, S, T, A](a: (R, S, T) => (R, S, T) => A): MMA[PartialApply3Of4[Function3, R, S, T]#Apply, A] = mmaPartial[PartialApply3Of4[Function3, R, S, T]#Apply](a)
 
-  implicit def ZipperMA[A](a: Zipper[A]): MA[Zipper, A] = ma[Zipper](a)
+  implicit def Function4MMA[R, S, T, U, A](a: (R, S, T, U) => (R, S, T, U) => A): MMA[PartialApply4Of5[Function4, R, S, T, U]#Apply, A] = mmaPartial[PartialApply4Of5[Function4, R, S, T, U]#Apply](a)
 
-  implicit def EndoMA[A](a: Endo[A]): MA[Endo, A] = ma[Endo](a)
+  implicit def Function5MMA[R, S, T, U, V, A](a: (R, S, T, U, V) => (R, S, T, U, V) => A): MMA[PartialApply5Of6[Function5, R, S, T, U, V]#Apply, A] = mmaPartial[PartialApply5Of6[Function5, R, S, T, U, V]#Apply](a)
 
-  implicit def TreeMA[A](a: Tree[A]): MA[Tree, A] = ma[Tree](a)
+  implicit def Function6MMA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W) => (R, S, T, U, V, W) => A): MMA[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply, A] = mmaPartial[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply](a)
 
-  implicit def TreeLocMA[A](a: TreeLoc[A]): MA[TreeLoc, A] = ma[TreeLoc](a)
+  implicit def ListMMA[A](a: List[List[A]]): MMA[List, A] = mma(a)
 
-  import concurrent._
-  implicit def StrategyMA[A](a: Strategy[A]): MA[Strategy, A] = ma[Strategy](a)
+  implicit def StreamMMA[A](a: Stream[Stream[A]]): MMA[Stream, A] = mma(a)
 
-  implicit def ActorMA[A](a: Actor[A]): MA[Actor, A] = ma[Actor](a)
+  implicit def EitherLeftMMA[X, A](a: Either.LeftProjection[Either.LeftProjection[A, X], X]): MMA[PartialApply1Of2[Either.LeftProjection, X]#Flip, A] = mmaPartial[PartialApply1Of2[Either.LeftProjection, X]#Flip](a)
 
-  implicit def PromiseMA[A](a: Promise[A]): MA[Promise, A] = ma[Promise](a)
+  implicit def EitherRightMMA[X, A](a: Either.RightProjection[X, Either.RightProjection[X, A]]): MMA[PartialApply1Of2[Either.RightProjection, X]#Apply, A] = mmaPartial[PartialApply1Of2[Either.RightProjection, X]#Apply](a)
 
-  implicit def EffectMA[A](a: Effect[A]): MA[Effect, A] = ma[Effect](a)
+  implicit def ValidationMMA[X, A](a: Validation[X, Validation[X, A]]): MMA[PartialApply1Of2[Validation, X]#Apply, A] = mmaPartial[PartialApply1Of2[Validation, X]#Apply](a)
 
-  import java.util._
-  import java.util.concurrent._
-
-  implicit def ArrayListMA[A](a: ArrayList[A]): MA[ArrayList, A] = ma[ArrayList](a)
-
-  implicit def HashSetMA[A](a: HashSet[A]): MA[HashSet, A] = ma[HashSet](a)
-
-  implicit def LinkedHashSetMA[A](a: LinkedHashSet[A]): MA[LinkedHashSet, A] = ma[LinkedHashSet](a)
-
-  implicit def LinkedListMA[A](a: LinkedList[A]): MA[LinkedList, A] = ma[LinkedList](a)
-
-  implicit def PriorityQueueMA[A](a: PriorityQueue[A]): MA[PriorityQueue, A] = ma[PriorityQueue](a)
-
-  implicit def StackMA[A](a: Stack[A]): MA[Stack, A] = ma[Stack](a)
-
-  implicit def TreeSetMA[A](a: TreeSet[A]): MA[TreeSet, A] = ma[TreeSet](a)
-
-  implicit def VectorMA[A](a: Vector[A]): MA[Vector, A] = ma[Vector](a)
-
-  implicit def ArrayBlockingQueueMA[A](a: ArrayBlockingQueue[A]): MA[ArrayBlockingQueue, A] = ma[ArrayBlockingQueue](a)
-
-  implicit def ConcurrentLinkedQueueMA[A](a: ConcurrentLinkedQueue[A]): MA[ConcurrentLinkedQueue, A] = ma[ConcurrentLinkedQueue](a)
-
-  implicit def CopyOnWriteArrayListMA[A](a: CopyOnWriteArrayList[A]): MA[CopyOnWriteArrayList, A] = ma[CopyOnWriteArrayList](a)
-
-  implicit def CopyOnWriteArraySetMA[A](a: CopyOnWriteArraySet[A]): MA[CopyOnWriteArraySet, A] = ma[CopyOnWriteArraySet](a)
-
-  implicit def LinkedBlockingQueueMA[A](a: LinkedBlockingQueue[A]): MA[LinkedBlockingQueue, A] = ma[LinkedBlockingQueue](a)
-
-  implicit def PriorityBlockingQueueMA[A](a: PriorityBlockingQueue[A]): MA[PriorityBlockingQueue, A] = ma[PriorityBlockingQueue](a)
-
-  implicit def SynchronousQueueMA[A](a: SynchronousQueue[A]): MA[SynchronousQueue, A] = ma[SynchronousQueue](a)
-
-  // MMAga
-
-  import MMA.mma
-
-  implicit def IdentityMMA[A](a: Identity[Identity[A]]): MMA[Identity, A] = mma[Identity](a)
-
-  implicit def ContinuationMMA[R, A](a: Continuation[R, Continuation[R, A]]): MMA[PartialApply1Of2[Continuation, R]#Apply, A] = mma[PartialApply1Of2[Continuation, R]#Apply](a)
-
-  implicit def NonEmptyListMMA[A](a: NonEmptyList[NonEmptyList[A]]): MMA[NonEmptyList, A] = mma[NonEmptyList](a)
-
-  implicit def DListMMA[A](a: DList[DList[A]]): MMA[DList, A] = mma[DList](a)
-
-  implicit def StateMMA[S, A](a: State[S, State[S, A]]): MMA[PartialApply1Of2[State, S]#Apply, A] = mma[PartialApply1Of2[State, S]#Apply](a)
-
-  implicit def EqualMMA[A](a: Equal[Equal[A]]): MMA[Equal, A] = mma[Equal](a)
-
-  implicit def OrderMMA[A](a: Order[Order[A]]): MMA[Order, A] = mma[Order](a)
-
-  implicit def ShowMMA[A](a: Show[Show[A]]): MMA[Show, A] = mma[Show](a)
-
-  implicit def ZipStreamMMA[A](a: ZipStream[ZipStream[A]]): MMA[ZipStream, A] = mma[ZipStream](a)
-
-  implicit def MetricSpaceMMA[A](a: MetricSpace[MetricSpace[A]]): MMA[MetricSpace, A] = mma[MetricSpace](a)
-
-  implicit def Tuple1MMA[A](a: Tuple1[Tuple1[A]]): MMA[Tuple1, A] = mma[Tuple1](a)
-
-  implicit def Tuple2MMA[R, A](a: (R, (R, A))): MMA[PartialApply1Of2[Tuple2, R]#Apply, A] = mma[PartialApply1Of2[Tuple2, R]#Apply](a)
-
-  implicit def Tuple3MMA[R, S, A](a: (R, S, (R, S, A))): MMA[PartialApply2Of3[Tuple3, R, S]#Apply, A] = mma[PartialApply2Of3[Tuple3, R, S]#Apply](a)
-
-  implicit def Tuple4MMA[R, S, T, A](a: (R, S, T, (R, S, T, A))): MMA[PartialApply3Of4[Tuple4, R, S, T]#Apply, A] = mma[PartialApply3Of4[Tuple4, R, S, T]#Apply](a)
-
-  implicit def Tuple5MMA[R, S, T, U, A](a: (R, S, T, U, (R, S, T, U, A))): MMA[PartialApply4Of5[Tuple5, R, S, T, U]#Apply, A] = mma[PartialApply4Of5[Tuple5, R, S, T, U]#Apply](a)
-
-  implicit def Tuple6MMA[R, S, T, U, V, A](a: (R, S, T, U, V, (R, S, T, U, V, A))): MMA[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply, A] = mma[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply](a)
-
-  implicit def Tuple7MMA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W, (R, S, T, U, V, W, A))): MMA[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply, A] = mma[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply](a)
-
-  implicit def Function0MMA[A](a: Function0[Function0[A]]): MMA[Function0, A] = mma[Function0](a)
-
-  implicit def Function1MMA[R, A](a: R => R => A): MMA[PartialApply1Of2[Function1, R]#Apply, A] = mma[PartialApply1Of2[Function1, R]#Apply](a)
-
-  implicit def Function2MMA[R, S, A](a: (R, S) => (R, S) => A): MMA[PartialApply2Of3[Function2, R, S]#Apply, A] = mma[PartialApply2Of3[Function2, R, S]#Apply](a)
-
-  implicit def Function3MMA[R, S, T, A](a: (R, S, T) => (R, S, T) => A): MMA[PartialApply3Of4[Function3, R, S, T]#Apply, A] = mma[PartialApply3Of4[Function3, R, S, T]#Apply](a)
-
-  implicit def Function4MMA[R, S, T, U, A](a: (R, S, T, U) => (R, S, T, U) => A): MMA[PartialApply4Of5[Function4, R, S, T, U]#Apply, A] = mma[PartialApply4Of5[Function4, R, S, T, U]#Apply](a)
-
-  implicit def Function5MMA[R, S, T, U, V, A](a: (R, S, T, U, V) => (R, S, T, U, V) => A): MMA[PartialApply5Of6[Function5, R, S, T, U, V]#Apply, A] = mma[PartialApply5Of6[Function5, R, S, T, U, V]#Apply](a)
-
-  implicit def Function6MMA[R, S, T, U, V, W, A](a: (R, S, T, U, V, W) => (R, S, T, U, V, W) => A): MMA[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply, A] = mma[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply](a)
-
-  implicit def ListMMA[A](a: List[List[A]]): MMA[List, A] = mma[List](a)
-
-  implicit def StreamMMA[A](a: Stream[Stream[A]]): MMA[Stream, A] = mma[Stream](a)
-
-  implicit def OptionMMA[A](a: Option[Option[A]]): MMA[Option, A] = mma[Option](a)
-
-  implicit def ArrayMMA[A](a: Array[Array[A]]): MMA[Array, A] = mma[Array](a)
-
-  implicit def EitherLeftMMA[X, A](a: Either.LeftProjection[Either.LeftProjection[A, X], X]): MMA[PartialApply1Of2[Either.LeftProjection, X]#Flip, A] = mma[PartialApply1Of2[Either.LeftProjection, X]#Flip](a)
-
-  implicit def EitherRightMMA[X, A](a: Either.RightProjection[X, Either.RightProjection[X, A]]): MMA[PartialApply1Of2[Either.RightProjection, X]#Apply, A] = mma[PartialApply1Of2[Either.RightProjection, X]#Apply](a)
-
-  implicit def ValidationMMA[X, A](a: Validation[X, Validation[X, A]]): MMA[PartialApply1Of2[Validation, X]#Apply, A] = mma[PartialApply1Of2[Validation, X]#Apply](a)
-
-  implicit def ValidationFailureMMA[A, X](a: Validation.FailureProjection[Validation.FailureProjection[A, X], X]): MMA[PartialApply1Of2[Validation.FailureProjection, X]#Flip, A] = mma[PartialApply1Of2[Validation.FailureProjection, X]#Flip](a)
-
-  implicit def ZipperMMA[A](a: Zipper[Zipper[A]]): MMA[Zipper, A] = mma[Zipper](a)
-
-  implicit def EndoMMA[A](a: Endo[Endo[A]]): MMA[Endo, A] = mma[Endo](a)
-
-  implicit def TreeMMA[A](a: Tree[Tree[A]]): MMA[Tree, A] = mma[Tree](a)
-
-  implicit def TreeLocMMA[A](a: TreeLoc[TreeLoc[A]]): MMA[TreeLoc, A] = mma[TreeLoc](a)
-
-  import java.util._
-  import java.util.concurrent._
-
-  implicit def ArrayListMMA[A](a: ArrayList[ArrayList[A]]): MMA[ArrayList, A] = mma[ArrayList](a)
-
-  implicit def HashSetMMA[A](a: HashSet[HashSet[A]]): MMA[HashSet, A] = mma[HashSet](a)
-
-  implicit def LinkedHashSetMMA[A](a: LinkedHashSet[LinkedHashSet[A]]): MMA[LinkedHashSet, A] = mma[LinkedHashSet](a)
-
-  implicit def LinkedListMMA[A](a: LinkedList[LinkedList[A]]): MMA[LinkedList, A] = mma[LinkedList](a)
-
-  implicit def PriorityQueueMMA[A](a: PriorityQueue[PriorityQueue[A]]): MMA[PriorityQueue, A] = mma[PriorityQueue](a)
-
-  implicit def StackMMA[A](a: Stack[Stack[A]]): MMA[Stack, A] = mma[Stack](a)
-
-  implicit def TreeSetMMA[A](a: TreeSet[TreeSet[A]]): MMA[TreeSet, A] = mma[TreeSet](a)
-
-  implicit def VectorMMA[A](a: Vector[Vector[A]]): MMA[Vector, A] = mma[Vector](a)
-
-  implicit def ArrayBlockingQueueMMA[A](a: ArrayBlockingQueue[ArrayBlockingQueue[A]]): MMA[ArrayBlockingQueue, A] = mma[ArrayBlockingQueue](a)
-
-  implicit def ConcurrentLinkedQueueMMA[A](a: ConcurrentLinkedQueue[ConcurrentLinkedQueue[A]]): MMA[ConcurrentLinkedQueue, A] = mma[ConcurrentLinkedQueue](a)
-
-  implicit def CopyOnWriteArrayListMMA[A](a: CopyOnWriteArrayList[CopyOnWriteArrayList[A]]): MMA[CopyOnWriteArrayList, A] = mma[CopyOnWriteArrayList](a)
-
-  implicit def CopyOnWriteArraySetMMA[A](a: CopyOnWriteArraySet[CopyOnWriteArraySet[A]]): MMA[CopyOnWriteArraySet, A] = mma[CopyOnWriteArraySet](a)
-
-  implicit def LinkedBlockingQueueMMA[A](a: LinkedBlockingQueue[LinkedBlockingQueue[A]]): MMA[LinkedBlockingQueue, A] = mma[LinkedBlockingQueue](a)
-
-  implicit def PriorityBlockingQueueMMA[A](a: PriorityBlockingQueue[PriorityBlockingQueue[A]]): MMA[PriorityBlockingQueue, A] = mma[PriorityBlockingQueue](a)
-
-  implicit def SynchronousQueueMMA[A](a: SynchronousQueue[SynchronousQueue[A]]): MMA[SynchronousQueue, A] = mma[SynchronousQueue](a)
+  implicit def ValidationFailureMMA[A, X](a: Validation.FailureProjection[Validation.FailureProjection[A, X], X]): MMA[PartialApply1Of2[Validation.FailureProjection, X]#Flip, A] = mmaPartial[PartialApply1Of2[Validation.FailureProjection, X]#Flip](a)
 
   // MAB
-
   import MAB.mab
 
   implicit def EitherMAB[A, B](a: Either[A, B]): MAB[Either, A, B] = mab[Either](a)

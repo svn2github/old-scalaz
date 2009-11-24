@@ -212,7 +212,7 @@ sealed trait MA[M[_], A] {
     foldl[BKTree[A]](BKTree.empty, _ + _)
 
   private def levenshteinMatrix(w: M[A])(implicit l: Length[M], ind: Index[M], equ: Equal[A]): (Int, Int) => Int = {
-    implicit def WMA[A](a: M[A]) = MA.ma[M](a)
+    implicit def WMA[A](a: M[A]) = MA.maPartial[M](a)
     val m = memo.Memo.mutableHashMapMemo[(Int, Int), Int]
 
     def get(i: Int, j: Int): Int = if (i == 0) j else if (j == 0) i else {
@@ -238,7 +238,7 @@ sealed trait MA[M[_], A] {
 
   import MMA._
   def parBind[B](f: A => M[B])(implicit m: Bind[M], t: Functor[M], s: Strategy[M[B]]): () => M[B] =
-    parMap(f).map(((_: MMA[M, B]).join) compose (mma[M](_)))
+    parMap(f).map(((_: MMA[M, B]).join) compose (mmaPartial[M](_)))
 
   def parZipWith[B, C](f: (A, B) => C, bs: M[B])
                       (implicit z: Zip[M], m: Functor[M], s: Strategy[C]): () => M[C] =
@@ -246,9 +246,11 @@ sealed trait MA[M[_], A] {
 }
 
 object MA {
-  def ma[M[_]] = new PartialWrapMA[M, MA] {
+  def maPartial[M[_]] = new PartialWrapMA[M, MA] {
     def apply[A](a: M[A]) = new MA[M, A] {
       val v = a
     }
   }
+  def ma[M[_], A](a: M[A]) = new MA[M, A] { val v = a }
+
 }

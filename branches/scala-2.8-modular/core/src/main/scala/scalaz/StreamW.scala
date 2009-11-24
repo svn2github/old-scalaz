@@ -10,7 +10,7 @@ sealed trait StreamW[A] {
 
   def stringj(f: A => Stream[Char]) = value flatMap f mkString
 
-  def |!| = ZipStream.zip(value)
+  def |!| : ZipStream[A] = ZipStream.zip(value)
 
   def merge(s: Stream[A]): Stream[A] =
     if (value.isEmpty) Stream.empty

@@ -102,7 +102,7 @@ sealed trait Request[IN[_]] {
    * fold-left and subsequent invocations look-up using a memoisation table (scoped to each request).
    */
   def post(implicit f: FoldLeft[IN]) = new {
-    val parameters = m(f => Util.parameters(MA.ma[IN](body).listl(f) map (_.toChar)))(f)
+    val parameters = m(f => Util.parameters(MA.maPartial[IN](body).listl(f) map (_.toChar)))(f)
     lazy val parametersMap = asHashMap[List, NonEmptyList](parameters)
     lazy val parametersMapHeads = mapHeads(parametersMap)
     def |(p: String) = parametersMapHeads.get(p.toList)

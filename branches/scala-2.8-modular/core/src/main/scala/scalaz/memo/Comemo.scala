@@ -8,7 +8,7 @@ sealed trait Comemo[-T, K, V] {
 }
 
 object Comemo {
-  def comemo[T, K, V](f: T => Memo[K, V]) = new Comemo[T, K, V] {
+  def comemo[T, K, V](f: T => Memo[K, V]): Comemo[T, K, V] = new Comemo[T, K, V] {
     def apply(t: T) = f(t)
   }
 

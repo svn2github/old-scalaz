@@ -38,7 +38,7 @@ trait Scapps {
     })
   }
   
-  implicit def OptionKleisliMA[R, A](k: Kleisli[Option, R, A]) = MA.ma[PartialApplySomething[Kleisli, Option, R]#Apply](k)
+  implicit def OptionKleisliMA[R, A](k: Kleisli[Option, R, A]) = MA.maPartial[PartialApplySomething[Kleisli, Option, R]#Apply](k)
   
   implicit def OptionKleisliFunctor[X] = new Functor[PartialApplySomething[Kleisli, Option, X]#Apply] {
     def fmap[A, B](r: Kleisli[Option, X, A], f: A => B) = {

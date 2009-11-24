@@ -7,7 +7,7 @@ trait Apply[Z[_]] {
 }
 
 object Apply {
-  def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
+  def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]): Apply[Z] = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
       b.bind(f, (g: A => B) => t.fmap(a, g(_: A)))
     }
