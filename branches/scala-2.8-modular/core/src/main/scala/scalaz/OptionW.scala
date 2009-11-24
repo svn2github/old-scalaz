@@ -31,7 +31,7 @@ sealed trait OptionW[A] {
 
   def |(a: => A) = value getOrElse a
 
-  def toNull = value getOrElse null.asInstanceOf[A]
+  def toNull[A1 >: A](implicit ev: Null <:< A1): A1 = value orNull
 
   def unary_~(implicit z: Zero[A]) = value getOrElse z.zero
   
