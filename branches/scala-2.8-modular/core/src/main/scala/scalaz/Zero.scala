@@ -1,6 +1,7 @@
 package scalaz
 
 import concurrent.Strategy
+import xml.{Elem, Node}
 import collection.mutable.GenericArray
 
 trait Zero[+Z] {
@@ -61,6 +62,18 @@ object Zero {
   implicit val BigIntMutliplicationZero = zero(BigInt(1) |*|)
 
   implicit val NodeSeqZero = zero(xml.NodeSeq.Empty)
+
+  implicit val NodeZero: Zero[Node] = new Zero[Node] {
+    val zero = new Node {
+      override def text = null
+      override def label = null
+      override def child = Nil
+    }
+  }
+
+  implicit def ElemZero: Zero[Elem] = new Zero[Elem] {
+    val zero = new Elem(null, null, scala.xml.Null, xml.TopScope, Nil: _*)
+  }
 
   implicit def ZipStreamZero[A] = zero[ZipStream[A]](ZipStream.zip(Stream.empty))
 
