@@ -143,13 +143,19 @@ object Example {
   import MA._
 
   def main(args: Array[String]) {
+    // Functor map
     println(List(1, 2, 3, 4, 5) ∘ (1+))
+
+    // Functor map (anonymous)
     println(List(1, 2, 3, 4) >| "boo")
 
+    // Contravariant functor map
     {
-      // todo posted to mailing list
-      val f = ma[PartialApply1Of2[Function1, Int]#Flip, Int](3+)
+      val f = ma[PartialApply1Of2[Function1, Int]#Flip, Int](3+) // todo This is icky. Posted to mailing list.
       println(List(1, 2, 3, 4, 5) ∘ (f ∙ ((_: Int) / 2)))
     }
+
+    // Applicative functor apply
+    println(List(40, 50, 60) ⊛ (List(1, 2, 3) ∘ ((_: Int) * (_: Int)).curry))
   }
 }
