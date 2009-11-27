@@ -56,4 +56,4 @@ allExample :: IO ExitCode
 allExample = runExample "scalaz.Example"
 
 repl :: IO ExitCode
-repl = scala cp
+repl = scala (intercalate " " ["-i repl", cp])
