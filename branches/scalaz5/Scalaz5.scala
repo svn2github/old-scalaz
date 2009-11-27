@@ -527,6 +527,14 @@ sealed trait Identity[A] {
   def text(implicit s: Show[A]) = xml.Text(s shows value)
 }
 
+trait Identitys {
+  implicit def IdentityTo[A](x: A): Identity[A] = new Identity[A] {
+    val value = x
+  }
+
+  val unital = IdentityTo(())
+}
+
 sealed trait Digit {
   val toInt: Int
   def toLong = toInt.toLong
@@ -588,14 +596,6 @@ trait Digits {
     case 9L => _9
     case _ => Math.abs(n) % 10L
   }
-}
-
-trait Identitys {
-  implicit def IdentityTo[A](x: A): Identity[A] = new Identity[A] {
-    val value = x
-  }
-
-  val unital = IdentityTo(())
 }
 
 sealed trait CharW {
