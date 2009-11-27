@@ -129,6 +129,14 @@ sealed trait MA[M[_], A] {
   def |<[B](f: => A)(implicit t: Cofunctor[M]) = ∙((_: B) => f)
 
   def ⊛[B](f: M[A => B])(implicit a: Apply[M]) = a(f, v)
+
+  def <⊛>[B, C](b: M[B], apply: (A, B) => C)(implicit t: Functor[M], a: Apply[M]) = a(t.fmap(v, apply.curry), b)
+
+  def ⊛>[B](b: M[B])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, (_, b: B) => b)
+
+  def <⊛[B](b: M[B])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, (a, _: B) => a)
+
+  def <<⊛>>[B](b: M[B])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, (_: A, _: B))
 }
 
 object MA {
@@ -157,5 +165,25 @@ object Example {
 
     // Applicative functor apply
     println(List(40, 50, 60) ⊛ (List(1, 2, 3) ∘ ((_: Int) * (_: Int)).curry))
+
+    // Applicative functor lift
+    {
+      println(List(1, 2, 3) <⊛> (List(40, 50, 60), (_: Int) * (_: Int)))
+    }
+
+    // Applicative functor lift to pair
+    {
+      println(List(1, 2, 3) <<⊛>> List(40, 50, 60))
+    }
+
+    // Applicative functor lift (anonymous right)
+    {
+      println(List(1, 2, 3) ⊛> List(40, 50, 60))
+    }
+
+    // Applicative functor lift (anonymous left)
+    {
+      println(List(1, 2, 3) <⊛ List(40, 50, 60))
+    }
   }
 }
