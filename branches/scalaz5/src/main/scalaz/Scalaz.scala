@@ -9,4 +9,6 @@ object Scalaz extends MAs
       b.bind(f, (g: A => B) => t.fmap(a, g(_: A)))
     }
   }
+
+//  implicit def Function1MA[R, A](a: R => A): MA[PartialApply1Of2[Function1, R]#Apply, A] = ma[PartialApply1Of2[Function1, R]#Apply, A](a)
 }

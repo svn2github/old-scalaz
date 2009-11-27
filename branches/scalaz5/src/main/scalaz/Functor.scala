@@ -17,6 +17,10 @@ object Functor {
     }
   }
 
+  implicit def Function1Functor[R] = new Functor[PartialApply1Of2[Function1, R]#Apply] {
+    def fmap[A, B](r: R => A, f: A => B) = r andThen f
+  }
+        
   implicit val ListFunctor: Functor[List] = new Functor[List] {
     def fmap[A, B](r: List[A], f: A => B) = r map f
   }
