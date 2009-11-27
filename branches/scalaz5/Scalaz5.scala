@@ -147,6 +147,7 @@ object Example {
     println(List(1, 2, 3, 4) >| "boo")
 
     {
+      // todo posted to mailing list
       val f = ma[PartialApply1Of2[Function1, Int]#Flip, Int](3+)
       println(List(1, 2, 3, 4, 5) ∘ (f ∙ ((_: Int) / 2)))
     }
