@@ -1,3 +1,16 @@
+{-
+
+Depends
+* The Haskell Platform http://hackage.haskell.org/platform/
+* Lastik http://hackage.haskell.org/package/Lastik
+
+
+$LastChangedRevision$
+$LastChangedDate$
+$LastChangedBy$
+
+-}
+
 module Build where
 
 import Lastik.Scala.Scalac
