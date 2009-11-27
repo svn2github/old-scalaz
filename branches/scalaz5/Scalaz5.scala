@@ -127,6 +127,30 @@ trait Each[-E[_]] {
   def each[A](e: E[A], f: A => Unit): Unit
 }
 
+trait FoldLeft[-F[_]] {
+  def foldLeft[B, A](t: F[A], b: B, f: (B, A) => B): B
+}
+
+object FoldLeft {
+  implicit val IterableFoldLeft = new FoldLeft[Iterable] {
+    def foldLeft[B, A](t: Iterable[A], b: B, f: (B, A) => B) = t.foldLeft(b)(f)
+  }
+}
+
+trait FoldRight[-F[_]] {
+  def foldRight[A, B](t: F[A], b: B, f: (A, => B) => B): B
+}
+
+object FoldRight {
+  implicit val ListFoldRight = new FoldRight[List] {
+    def foldRight[A, B](t: List[A], b: B, f: (A, => B) => B) = IterableFoldRight.foldRight(t, b, f)
+  }
+
+  implicit val IterableFoldRight = new FoldRight[Iterable] {
+    def foldRight[A, B](t: Iterable[A], b: B, f: (A, => B) => B): B = t.foldRight(b)(f(_, _))
+  }
+}
+
 object Scalaz {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
@@ -183,6 +207,19 @@ sealed trait MA[M[_], A] {
   def ➡(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
 
   def foreach(f: A => Unit)(implicit e: Each[M]) = ➡(f)
+
+  def foldl[B](b: B, f: (B, A) => B)(implicit r: FoldLeft[M]) = r.foldLeft[B, A](v, b, f)
+
+  def foldl1(f: (A, A) => A)(implicit r: FoldLeft[M]) = foldl[Option[A]](None, (a1, a2) => Some(a1 match {
+    case None => a2
+    case Some(x) => f(a2, x)
+  })) getOrElse (error("foldl1 on empty"))
+
+  def listl(implicit r: FoldLeft[M]) = {
+    val b = new scala.collection.mutable.ListBuffer[A]
+    foldl[scala.Unit]((), (_, a) => b += a)
+    b.toList
+  }
 }
 
 object MA {
