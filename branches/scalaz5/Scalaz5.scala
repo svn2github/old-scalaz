@@ -117,6 +117,16 @@ object Plus {
   }
 }
 
+object Each {
+  implicit val IterableEach = new Each[Iterable] {
+    def each[A](e: Iterable[A], f: A => Unit) = e foreach f
+  }
+}
+
+trait Each[-E[_]] {
+  def each[A](e: E[A], f: A => Unit): Unit
+}
+
 object Scalaz {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
@@ -169,6 +179,10 @@ sealed trait MA[M[_], A] {
   def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
 
   def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
+
+  def ➡(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
+
+  def foreach(f: A => Unit)(implicit e: Each[M]) = ➡(f)
 }
 
 object MA {
@@ -218,5 +232,8 @@ object Example {
 
     // Pure/Plus
     println(1 ➝: 2 ➝: 3 ➝: List(4, 5, 6))
+
+    // Each
+    List(1, 2, 3) ➡ print; println
   }
 }
