@@ -107,6 +107,16 @@ object Cofunctor {
   }
 }
 
+trait Plus[P[_]] {
+  def plus[A](a1: P[A], a2: => P[A]): P[A]
+}
+
+object Plus {
+  implicit val ListPlus = new Plus[List] {
+    def plus[A](a1: List[A], a2: => List[A]) = a1 ::: a2
+  }
+}
+
 object Scalaz {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
@@ -152,7 +162,13 @@ sealed trait MA[M[_], A] {
 
   def ∗[B](f: A => M[B])(implicit b: Bind[M]) = b.bind(v, f)
 
+  def ∗|[B](f: => M[B])(implicit b: Bind[M]) = ∗(_ => f)
+
   def flatMap[B](f: A => M[B])(implicit b: Bind[M]) = ∗(f)
+
+  def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
+
+  def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
 }
 
 object MA {
@@ -196,5 +212,11 @@ object Example {
 
     // Monad bind
     println(List(1, 2, 3) ∗ (n => List(7, n)))
+
+    // Plus
+    println(List(1, 2, 3) ⟴ List(4, 5, 6))
+
+    // Pure/Plus
+    println(1 ➝: 2 ➝: 3 ➝: List(4, 5, 6))
   }
 }
