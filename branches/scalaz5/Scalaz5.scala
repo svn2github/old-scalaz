@@ -149,6 +149,10 @@ sealed trait MA[M[_], A] {
   def <<⊛>>[B, C, D](b: M[B], c: M[C], d: M[D])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, c, d, (_: A, _: B, _: C, _: D))
 
   def <<⊛>>[B, C, D, E](b: M[B], c: M[C], d: M[D], e: M[E])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, c, d, e, (_: A, _: B, _: C, _: D, _: E))
+
+  def ∗[B](f: A => M[B])(implicit b: Bind[M]) = b.bind(v, f)
+
+  def flatMap[B](f: A => M[B])(implicit b: Bind[M]) = ∗(f)
 }
 
 object MA {
@@ -179,7 +183,6 @@ object Example {
     println(List(40, 50, 60) ⊛ (List(1, 2, 3) ∘ ((_: Int) * (_: Int)).curry))
 
     // Applicative functor lift
-
     println(List(1, 2, 3) <⊛> (List(40, 50, 60), (_: Int) * (_: Int)))
 
     // Applicative functor lift to pair
@@ -190,5 +193,8 @@ object Example {
 
     // Applicative functor lift (anonymous left)
     println(List(1, 2, 3) <⊛ List(40, 50, 60))
+
+    // Monad bind
+    println(List(1, 2, 3) ∗ (n => List(7, n)))
   }
 }
