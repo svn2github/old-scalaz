@@ -3,6 +3,7 @@ module Build where
 import Lastik.Scala.Scalac
 import Lastik.Runner
 import Lastik.Output
+import Lastik.Directory
 import Lastik.Util
 import System.FilePath
 import System.Cmd
@@ -14,9 +15,10 @@ mainDir = "src" </> "main"
 testDir = "src" </> "test"
 resourcesDir = "resources"
 
-buildExample = "build" </> "example"
-buildMain = "build" </> "main"
-buildTest = "build" </> "test"
+build = "build"
+buildExample = build </> "example"
+buildMain = build </> "main"
+buildTest = build </> "test"
 
 cp :: String
 cp = "classpath" ~?? [buildExample, buildMain, buildTest]
@@ -49,11 +51,18 @@ test = main >>>> (test' +->- [testDir])
 scala :: String -> IO ExitCode
 scala k = system ("scala " ++ k)
 
+runExample' :: String -> IO ExitCode
+runExample' e = example >>>> scala (intercalate " " [cp, e])
+
 runExample :: String -> IO ExitCode
-runExample e = example >>>> scala (intercalate " " [cp, e])
+runExample = runExample' . ("scalaz." ++)
 
 allExample :: IO ExitCode
-allExample = runExample "scalaz.Example"
+allExample = runExample "Example"
 
 repl :: IO ExitCode
 repl = scala (intercalate " " ["-i repl", cp])
+
+clean :: IO ()
+clean = rmdir build
+
