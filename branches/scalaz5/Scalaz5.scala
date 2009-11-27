@@ -1,5 +1,12 @@
 package scalaz
 
+trait PartialApply1Of2[T[_, _], A] {
+  type Apply[B] = T[A, B]
+
+  type Flip[B] = T[B, A]
+}
+
+
 trait Functor[F[_]] {
   def fmap[A, B](r: F[A], f: A => B): F[B]
 }
@@ -90,6 +97,16 @@ object Monad {
   }
 }
 
+trait Cofunctor[F[_]] {
+  def comap[A, B](r: F[A], f: B => A): F[B]
+}
+
+object Cofunctor {
+  implicit def Function1Cofunctor[X]: Cofunctor[PartialApply1Of2[Function1, X]#Flip] = new Cofunctor[PartialApply1Of2[Function1, X]#Flip] {
+    def comap[A, B](r: A => X, f: B => A) = r compose f
+  }
+}
+
 object Scalaz {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
@@ -106,6 +123,10 @@ sealed trait MA[M[_], A] {
   def map[B](f: A => B)(implicit t: Functor[M]) = ∘(f)
 
   def >|[B](f: => B)(implicit t: Functor[M]) = ∘(_ => f)
+
+  def →[B](f: B => A)(implicit t: Cofunctor[M]) = t.comap(v, f)
+
+  def |<[B](f: => A)(implicit t: Cofunctor[M]) = →((_: B) => f)
 }
 
 object MA {
