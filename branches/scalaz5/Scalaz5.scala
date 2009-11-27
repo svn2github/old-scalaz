@@ -124,9 +124,11 @@ sealed trait MA[M[_], A] {
 
   def >|[B](f: => B)(implicit t: Functor[M]) = ∘(_ => f)
 
-  def →[B](f: B => A)(implicit t: Cofunctor[M]) = t.comap(v, f)
+  def ∙[B](f: B => A)(implicit t: Cofunctor[M]) = t.comap(v, f)
 
-  def |<[B](f: => A)(implicit t: Cofunctor[M]) = →((_: B) => f)
+  def |<[B](f: => A)(implicit t: Cofunctor[M]) = ∙((_: B) => f)
+
+  def ⊛[B](f: M[A => B])(implicit a: Apply[M]) = a(f, v)
 }
 
 object MA {
@@ -143,5 +145,10 @@ object Example {
   def main(args: Array[String]) {
     println(List(1, 2, 3, 4, 5) ∘ (1+))
     println(List(1, 2, 3, 4) >| "boo")
+
+    {
+      val f = ma[PartialApply1Of2[Function1, Int]#Flip, Int](3+)
+      println(List(1, 2, 3, 4, 5) ∘ (f ∙ ((_: Int) / 2)))
+    }
   }
 }
