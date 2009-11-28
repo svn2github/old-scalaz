@@ -8,7 +8,7 @@ object Functor {
   import Scalaz._
 
   implicit val IdentityFunctor: Functor[Identity] = new Functor[Identity] {
-    def fmap[A, B](r: Identity[A], f: A => B) = f(r.value)
+    def fmap[A, B](r: Identity[A], f: A => B) = f(r)
   }
 
   implicit val Function0Functor = new Functor[Function0] {

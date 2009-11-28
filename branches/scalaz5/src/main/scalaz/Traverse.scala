@@ -5,14 +5,14 @@ trait Traverse[T[_]] extends Functor[T] {
 
   import Scalaz._
 
-  override def fmap[A, B](k: T[A], f: A => B) = traverse[Identity, A, B](f(_), k).value
+  override def fmap[A, B](k: T[A], f: A => B) = traverse[Identity, A, B](f(_), k)
 }
 
 object Traverse {
   import Scalaz._
 
   implicit val IdentityTraverse: Traverse[Identity] = new Traverse[Identity] {
-    def traverse[F[_], A, B](f: A => F[B], t: Identity[A])(implicit a: Applicative[F]) = a.fmap(f(t.value), (b: B) => b)
+    def traverse[F[_], A, B](f: A => F[B], t: Identity[A])(implicit a: Applicative[F]) = a.fmap(f(t), (b: B) => b)
   }
 
   implicit val Function0Traverse: Traverse[Function0] = new Traverse[Function0] {

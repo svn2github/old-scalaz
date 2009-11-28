@@ -43,5 +43,7 @@ trait Identitys {
     val value = x
   }
 
+  implicit def IdentityFrom[A](x: Identity[A]): A = x.value
+
   val unital = IdentityTo(())
 }
