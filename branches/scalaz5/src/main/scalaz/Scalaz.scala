@@ -5,6 +5,7 @@ object Scalaz extends ScalazLow
               with    Identitys
               with    Digits
               with    Alphas
+              with    DLists
               with    Chars {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
