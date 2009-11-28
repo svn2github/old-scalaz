@@ -163,7 +163,7 @@ sealed trait MA[M[_], A] {
 
   def collapse(implicit t: Traverse[M], m: Monoid[A]) = ↣(identity[A])
 
-  def ⇤[B](f: M[A] => B)(implicit w: Comonad[M]): M[B] = w.fmap(w.cojoin(v), f)
+  def =>>[B](f: M[A] => B)(implicit w: Comonad[M]): M[B] = w.fmap(w.cojoin(v), f)
 
   def copure[B](implicit p: Copure[M]) = p copure v
 
