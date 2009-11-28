@@ -3,6 +3,8 @@ package scalaz
 sealed trait Identity[A] {
   val value: A
 
+  def pure[F[_]](implicit p: Pure[F]) = p pure value
+  
   def ⊹(a: => A)(implicit s: Semigroup[A]) = s append (value, a)
 
   def ≟(a: A)(implicit e: Equal[A]) = e equal (value, a)
