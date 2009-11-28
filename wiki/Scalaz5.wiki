@@ -7,9 +7,9 @@ Scalaz 5.0 will target Scala 2.8.0.
 
 = Details =
 
-  * Can SBT handle shifting around the Scala version so we can build against trunk?
+  * Can SBT handle shifting around the Scala version so we can build against trunk? Yes, it is simple to target a particular nightly snapshot release from scala-tools.org, or a locally installed version of scala. 
   * Will SBT handle incremental updates during development well?
-  * Will SBT handle releases?
+  * Will SBT handle releases? -- On the scalaz4 2.8 branch, I configured SBT to create binary, source, and javadoc jars for each module, and publish them to scala-tools. We also need a zip containing everything, which won't be hard.
   * There should be a `join (***) function` in the library if not already
   * Arrow should inherit from Category (see Haskell's Control.Category)
   * Use mixins so users only need one import.
@@ -18,8 +18,9 @@ Scalaz 5.0 will target Scala 2.8.0.
   * Find the limits of named default arguments and usability.
   * Only two code branches; experimental and core.
   * `scalaz.geo` include Vincenty's direct/inverse algorithms
-  * Is there a continuous build that works yet?
+  * Is there a continuous build that works yet? -- jzaugg: I'll ping Dave Pollack again on this one...
   * Use unicode identifiers where appropriate. Include an ASCII equivalent if one doesn't already exist.
+  * Support / take advantage of the new collections hierarchy. e.g. can we just have a single instance of Pure for all collections?
 
 = Links =
 
