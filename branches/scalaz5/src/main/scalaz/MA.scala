@@ -140,6 +140,24 @@ sealed trait MA[M[_], A] {
         else x, pa)
     }
   })._1
+
+  def para[B](b: B, f: (=> A, => M[A], B) => B)(implicit p: Paramorphism[M]) = p.para(v, b, f)
+
+  def ↣[B](f: A => B)(implicit t: Traverse[M], m: Monoid[B]): B = {
+    case class Acc[B, A](acc: B)
+
+    implicit val AccApply = new Apply[PartialApply1Of2[Acc, B]#Apply] {
+      def apply[A, X](f: Acc[B, A => X], fa: Acc[B, A]) = Acc[B, X](m append (f.acc, fa.acc))
+    }
+
+    implicit val AccPure = new Pure[PartialApply1Of2[Acc, B]#Apply] {
+      def pure[A](a: => A) = Acc[B, A](m.zero)
+    }
+
+    implicit val AccApplicative = Applicative.applicative[PartialApply1Of2[Acc, B]#Apply](AccPure, AccApply)
+
+    t.traverse[PartialApply1Of2[Acc, B]#Apply, A, B](a => Acc[B, B](f(a)), v).acc
+  }
 }
 
 trait MAs {
