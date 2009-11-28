@@ -7,6 +7,8 @@ sealed trait MA[M[_], A] {
 
   def foo(implicit a: List[A]) = 0
 
+  def bar(a: List[A]) = 0
+
 }
 
 trait MAs {
