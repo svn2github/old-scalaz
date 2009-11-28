@@ -1,11 +1,13 @@
 package scalaz
 
-trait Zero[+Z] {
+sealed trait Zero[+Z] {
   val zero: Z
 }
 
-object Zero {
+trait Zeros {
   def zero[Z](z: Z) = new Zero[Z] {
     val zero = z
   }
+
+  implicit def ListZero[A]: Zero[List[A]] = zero(Nil)
 }
