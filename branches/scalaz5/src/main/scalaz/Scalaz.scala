@@ -22,5 +22,11 @@ object Scalaz extends ScalazLow
     }
   }
 
+  def ⊥ = error("undefined")
+
+  type ⊤ = Any
+
+  type ℤ = BigInt
+
   //implicit def Function1MA[R, A](a: R => A): MA[PartialApply1Of2[Function1, R]#Apply, A] = ma[PartialApply1Of2[Function1, R]#Apply, A](a)
 }
