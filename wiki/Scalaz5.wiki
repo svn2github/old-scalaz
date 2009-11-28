@@ -23,3 +23,5 @@ Scalaz 5.0 will target Scala 2.8.0.
 = Links =
 
   * [http://www.scala-lang.org/node/2075 Named default arguments]
+  * [http://haskell.org/sitewiki/images/8/85/TMR-Issue13.pdf Typeclassopedia]
+  * [https://lampsvn.epfl.ch/trac/scala/browser/scala/trunk/src/library/scala/Predef.scala#L273 Predef.scala with notes about conforms (<:<)]
