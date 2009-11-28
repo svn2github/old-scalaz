@@ -1,6 +1,7 @@
 package scalaz
 
 object Scalaz extends ScalazLow
+              with    Kleislis
               with    Identitys
               with    Digits
               with    Alphas
