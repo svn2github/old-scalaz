@@ -48,6 +48,8 @@ sealed trait MA[M[_], A] {
 
   def join[B](implicit m: A <:< M[B], b: Bind[M]) = ∗(z => z)
 
+  def μ[B](implicit m: A <:< M[B], b: Bind[M]): M[B] = join
+
   def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
 
   def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
@@ -167,7 +169,11 @@ sealed trait MA[M[_], A] {
 
   def copure[B](implicit p: Copure[M]) = p copure v
 
+  def ε[B](implicit p: Copure[M]): A = copure
+
   def cojoin(implicit j: Cojoin[M]) = j cojoin v
+
+  def υ(implicit j: Cojoin[M]): M[M[A]] = cojoin
 }
 
 trait MAs {

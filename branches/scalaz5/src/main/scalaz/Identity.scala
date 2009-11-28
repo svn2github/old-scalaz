@@ -3,7 +3,7 @@ package scalaz
 sealed trait Identity[A] {
   val value: A
 
-  def pure[F[_]](implicit p: Pure[F]) = p pure value
+  def η[F[_]](implicit p: Pure[F]) = p pure value
   
   def ⊹(a: => A)(implicit s: Semigroup[A]) = s append (value, a)
 
