@@ -158,6 +158,8 @@ sealed trait MA[M[_], A] {
 
     t.traverse[PartialApply1Of2[Acc, B]#Apply, A, B](a => Acc[B, B](f(a)), v).acc
   }
+
+  def collapse(implicit t: Traverse[M], m: Monoid[A]) = ↣(identity[A])
 }
 
 trait MAs {
