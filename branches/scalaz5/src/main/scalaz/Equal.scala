@@ -10,6 +10,10 @@ object Equal {
   }
 
   import Scalaz._
+    
+  def equalA[A] = equal[A](_ == _)
+
+  implicit val CharEqual: Equal[Char] = equalA
 
   implicit def IterableEqual[A](implicit ea: Equal[A]) = equal[Iterable[A]]((a1, a2) => {
     val i1 = a1.iterator
