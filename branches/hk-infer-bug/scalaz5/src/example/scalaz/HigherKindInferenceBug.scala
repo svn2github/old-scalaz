@@ -1,7 +1,7 @@
 package scalaz
 
 
-object ExampleSemigroup {
+object HigherKindInferenceBug {
   def main(args: Array[String]) = run
 
   import Scalaz._
