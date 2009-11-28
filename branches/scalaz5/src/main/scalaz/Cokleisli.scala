@@ -5,7 +5,7 @@ trait Cokleisli[W[_], A, B] {
 
   import Scalaz._
 
-  def <<=(a: W[A])(implicit w: Comonad[W]) = a ⇤ apply
+  def <<=(a: W[A])(implicit w: Comonad[W]) = a =>> apply
 }
 
 object Cokleisli {
