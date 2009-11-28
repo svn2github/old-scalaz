@@ -1,6 +1,6 @@
 package scalaz
 
-object Scalaz extends MAs
+object Scalaz extends ScalazLow              
               with    Identitys
               with    Digits
               with    Chars {
@@ -10,5 +10,5 @@ object Scalaz extends MAs
     }
   }
 
-//  implicit def Function1MA[R, A](a: R => A): MA[PartialApply1Of2[Function1, R]#Apply, A] = ma[PartialApply1Of2[Function1, R]#Apply, A](a)
+  //implicit def Function1MA[R, A](a: R => A): MA[PartialApply1Of2[Function1, R]#Apply, A] = ma[PartialApply1Of2[Function1, R]#Apply, A](a)
 }
