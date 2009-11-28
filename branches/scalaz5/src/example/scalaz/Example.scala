@@ -6,6 +6,7 @@ object Example {
     ExampleCategory.run
     ExampleCofunctor.run
     ExampleFunctor.run
+    ExampleKleisli.run
   }
   
   def main(args: Array[String]) = run
