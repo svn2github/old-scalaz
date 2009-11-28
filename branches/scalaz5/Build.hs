@@ -74,7 +74,7 @@ allExample :: IO ExitCode
 allExample = runExample "Example"
 
 repl :: IO ExitCode
-repl = scala (intercalate " " ["-i initrepl", cp])
+repl = example >>>> test >>>> scala (intercalate " " ["-i initrepl", cp])
 
 clean :: IO ()
 clean = rmdir build

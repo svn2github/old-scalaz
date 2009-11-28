@@ -46,6 +46,8 @@ sealed trait MA[M[_], A] {
 
   def flatMap[B](f: A => M[B])(implicit b: Bind[M]) = ∗(f)
 
+  def join[B](implicit m: A <:< M[B], b: Bind[M]) = ∗(z => z)
+
   def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
 
   def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
