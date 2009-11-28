@@ -36,26 +36,26 @@ buildTest = build </> "test"
 cp :: String
 cp = "classpath" ~?? [buildExample, buildMain, buildTest]
 
-main' :: Scalac
-main' = scalac {
-  directory = Just buildMain
+s :: FilePath -> Scalac
+s d = scalac {
+  directory = Just d,
+  deprecation = True
 }
+
+main' :: Scalac
+main' = s buildMain
 
 main :: IO ExitCode
 main = main' +->- [mainDir]
 
 example' :: Scalac
-example' = main' >=>=> scalac {
-  directory = Just buildExample
-}
+example' = main' >=>=> s buildExample
 
 example :: IO ExitCode
 example = main >>>> (example' +->- [exampleDir])
 
 test' :: Scalac
-test' = main' >=>=> scalac {
-  directory = Just buildTest
-}
+test' = main' >=>=> s buildTest
 
 test :: IO ExitCode
 test = main >>>> (test' +->- [testDir])
