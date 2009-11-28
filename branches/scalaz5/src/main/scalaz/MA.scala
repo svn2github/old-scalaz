@@ -174,6 +174,29 @@ sealed trait MA[M[_], A] {
   def cojoin(implicit j: Cojoin[M]) = j cojoin v
 
   def υ(implicit j: Cojoin[M]): M[M[A]] = cojoin
+
+  def <--->(w: M[A])(implicit l: Length[M], ind: Index[M], equ: Equal[A]) = {
+    def levenshteinMatrix(w: M[A])(implicit l: Length[M], ind: Index[M], equ: Equal[A]): (Int, Int) => Int = {
+      val m = mutableHashMapMemo[(Int, Int), Int]
+
+      def get(i: Int, j: Int): Int = if (i == 0) j else if (j == 0) i else {
+        lazy val t = this -!- (i - 1)
+        lazy val u = w -!- (j - 1)
+        lazy val e = t ≟ u
+
+        val g = m {case (a, b) => get(a, b)}
+        val a = g(i - 1, j) + 1
+        val b = g(i - 1, j - 1) + (if (e) 0 else 1)
+        def c = g(i, j - 1) + 1
+        if (a < b) a else if (b <= c) b else c
+      }
+
+      get
+    }
+
+    val k = levenshteinMatrix(w)
+    k(l.len(v), l.len(w))
+  }
 }
 
 trait MAs {
