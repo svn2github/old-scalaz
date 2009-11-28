@@ -92,6 +92,54 @@ sealed trait MA[M[_], A] {
     val k = ∘((f: A) => (f: Char)).digits.sequence
     k
   }
+
+  def foldr[B](b: B, f: (A, => B) => B)(implicit r: FoldRight[M]) = r.foldRight(v, b, f)
+
+  def foldr1(f: (A, => A) => A)(implicit r: FoldRight[M]) = foldr[Option[A]](None, (a1, a2) => Some(a2 match {
+    case None => a1
+    case Some(x) => f(a1, x)
+  }))
+
+  def ∑∑(implicit r: FoldRight[M], m: Monoid[A]) = foldr[A](m.zero, m append (_, _))
+
+  def foldMap[B](f: A => B)(implicit r: FoldRight[M], m: Monoid[B]): B = foldr[B](m.zero, (a, b) => m.append(f(a), b))
+
+  def listr(implicit r: FoldRight[M]) = foldr[List[A]](Nil, _ :: _)
+
+  def stream(implicit r: FoldRight[M]) = foldr[Stream[A]](Stream.empty, Stream.cons(_, _))
+
+  def !!(n: Int)(implicit r: FoldRight[M]) = stream(r)(n)
+
+  def !(n: Int)(implicit i: Index[M]) = i.index(v, n)
+
+  def -!-(n: Int)(implicit i: Index[M]) = this.!(n) getOrElse (error("Index " + n + " out of bounds"))
+
+  def ∃(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[Boolean](false, p(_) || _)
+
+  def ∀(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[Boolean](true, p(_) && _)
+
+  def empty(implicit r: FoldRight[M]) = ∀(_ => false)
+
+  def splitWith(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Option[Boolean])]((Nil, None), (
+      a, b) => {
+    val pa = p(a)
+    (b match {
+      case (_, None) => List(List(a))
+      case (x, Some(q)) => if (pa == q) (a :: x.head) :: x.tail else List(a) :: x
+    }, Some(pa))
+  })._1
+
+  def selectSplit(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Boolean)]((Nil, false), (a, xb
+      ) => xb match {
+    case (x, b) => {
+      val pa = p(a)
+      (if (pa)
+        if (b)
+          (a :: x.head) :: x.tail else
+          List(a) :: x
+        else x, pa)
+    }
+  })._1
 }
 
 trait MAs {
