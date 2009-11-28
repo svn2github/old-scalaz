@@ -14,6 +14,7 @@ object Scalaz extends ScalazLow
               with    Function2s
               with    InputStreams
               with    Longs
+              with    States
               with    Chars {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
