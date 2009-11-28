@@ -26,6 +26,6 @@ trait ImmutableAssociation[T, K, V] {
 object ImmutableAssociation {
   implicit def ImmutableMapAssociation[K, V] = new ImmutableAssociation[Map[K, V], K, V] {
     def apply(t: Map[K, V], k: K) = t.get(k)
-    def insert(t: Map[K, V], k: K, v: V) = t.update(k, v)
+    def insert(t: Map[K, V], k: K, v: V) = t.updated(k, v)
   }
 }
