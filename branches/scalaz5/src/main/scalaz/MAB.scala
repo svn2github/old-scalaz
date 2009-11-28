@@ -21,7 +21,7 @@ sealed trait MAB[M[_, _], A, B] {
 
   def product(implicit a: Arrow[M]): M[(A, A), (B, B)] = this *** v
 
-  def ^>>[C, D](f: C => A)(implicit a: Arrow[M]) = a.category.compose(v, a.arrow(f))
+  def ^>>[C](f: C => A)(implicit a: Arrow[M]) = a.category.compose(v, a.arrow(f))
 
   def >>^[C](f: B => C)(implicit a: Arrow[M]) = a.category.compose(a.arrow(f), v)
 
