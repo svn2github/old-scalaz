@@ -6,6 +6,8 @@ sealed trait CharW {
   import Scalaz._
 
   def digit = digits find (_.toChar == value)
+
+  def alpha = alphas find(_.toChar == value) 
 }
 
 trait Chars {
