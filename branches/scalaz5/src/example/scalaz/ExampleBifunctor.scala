@@ -10,8 +10,8 @@ object ExampleBifunctor {
     val y = (8, "abc")
     val z: Either[Int, String] = Right("def")
 
-    val fr = ((_: String).reverse)
-    val fl = ((_: Int) + 1)
+    val fr = (_: String).reverse
+    val fl = (_: Int) + 1
 
     println(x :-> fr)
     println(fl <-: x)
