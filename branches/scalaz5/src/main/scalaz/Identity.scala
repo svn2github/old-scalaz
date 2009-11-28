@@ -38,6 +38,8 @@ sealed trait Identity[A] {
   def println(implicit s: Show[A]) = Console.println(shows)
 
   def text(implicit s: Show[A]) = xml.Text(s shows value)
+
+  def <===>(a: A)(implicit m: MetricSpace[A]) = m distance (value, a)
 }
 
 trait Identitys {
