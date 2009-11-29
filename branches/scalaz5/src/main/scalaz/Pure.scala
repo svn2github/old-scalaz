@@ -117,11 +117,10 @@ object Pure {
   implicit def ZipperPure = new Pure[Zipper] {
     def pure[A](a: => A) = a.zipper
   }
-
-  implicit def ZipStreamPure = new Pure[ZipStream] {
-    def pure[A](a: => A) = ZipStream.zip(Stream(a))
+       */
+  implicit def ZipStreamPure: Pure[ZipStream] = new Pure[ZipStream] {
+    def pure[A](a: => A) = zip(Stream(a))
   }
-  */
 
   implicit def EndoPure: Pure[Endo] = new Pure[Endo] {
     def pure[A](a: => A) = constantEndo(a)

@@ -2,6 +2,7 @@ package scalaz
 
 object Scalaz extends ScalazLow
     with    Alphas
+    with    Applys
     with    ArrayBytes
     with    BigIntegerMultiplications
     with    BigIntegers
@@ -44,16 +45,14 @@ object Scalaz extends ScalazLow
     with    Shorts
     with    Shows
     with    States
+    with    Streams
     with    Strings
+    with    Trees
+    with    TreeLocs
     with    Validations
     with    Zeros
+    with    Zippers
     with    ZipStreams {
-  def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
-    def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
-      b.bind(f, (g: A => B) => t.fmap(a, g(_: A)))
-    }
-  }
-
   def ⊥ = error("undefined")
 
   type ⊤ = Any
@@ -61,4 +60,6 @@ object Scalaz extends ScalazLow
   type ℤ = BigInt
 
   type GArray[A] = collection.mutable.GenericArray[A]
+
+  def ×[A, B] = (a: A) => (b: B) => (a, b)
 }

@@ -4,6 +4,14 @@ trait Apply[Z[_]] {
   def apply[A, B](f: Z[A => B], a: Z[A]): Z[B]
 }
 
+trait Applys {
+  def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
+    def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
+      b.bind(f, (g: A => B) => t.fmap(a, g(_: A)))
+    }
+  }  
+}
+
 object Apply {
   import Scalaz._
 
@@ -78,7 +86,7 @@ object Apply {
         (f.focus)(a.focus),
         (a.rights |!|) <*> (f.rights |!|))
   }
-
+      */
   implicit val ZipStreamApply: Apply[ZipStream] = new Apply[ZipStream] {
     def apply[A, B](f: ZipStream[A => B], a: ZipStream[A]): ZipStream[B] = {
       val ff = f.value
@@ -87,7 +95,7 @@ object Apply {
       else Stream.cons((ff.head)(aa.head), apply(ff.tail |!|, aa.tail |!|))) |!|
     }
   }
-
+       /*
   val ZipTreeApply: Apply[Tree] = new Apply[Tree] {
     def apply[A, B](f: Tree[A => B], a: Tree[A]): Tree[B] = {
       Tree.node((f.rootLabel)(a.rootLabel), (a.subForest |!|) <*> (f.subForest.map((apply(_: Tree[A => B], _: Tree[A])).curry) |!|))

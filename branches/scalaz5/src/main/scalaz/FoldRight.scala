@@ -49,12 +49,12 @@ object FoldRight {
       t.foldMap((a) => EndoTo(f.curry(a)(_: B)))(m)(b)
     }
   }
-
+        */
   implicit val ZipperFoldRight: FoldRight[Zipper] = new FoldRight[Zipper] {
     def foldRight[A, B](t: Zipper[A], b: B, f: (A, => B) => B): B =
       t.lefts.foldLeft(Stream.cons(t.focus, t.rights).foldRight(b)(f(_, _)))((f.flip)(_, _))
   }
-
+          /*
   implicit val ZipStreamFoldRight: FoldRight[ZipStream] = new FoldRight[ZipStream] {
     def foldRight[A, B](t: ZipStream[A], b: B, f: (A, => B) => B): B = StreamFoldRight.foldRight(t.value, b, f)
   }
