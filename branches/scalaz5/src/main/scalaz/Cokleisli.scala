@@ -8,7 +8,7 @@ trait Cokleisli[W[_], A, B] {
   def <<=(a: W[A])(implicit w: Comonad[W]) = a =>> apply
 }
 
-object Cokleisli {
+trait Cokleislis {
   def cokleisli[W[_], A, B](f: W[A] => B) = new Cokleisli[W, A, B] {
     def apply(a: W[A]) = f(a)
   }

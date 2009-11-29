@@ -1,47 +1,48 @@
 package scalaz
 
 object Scalaz extends ScalazLow
-              with    Kleislis
-              with    Identitys
-              with    Digits
-              with    Alphas
-              with    DLists
-              with    Booleans
-              with    BigIntegerMultiplications
-              with    BigIntMultiplications
-              with    BooleanConjunctions
-              with    ByteMultiplications
-              with    CharMultiplications
-              with    IntMultiplications
-              with    LongMultiplications
-              with    ShortMultiplications
-              with    BigIntegers
-              with    BigInts
-              with    Bytes
-              with    Ints
-              with    BKTrees
-              with    Endos
-              with    Enumerations
-              with    Function0s
-              with    Function1s
-              with    Function2s
-              with    InputStreams
-              with    Longs
-              with    Shorts
-              with    States
-              with    Memos
-              with    MetricSpaces
-              with    Zeros
-              with    CharSets
-              with    ArrayBytes
-              with    Validations
-              with    Options
-              with    Duals
-              with    Lists
-              with    NonEmptyLists
-              with    Strings
-              with    ZipStreams
-              with    Chars {
+    with    Alphas
+    with    ArrayBytes
+    with    BigIntegerMultiplications
+    with    BigIntegers
+    with    BigIntMultiplications
+    with    BigInts
+    with    BKTrees
+    with    Booleans
+    with    BooleanConjunctions
+    with    ByteMultiplications
+    with    Bytes
+    with    CharMultiplications
+    with    Chars
+    with    CharSets
+    with    Cokleislis
+    with    Digits
+    with    DLists
+    with    Duals
+    with    Endos
+    with    Enumerations
+    with    Function0s
+    with    Function1s
+    with    Function2s
+    with    Kleislis
+    with    Identitys
+    with    InputStreams
+    with    IntMultiplications
+    with    Ints
+    with    Lists
+    with    LongMultiplications
+    with    Longs
+    with    MetricSpaces
+    with    Memos
+    with    NonEmptyLists
+    with    Options
+    with    ShortMultiplications
+    with    Shorts
+    with    States
+    with    Strings
+    with    Validations
+    with    Zeros
+    with    ZipStreams {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
       b.bind(f, (g: A => B) => t.fmap(a, g(_: A)))
