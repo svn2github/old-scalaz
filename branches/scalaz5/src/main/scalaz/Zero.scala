@@ -5,9 +5,11 @@ trait Zero[+Z] {
 }
 
 trait Zeros {
-  def zero[Z](z: Z) = new Zero[Z] {
+  def zero[Z](z: Z): Zero[Z] = new Zero[Z] {
     val zero = z
   }
+
+  def ∅[Z](implicit z: Zero[Z]): Z = z.zero
 
   implicit def ListZero[A]: Zero[List[A]] = zero(Nil)
 

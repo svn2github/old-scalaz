@@ -45,10 +45,18 @@ sealed trait Identity[A] {
 
   def <===>(a: A)(implicit m: MetricSpace[A]) = m distance (value, a)
 
+  def constantState[S, A](s: => S) = state((_: S) => (s, value))
+
+  def state[S] = Scalaz.state((_: S, value))
+
   def unfold[M[_], B](f: A => Option[(B, A)])(implicit p: Pure[M], m: Monoid[M[B]]): M[B] = f(value) match {
     case None => m.zero
     case Some((b, a)) => b.η ⊹ a.unfold(f)
   }
+
+  def replicate[M[_]](n: Int)(implicit p: Pure[M], m: Monoid[M[A]]): M[A] =
+    if (n <= 0) ∅
+    else value.η ⊹ replicate(n - 1)
 
   def repeat[M[_]](implicit p: Pure[M], m: Monoid[M[A]]): M[A] = value.η ⊹ repeat
 }
