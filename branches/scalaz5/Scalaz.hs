@@ -13,7 +13,8 @@ $LastChangedBy$
 
 module Build where
 
-import Lastik.Scala.Scalac
+import qualified Lastik.Scala.Scalac as S
+import qualified Lastik.Scala.Scaladoc as SD
 import Lastik.Runner
 import Lastik.Output
 import Lastik.Directory
@@ -32,33 +33,50 @@ build = "build"
 buildExample = build </> "example"
 buildMain = build </> "main"
 buildTest = build </> "test"
+buildScaladoc = build </> "scaladoc"
+
+type Version = String
+
+version' :: IO Version
+version' = readFile "version"
 
 cp :: String
 cp = "classpath" ~?? [buildExample, buildMain, buildTest]
 
-s :: FilePath -> Scalac
-s d = scalac {
-  directory = Just d,
-  deprecation = True
+s :: FilePath -> S.Scalac
+s d = S.scalac {
+  S.directory = Just d,
+  S.deprecation = True
 }
 
-main' :: Scalac
+main' :: S.Scalac
 main' = s buildMain
 
 main :: IO ExitCode
 main = main' +->- [mainDir]
 
-example' :: Scalac
+example' :: S.Scalac
 example' = main' >=>=> s buildExample
 
 example :: IO ExitCode
 example = main >>>> (example' +->- [exampleDir])
 
-test' :: Scalac
+test' :: S.Scalac
 test' = main' >=>=> s buildTest
 
 test :: IO ExitCode
 test = main >>>> (test' +->- [testDir])
+
+-- todo Update Lastik Scaladoc for Scala 2.8.0
+scaladoc' :: Version -> SD.Scaladoc
+scaladoc' v = SD.scaladoc {
+  SD.directory = Just buildScaladoc,
+  SD.etc = Just ("-doc-title \"Scalaz " ++ v ++ " API Specification <div><p><em>Copyright 2008 - 2009 Tony Morris, Runar Bjarnason, Tom Adams, Kristian Domagala, Brad Clow, Ricky Clarkson, Paul Chiusano, Trygve Laugstøl, Nick Partridge, Jason Zaugg</em></p>This software is released under an open source BSD licence.</div>\"")
+}
+
+scaladoc :: IO ExitCode
+scaladoc = do v <- version'
+              scaladoc' v ->- [mainDir]
 
 -- todo scala function in Lastik
 scala :: String -> IO ExitCode
