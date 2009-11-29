@@ -1,5 +1,7 @@
 package scalaz
 
+import concurrent._
+
 object Scalaz extends ScalazLow
     with    Alphas
     with    Applys
@@ -47,6 +49,7 @@ object Scalaz extends ScalazLow
     with    Shorts
     with    Shows
     with    States
+    with    Strategys
     with    Streams
     with    Strings
     with    Trees
