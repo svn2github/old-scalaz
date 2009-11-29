@@ -41,10 +41,10 @@ sealed trait NonEmptyList[+A] {
 
   val stream = head #:: tail.toStream
 
-  def tails : NonEmptyList[NonEmptyList[A]] = tail match {
-    case Nil => nel(this)
-    case h :: t => nel(this, tail.nel.get.tails.list)
-  }
+  def tails : NonEmptyList[NonEmptyList[A]] = nel(this, tail match {
+    case Nil => Nil
+    case _ :: _ => tail.nel.get.tails.list    
+  })
 
   override def toString = "NonEmpty" + (head :: tail)
 }
@@ -54,8 +54,4 @@ trait NonEmptyLists {
     val head = h
     val tail = t
   }
-
-  def nel[A](a: A): NonEmptyList[A] = nel(a, Nil)
-
-  def nels[A](a: A, as: A*): NonEmptyList[A] = nel(a, as.toList)
 }
