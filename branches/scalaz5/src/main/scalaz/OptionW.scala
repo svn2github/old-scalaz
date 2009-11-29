@@ -3,6 +3,8 @@ package scalaz
 sealed trait OptionW[A] {
   val value: Option[A]
 
+  import Scalaz._
+  
   sealed trait Fold[X] {
     def none(s: => X): X
   }
@@ -44,6 +46,10 @@ sealed trait OptionW[A] {
     case Some(e) => Failure(e)
     case None => Success(b)
   }
+
+  def fst: FirstOption[A] = value
+
+  def lst: LastOption[A] = value
 }
 
 trait Options {
