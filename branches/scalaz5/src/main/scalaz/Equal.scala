@@ -65,7 +65,7 @@ object Equal {
 
   implicit def NonEmptyListEqual[A](implicit ea: Equal[A]): Equal[NonEmptyList[A]] = IterableEqual(ea) ∙ ((_: NonEmptyList[A]).list)
 
-  // todo implicit def ZipStreamEqual[A](implicit ea: Equal[A]): Equal[ZipStream[A]] = IterableEqual(ea) ∙ ((_: ZipStream[A]).value)
+  implicit def ZipStreamEqual[A](implicit ea: Equal[A]): Equal[ZipStream[A]] = IterableEqual(ea) ∙ ((_: ZipStream[A]).value)
 
   implicit def Tuple1Equal[A](implicit ea: Equal[A]): Equal[Tuple1[A]] = equal(_._1 ≟ _._1)
 

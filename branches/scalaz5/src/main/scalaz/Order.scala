@@ -70,7 +70,7 @@ object Order {
 
   implicit def NonEmptyListOrder[A](implicit oa: Order[A]): Order[NonEmptyList[A]] = IterableOrder(oa) ∙ ((_: NonEmptyList[A]).list)
 
-  // todo implicit def ZipStreamOrder[A](implicit oa: Order[A]): Order[ZipStream[A]] = IterableOrder(oa) ∙ ((_: ZipStream[A]).value)
+  implicit def ZipStreamOrder[A](implicit oa: Order[A]): Order[ZipStream[A]] = IterableOrder(oa) ∙ ((_: ZipStream[A]).value)
 
   implicit def Tuple1Order[A](implicit oa: Order[A]): Order[Tuple1[A]] = order(_._1 ?|? _._1)
 
