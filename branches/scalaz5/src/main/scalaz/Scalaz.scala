@@ -59,4 +59,6 @@ object Scalaz extends ScalazLow
   type ⊤ = Any
 
   type ℤ = BigInt
+
+  type GArray[A] = collection.mutable.GenericArray[A]
 }

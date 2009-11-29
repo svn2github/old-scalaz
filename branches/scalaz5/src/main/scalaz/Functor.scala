@@ -95,11 +95,9 @@ object Functor {
     def fmap[A, B](r: Option[A], f: A => B) = r map f
   }
 
-  /* todo Is Array a covariant functor? Posted to mailing list
-  implicit val ArrayFunctor: Functor[Array] = new Functor[Array] {
-    def fmap[A, B](r: Array[A], f: A => B) = r map f toArray
+  implicit val GenericArrayFunctor: Functor[GArray] = new Functor[GArray] {
+    def fmap[A, B](r: GArray[A], f: A => B) = r map f
   }
-  */
 
   implicit def EitherLeftFunctor[X]: Functor[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Functor[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def fmap[A, B](r: Either.LeftProjection[A, X], f: A => B) = r.map(f).left

@@ -47,7 +47,7 @@ object Apply {
 
   implicit val OptionApply: Apply[Option] = FunctorBindApply[Option]
 
-  // todo implicit val ArrayApply = FunctorBindApply[Array]
+  implicit val GenericArrayApply: Apply[GArray] = FunctorBindApply[GArray]
 
   implicit def EitherLeftApply[X]: Apply[PartialApply1Of2[Either.LeftProjection, X]#Flip] = FunctorBindApply[PartialApply1Of2[Either.LeftProjection, X]#Flip]
 

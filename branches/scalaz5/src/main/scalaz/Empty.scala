@@ -5,11 +5,11 @@ trait Empty[+E[_]] {
 }
 
 object Empty {
-  /* todo
+  import Scalaz._
+
   implicit val ZipStreamEmpty = new Empty[ZipStream] {
-    def empty[A] = ZipStream.zip(Stream.empty)
+    def empty[A] = emptyZipStream
   }
-  */
 
   implicit val ListEmpty: Empty[List] = new Empty[List] {
     def empty[A] = Nil
@@ -23,11 +23,9 @@ object Empty {
     def empty[A] = None
   }
 
-  /* todo
-  implicit val ArrayEmpty: Empty[Array] = new Empty[Array] {
-    def empty[A] = new Array(0)
+  implicit val GenericArrayEmpty: Empty[GArray] = new Empty[GArray] {
+    def empty[A] = new GArray(0)
   }
-  */
 
   implicit def EitherLeftEmpty[X](implicit z: Zero[X]): Empty[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Empty[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def empty[A] = Right(z.zero).left

@@ -5,6 +5,8 @@ trait Each[-E[_]] {
 }
 
 object Each {
+  import Scalaz._
+
   implicit val IdentityEach: Each[Identity] = new Each[Identity] {
     def each[A](e: Identity[A], f: A => Unit) = f(e.value)
   }
@@ -17,11 +19,9 @@ object Each {
     def each[A](e: State[Unit, A], f: A => Unit) = f(e(())._2)
   }
 
-  /* todo
   implicit val ZipStreamEach = new Each[ZipStream] {
     def each[A](e: ZipStream[A], f: A => Unit) = e.value foreach f
   }
-  */
 
   implicit val Tuple1Each: Each[Tuple1] = new Each[Tuple1] {
     def each[A](e: Tuple1[A], f: A => Unit) = f(e._1)
@@ -59,11 +59,9 @@ object Each {
     def each[A](e: Option[A], f: A => Unit) = e foreach f
   }
 
-  /* todo
-  implicit val ArrayEach = new Each[Array] {
-    def each[A](e: Array[A], f: A => Unit) = e foreach f
+  implicit val GenericArrayEach: Each[GArray] = new Each[GArray] {
+    def each[A](e: GArray[A], f: A => Unit) = e foreach f
   }
-  */
 
   implicit def EitherLeftEach[X]: Each[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Each[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def each[A](e: Either.LeftProjection[A, X], f: A => Unit) = e foreach f

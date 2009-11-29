@@ -58,11 +58,12 @@ object FoldRight {
   implicit val ZipStreamFoldRight: FoldRight[ZipStream] = new FoldRight[ZipStream] {
     def foldRight[A, B](t: ZipStream[A], b: B, f: (A, => B) => B): B = StreamFoldRight.foldRight(t.value, b, f)
   }
-
-  implicit val ArrayFoldRight = new FoldRight[Array] {
-    def foldRight[A, B](t: Array[A], b: B, f: (A, => B) => B) = t.foldRight(b)(f(_, _))
+               */
+  
+  implicit val GenericArrayFoldRight: FoldRight[GArray] = new FoldRight[GArray] {
+    def foldRight[A, B](t: GArray[A], b: B, f: (A, => B) => B) = t.foldRight(b)(f(_, _))
   }
-  */
+
   implicit def EitherLeftFoldRight[X] = new FoldRight[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def foldRight[A, B](e: Either.LeftProjection[A, X], b: B, f: (A, => B) => B) = OptionFoldRight.foldRight(e.toOption, b, f)
   }

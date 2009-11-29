@@ -53,11 +53,11 @@ object FoldLeft {
   implicit val ZipStreamFoldLeft: FoldLeft[ZipStream] = new FoldLeft[ZipStream] {
     def foldLeft[B, A](t: ZipStream[A], b: B, f: (B, A) => B): B = IterableFoldLeft.foldLeft(t.value, b, f)
   }
-
-  implicit val ArrayFoldLeft = new FoldLeft[Array] {
-    def foldLeft[B, A](t: Array[A], b: B, f: (B, A) => B) = t.foldLeft(b)(f)
+       */
+  
+  implicit val GenericArrayFoldLeft: FoldLeft[GArray] = new FoldLeft[GArray] {
+    def foldLeft[B, A](t: GArray[A], b: B, f: (B, A) => B) = t.foldLeft(b)(f)
   }
-  */
 
   implicit def EitherLeftFoldLeft[X]: FoldLeft[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new FoldLeft[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def foldLeft[B, A](e: Either.LeftProjection[A, X], b: B, f: (B, A) => B) = OptionFoldLeft.foldLeft(e.toOption, b, f)

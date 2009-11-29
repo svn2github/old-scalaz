@@ -105,11 +105,9 @@ object Bind {
     def bind[A, B](r: Option[A], f: A => Option[B]) = r flatMap f
   }
 
-  /* todo
-  implicit val ArrayBind = new Bind[Array] {
-    def bind[A, B](r: Array[A], f: A => Array[B]) = r flatMap f
+  implicit val GenericArrayBind: Bind[GArray] = new Bind[GArray] {
+    def bind[A, B](r: GArray[A], f: A => GArray[B]) = r flatMap f
   }
-  */
 
   implicit def EitherLeftBind[X]: Bind[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Bind[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def bind[A, B](r: Either.LeftProjection[A, X], f: A => Either.LeftProjection[B, X]) = r.flatMap(f(_).e).left

@@ -59,11 +59,9 @@ object Length {
     }
   }
 
-  /* todo
-  implicit val ArrayLength = new Length[Array] {
-    def len[A](a: Array[A]) = a.length
+  implicit val GenericArrayLength: Length[GArray] = new Length[GArray] {
+    def len[A](a: GArray[A]) = a.length
   }
-  */
 
   implicit val IterableLength: Length[Iterable] = new Length[Iterable] {
     def len[A](a: Iterable[A]) = {

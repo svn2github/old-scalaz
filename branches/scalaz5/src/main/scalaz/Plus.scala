@@ -29,11 +29,9 @@ object Plus {
     def plus[A](a1: Option[A], a2: => Option[A]) = a1 orElse a2
   }
 
-  /* todo
-  implicit val ArrayPlus = new Plus[Array] {
-    def plus[A](a1: Array[A], a2: => Array[A]) = a1 ++ a2
+  implicit val GenericArrayPlus: Plus[GArray] = new Plus[GArray] {
+    def plus[A](a1: GArray[A], a2: => GArray[A]) = a1 ++ a2
   }
-  */
 
   implicit def EitherLeftPlus[X]: Plus[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Plus[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def plus[A](a1: Either.LeftProjection[A, X], a2: => Either.LeftProjection[A, X]) = a1.e match {

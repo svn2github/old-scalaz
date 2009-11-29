@@ -79,12 +79,12 @@ object Traverse {
       a.apply(a.fmap(f(ta.rootLabel), cons), StreamTraverse.traverse[F, Tree[A], Tree[B]](trav, ta.subForest))
     }
   }
+     */
 
-  implicit val ArrayTraverse: Traverse[Array] = new Traverse[Array] {
-    def traverse[F[_], A, B](f: A => F[B], as: Array[A])(implicit a: Applicative[F]): F[Array[B]] =
-      a.fmap(ListTraverse.traverse[F, A, B](f, as.toList), ((_: List[B]).toArray))
+  implicit val GenericArrayTraverse: Traverse[GArray] = new Traverse[GArray] {
+    def traverse[F[_], A, B](f: A => F[B], as: GArray[A])(implicit a: Applicative[F]): F[GArray[B]] =
+      as.toList ↦ f ∘ ((x: List[B]) => collection.mutable.GenericArray(x: _*))
   }
-  */
 
   implicit def EitherLeftTraverse[X]: Traverse[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Traverse[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def traverse[F[_], A, B](f: A => F[B], as: Either.LeftProjection[A, X])(implicit a: Applicative[F]): F[Either.LeftProjection[B, X]] =

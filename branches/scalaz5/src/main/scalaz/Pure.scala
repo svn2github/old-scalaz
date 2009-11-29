@@ -89,11 +89,13 @@ object Pure {
     def pure[A](a: => A) = Some(a)
   }
 
-  /* todo
-  implicit val ArrayPure = new Pure[Array] {
-    def pure[A](a: => A) = Array.make(1, a)
+  implicit val GenericArrayPure: Pure[GArray] = new Pure[GArray] {
+    def pure[A](a: => A) = {
+      val t = new GArray[A](1)
+      t(0) = a
+      t
+    }
   }
-  */
 
   implicit def EitherLeftPure[X]: Pure[PartialApply1Of2[Either.LeftProjection, X]#Flip] = new Pure[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
     def pure[A](a: => A) = Left(a).left
