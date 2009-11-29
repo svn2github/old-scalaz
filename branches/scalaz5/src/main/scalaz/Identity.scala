@@ -83,6 +83,8 @@ sealed trait Identity[A] {
 
   def dlist = Scalaz.dlist(value :: (_: List[A]))
 
+  def nel: NonEmptyList[A] = Scalaz.nel(value, Nil)
+
   override def toString = value.toString
 
   override def hashCode = value.hashCode
