@@ -6,6 +6,8 @@ sealed trait Identity[A] {
   import Scalaz._
 
   def η[F[_]](implicit p: Pure[F]) = p pure value
+
+  def σ: Dual[A] = value
   
   def ⊹(a: => A)(implicit s: Semigroup[A]) = s append (value, a)
 

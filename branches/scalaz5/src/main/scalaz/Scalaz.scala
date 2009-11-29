@@ -22,6 +22,7 @@ object Scalaz extends ScalazLow
               with    ArrayBytes
               with    Validations
               with    Options
+              with    Duals
               with    ZipStreams
               with    Chars {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
