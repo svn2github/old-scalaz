@@ -7,6 +7,14 @@ object Scalaz extends ScalazLow
               with    Alphas
               with    DLists
               with    Booleans
+              with    BigIntegerMultiplications
+              with    BigIntMultiplications
+              with    BooleanConjunctions
+              with    ByteMultiplications
+              with    CharMultiplications
+              with    IntMultiplications
+              with    LongMultiplications
+              with    ShortMultiplications
               with    BKTrees
               with    Endos
               with    Enumerations
