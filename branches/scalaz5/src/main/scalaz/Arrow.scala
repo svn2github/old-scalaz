@@ -11,6 +11,8 @@ trait Arrow[A[_, _]] {
 }
 
 object Arrow {
+  import Scalaz._
+  
   implicit val Function1Arrow: Arrow[Function1] = new Arrow[Function1] {
     val category = Category.Function1Category
     
@@ -21,5 +23,19 @@ object Arrow {
 
     def second[B, C, D](a: B => C) =
       (db: (D, B)) => (db._1, a(db._2))
+  }
+
+  implicit def KleisliArrow[M[_]](implicit m: Monad[M]): Arrow[PartialApplyK[Kleisli, M]#Apply] = new Arrow[PartialApplyK[Kleisli, M]#Apply] {
+    val category = Category.KleisliCategory
+
+    def arrow[B, C](f: B => C) = ☆(f(_) η)
+
+    def first[B, C, D](a: Kleisli[M, B, C]) = ☆ {
+      case (b, d) => a(b) ∘ ((_, d))
+    }
+
+    def second[B, C, D](a: Kleisli[M, B, C]) = ☆ {
+      case (d, b) => a(b) ∘ ((d, _))
+    }
   }
 }
