@@ -5,7 +5,7 @@ trait FoldLeft[-F[_]] {
 }
 
 object FoldLeft {
-  implicit val IterableFoldLeft = new FoldLeft[Iterable] {
+  implicit val IterableFoldLeft: FoldLeft[Iterable] = new FoldLeft[Iterable] {
     def foldLeft[B, A](t: Iterable[A], b: B, f: (B, A) => B) = t.foldLeft(b)(f)
   }
 }

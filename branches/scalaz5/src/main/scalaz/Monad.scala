@@ -6,7 +6,7 @@ trait Monad[M[_]] extends Applicative[M] with Bind[M] with Pointed[M] {
 }
 
 object Monad {
-  implicit def monad[M[_]](implicit b: Bind[M], p: Pure[M]) = new Monad[M] {
+  implicit def monad[M[_]](implicit b: Bind[M], p: Pure[M]): Monad[M] = new Monad[M] {
     override def pure[A](a: => A) = p.pure(a)
     override def bind[A, B](a: M[A], f: A => M[B]) = b.bind(a, f)
   }

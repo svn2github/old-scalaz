@@ -6,11 +6,13 @@ trait Show[-A] {
   def shows(a: A) = show(a).mkString
 }
 
-object Show {
+trait Shows {
   def show[A](f: A => List[Char]) = new Show[A] {
     def show(a: A) = f(a)
-  }
+  }             
+}
 
+object Show {
   import Scalaz._
 
   implicit def IterableShow[A](implicit sa: Show[A]) = show[Iterable[A]](as => {

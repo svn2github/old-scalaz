@@ -5,7 +5,7 @@ trait Plus[P[_]] {
 }
 
 object Plus {
-  implicit val ListPlus = new Plus[List] {
+  implicit val ListPlus: Plus[List] = new Plus[List] {
     def plus[A](a1: List[A], a2: => List[A]) = a1 ::: a2
   }
 }

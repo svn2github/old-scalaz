@@ -4,14 +4,16 @@ trait Equal[-A] {
   def equal(a1: A, a2: A): Boolean
 }
 
-object Equal {
+trait Equals {
   def equal[A](f: (A, A) => Boolean): Equal[A] = new Equal[A] {
     def equal(a1: A, a2: A) = f(a1, a2)
   }
 
-  import Scalaz._
-    
   def equalA[A] = equal[A](_ == _)
+}
+
+object Equal {
+  import Scalaz._
 
   implicit val CharEqual: Equal[Char] = equalA
 

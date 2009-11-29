@@ -21,6 +21,7 @@ object Scalaz extends ScalazLow
     with    Duals
     with    Endos
     with    Enumerations
+    with    Equals
     with    Function0s
     with    Function1s
     with    Function2s
@@ -36,8 +37,11 @@ object Scalaz extends ScalazLow
     with    Memos
     with    NonEmptyLists
     with    Options
+    with    Orders
+    with    Semigroups
     with    ShortMultiplications
     with    Shorts
+    with    Shows
     with    States
     with    Strings
     with    Validations

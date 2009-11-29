@@ -6,11 +6,13 @@ trait Order[-A] extends Equal[A] {
   final def equal(a1: A, a2: A) = order(a1, a2) == EQ
 }
 
-object Order {
+trait Orders {
   def order[A](f: (A, A) => Ordering): Order[A] = new Order[A] {
     def order(a1: A, a2: A) = f(a1, a2)
-  }
+  }              
+}
 
+object Order {
   import Scalaz._
 
   implicit def IterableOrder[A](implicit oa: Order[A]): Order[Iterable[A]] = order((a1, a2) => {
