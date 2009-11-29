@@ -11,11 +11,9 @@ object Plus {
     def plus[A](a1: NonEmptyList[A], a2: => NonEmptyList[A]) = a1.list <::: a2
   }
 
-  /* todo
   implicit val ZipStreamPlus: Plus[ZipStream] = new Plus[ZipStream] {
-    def plus[A](a1: ZipStream[A], a2: => ZipStream[A]) = a1.value append a2.value |!|
+    def plus[A](a1: ZipStream[A], a2: => ZipStream[A]) = a1.value append a2.value ʐ
   }
-  */
 
   implicit val ListPlus: Plus[List] = new Plus[List] {
     def plus[A](a1: List[A], a2: => List[A]) = a1 ::: a2
