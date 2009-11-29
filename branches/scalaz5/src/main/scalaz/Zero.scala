@@ -82,6 +82,10 @@ object Zero {
 
   implicit def OptionZero[A]: Zero[Option[A]] = zero(None)
 
+  implicit def FirstOptionZero[A]: Zero[FirstOption[A]] = zero(None)
+
+  implicit def LastOptionZero[A]: Zero[LastOption[A]] = zero(None)
+
   implicit def ArrayZero[A: Manifest]: Zero[Array[A]] = zero(new Array[A](0))
 
   implicit def GenericArrayZero[A]: Zero[GArray[A]] = zero(new GArray[A](0))

@@ -74,6 +74,10 @@ object Semigroup {
 
   implicit def OptionSemigroup[A]: Semigroup[Option[A]] = semigroup((a, b) => if (a.isDefined) a else b)
 
+  implicit def FirstSemigroup[A]: Semigroup[FirstOption[A]] = semigroup((a, b) => if (a.isDefined) a else b)
+
+  implicit def LastSemigroup[A]: Semigroup[LastOption[A]] = semigroup((a, b) => if (a.isDefined) a else b)
+
   implicit def ArraySemigroup[A: Manifest]: Semigroup[Array[A]] = semigroup(Array.concat(_, _))
 
   implicit def GenericArraySemigroup[A]: Semigroup[GArray[A]] = semigroup(_ ++ _)
@@ -87,7 +91,7 @@ object Semigroup {
   implicit def EndoSemigroup[A]: Semigroup[Endo[A]] = semigroup((x, y) => ((a: A) => x(y.apply(a))))
 
   implicit def DualSemigroup[A](implicit sa: Semigroup[A]): Semigroup[Dual[A]] =
-    semigroup((x, y) => dual(sa.append(y.value, x.value)))
+    semigroup((x, y) => sa.append(y.value, x.value))
 
   // todo  implicit def StrategySemigroup[A] = semigroup[Strategy[A]]((x, y) => ((a: () => A) => x(y.apply(a))))
 

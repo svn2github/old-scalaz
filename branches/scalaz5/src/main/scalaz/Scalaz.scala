@@ -23,6 +23,7 @@ object Scalaz extends ScalazLow
     with    Endos
     with    Enumerations
     with    Equals
+    with    FirstOptions
     with    Function0s
     with    Function1s
     with    Function2s
@@ -32,6 +33,7 @@ object Scalaz extends ScalazLow
     with    IntMultiplications
     with    Ints
     with    Iterables
+    with    LastOptions
     with    Lists
     with    LongMultiplications
     with    Longs

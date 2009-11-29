@@ -79,31 +79,29 @@ object Apply {
     }).fail
   }
 
-  /* todo
   implicit val ZipperApply: Apply[Zipper] = new Apply[Zipper] {
     def apply[A, B](f: Zipper[A => B], a: Zipper[A]): Zipper[B] =
-      Zipper.zipper((a.lefts |!|) <*> (f.lefts |!|),
+      zipper((a.lefts ʐ) ⊛ (f.lefts ʐ),
         (f.focus)(a.focus),
-        (a.rights |!|) <*> (f.rights |!|))
+        (a.rights ʐ) ⊛ (f.rights ʐ))
   }
-      */
+
   implicit val ZipStreamApply: Apply[ZipStream] = new Apply[ZipStream] {
     def apply[A, B](f: ZipStream[A => B], a: ZipStream[A]): ZipStream[B] = {
       val ff = f.value
       val aa = a.value
       (if (ff.isEmpty || aa.isEmpty) Stream.empty
-      else Stream.cons((ff.head)(aa.head), apply(ff.tail |!|, aa.tail |!|))) |!|
+      else Stream.cons((ff.head)(aa.head), apply(ff.tail ʐ, aa.tail ʐ))) ʐ
     }
   }
-       /*
+
   val ZipTreeApply: Apply[Tree] = new Apply[Tree] {
-    def apply[A, B](f: Tree[A => B], a: Tree[A]): Tree[B] = {
-      Tree.node((f.rootLabel)(a.rootLabel), (a.subForest |!|) <*> (f.subForest.map((apply(_: Tree[A => B], _: Tree[A])).curry) |!|))
-    }
+    def apply[A, B](f: Tree[A => B], a: Tree[A]): Tree[B] =
+      node((f.rootLabel)(a.rootLabel), (a.subForest ʐ) ⊛ (f.subForest.map((apply(_: Tree[A => B], _: Tree[A])).curry) ʐ))
   }
 
   implicit val TreeApply = FunctorBindApply[Tree]
-
+     /*
   import concurrent.Promise
   implicit val PromiseApply = FunctorBindApply[Promise]
   */
