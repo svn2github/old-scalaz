@@ -211,6 +211,19 @@ sealed trait MA[M[_], A] {
 
   def bktree(implicit f: FoldLeft[M], m: MetricSpace[A]) =
     foldl[BKTree[A]](emptyBKTree, _ + _)
+
+  /* todo
+  def parMap[B](f: A => B)(implicit m: Functor[M], s: Strategy[B]): () => M[B] =
+    parM[M](m.fmap(v, f.concurry))
+
+  def parBind[B](f: A => M[B])(implicit m: Bind[M], t: Functor[M], s: Strategy[M[B]]): () => M[B] =
+    parMap(f).map(((_: MMA[M, B]).join) compose (mma[M](_)))
+
+  def parZipWith[B, C](f: (A, B) => C, bs: M[B])
+                      (implicit z: Zip[M], m: Functor[M], s: Strategy[C]): () => M[C] =
+    parM[M](zipWith(f.concurry, bs))
+
+  */
 }
 
 trait MAs {
