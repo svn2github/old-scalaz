@@ -4,6 +4,8 @@ sealed trait CharW {
   val value: Char
 
   import Scalaz._
+  
+  def ∏ = multiplication(value)
 
   def digit = digits find (_.toChar == value)
 
