@@ -96,5 +96,5 @@ private final case class BKTreeNode[+A](value: A, sz: Int, children: Map[Int, BK
 private case object BKTreeEmpty extends BKTree[Nothing]
 
 trait BKTrees {
-  def empty[A]: BKTree[A] = BKTreeEmpty
+  def emptyBKTree[A]: BKTree[A] = BKTreeEmpty
 }

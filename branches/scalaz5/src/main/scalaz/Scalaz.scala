@@ -7,6 +7,7 @@ object Scalaz extends ScalazLow
               with    Alphas
               with    DLists
               with    Booleans
+              with    BKTrees
               with    Endos
               with    Enumerations
               with    Function0s

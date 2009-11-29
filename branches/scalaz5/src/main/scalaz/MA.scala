@@ -197,6 +197,20 @@ sealed trait MA[M[_], A] {
     val k = levenshteinMatrix(w)
     k(l.len(v), l.len(w))
   }
+
+  /* todo
+  def zip[B](bs: M[B])(implicit z: Zip[M]): M[(A, B)] = z.zip(v, bs)
+
+  def zipWith[B, C](f: (A, B) => C, bs: M[B])(implicit z: Zip[M], m: Functor[M]): M[C] = z.zipWith(f, v, bs)
+
+  def zipWith[B, C, D](f: (A, B, C) => D, bs: M[B], cs: M[C])(implicit z: Zip[M], m: Functor[M]): M[D] = z.zipWith(f, v, bs, cs)
+  */
+
+  def foldM[N[_], B](f: (B, A) => N[B], b: B)(implicit fr: FoldRight[M], m: Monad[N]) =
+      foldr[N[B]](b η, (a, b) => b ∗ ((z: B) => f(z, a)))
+
+  def bktree(implicit f: FoldLeft[M], m: MetricSpace[A]) =
+    foldl[BKTree[A]](emptyBKTree, _ + _)
 }
 
 trait MAs {
