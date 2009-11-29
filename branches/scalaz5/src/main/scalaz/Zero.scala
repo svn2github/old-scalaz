@@ -74,11 +74,11 @@ object Zero {
     val zero = new Elem(null, null, scala.xml.Null, xml.TopScope, Nil: _*)
   }
 
-  // todo implicit def ZipStreamZero[A] = zero[ZipStream[A]](ZipStream.zip(Stream.empty))
+  implicit def ZipStreamZero[A]: Zero[ZipStream[A]] = zero(zip(Stream.Empty))
 
   implicit def ListZero[A]: Zero[List[A]] = zero(Nil)
 
-  implicit def StreamZero[A]: Zero[Stream[A]] = zero(Stream.empty)
+  implicit def StreamZero[A]: Zero[Stream[A]] = zero(Stream.Empty)
 
   implicit def OptionZero[A]: Zero[Option[A]] = zero(None)
 

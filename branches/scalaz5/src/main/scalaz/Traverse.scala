@@ -56,8 +56,7 @@ object Traverse {
     def traverse[F[_], A, B](f: A => F[B], ta: Promise[A])(implicit a: Applicative[F]): F[Promise[B]] =
       a.fmap(f(ta.get), promise(_: B)(ta.strategy))
   }
-
-  import Zipper.zipper
+   */
 
   implicit val ZipperTraverse: Traverse[Zipper] = new Traverse[Zipper] {
     def traverse[F[_], A, B](f: A => F[B], za: Zipper[A])(implicit a: Applicative[F]): F[Zipper[B]] = {
@@ -69,17 +68,16 @@ object Traverse {
 
   implicit val ZipStreamTraverse: Traverse[ZipStream] = new Traverse[ZipStream] {
     def traverse[F[_], A, B](f: A => F[B], za: ZipStream[A])(implicit a: Applicative[F]): F[ZipStream[B]] =
-      a.fmap(StreamTraverse.traverse[F, A, B](f, za.value), (_: Stream[B]) |!|)
+      a.fmap(StreamTraverse.traverse[F, A, B](f, za.value), (_: Stream[B]) ʐ)
   }
 
   implicit val TreeTraverse: Traverse[Tree] = new Traverse[Tree] {
     def traverse[F[_], A, B](f: A => F[B], ta: Tree[A])(implicit a: Applicative[F]): F[Tree[B]] = {
       val trav = (t: Tree[A]) => traverse[F, A, B](f, t)
-      val cons = (x: B) => (xs: Stream[Tree[B]]) => Tree.node(x, xs)
+      val cons = (x: B) => (xs: Stream[Tree[B]]) => node(x, xs)
       a.apply(a.fmap(f(ta.rootLabel), cons), StreamTraverse.traverse[F, Tree[A], Tree[B]](trav, ta.subForest))
     }
   }
-     */
 
   implicit val GenericArrayTraverse: Traverse[GArray] = new Traverse[GArray] {
     def traverse[F[_], A, B](f: A => F[B], as: GArray[A])(implicit a: Applicative[F]): F[GArray[B]] =

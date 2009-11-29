@@ -125,11 +125,11 @@ object Pure {
     def pure[A](a: => A) = constantEndo(a)
   }
 
-  implicit def TreePure = new Pure[Tree] {
+  implicit def TreePure: Pure[Tree] = new Pure[Tree] {
     def pure[A](a: => A) = node(a, Stream.Empty)
   }
 
-  implicit def TreeLocPure = new Pure[TreeLoc] {
+  implicit def TreeLocPure: Pure[TreeLoc] = new Pure[TreeLoc] {
     def pure[A](a: => A) = TreePure.pure(a).loc
   }
 

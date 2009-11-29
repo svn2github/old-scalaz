@@ -65,8 +65,8 @@ object Semigroup {
   implicit val NodeSeqSemigroup: Semigroup[NodeSeq] = semigroup(_ ++ _)
 
   implicit def NonEmptyListSemigroup[A]: Semigroup[NonEmptyList[A]] = semigroup(_.list <::: _)
-
-  // todo implicit def ZipStreamSemigroup[A] = semigroup[ZipStream[A]](_.value append _.value |!|)
+  
+  implicit def ZipStreamSemigroup[A]: Semigroup[ZipStream[A]] = semigroup(_.value append _.value ʐ)
 
   implicit def ListSemigroup[A]: Semigroup[List[A]] = semigroup(_ ::: _)
 
