@@ -22,6 +22,7 @@ object Scalaz extends ScalazLow
     with    Digits
     with    DLists
     with    Duals
+    with    Effects
     with    Endos
     with    Enumerations
     with    Equals
