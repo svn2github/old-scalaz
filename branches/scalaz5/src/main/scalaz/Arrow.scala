@@ -38,4 +38,16 @@ object Arrow {
       case (d, b) => a(b) ∘ ((d, _))
     }
   }
+
+  implicit def CokleisliArrow[M[_]](implicit m: Comonad[M]): Arrow[PartialApplyK[Cokleisli, M]#Apply] = new Arrow[PartialApplyK[Cokleisli, M]#Apply] {
+    val category = Category.CokleisliCategory
+
+    def arrow[B, C](f: B => C) = ★(r => f(r ε))
+
+    // todo higher-order unification
+    def first[B, C, D](a: Cokleisli[M, B, C]) = ★(mab[PartialApplyK[Cokleisli, M]#Apply, B, C](a) *** arrow(identity(_: D)) apply (_: M[(B, D)]))
+
+    // todo higher-order unification
+    def second[B, C, D](a: Cokleisli[M, B, C]) = ★(mab[PartialApplyK[Cokleisli, M]#Apply, D, D](arrow(identity(_: D))) *** a apply (_: M[(D, B)]))
+  }
 }

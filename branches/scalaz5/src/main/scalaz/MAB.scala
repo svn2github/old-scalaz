@@ -31,7 +31,7 @@ sealed trait MAB[M[_, _], A, B] {
 }
 
 trait MABs {
-  implicit def mab[M[_, _], A, B](a: M[A, B]) = new MAB[M, A, B] {
+  implicit def mab[M[_, _], A, B](a: M[A, B]): MAB[M, A, B] = new MAB[M, A, B] {
     val v = a
   }
 }
