@@ -3,6 +3,10 @@ package scalaz
 sealed trait BooleanW {
   val isTrue: Boolean
 
+  import Scalaz._
+  
+  def |∧| = conjunction(isTrue)
+
   /**
    * Negation of Conjunction.
    *

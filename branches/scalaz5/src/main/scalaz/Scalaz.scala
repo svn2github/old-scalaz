@@ -15,6 +15,8 @@ object Scalaz extends ScalazLow
               with    IntMultiplications
               with    LongMultiplications
               with    ShortMultiplications
+              with    BigIntegers
+              with    BigInts
               with    BKTrees
               with    Endos
               with    Enumerations
