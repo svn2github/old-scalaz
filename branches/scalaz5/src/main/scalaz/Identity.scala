@@ -62,6 +62,20 @@ sealed trait Identity[A] {
 
   def iterate[M[_]](f: A => A)(implicit p: Pure[M], m: Monoid[M[A]]): M[A] =
     value.η ⊹ f(value).iterate(f)
+
+  // todo def zipper = Scalaz.zipper(Stream.empty, value, Stream.empty)
+
+  def success[X]: Validation[X, A] = Scalaz.success(value)
+
+  def fail[X]: Validation[A, X] = Scalaz.failure(value)
+
+  def dlist = Scalaz.dlist(value :: (_: List[A]))
+
+  override def toString = value.toString
+
+  override def hashCode = value.hashCode
+
+  override def equals(o: Any) = o.isInstanceOf[Identity[_]] && value == o.asInstanceOf[Identity[_]].value
 }
 
 trait Identitys {
