@@ -84,6 +84,8 @@ object Zero {
 
   implicit def ArrayZero[A: Manifest]: Zero[Array[A]] = zero(new Array[A](0))
 
+  implicit def GenericArrayZero[A]: Zero[GArray[A]] = zero(new GArray[A](0))
+
   implicit def EitherLeftZero[A, B](implicit za: Zero[A]): Zero[Either.LeftProjection[A, B]] = zero(Left(za.zero).left)
 
   implicit def EitherRightZero[A, B](implicit za: Zero[A]): Zero[Either.RightProjection[B, A]] = zero(Right(za.zero).right)

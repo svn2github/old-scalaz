@@ -76,6 +76,8 @@ object Semigroup {
 
   implicit def ArraySemigroup[A: Manifest]: Semigroup[Array[A]] = semigroup(Array.concat(_, _))
 
+  implicit def GenericArraySemigroup[A]: Semigroup[GArray[A]] = semigroup(_ ++ _)
+
   implicit def EitherLeftSemigroup[A, B]: Semigroup[Either.LeftProjection[A, B]] = semigroup((a, b) => if (a.e.isRight) a else b)
 
   implicit def EitherRightSemigroup[A, B]: Semigroup[Either.RightProjection[B, A]] = semigroup((a, b) => if (a.e.isLeft) a else b)
