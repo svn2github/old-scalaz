@@ -1,6 +1,6 @@
 package scalaz
 
-sealed trait Kleisli[M[_], -A, B] {
+sealed trait Kleisli[M[_], A, B] {
   def apply(a: A): M[B]
 
   import Scalaz._
@@ -8,6 +8,10 @@ sealed trait Kleisli[M[_], -A, B] {
   def >=>[C](k: Kleisli[M, B, C])(implicit b: Bind[M]) = ☆((a: A) => b.bind(this(a), k(_: B)))
 
   def >=>[C](k: B => M[C])(implicit b: Bind[M]): Kleisli[M, A, C] = >=>(☆(k))
+
+  def <=<[C](k: Kleisli[M, C, A])(implicit b: Bind[M]) = k >=> this
+
+  def <=<[C](k: C => M[A])(implicit b: Bind[M]) = ☆(k) >=> this
 
   def compose[N[_]](f: M[B] => N[B]) = ☆((a: A) => f(this(a)))
 
