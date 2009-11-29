@@ -57,6 +57,8 @@ object Scalaz extends ScalazLow
     with    ZipStreams {
   def ⊥ = error("undefined")
 
+  def undefined = ⊥
+
   type ⊤ = Any
 
   type ℤ = BigInt
