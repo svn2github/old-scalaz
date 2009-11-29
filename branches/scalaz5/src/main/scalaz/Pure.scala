@@ -113,11 +113,10 @@ object Pure {
     def pure[A](a: => A) = Failure(a).fail
   }
 
-  /* todo
   implicit def ZipperPure = new Pure[Zipper] {
     def pure[A](a: => A) = a.zipper
   }
-       */
+
   implicit def ZipStreamPure: Pure[ZipStream] = new Pure[ZipStream] {
     def pure[A](a: => A) = zip(Stream(a))
   }
@@ -126,15 +125,15 @@ object Pure {
     def pure[A](a: => A) = constantEndo(a)
   }
 
-  /* todo
   implicit def TreePure = new Pure[Tree] {
-    def pure[A](a: => A) = Tree.node(a, Stream.empty)
+    def pure[A](a: => A) = node(a, Stream.Empty)
   }
 
   implicit def TreeLocPure = new Pure[TreeLoc] {
     def pure[A](a: => A) = TreePure.pure(a).loc
   }
 
+  /* todo
   import concurrent._
   implicit def PromisePure(implicit s: Strategy[Unit]) = new Pure[Promise] {
     def pure[A](a: => A) = Promise.promise(a)

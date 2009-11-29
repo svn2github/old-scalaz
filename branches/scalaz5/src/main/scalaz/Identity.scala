@@ -63,7 +63,7 @@ sealed trait Identity[A] {
   def iterate[M[_]](f: A => A)(implicit p: Pure[M], m: Monoid[M[A]]): M[A] =
     value.η ⊹ f(value).iterate(f)
 
-  // todo def zipper = Scalaz.zipper(Stream.empty, value, Stream.empty)
+  def zipper = Scalaz.zipper(Stream.empty, value, Stream.empty)
 
   def unfoldTree[B](f: A => (B, () => Stream[A])): Tree[B] = f(value) match {
     case (a, bs) => node(a, bs.apply.unfoldForest(f))
