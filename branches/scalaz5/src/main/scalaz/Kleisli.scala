@@ -25,4 +25,6 @@ trait Kleislis {
   def ☆[M[_], A, B](f: A => M[B]): Kleisli[M, A, B] = new Kleisli[M, A, B] {
     def apply(a: A) = f(a)
   }
+
+  def kleisli[M[_], A, B](f: A => M[B]): Kleisli[M, A, B] = ☆(f)
 }
