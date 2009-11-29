@@ -34,27 +34,20 @@ object FoldLeft {
     }
   }
 
-  /* todo
   implicit val TreeFoldLeft: FoldLeft[Tree] = new FoldLeft[Tree] {
-    def foldLeft[B, A](t: Tree[A], b: B, f: (B, A) => B): B = {
-      import Zero._
-      import Semigroup._
-      import Monoid._
-      val m: Monoid[Dual[Endo[B]]] = monoid(DualSemigroup(EndoSemigroup[B]), DualZero(EndoZero[B]))
-      t.foldMap((a: A) => EndoTo(f.flip.curry(a)).dual)(m).value(b)
-    }
+    def foldLeft[B, A](t: Tree[A], b: B, f: (B, A) => B): B =
+      t.foldMap((a: A) => (f.flip.curry(a): Endo[B]) σ).value(b)
   }
 
   implicit val ZipperFoldLeft: FoldLeft[Zipper] = new FoldLeft[Zipper] {
     def foldLeft[B, A](t: Zipper[A], b: B, f: (B, A) => B): B =
-      t.lefts.foldRight(Stream.cons(t.focus, t.rights).foldLeft(b)(f))(f.flip)
+      t.lefts.foldRight((t.focus #:: t.rights).foldLeft(b)(f))(f.flip)
   }
 
   implicit val ZipStreamFoldLeft: FoldLeft[ZipStream] = new FoldLeft[ZipStream] {
     def foldLeft[B, A](t: ZipStream[A], b: B, f: (B, A) => B): B = IterableFoldLeft.foldLeft(t.value, b, f)
   }
-       */
-  
+
   implicit val GenericArrayFoldLeft: FoldLeft[GArray] = new FoldLeft[GArray] {
     def foldLeft[B, A](t: GArray[A], b: B, f: (B, A) => B) = t.foldLeft(b)(f)
   }
