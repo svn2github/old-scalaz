@@ -65,6 +65,18 @@ sealed trait Identity[A] {
 
   // todo def zipper = Scalaz.zipper(Stream.empty, value, Stream.empty)
 
+  /* todo
+  def unfoldTree[B](f: A => (B, () => Stream[A])): Tree[B] = f(value) match {
+    case (a, bs) => Tree.node(a, bs.apply.unfoldForest(f))
+  }
+
+  def unfoldTreeM[B, M[_]](f: A => M[(B, Stream[A])])(implicit m: Monad[M]): M[Tree[B]] = {
+    m.bind(f(value), (abs: (B, Stream[A])) =>
+        m.bind(abs._2.unfoldForestM[B, M](f), (ts: Stream[Tree[B]]) =>
+            m.pure(Tree.node(abs._1, ts))))
+  }
+  */
+
   def success[X]: Validation[X, A] = Scalaz.success(value)
 
   def fail[X]: Validation[A, X] = Scalaz.failure(value)
