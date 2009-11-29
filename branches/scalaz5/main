@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ghc -e "main" Build.hs
+ghc -e "main" Scalaz.hs
 

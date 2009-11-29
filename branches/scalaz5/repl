@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ghc -e "repl" Build.hs
+ghc -e "repl" Scalaz.hs
 

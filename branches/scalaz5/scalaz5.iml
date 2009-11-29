@@ -29,7 +29,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///opt/scala/lib/scala-library.jar!/" />
+          <root url="jar:///opt/scala-2.8.0.r19920-b20091128020206/lib/scala-library.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

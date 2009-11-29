@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ghc -e "clean" Build.hs
+ghc -e "clean" Scalaz.hs
 

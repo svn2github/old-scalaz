@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ghc -e "allExample" Build.hs
+ghc -e "allExample" Scalaz.hs
 
