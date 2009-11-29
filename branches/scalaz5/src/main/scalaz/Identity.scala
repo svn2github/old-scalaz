@@ -59,6 +59,9 @@ sealed trait Identity[A] {
     else value.η ⊹ replicate(n - 1)
 
   def repeat[M[_]](implicit p: Pure[M], m: Monoid[M[A]]): M[A] = value.η ⊹ repeat
+
+  def iterate[M[_]](f: A => A)(implicit p: Pure[M], m: Monoid[M[A]]): M[A] =
+    value.η ⊹ f(value).iterate(f)
 }
 
 trait Identitys {
