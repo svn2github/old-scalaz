@@ -27,6 +27,7 @@ object Scalaz extends ScalazLow
               with    Function2s
               with    InputStreams
               with    Longs
+              with    Shorts
               with    States
               with    Memos
               with    MetricSpaces
