@@ -23,9 +23,6 @@ object Scalaz extends ScalazLow
               with    Validations
               with    Options
               with    ZipStreams
-       //       with    Trees
-         //     with    Streams
-         //     with    Zippers
               with    Chars {
   def FunctorBindApply[Z[_]](implicit t: Functor[Z], b: Bind[Z]) = new Apply[Z] {
     def apply[A, B](f: Z[A => B], a: Z[A]): Z[B] = {
