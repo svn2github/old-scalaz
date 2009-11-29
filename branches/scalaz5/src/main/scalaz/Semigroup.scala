@@ -9,5 +9,9 @@ object Semigroup {
     def append(s1: S, s2: => S) = f(s1, s2)
   }
 
-  implicit def ListSemigroup[A] = semigroup[List[A]](_ ::: _)
+  implicit def ListSemigroup[A]: Semigroup[List[A]] = semigroup(_ ::: _)
+
+  implicit def StreamSemigroup[A]: Semigroup[Stream[A]] = semigroup(_ append _)
+
+  implicit val StringSemigroup: Semigroup[String] = semigroup(_ + _)  
 }

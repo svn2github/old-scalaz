@@ -24,4 +24,8 @@ object Pure {
   implicit val OptionPure = new Pure[Option] {
     def pure[A](a: => A) = Some(a)
   }
+
+  implicit val StreamPure: Pure[Stream] = new Pure[Stream] {
+    def pure[A](a: => A) = Stream(a)
+  }
 }

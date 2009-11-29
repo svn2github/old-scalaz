@@ -3,6 +3,8 @@ package scalaz
 sealed trait Identity[A] {
   val value: A
 
+  import Scalaz._
+
   def η[F[_]](implicit p: Pure[F]) = p pure value
   
   def ⊹(a: => A)(implicit s: Semigroup[A]) = s append (value, a)
@@ -40,6 +42,13 @@ sealed trait Identity[A] {
   def text(implicit s: Show[A]) = xml.Text(s shows value)
 
   def <===>(a: A)(implicit m: MetricSpace[A]) = m distance (value, a)
+
+  def unfold[M[_], B](f: A => Option[(B, A)])(implicit p: Pure[M], m: Monoid[M[B]]): M[B] = f(value) match {
+    case None => m.zero
+    case Some((b, a)) => b.η ⊹ a.unfold(f)
+  }
+
+  def repeat[M[_]](implicit p: Pure[M], m: Monoid[M[A]]): M[A] = value.η ⊹ repeat
 }
 
 trait Identitys {
