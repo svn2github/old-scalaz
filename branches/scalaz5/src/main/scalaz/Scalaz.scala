@@ -30,6 +30,7 @@ object Scalaz extends ScalazLow
     with    InputStreams
     with    IntMultiplications
     with    Ints
+    with    Iterables
     with    Lists
     with    LongMultiplications
     with    Longs

@@ -6,6 +6,8 @@ sealed trait IntW {
   import Scalaz._
 
   def ∏ = multiplication(value)
+
+  def ordering = if(value < 0) LT else if(value > 0) GT else EQ
 }
 
 trait Ints {
