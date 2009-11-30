@@ -3,7 +3,9 @@ package scalaz
 sealed trait Function0W[T] {
   val k: () => T
 
-  def throws = try { Right(k()) } catch { case e => Left(e) }
+  import Scalaz._
+  
+  def throws = try { success(k()) } catch { case e => failure(e) }
 }
 
 trait Function0s {

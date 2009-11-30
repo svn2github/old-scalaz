@@ -7,6 +7,7 @@ object Example {
     ExampleCofunctor.run
     ExampleFunctor.run
     ExampleKleisli.run
+    ExampleTraverse.run
   }
   
   def main(args: Array[String]) = run

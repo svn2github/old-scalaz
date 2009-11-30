@@ -58,4 +58,8 @@ trait Options {
   }
 
   implicit def OptionFrom[A](o: OptionW[A]): Option[A] = o.value
+
+  def some[A](a: A): Option[A] = Some(a)
+
+  def none[A]: Option[A] = None
 }
