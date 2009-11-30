@@ -54,6 +54,8 @@ sealed trait MA[M[_], A] {
 
   def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
 
+  def ➜:(a: A)(implicit s: Semigroup[M[A]], q: Pure[M]): M[A] = s append (q.pure(a), v)
+  
   def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
 
   def ➡(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
@@ -205,6 +207,10 @@ sealed trait MA[M[_], A] {
 
   def foldRightM[N[_], B](f: (B, A) => N[B], b: B)(implicit fr: FoldRight[M], m: Monad[N]): N[B] =
       foldr[N[B]](b η, (a, b) => b ∗ ((z: B) => f(z, a)))
+
+  def replicateM[N[_]](n: Int)(implicit m: Monad[M], p: Pure[N], d: Monoid[N[A]]): M[N[A]] =
+    if(n <= 0) ∅ η
+    else v ∗ (a => replicateM[N](n - 1) ∘ (a ➜: _))
 
   def bktree(implicit f: FoldLeft[M], m: MetricSpace[A]) =
     foldl[BKTree[A]](emptyBKTree, _ + _)

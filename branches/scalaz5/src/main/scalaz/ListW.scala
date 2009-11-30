@@ -33,6 +33,11 @@ sealed trait ListW[A] {
   }
 
   def dlist: DList[A] = Scalaz.dlist(value ::: (_: List[A]))
+
+  def takeWhileM[M[_]](p: A => M[Boolean])(implicit m: Monad[M]): M[List[A]] = value match {
+    case Nil => nil[A] η
+    case h :: t => p(h) ∗ (if(_) (t takeWhileM p) ∘ (h :: _) else nil[A] η)
+  }
 }
 
 trait Lists {
@@ -41,4 +46,6 @@ trait Lists {
   }
 
   implicit def ListFrom[A](as: ListW[A]): List[A] = as.value
+
+  def nil[A]: List[A] = Nil
 }
