@@ -7,7 +7,7 @@ trait Each[-E[_]] {
 object Each {
   import Scalaz._
 
-  implicit lazy val IdentityEach: Each[Identity] = new Each[Identity] {
+  implicit def IdentityEach: Each[Identity] = new Each[Identity] {
     def each[A](e: Identity[A], f: A => Unit) = f(e.value)
   }
 
@@ -15,15 +15,15 @@ object Each {
     def each[A](e: NonEmptyList[A], f: A => Unit) = e.list foreach f
   }
 
-  implicit lazy val StateEach: Each[PartialApply1Of2[State, Unit]#Apply] = new Each[PartialApply1Of2[State, Unit]#Apply] {
+  implicit def StateEach: Each[PartialApply1Of2[State, Unit]#Apply] = new Each[PartialApply1Of2[State, Unit]#Apply] {
     def each[A](e: State[Unit, A], f: A => Unit) = f(e(())._2)
   }
 
-  implicit lazy val ZipStreamEach = new Each[ZipStream] {
+  implicit def ZipStreamEach = new Each[ZipStream] {
     def each[A](e: ZipStream[A], f: A => Unit) = e.value foreach f
   }
 
-  implicit lazy val Tuple1Each: Each[Tuple1] = new Each[Tuple1] {
+  implicit def Tuple1Each: Each[Tuple1] = new Each[Tuple1] {
     def each[A](e: Tuple1[A], f: A => Unit) = f(e._1)
   }
 
@@ -51,15 +51,15 @@ object Each {
     def each[A](e: (R, S, T, U, V, W, A), f: A => Unit) = f(e._7)
   }
 
-  implicit lazy val Function0Each: Each[Function0] = new Each[Function0] {
+  implicit def Function0Each: Each[Function0] = new Each[Function0] {
     def each[A](e: Function0[A], f: A => Unit) = f(e.apply)
   }
 
-  implicit lazy val OptionEachEach: Each[Option] = new Each[Option] {
+  implicit def OptionEachEach: Each[Option] = new Each[Option] {
     def each[A](e: Option[A], f: A => Unit) = e foreach f
   }
 
-  implicit lazy val GenericArrayEach: Each[GArray] = new Each[GArray] {
+  implicit def GenericArrayEach: Each[GArray] = new Each[GArray] {
     def each[A](e: GArray[A], f: A => Unit) = e foreach f
   }
 
@@ -71,16 +71,16 @@ object Each {
     def each[A](e: Either.RightProjection[X, A], f: A => Unit) = e foreach f
   }
 
-  implicit lazy val IterableEach: Each[Iterable] = new Each[Iterable] {
+  implicit def IterableEach: Each[Iterable] = new Each[Iterable] {
     def each[A](e: Iterable[A], f: A => Unit) = e foreach f
   }
 
   import concurrent.Promise
-  implicit lazy val PromiseEach: Each[Promise] = new Each[Promise] {
+  implicit def PromiseEach: Each[Promise] = new Each[Promise] {
     def each[A](e: Promise[A], f: A => Unit) = f(e.get)
   }
 
-  implicit lazy val JavaIterableEach: Each[java.lang.Iterable] = new Each[java.lang.Iterable] {
+  implicit def JavaIterableEach: Each[java.lang.Iterable] = new Each[java.lang.Iterable] {
     def each[A](e: java.lang.Iterable[A], f: A => Unit) = {
       val i = e.iterator
 

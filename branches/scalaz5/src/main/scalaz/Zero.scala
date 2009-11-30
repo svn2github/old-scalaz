@@ -16,53 +16,53 @@ object Zero {
   import Scalaz._
   import xml.{Elem, Node, NodeSeq}
   
-  implicit lazy val DigitZero: Zero[Digit] = zero(_0)
+  implicit def DigitZero: Zero[Digit] = zero(_0)
 
-  implicit lazy val OrderingZero: Zero[Ordering] = zero(EQ)
+  implicit def OrderingZero: Zero[Ordering] = zero(EQ)
 
-  implicit lazy val UnitZero: Zero[Unit] = zero(())
+  implicit def UnitZero: Zero[Unit] = zero(())
 
-  implicit lazy val StringZero: Zero[String] = zero("")
+  implicit def StringZero: Zero[String] = zero("")
 
-  implicit lazy val IntZero: Zero[Int] = zero(0)
+  implicit def IntZero: Zero[Int] = zero(0)
 
-  implicit lazy val IntMultiplicationZero: Zero[IntMultiplication] = zero(1 ∏)
+  implicit def IntMultiplicationZero: Zero[IntMultiplication] = zero(1 ∏)
 
-  implicit lazy val BooleanConjunctionZero: Zero[BooleanConjunction] = zero(true |∧|)
+  implicit def BooleanConjunctionZero: Zero[BooleanConjunction] = zero(true |∧|)
 
-  implicit lazy val BooleanZero: Zero[Boolean] = zero(false)
+  implicit def BooleanZero: Zero[Boolean] = zero(false)
 
-  implicit lazy val CharZero: Zero[Char] = zero(0.toChar)
+  implicit def CharZero: Zero[Char] = zero(0.toChar)
 
-  implicit lazy val CharMultiplicationZero: Zero[CharMultiplication] = zero(1.toChar ∏)
+  implicit def CharMultiplicationZero: Zero[CharMultiplication] = zero(1.toChar ∏)
 
-  implicit lazy val ByteZero: Zero[Byte] = zero(0.toByte)
+  implicit def ByteZero: Zero[Byte] = zero(0.toByte)
 
-  implicit lazy val ByteMultiplicationZero: Zero[ByteMultiplication] = zero(1.toByte ∏)
+  implicit def ByteMultiplicationZero: Zero[ByteMultiplication] = zero(1.toByte ∏)
 
-  implicit lazy val LongZero: Zero[Long] = zero(0L)
+  implicit def LongZero: Zero[Long] = zero(0L)
 
-  implicit lazy val LongMultiplicationZero: Zero[LongMultiplication] = zero(1L ∏)
+  implicit def LongMultiplicationZero: Zero[LongMultiplication] = zero(1L ∏)
 
-  implicit lazy val ShortZero: Zero[Short] = zero(0.toShort)
+  implicit def ShortZero: Zero[Short] = zero(0.toShort)
 
-  implicit lazy val ShortMultiplicationZero: Zero[ShortMultiplication] = zero(1.toShort ∏)
+  implicit def ShortMultiplicationZero: Zero[ShortMultiplication] = zero(1.toShort ∏)
 
-  implicit lazy val FloatZero: Zero[Float] = zero(0F)
+  implicit def FloatZero: Zero[Float] = zero(0F)
 
-  implicit lazy val DoubleZero: Zero[Double] = zero(0D)
+  implicit def DoubleZero: Zero[Double] = zero(0D)
 
-  implicit lazy val BigIntegerZero = zero(java.math.BigInteger.valueOf(0))
+  implicit def BigIntegerZero = zero(java.math.BigInteger.valueOf(0))
 
-  implicit lazy val BigIntegerMultiplicationZero = zero(java.math.BigInteger.valueOf(1) ∏)
+  implicit def BigIntegerMultiplicationZero = zero(java.math.BigInteger.valueOf(1) ∏)
 
-  implicit lazy val BigIntZero: Zero[BigInt] = zero(BigInt(0))
+  implicit def BigIntZero: Zero[BigInt] = zero(BigInt(0))
 
-  implicit lazy val BigIntMutliplicationZero: Zero[BigIntMultiplication] = zero(BigInt(1) ∏)
+  implicit def BigIntMutliplicationZero: Zero[BigIntMultiplication] = zero(BigInt(1) ∏)
 
-  implicit lazy val NodeSeqZero: Zero[NodeSeq] = zero(NodeSeq.Empty)
+  implicit def NodeSeqZero: Zero[NodeSeq] = zero(NodeSeq.Empty)
 
-  implicit lazy val NodeZero: Zero[Node] = new Zero[Node] {
+  implicit def NodeZero: Zero[Node] = new Zero[Node] {
     val zero = new Node {
       override def text = null
       override def label = null

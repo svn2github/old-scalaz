@@ -14,55 +14,55 @@ object Semigroup {
   import Scalaz._
   import xml.{Elem, Node, NodeSeq}
 
-  implicit lazy val DigitSemigroup: Semigroup[Digit] = semigroup((a, b) => a.toInt + b.toInt)
+  implicit def DigitSemigroup: Semigroup[Digit] = semigroup((a, b) => a.toInt + b.toInt)
 
-  implicit lazy val OrderingSemigroup: Semigroup[Ordering] = semigroup {
+  implicit def OrderingSemigroup: Semigroup[Ordering] = semigroup {
     case (EQ, a) => a
     case (LT, _) => LT
     case (GT, _) => GT
   }
 
-  implicit lazy val UnitSemigroup: Semigroup[Unit] = semigroup((_, _) => ())
+  implicit def UnitSemigroup: Semigroup[Unit] = semigroup((_, _) => ())
 
-  implicit lazy val StringSemigroup: Semigroup[String] = semigroup(_ + _)
+  implicit def StringSemigroup: Semigroup[String] = semigroup(_ + _)
 
-  implicit lazy val IntSemigroup: Semigroup[Int] = semigroup(_ + _)
+  implicit def IntSemigroup: Semigroup[Int] = semigroup(_ + _)
 
-  implicit lazy val IntMultiplicationSemigroup: Semigroup[IntMultiplication] = semigroup(_ * _ ∏)
+  implicit def IntMultiplicationSemigroup: Semigroup[IntMultiplication] = semigroup(_ * _ ∏)
 
-  implicit lazy val BooleanConjunctionSemigroup: Semigroup[BooleanConjunction] = semigroup(_ && _ |∧|)
+  implicit def BooleanConjunctionSemigroup: Semigroup[BooleanConjunction] = semigroup(_ && _ |∧|)
 
-  implicit lazy val BooleanSemigroup: Semigroup[Boolean] = semigroup((a, b) => (a || b))
+  implicit def BooleanSemigroup: Semigroup[Boolean] = semigroup((a, b) => (a || b))
 
-  implicit lazy val CharSemigroup: Semigroup[Char] = semigroup((a, b) => (a + b).toChar)
+  implicit def CharSemigroup: Semigroup[Char] = semigroup((a, b) => (a + b).toChar)
 
-  implicit lazy val CharMultiplicationSemigroup: Semigroup[CharMultiplication] = semigroup((a, b) => (a * b).toChar ∏)
+  implicit def CharMultiplicationSemigroup: Semigroup[CharMultiplication] = semigroup((a, b) => (a * b).toChar ∏)
 
-  implicit lazy val ByteSemigroup: Semigroup[Byte] = semigroup((a, b) => (a + b).toByte)
+  implicit def ByteSemigroup: Semigroup[Byte] = semigroup((a, b) => (a + b).toByte)
 
-  implicit lazy val ByteMultiplicationSemigroup: Semigroup[ByteMultiplication] = semigroup((a, b) => (a * b).toByte ∏)
+  implicit def ByteMultiplicationSemigroup: Semigroup[ByteMultiplication] = semigroup((a, b) => (a * b).toByte ∏)
 
-  implicit lazy val LongSemigroup: Semigroup[Long] = semigroup((a, b) => (a + b).toLong)
+  implicit def LongSemigroup: Semigroup[Long] = semigroup((a, b) => (a + b).toLong)
 
-  implicit lazy val LongMultiplicationSemigroup: Semigroup[LongMultiplication] = semigroup((a, b) => (a * b).toLong ∏)
+  implicit def LongMultiplicationSemigroup: Semigroup[LongMultiplication] = semigroup((a, b) => (a * b).toLong ∏)
 
-  implicit lazy val ShortSemigroup: Semigroup[Short] = semigroup((a, b) => (a + b).toShort)
+  implicit def ShortSemigroup: Semigroup[Short] = semigroup((a, b) => (a + b).toShort)
 
-  implicit lazy val ShortMultiplicationSemigroup: Semigroup[ShortMultiplication] = semigroup((a, b) => (a * b).toShort ∏)
+  implicit def ShortMultiplicationSemigroup: Semigroup[ShortMultiplication] = semigroup((a, b) => (a * b).toShort ∏)
 
-  implicit lazy val FloatSemigroup: Semigroup[Float] = semigroup((a, b) => (a + b).toFloat)
+  implicit def FloatSemigroup: Semigroup[Float] = semigroup((a, b) => (a + b).toFloat)
 
-  implicit lazy val DoubleSemigroup: Semigroup[Double] = semigroup((a, b) => (a + b).toDouble)
+  implicit def DoubleSemigroup: Semigroup[Double] = semigroup((a, b) => (a + b).toDouble)
 
-  implicit lazy val BigIntegerSemigroup: Semigroup[java.math.BigInteger] = semigroup(_ add _)
+  implicit def BigIntegerSemigroup: Semigroup[java.math.BigInteger] = semigroup(_ add _)
 
-  implicit lazy val BigIntegerMutliplicationSemigroup: Semigroup[BigIntegerMultiplication] = semigroup(_.value multiply _.value ∏)
+  implicit def BigIntegerMutliplicationSemigroup: Semigroup[BigIntegerMultiplication] = semigroup(_.value multiply _.value ∏)
 
-  implicit lazy val BigIntSemigroup: Semigroup[BigInt] = semigroup(_ + _)
+  implicit def BigIntSemigroup: Semigroup[BigInt] = semigroup(_ + _)
 
-  implicit lazy val BigIntMultiplicationSemigroup: Semigroup[BigIntMultiplication] = semigroup(_.value * _.value ∏)
+  implicit def BigIntMultiplicationSemigroup: Semigroup[BigIntMultiplication] = semigroup(_.value * _.value ∏)
 
-  implicit lazy val NodeSeqSemigroup: Semigroup[NodeSeq] = semigroup(_ ++ _)
+  implicit def NodeSeqSemigroup: Semigroup[NodeSeq] = semigroup(_ ++ _)
 
   implicit def NonEmptyListSemigroup[A]: Semigroup[NonEmptyList[A]] = semigroup(_.list <::: _)
   

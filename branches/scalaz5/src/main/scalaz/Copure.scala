@@ -7,19 +7,19 @@ trait Copure[-C[_]] {
 object Copure {
   import Scalaz._
   
-  implicit lazy val IdentityCopure: Copure[Identity] = new Copure[Identity] {
+  implicit def IdentityCopure: Copure[Identity] = new Copure[Identity] {
     def copure[A](a: Identity[A]) = a
   }
 
-  implicit lazy val NonEmptyListCopure: Copure[NonEmptyList] = new Copure[NonEmptyList] {
+  implicit def NonEmptyListCopure: Copure[NonEmptyList] = new Copure[NonEmptyList] {
     def copure[A](a: NonEmptyList[A]) = a.head
   }
 
-  implicit lazy val ZeroCopure: Copure[Zero] = new Copure[Zero] {
+  implicit def ZeroCopure: Copure[Zero] = new Copure[Zero] {
     def copure[A](a: Zero[A]) = a.zero
   }
 
-  implicit lazy val Tuple1Copure: Copure[Tuple1] = new Copure[Tuple1] {
+  implicit def Tuple1Copure: Copure[Tuple1] = new Copure[Tuple1] {
     def copure[A](a: Tuple1[A]) = a._1
   }
 
@@ -27,23 +27,23 @@ object Copure {
     def copure[A](a: Tuple2[R, A]) = a._2
   }
 
-  implicit lazy val Function0Copure: Copure[Function0] = new Copure[Function0] {
+  implicit def Function0Copure: Copure[Function0] = new Copure[Function0] {
     def copure[A](a: Function0[A]) = a.apply
   }
 
-  implicit lazy val ZipperCopure: Copure[Zipper] = new Copure[Zipper] {
+  implicit def ZipperCopure: Copure[Zipper] = new Copure[Zipper] {
     def copure[A](a: Zipper[A]) = a.focus
   }
 
-  implicit lazy val TreeCopure: Copure[Tree] = new Copure[Tree] {
+  implicit def TreeCopure: Copure[Tree] = new Copure[Tree] {
     def copure[A](a: Tree[A]) = a.rootLabel
   }
-  implicit lazy val TreeLocCopure: Copure[TreeLoc] = new Copure[TreeLoc] {
+  implicit def TreeLocCopure: Copure[TreeLoc] = new Copure[TreeLoc] {
     def copure[A](a: TreeLoc[A]) = a.tree.rootLabel
   }
 
   import concurrent.Promise
-  implicit lazy val PromiseCopure: Copure[Promise] = new Copure[Promise] {
+  implicit def PromiseCopure: Copure[Promise] = new Copure[Promise] {
     def copure[A](a: Promise[A]) = a.get
   }
 }

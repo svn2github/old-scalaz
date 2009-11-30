@@ -7,10 +7,10 @@ object ExampleTraverse {
 
   def run {
     // Sequence the List with the Option applicative functor
-    List(Some(7), Some(9)).sequence[Option, Int].println // todo why must these type parameters be passed?
+    List(some(7), some(9)).sequence println
 
     // Sequence the Stream with the Option applicative functor
-    Stream(Some(7), None, Some(9)).sequence[Option, Int].println // todo why must these type parameters be passed?
+    Stream(Some(7), None, Some(9)).sequence println 
 
     val f = (_: String).map(_ - 48).toList
     val g = (s: String) => (() => s.parseInt).throws.either.right.toOption

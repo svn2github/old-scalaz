@@ -7,11 +7,11 @@ trait Pure[+P[_]] {
 object Pure {
   import Scalaz._
 
-  implicit lazy val IdentityPure: Pure[Identity] = new Pure[Identity] {
+  implicit def IdentityPure: Pure[Identity] = new Pure[Identity] {
     def pure[A](a: => A) = a
   }
 
-  implicit lazy val NonEmptyListPure: Pure[NonEmptyList] = new Pure[NonEmptyList] {
+  implicit def NonEmptyListPure: Pure[NonEmptyList] = new Pure[NonEmptyList] {
     def pure[A](a: => A) = a.nel
   }
 
@@ -19,7 +19,7 @@ object Pure {
     def pure[A](a: => A) = a.state[S]
   }
 
-  implicit lazy val Tuple1Pure = new Pure[Tuple1] {
+  implicit def Tuple1Pure = new Pure[Tuple1] {
     def pure[A](a: => A) = Tuple1(a)
   }
 
@@ -47,7 +47,7 @@ object Pure {
     def pure[A](a: => A) = (zr.zero, zs.zero, zt.zero, zu.zero, zv.zero, zw.zero, a)
   }
 
-  implicit lazy val Function0Pure: Pure[Function0] = new Pure[Function0] {
+  implicit def Function0Pure: Pure[Function0] = new Pure[Function0] {
     def pure[A](a: => A) = new Function0[A] {
       def apply = a
     }
@@ -77,19 +77,19 @@ object Pure {
     def pure[A](a: => A) = (_: R, _: S, _: T, _: U, _: V, _: W) => a
   }
 
-  implicit lazy val ListPure: Pure[List] = new Pure[List] {
+  implicit def ListPure: Pure[List] = new Pure[List] {
     def pure[A](a: => A) = List(a)
   }
 
-  implicit lazy val StreamPure: Pure[Stream] = new Pure[Stream] {
+  implicit def StreamPure: Pure[Stream] = new Pure[Stream] {
     def pure[A](a: => A) = Stream(a)
   }
 
-  implicit lazy val OptionPure: Pure[Option] = new Pure[Option] {
+  implicit def OptionPure: Pure[Option] = new Pure[Option] {
     def pure[A](a: => A) = Some(a)
   }
 
-  implicit lazy val GenericArrayPure: Pure[GArray] = new Pure[GArray] {
+  implicit def GenericArrayPure: Pure[GArray] = new Pure[GArray] {
     def pure[A](a: => A) = {
       val t = new GArray[A](1)
       t(0) = a
@@ -141,7 +141,7 @@ object Pure {
   import java.util._
   import java.util.concurrent._
 
-  implicit lazy val JavaArrayListPure: Pure[ArrayList] = new Pure[ArrayList] {
+  implicit def JavaArrayListPure: Pure[ArrayList] = new Pure[ArrayList] {
     def pure[A](a: => A) = {
       val k = new ArrayList[A]
       k add a
@@ -149,7 +149,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaHashSetPure: Pure[HashSet] = new Pure[HashSet] {
+  implicit def JavaHashSetPure: Pure[HashSet] = new Pure[HashSet] {
     def pure[A](a: => A) = {
       val k = new HashSet[A]
       k add a
@@ -157,7 +157,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaLinkedHashSetPure: Pure[LinkedHashSet] = new Pure[LinkedHashSet] {
+  implicit def JavaLinkedHashSetPure: Pure[LinkedHashSet] = new Pure[LinkedHashSet] {
     def pure[A](a: => A) = {
       val k = new LinkedHashSet[A]
       k add a
@@ -165,7 +165,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaLinkedListPure: Pure[LinkedList] = new Pure[LinkedList] {
+  implicit def JavaLinkedListPure: Pure[LinkedList] = new Pure[LinkedList] {
     def pure[A](a: => A) = {
       val k = new LinkedList[A]
       k add a
@@ -173,7 +173,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaPriorityQueuePure: Pure[PriorityQueue] = new Pure[PriorityQueue] {
+  implicit def JavaPriorityQueuePure: Pure[PriorityQueue] = new Pure[PriorityQueue] {
     def pure[A](a: => A) = {
       val k = new PriorityQueue[A]
       k add a
@@ -181,7 +181,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaStackPure: Pure[Stack] = new Pure[Stack] {
+  implicit def JavaStackPure: Pure[Stack] = new Pure[Stack] {
     def pure[A](a: => A) = {
       val k = new Stack[A]
       k add a
@@ -189,7 +189,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaTreeSetPure: Pure[TreeSet] = new Pure[TreeSet] {
+  implicit def JavaTreeSetPure: Pure[TreeSet] = new Pure[TreeSet] {
     def pure[A](a: => A) = {
       val k = new TreeSet[A]
       k add a
@@ -197,7 +197,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaVectorPure: Pure[Vector] = new Pure[Vector] {
+  implicit def JavaVectorPure: Pure[Vector] = new Pure[Vector] {
     def pure[A](a: => A) = {
       val k = new Vector[A]
       k add a
@@ -205,7 +205,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaArrayBlockingQueuePure: Pure[ArrayBlockingQueue] = new Pure[ArrayBlockingQueue] {
+  implicit def JavaArrayBlockingQueuePure: Pure[ArrayBlockingQueue] = new Pure[ArrayBlockingQueue] {
     def pure[A](a: => A) = {
       val k = new ArrayBlockingQueue[A](0)
       k add a
@@ -213,7 +213,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaConcurrentLinkedQueuePure: Pure[ConcurrentLinkedQueue] = new Pure[ConcurrentLinkedQueue] {
+  implicit def JavaConcurrentLinkedQueuePure: Pure[ConcurrentLinkedQueue] = new Pure[ConcurrentLinkedQueue] {
     def pure[A](a: => A) = {
       val k = new ConcurrentLinkedQueue[A]
       k add a
@@ -221,7 +221,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaCopyOnWriteArrayListPure: Pure[CopyOnWriteArrayList] = new Pure[CopyOnWriteArrayList] {
+  implicit def JavaCopyOnWriteArrayListPure: Pure[CopyOnWriteArrayList] = new Pure[CopyOnWriteArrayList] {
     def pure[A](a: => A) = {
       val k = new CopyOnWriteArrayList[A]
       k add a
@@ -229,7 +229,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaCopyOnWriteArraySetPure: Pure[CopyOnWriteArraySet] = new Pure[CopyOnWriteArraySet] {
+  implicit def JavaCopyOnWriteArraySetPure: Pure[CopyOnWriteArraySet] = new Pure[CopyOnWriteArraySet] {
     def pure[A](a: => A) = {
       val k = new CopyOnWriteArraySet[A]
       k add a
@@ -237,7 +237,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaLinkedBlockingQueuePure: Pure[LinkedBlockingQueue] = new Pure[LinkedBlockingQueue] {
+  implicit def JavaLinkedBlockingQueuePure: Pure[LinkedBlockingQueue] = new Pure[LinkedBlockingQueue] {
     def pure[A](a: => A) = {
       val k = new LinkedBlockingQueue[A]
       k add a
@@ -245,7 +245,7 @@ object Pure {
     }
   }
 
-  implicit lazy val JavaSynchronousQueuePure: Pure[SynchronousQueue] = new Pure[SynchronousQueue] {
+  implicit def JavaSynchronousQueuePure: Pure[SynchronousQueue] = new Pure[SynchronousQueue] {
     def pure[A](a: => A) = {
       val k = new SynchronousQueue[A]
       k add a

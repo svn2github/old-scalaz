@@ -7,11 +7,11 @@ trait Functor[F[_]] {
 object Functor {
   import Scalaz._
 
-  implicit lazy val IdentityFunctor: Functor[Identity] = new Functor[Identity] {
+  implicit def IdentityFunctor: Functor[Identity] = new Functor[Identity] {
     def fmap[A, B](r: Identity[A], f: A => B) = f(r.value)
   }
 
-  implicit lazy val NonEmptyListFunctor = new Functor[NonEmptyList] {
+  implicit def NonEmptyListFunctor = new Functor[NonEmptyList] {
     def fmap[A, B](r: NonEmptyList[A], f: A => B) = r map f
   }
 
@@ -19,11 +19,11 @@ object Functor {
     def fmap[A, B](r: State[S, A], f: A => B) = r map f
   }
 
-  implicit lazy val ZipStreamFunctor: Functor[ZipStream] = new Functor[ZipStream] {
+  implicit def ZipStreamFunctor: Functor[ZipStream] = new Functor[ZipStream] {
     def fmap[A, B](r: ZipStream[A], f: A => B) = r.value map f ʐ
   }
 
-  implicit lazy val Tuple1Functor: Functor[Tuple1] = new Functor[Tuple1] {
+  implicit def Tuple1Functor: Functor[Tuple1] = new Functor[Tuple1] {
     def fmap[A, B](r: Tuple1[A], f: A => B) = Tuple1(f(r._1))
   }
 
@@ -51,7 +51,7 @@ object Functor {
     def fmap[A, B](r: (R, S, T, U, V, W, A), f: A => B) = (r._1, r._2, r._3, r._4, r._5, r._6, f(r._7))
   }
 
-  implicit lazy val Function0Functor: Functor[Function0] = new Functor[Function0] {
+  implicit def Function0Functor: Functor[Function0] = new Functor[Function0] {
     def fmap[A, B](r: Function0[A], f: A => B) = new Function0[B] {
       def apply = f(r.apply)
     }
@@ -81,19 +81,19 @@ object Functor {
     def fmap[A, B](r: (R, S, T, U, V, W) => A, f: A => B) = (t1: R, t2: S, t3: T, t4: U, t5: V, t6: W) => f(r(t1, t2, t3, t4, t5, t6))
   }
 
-  implicit lazy val ListFunctor: Functor[List] = new Functor[List] {
+  implicit def ListFunctor: Functor[List] = new Functor[List] {
     def fmap[A, B](r: List[A], f: A => B) = r map f
   }
 
-  implicit lazy val StreamFunctor: Functor[Stream] = new Functor[Stream] {
+  implicit def StreamFunctor: Functor[Stream] = new Functor[Stream] {
     def fmap[A, B](r: Stream[A], f: A => B) = r map f
   }
 
-  implicit lazy val OptionFunctor: Functor[Option] = new Functor[Option] {
+  implicit def OptionFunctor: Functor[Option] = new Functor[Option] {
     def fmap[A, B](r: Option[A], f: A => B) = r map f
   }
 
-  implicit lazy val GenericArrayFunctor: Functor[GArray] = new Functor[GArray] {
+  implicit def GenericArrayFunctor: Functor[GArray] = new Functor[GArray] {
     def fmap[A, B](r: GArray[A], f: A => B) = r map f
   }
 
@@ -119,15 +119,15 @@ object Functor {
     }).fail
   }
 
-  implicit lazy val ZipperFunctor: Functor[Zipper] = new Functor[Zipper] {
+  implicit def ZipperFunctor: Functor[Zipper] = new Functor[Zipper] {
     def fmap[A, B](z: Zipper[A], f: A => B) = zipper(z.lefts map f, f(z.focus), z.rights map f)
   }
 
-  implicit lazy val TreeFunctor: Functor[Tree] = new Functor[Tree] {
+  implicit def TreeFunctor: Functor[Tree] = new Functor[Tree] {
     def fmap[A, B](t: Tree[A], f: A => B): Tree[B] = node(f(t.rootLabel), t.subForest.map(fmap(_: Tree[A], f)))
   }
 
-  implicit lazy val TreeLocFunctor: Functor[TreeLoc] = new Functor[TreeLoc] {
+  implicit def TreeLocFunctor: Functor[TreeLoc] = new Functor[TreeLoc] {
     def fmap[A, B](t: TreeLoc[A], f: A => B): TreeLoc[B] = {
       val ff = (_: Tree[A]).map(f)
       loc(t.tree map f, t.lefts map ff, t.rights map ff,
@@ -136,7 +136,7 @@ object Functor {
   }
 
   import scalaz.concurrent.Promise
-  implicit lazy val PromiseFunctor: Functor[Promise] = new Functor[Promise] {
+  implicit def PromiseFunctor: Functor[Promise] = new Functor[Promise] {
     def fmap[A, B](t: Promise[A], f: A => B): Promise[B] = {
       t.bind(a => promise(f(a))(t.strategy))
     }
@@ -145,7 +145,7 @@ object Functor {
   import java.util._
   import java.util.concurrent._
 
-  implicit lazy val JavaArrayListFunctor: Functor[ArrayList] = new Functor[ArrayList] {
+  implicit def JavaArrayListFunctor: Functor[ArrayList] = new Functor[ArrayList] {
     def fmap[A, B](r: ArrayList[A], f: A => B) = {
       val a = new ArrayList[B]
       val i = r.iterator
@@ -155,7 +155,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaLinkedListFunctor: Functor[LinkedList] = new Functor[LinkedList] {
+  implicit def JavaLinkedListFunctor: Functor[LinkedList] = new Functor[LinkedList] {
     def fmap[A, B](r: LinkedList[A], f: A => B) = {
       val a = new LinkedList[B]
       val i = r.iterator
@@ -165,7 +165,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaPriorityQueueFunctor: Functor[PriorityQueue] = new Functor[PriorityQueue] {
+  implicit def JavaPriorityQueueFunctor: Functor[PriorityQueue] = new Functor[PriorityQueue] {
     def fmap[A, B](r: PriorityQueue[A], f: A => B) = {
       val a = new PriorityQueue[B]
       val i = r.iterator
@@ -175,7 +175,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaStackFunctor: Functor[Stack] = new Functor[Stack] {
+  implicit def JavaStackFunctor: Functor[Stack] = new Functor[Stack] {
     def fmap[A, B](r: Stack[A], f: A => B) = {
       val a = new Stack[B]
       val i = r.iterator
@@ -185,7 +185,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaVectorFunctor: Functor[Vector] = new Functor[Vector] {
+  implicit def JavaVectorFunctor: Functor[Vector] = new Functor[Vector] {
     def fmap[A, B](r: Vector[A], f: A => B) = {
       val a = new Vector[B](r.capacity)
       val i = r.iterator
@@ -195,7 +195,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaArrayBlockingQueueFunctor: Functor[ArrayBlockingQueue] = new Functor[ArrayBlockingQueue] {
+  implicit def JavaArrayBlockingQueueFunctor: Functor[ArrayBlockingQueue] = new Functor[ArrayBlockingQueue] {
     def fmap[A, B](r: ArrayBlockingQueue[A], f: A => B) = {
       val a = new ArrayBlockingQueue[B](r.remainingCapacity)
       val i = r.iterator
@@ -206,7 +206,7 @@ object Functor {
   }
 
 
-  implicit lazy val JavaConcurrentLinkedQueueFunctor: Functor[ConcurrentLinkedQueue] = new Functor[ConcurrentLinkedQueue] {
+  implicit def JavaConcurrentLinkedQueueFunctor: Functor[ConcurrentLinkedQueue] = new Functor[ConcurrentLinkedQueue] {
     def fmap[A, B](r: ConcurrentLinkedQueue[A], f: A => B) = {
       val a = new ConcurrentLinkedQueue[B]
       val i = r.iterator
@@ -216,7 +216,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaCopyOnWriteArrayListFunctor: Functor[CopyOnWriteArrayList] = new Functor[CopyOnWriteArrayList] {
+  implicit def JavaCopyOnWriteArrayListFunctor: Functor[CopyOnWriteArrayList] = new Functor[CopyOnWriteArrayList] {
     def fmap[A, B](r: CopyOnWriteArrayList[A], f: A => B) = {
       val a = new CopyOnWriteArrayList[B]
       val i = r.iterator
@@ -226,7 +226,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaLinkedBlockingQueueFunctor: Functor[LinkedBlockingQueue] = new Functor[LinkedBlockingQueue] {
+  implicit def JavaLinkedBlockingQueueFunctor: Functor[LinkedBlockingQueue] = new Functor[LinkedBlockingQueue] {
     def fmap[A, B](r: LinkedBlockingQueue[A], f: A => B) = {
       val a = new LinkedBlockingQueue[B]
       val i = r.iterator
@@ -236,7 +236,7 @@ object Functor {
     }
   }
 
-  implicit lazy val JavaSynchronousQueueFunctor: Functor[SynchronousQueue] = new Functor[SynchronousQueue] {
+  implicit def JavaSynchronousQueueFunctor: Functor[SynchronousQueue] = new Functor[SynchronousQueue] {
     def fmap[A, B](r: SynchronousQueue[A], f: A => B) = {
       val a = new SynchronousQueue[B]
       val i = r.iterator

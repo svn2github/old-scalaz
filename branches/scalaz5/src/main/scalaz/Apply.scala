@@ -15,13 +15,13 @@ trait Applys {
 object Apply {
   import Scalaz._
 
-  implicit lazy val IdentityApply: Apply[Identity] = FunctorBindApply[Identity]
+  implicit def IdentityApply: Apply[Identity] = FunctorBindApply[Identity]
 
-  implicit lazy val NonEmptyListApply: Apply[NonEmptyList] = FunctorBindApply[NonEmptyList]
+  implicit def NonEmptyListApply: Apply[NonEmptyList] = FunctorBindApply[NonEmptyList]
 
   implicit def StateApply[S]: Apply[PartialApply1Of2[State, S]#Apply] = FunctorBindApply[PartialApply1Of2[State, S]#Apply]
 
-  implicit lazy val Tuple1Apply: Apply[Tuple1] = FunctorBindApply[Tuple1]
+  implicit def Tuple1Apply: Apply[Tuple1] = FunctorBindApply[Tuple1]
 
   implicit def Tuple2Apply[R](implicit sr: Semigroup[R]): Apply[PartialApply1Of2[Tuple2, R]#Apply] = FunctorBindApply[PartialApply1Of2[Tuple2, R]#Apply]
 
@@ -35,7 +35,7 @@ object Apply {
 
   implicit def Tuple7Apply[R, S, T, U, V, W](implicit sr: Semigroup[R], ss: Semigroup[S], st: Semigroup[T], su: Semigroup[U], sv: Semigroup[V], sw: Semigroup[W]): Apply[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply] = FunctorBindApply[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply]
 
-  implicit lazy val Function0Apply: Apply[Function0] = FunctorBindApply[Function0]
+  implicit def Function0Apply: Apply[Function0] = FunctorBindApply[Function0]
 
   implicit def Function1Apply[R]: Apply[PartialApply1Of2[Function1, R]#Apply] = FunctorBindApply[PartialApply1Of2[Function1, R]#Apply]
 
@@ -49,13 +49,13 @@ object Apply {
 
   implicit def Function6Apply[R, S, T, U, V, W]: Apply[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply] = FunctorBindApply[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply]
 
-  implicit lazy val ListApply: Apply[List] = FunctorBindApply[List]
+  implicit def ListApply: Apply[List] = FunctorBindApply[List]
 
-  implicit lazy val StreamApply: Apply[Stream] = FunctorBindApply[Stream]
+  implicit def StreamApply: Apply[Stream] = FunctorBindApply[Stream]
 
-  implicit lazy val OptionApply: Apply[Option] = FunctorBindApply[Option]
+  implicit def OptionApply: Apply[Option] = FunctorBindApply[Option]
 
-  implicit lazy val GenericArrayApply: Apply[GArray] = FunctorBindApply[GArray]
+  implicit def GenericArrayApply: Apply[GArray] = FunctorBindApply[GArray]
 
   implicit def EitherLeftApply[X]: Apply[PartialApply1Of2[Either.LeftProjection, X]#Flip] = FunctorBindApply[PartialApply1Of2[Either.LeftProjection, X]#Flip]
 
@@ -79,14 +79,14 @@ object Apply {
     }).fail
   }
 
-  implicit lazy val ZipperApply: Apply[Zipper] = new Apply[Zipper] {
+  implicit def ZipperApply: Apply[Zipper] = new Apply[Zipper] {
     def apply[A, B](f: Zipper[A => B], a: Zipper[A]): Zipper[B] =
       zipper((a.lefts ʐ) ⊛ (f.lefts ʐ),
         (f.focus)(a.focus),
         (a.rights ʐ) ⊛ (f.rights ʐ))
   }
 
-  implicit lazy val ZipStreamApply: Apply[ZipStream] = new Apply[ZipStream] {
+  implicit def ZipStreamApply: Apply[ZipStream] = new Apply[ZipStream] {
     def apply[A, B](f: ZipStream[A => B], a: ZipStream[A]): ZipStream[B] = {
       val ff = f.value
       val aa = a.value
@@ -100,31 +100,31 @@ object Apply {
       node((f.rootLabel)(a.rootLabel), (a.subForest ʐ) ⊛ (f.subForest.map((apply(_: Tree[A => B], _: Tree[A])).curry) ʐ))
   }
 
-  implicit lazy val TreeApply = FunctorBindApply[Tree]
+  implicit def TreeApply = FunctorBindApply[Tree]
      /*
   import concurrent.Promise
-  implicit lazy val PromiseApply = FunctorBindApply[Promise]
+  implicit def PromiseApply = FunctorBindApply[Promise]
   */
   import java.util._
   import java.util.concurrent._
 
-  implicit lazy val JavaArrayListApply: Apply[ArrayList] = FunctorBindApply[ArrayList]
+  implicit def JavaArrayListApply: Apply[ArrayList] = FunctorBindApply[ArrayList]
 
-  implicit lazy val JavaLinkedListApply: Apply[LinkedList] = FunctorBindApply[LinkedList]
+  implicit def JavaLinkedListApply: Apply[LinkedList] = FunctorBindApply[LinkedList]
 
-  implicit lazy val JavaPriorityQueueApply: Apply[PriorityQueue] = FunctorBindApply[PriorityQueue]
+  implicit def JavaPriorityQueueApply: Apply[PriorityQueue] = FunctorBindApply[PriorityQueue]
 
-  implicit lazy val JavaStackApply: Apply[Stack] = FunctorBindApply[Stack]
+  implicit def JavaStackApply: Apply[Stack] = FunctorBindApply[Stack]
 
-  implicit lazy val JavaVectorApply: Apply[Vector] = FunctorBindApply[Vector]
+  implicit def JavaVectorApply: Apply[Vector] = FunctorBindApply[Vector]
 
-  implicit lazy val JavaArrayBlockingQueueApply: Apply[ArrayBlockingQueue] = FunctorBindApply[ArrayBlockingQueue]
+  implicit def JavaArrayBlockingQueueApply: Apply[ArrayBlockingQueue] = FunctorBindApply[ArrayBlockingQueue]
 
-  implicit lazy val JavaConcurrentLinkedQueueApply: Apply[ConcurrentLinkedQueue] = FunctorBindApply[ConcurrentLinkedQueue]
+  implicit def JavaConcurrentLinkedQueueApply: Apply[ConcurrentLinkedQueue] = FunctorBindApply[ConcurrentLinkedQueue]
 
-  implicit lazy val JavaCopyOnWriteArrayListApply: Apply[CopyOnWriteArrayList] = FunctorBindApply[CopyOnWriteArrayList]
+  implicit def JavaCopyOnWriteArrayListApply: Apply[CopyOnWriteArrayList] = FunctorBindApply[CopyOnWriteArrayList]
 
-  implicit lazy val JavaLinkedBlockingQueueApply: Apply[LinkedBlockingQueue] = FunctorBindApply[LinkedBlockingQueue]
+  implicit def JavaLinkedBlockingQueueApply: Apply[LinkedBlockingQueue] = FunctorBindApply[LinkedBlockingQueue]
 
-  implicit lazy val JavaSynchronousQueueApply: Apply[SynchronousQueue] = FunctorBindApply[SynchronousQueue]
+  implicit def JavaSynchronousQueueApply: Apply[SynchronousQueue] = FunctorBindApply[SynchronousQueue]
 }

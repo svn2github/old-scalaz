@@ -17,53 +17,53 @@ trait Shows {
 object Show {
   import Scalaz._
 
-  implicit lazy val DigitShow: Show[Digit] = IntShow ∙ ((_: Digit).toInt)
+  implicit def DigitShow: Show[Digit] = IntShow ∙ ((_: Digit).toInt)
 
-  implicit lazy val OrderingShow: Show[Ordering] = showA
+  implicit def OrderingShow: Show[Ordering] = showA
 
-  implicit lazy val UnitShow: Show[Unit] = showA
+  implicit def UnitShow: Show[Unit] = showA
 
-  implicit lazy val ThrowableShow: Show[Throwable] = showA
+  implicit def ThrowableShow: Show[Throwable] = showA
 
-  implicit lazy val StringShow: Show[String] = showA
+  implicit def StringShow: Show[String] = showA
 
-  implicit lazy val IntShow: Show[Int] = showA
+  implicit def IntShow: Show[Int] = showA
 
-  implicit lazy val IntMultiplicationShow: Show[IntMultiplication] = IntShow ∙ ((_: IntMultiplication).value)
+  implicit def IntMultiplicationShow: Show[IntMultiplication] = IntShow ∙ ((_: IntMultiplication).value)
 
-  implicit lazy val BooleanShow: Show[Boolean] = showA
+  implicit def BooleanShow: Show[Boolean] = showA
 
-  implicit lazy val BooleanConjunctionShow: Show[BooleanConjunction] = BooleanShow ∙ ((_: BooleanConjunction).value)
+  implicit def BooleanConjunctionShow: Show[BooleanConjunction] = BooleanShow ∙ ((_: BooleanConjunction).value)
 
-  implicit lazy val CharShow: Show[Char] = showA
+  implicit def CharShow: Show[Char] = showA
 
-  implicit lazy val CharMultiplicationShow: Show[CharMultiplication] = CharShow ∙ ((_: CharMultiplication).value)
+  implicit def CharMultiplicationShow: Show[CharMultiplication] = CharShow ∙ ((_: CharMultiplication).value)
 
-  implicit lazy val ByteShow: Show[Byte] = showA
+  implicit def ByteShow: Show[Byte] = showA
 
-  implicit lazy val ByteMultiplicationShow: Show[ByteMultiplication] = ByteShow ∙ ((_: ByteMultiplication).value)
+  implicit def ByteMultiplicationShow: Show[ByteMultiplication] = ByteShow ∙ ((_: ByteMultiplication).value)
 
-  implicit lazy val LongShow: Show[Long] = showA
+  implicit def LongShow: Show[Long] = showA
 
-  implicit lazy val LongMultiplicationShow: Show[LongMultiplication] = LongShow ∙ ((_: LongMultiplication).value)
+  implicit def LongMultiplicationShow: Show[LongMultiplication] = LongShow ∙ ((_: LongMultiplication).value)
 
-  implicit lazy val ShortShow: Show[Short] = showA
+  implicit def ShortShow: Show[Short] = showA
 
-  implicit lazy val ShortMultiplicationShow: Show[ShortMultiplication] = ShortShow ∙ ((_: ShortMultiplication).value)
+  implicit def ShortMultiplicationShow: Show[ShortMultiplication] = ShortShow ∙ ((_: ShortMultiplication).value)
 
-  implicit lazy val FloatShow: Show[Float] = showA
+  implicit def FloatShow: Show[Float] = showA
 
-  implicit lazy val DoubleShow: Show[Double] = showA
+  implicit def DoubleShow: Show[Double] = showA
 
-  implicit lazy val BigIntegerShow: Show[java.math.BigInteger] = showA[java.math.BigInteger]
+  implicit def BigIntegerShow: Show[java.math.BigInteger] = showA[java.math.BigInteger]
 
-  implicit lazy val BigIntegerMultiplicationShow: Show[BigIntegerMultiplication] = BigIntegerShow ∙ ((_: BigIntegerMultiplication).value)
+  implicit def BigIntegerMultiplicationShow: Show[BigIntegerMultiplication] = BigIntegerShow ∙ ((_: BigIntegerMultiplication).value)
 
-  implicit lazy val BigIntShow: Show[BigInt] = showA
+  implicit def BigIntShow: Show[BigInt] = showA
 
-  implicit lazy val BigIntMultiplicationShow: Show[BigIntMultiplication] = BigIntShow ∙ ((_: BigIntMultiplication).value)
+  implicit def BigIntMultiplicationShow: Show[BigIntMultiplication] = BigIntShow ∙ ((_: BigIntMultiplication).value)
 
-  implicit lazy val NodeSeqShow: Show[xml.NodeSeq] = showA
+  implicit def NodeSeqShow: Show[xml.NodeSeq] = showA
 
   implicit def NonEmptyListShow[A](implicit sa: Show[A]): Show[NonEmptyList[A]] = IterableShow(sa) ∙ ((_: NonEmptyList[A]).list)
 

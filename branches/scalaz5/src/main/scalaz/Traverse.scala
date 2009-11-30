@@ -11,15 +11,15 @@ trait Traverse[T[_]] extends Functor[T] {
 object Traverse {
   import Scalaz._
 
-  implicit lazy val IdentityTraverse: Traverse[Identity] = new Traverse[Identity] {
+  implicit def IdentityTraverse: Traverse[Identity] = new Traverse[Identity] {
     def traverse[F[_], A, B](f: A => F[B], t: Identity[A])(implicit a: Applicative[F]) = f(t.value) ∘ (b => (b: B))
   }
 
-  implicit lazy val NonEmptyListTraverse: Traverse[NonEmptyList] = new Traverse[NonEmptyList] {
+  implicit def NonEmptyListTraverse: Traverse[NonEmptyList] = new Traverse[NonEmptyList] {
     def traverse[F[_], A, B](f: A => F[B], as: NonEmptyList[A])(implicit a: Applicative[F]) = a.fmap(as.list ↦ f, (x: List[B]) => nel(x.head, x.tail))
   }
 
-  implicit lazy val Tuple1Traverse: Traverse[Tuple1] = new Traverse[Tuple1] {
+  implicit def Tuple1Traverse: Traverse[Tuple1] = new Traverse[Tuple1] {
     def traverse[F[_], A, B](f: A => F[B], t: Tuple1[A])(implicit a: Applicative[F]) = f(t._1) ∘ (Tuple1(_: B))
   }
 
@@ -28,21 +28,21 @@ object Traverse {
       f(as._2) ∘ ((b: B) => (as._1, b))
   }
 
-  implicit lazy val Function0Traverse: Traverse[Function0] = new Traverse[Function0] {
+  implicit def Function0Traverse: Traverse[Function0] = new Traverse[Function0] {
     def traverse[F[_], A, B](f: A => F[B], t: Function0[A])(implicit a: Applicative[F]) = f(t.apply) ∘ ((b: B) => () => b)
   }
 
-  implicit lazy val ListTraverse: Traverse[List] = new Traverse[List] {
+  implicit def ListTraverse: Traverse[List] = new Traverse[List] {
     def traverse[F[_], A, B](f: A => F[B], as: List[A])(implicit a: Applicative[F]): F[List[B]] =
       as.reverse.foldLeft((Nil: List[B]) η)((ys, x) => a(f(x) ∘ ((a: B) => (b: List[B]) => a :: b), ys))
   }
 
-  implicit lazy val StreamTraverse: Traverse[Stream] = new Traverse[Stream] {
+  implicit def StreamTraverse: Traverse[Stream] = new Traverse[Stream] {
     def traverse[F[_], A, B](f: A => F[B], as: Stream[A])(implicit a: Applicative[F]): F[Stream[B]] =
       as.foldr[F[Stream[B]]]((Stream.Empty: Stream[B]) η, (x, ys) => a(f(x) ∘ ((a: B) => (b: Stream[B]) => a #:: b), ys))
   }
 
-  implicit lazy val OptionTraverse: Traverse[Option] = new Traverse[Option] {
+  implicit def OptionTraverse: Traverse[Option] = new Traverse[Option] {
     def traverse[F[_], A, B](f: A => F[B], ta: Option[A])(implicit a: Applicative[F]): F[Option[B]] =
       ta match {
         case None => (None: Option[B]) η 
@@ -51,12 +51,12 @@ object Traverse {
   }
 
   import concurrent.Promise
-  implicit lazy val PromiseTraverse: Traverse[Promise] = new Traverse[Promise] {
+  implicit def PromiseTraverse: Traverse[Promise] = new Traverse[Promise] {
     def traverse[F[_], A, B](f: A => F[B], ta: Promise[A])(implicit a: Applicative[F]): F[Promise[B]] =
       a.fmap(f(ta.get), promise(_: B)(ta.strategy))
   }
 
-  implicit lazy val ZipperTraverse: Traverse[Zipper] = new Traverse[Zipper] {
+  implicit def ZipperTraverse: Traverse[Zipper] = new Traverse[Zipper] {
     def traverse[F[_], A, B](f: A => F[B], za: Zipper[A])(implicit a: Applicative[F]): F[Zipper[B]] = {
       val z = (zipper(_: Stream[B], _: B, _: Stream[B])).curry
       a.apply(a.apply(a.fmap(a.fmap(StreamTraverse.traverse[F, A, B](f, za.lefts.reverse), (_: Stream[B]).reverse),
@@ -64,12 +64,12 @@ object Traverse {
     }
   }
 
-  implicit lazy val ZipStreamTraverse: Traverse[ZipStream] = new Traverse[ZipStream] {
+  implicit def ZipStreamTraverse: Traverse[ZipStream] = new Traverse[ZipStream] {
     def traverse[F[_], A, B](f: A => F[B], za: ZipStream[A])(implicit a: Applicative[F]): F[ZipStream[B]] =
       a.fmap(StreamTraverse.traverse[F, A, B](f, za.value), (_: Stream[B]) ʐ)
   }
 
-  implicit lazy val TreeTraverse: Traverse[Tree] = new Traverse[Tree] {
+  implicit def TreeTraverse: Traverse[Tree] = new Traverse[Tree] {
     def traverse[F[_], A, B](f: A => F[B], ta: Tree[A])(implicit a: Applicative[F]): F[Tree[B]] = {
       val trav = (t: Tree[A]) => traverse[F, A, B](f, t)
       val cons = (x: B) => (xs: Stream[Tree[B]]) => node(x, xs)
@@ -77,7 +77,7 @@ object Traverse {
     }
   }
 
-  implicit lazy val GenericArrayTraverse: Traverse[GArray] = new Traverse[GArray] {
+  implicit def GenericArrayTraverse: Traverse[GArray] = new Traverse[GArray] {
     def traverse[F[_], A, B](f: A => F[B], as: GArray[A])(implicit a: Applicative[F]): F[GArray[B]] =
       as.toList ↦ f ∘ ((x: List[B]) => collection.mutable.GenericArray(x: _*))
   }
