@@ -35,7 +35,6 @@ sealed trait Actor[A] {
   val onError: Throwable => Unit
 }
 
-
 trait Actors {
   def actor[A](err: Throwable => Unit, c: A => Unit)(implicit s: Strategy[Unit]): Actor[A] = new Actor[A] {
     val e = c
