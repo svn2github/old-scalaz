@@ -13,7 +13,7 @@ trait Arrow[A[_, _]] {
 object Arrow {
   import Scalaz._
   
-  implicit val Function1Arrow: Arrow[Function1] = new Arrow[Function1] {
+  implicit lazy val Function1Arrow: Arrow[Function1] = new Arrow[Function1] {
     val category = Category.Function1Category
     
     def arrow[B, C](f: B => C) = f

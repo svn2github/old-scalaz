@@ -7,7 +7,7 @@ trait Index[-I[_]] {
 object Index {
   import Scalaz._
   
-  implicit val IdentityIndex: Index[Identity] = new Index[Identity] {
+  implicit lazy val IdentityIndex: Index[Identity] = new Index[Identity] {
     def index[A](a: Identity[A], i: Int) = if(i == 0) Some(a.value) else None
   }
 
@@ -15,23 +15,23 @@ object Index {
     def index[A](a: NonEmptyList[A], i: Int) = if(i == 0) Some(a.head) else IterableIndex.index(a.tail, i - 1)
   }
 
-  implicit val ZipStreamIndex: Index[ZipStream] = new Index[ZipStream] {
+  implicit lazy val ZipStreamIndex: Index[ZipStream] = new Index[ZipStream] {
     def index[A](a: ZipStream[A], i: Int) = IterableIndex.index(a.value, i)
   }
 
-  implicit val Tuple1Index: Index[Tuple1] = new Index[Tuple1] {
+  implicit lazy val Tuple1Index: Index[Tuple1] = new Index[Tuple1] {
     def index[A](a: Tuple1[A], i: Int) = if(i == 0) Some(a._1) else None
   }
 
-  implicit val Function0Index: Index[Function0] = new Index[Function0] {
+  implicit lazy val Function0Index: Index[Function0] = new Index[Function0] {
     def index[A](a: Function0[A], i: Int) = if(i == 0) Some(a.apply) else None
   }
 
-  implicit val OptionIndex: Index[Option] = new Index[Option] {
+  implicit lazy val OptionIndex: Index[Option] = new Index[Option] {
     def index[A](a: Option[A], i: Int) = a filter (_ => i == 0)
   }
 
-  implicit val GenericArrayIndex: Index[GArray] = new Index[GArray] {
+  implicit lazy val GenericArrayIndex: Index[GArray] = new Index[GArray] {
     def index[A](a: GArray[A], i: Int) = if(i >= 0 && i < a.length) Some(a(i)) else None
   }
 
@@ -51,7 +51,7 @@ object Index {
     def index[A](a: FailProjection[A, X], i: Int) = a.validation.either.left.toOption filter (_ => i == 0)
   }
 
-  implicit val IterableIndex: Index[Iterable] = new Index[Iterable] {
+  implicit lazy val IterableIndex: Index[Iterable] = new Index[Iterable] {
     def index[A](a: Iterable[A], i: Int) = if(i < 0) None else {
       var n = 0
       var k: Option[A] = None
@@ -66,7 +66,7 @@ object Index {
     }
   }
 
-  implicit val JavaIterableIndex: Index[java.lang.Iterable] = new Index[java.lang.Iterable] {
+  implicit lazy val JavaIterableIndex: Index[java.lang.Iterable] = new Index[java.lang.Iterable] {
     def index[A](a: java.lang.Iterable[A], i: Int) = if(i < 0) None else {
       var n = 0
       var k: Option[A] = None

@@ -16,9 +16,9 @@ object Order {
   import Scalaz._
   import java.math.BigInteger
 
-  implicit val DigitOrder: Order[Digit] = IntOrder ∙ ((_: Digit).toInt)
+  implicit lazy val DigitOrder: Order[Digit] = IntOrder ∙ ((_: Digit).toInt)
 
-  implicit val OrderingOrder: Order[Ordering] = order {
+  implicit lazy val OrderingOrder: Order[Ordering] = order {
     case (a, EQ) => a
     case (EQ, LT) => GT
     case (EQ, GT) => LT
@@ -28,45 +28,45 @@ object Order {
     case (GT, _) => GT
   }
 
-  implicit val UnitOrder: Order[Unit] = order((_, _) => EQ)
+  implicit lazy val UnitOrder: Order[Unit] = order((_, _) => EQ)
 
-  implicit val StringOrder: Order[String] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val StringOrder: Order[String] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val IntOrder: Order[Int] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val IntOrder: Order[Int] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val IntMultiplicationOrder: Order[IntMultiplication] = IntOrder ∙ ((_: IntMultiplication).value)
+  implicit lazy val IntMultiplicationOrder: Order[IntMultiplication] = IntOrder ∙ ((_: IntMultiplication).value)
 
-  implicit val BooleanOrder: Order[Boolean] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val BooleanOrder: Order[Boolean] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val BooleanConjunctionOrder: Order[BooleanConjunction] = BooleanOrder ∙ ((_: BooleanConjunction).value)
+  implicit lazy val BooleanConjunctionOrder: Order[BooleanConjunction] = BooleanOrder ∙ ((_: BooleanConjunction).value)
 
-  implicit val CharOrder: Order[Char] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val CharOrder: Order[Char] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val CharMultiplicationOrder: Order[CharMultiplication] = CharOrder ∙ ((_: CharMultiplication).value)
+  implicit lazy val CharMultiplicationOrder: Order[CharMultiplication] = CharOrder ∙ ((_: CharMultiplication).value)
 
-  implicit val ByteOrder: Order[Byte] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val ByteOrder: Order[Byte] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val ByteMultiplicationOrder: Order[ByteMultiplication] = ByteOrder ∙ ((_: ByteMultiplication).value)
+  implicit lazy val ByteMultiplicationOrder: Order[ByteMultiplication] = ByteOrder ∙ ((_: ByteMultiplication).value)
 
-  implicit val LongOrder: Order[Long] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val LongOrder: Order[Long] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val LongMultiplicationOrder: Order[LongMultiplication] = LongOrder ∙ ((_: LongMultiplication).value)
+  implicit lazy val LongMultiplicationOrder: Order[LongMultiplication] = LongOrder ∙ ((_: LongMultiplication).value)
 
-  implicit val ShortOrder: Order[Short] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val ShortOrder: Order[Short] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val ShortMultiplicationOrder: Order[ShortMultiplication] = ShortOrder ∙ ((_: ShortMultiplication).value)
+  implicit lazy val ShortMultiplicationOrder: Order[ShortMultiplication] = ShortOrder ∙ ((_: ShortMultiplication).value)
 
-  implicit val FloatOrder: Order[Float] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val FloatOrder: Order[Float] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val DoubleOrder: Order[Double] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val DoubleOrder: Order[Double] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val BigIntegerOrder: Order[BigInteger] = order(_ compareTo _ ordering)
+  implicit lazy val BigIntegerOrder: Order[BigInteger] = order(_ compareTo _ ordering)
 
-  implicit val BigIntegerMultiplicationOrder: Order[BigIntegerMultiplication] = BigIntegerOrder ∙ ((_: BigIntegerMultiplication).value)
+  implicit lazy val BigIntegerMultiplicationOrder: Order[BigIntegerMultiplication] = BigIntegerOrder ∙ ((_: BigIntegerMultiplication).value)
 
-  implicit val BigIntOrder: Order[BigInt] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
+  implicit lazy val BigIntOrder: Order[BigInt] = order((a1, a2) => if(a1 > a2) GT else if(a1 < a2) LT else EQ)
 
-  implicit val BigIntMultplicationOrder: Order[BigIntMultiplication] = BigIntOrder ∙ ((_: BigIntMultiplication).value)
+  implicit lazy val BigIntMultplicationOrder: Order[BigIntMultiplication] = BigIntOrder ∙ ((_: BigIntMultiplication).value)
 
   implicit def NonEmptyListOrder[A](implicit oa: Order[A]): Order[NonEmptyList[A]] = IterableOrder(oa) ∙ ((_: NonEmptyList[A]).list)
 

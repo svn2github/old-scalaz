@@ -8,7 +8,7 @@ trait Category[C[_, _]] {
 object Category {
   import Scalaz._
   
-  implicit val Function1Category: Category[Function1] = new Category[Function1] {
+  implicit lazy val Function1Category: Category[Function1] = new Category[Function1] {
     def id[A] = a => a
     def compose[X, Y, Z](f: Y => Z, g: X => Y) = f compose g   
   }

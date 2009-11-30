@@ -17,51 +17,51 @@ object Equal {
   import java.math.BigInteger
   import xml.NodeSeq
 
-  implicit val DigitEqual: Equal[Digit] = equalA
+  implicit lazy val DigitEqual: Equal[Digit] = equalA
 
-  implicit val OrderingEqual: Equal[Ordering]= equalA
+  implicit lazy val OrderingEqual: Equal[Ordering]= equalA
 
-  implicit val UnitEqual: Equal[Unit] = equalA
+  implicit lazy val UnitEqual: Equal[Unit] = equalA
 
-  implicit val StringEqual: Equal[String] = equalA
+  implicit lazy val StringEqual: Equal[String] = equalA
 
-  implicit val IntEqual: Equal[Int] = equalA
+  implicit lazy val IntEqual: Equal[Int] = equalA
 
-  implicit val IntMultiplicationEqual: Equal[IntMultiplication] = IntEqual ∙ ((_: IntMultiplication).value)
+  implicit lazy val IntMultiplicationEqual: Equal[IntMultiplication] = IntEqual ∙ ((_: IntMultiplication).value)
 
-  implicit val BooleanEqual: Equal[Boolean] = equalA
+  implicit lazy val BooleanEqual: Equal[Boolean] = equalA
 
-  implicit val BooleanConjunctionEqual: Equal[BooleanConjunction] = BooleanEqual ∙ ((_: BooleanConjunction).value)
+  implicit lazy val BooleanConjunctionEqual: Equal[BooleanConjunction] = BooleanEqual ∙ ((_: BooleanConjunction).value)
 
-  implicit val CharEqual: Equal[Char] = equalA
+  implicit lazy val CharEqual: Equal[Char] = equalA
 
-  implicit val CharMultiplicationEqual: Equal[CharMultiplication] = CharEqual ∙ ((_: CharMultiplication).value)
+  implicit lazy val CharMultiplicationEqual: Equal[CharMultiplication] = CharEqual ∙ ((_: CharMultiplication).value)
 
-  implicit val ByteEqual: Equal[Byte] = equalA
+  implicit lazy val ByteEqual: Equal[Byte] = equalA
 
-  implicit val ByteMultiplicationEqual: Equal[ByteMultiplication] = ByteEqual ∙ ((_: ByteMultiplication).value)
+  implicit lazy val ByteMultiplicationEqual: Equal[ByteMultiplication] = ByteEqual ∙ ((_: ByteMultiplication).value)
 
-  implicit val LongEqual: Equal[Long] = equalA
+  implicit lazy val LongEqual: Equal[Long] = equalA
 
-  implicit val LongMultiplicationEqual: Equal[LongMultiplication] = LongEqual ∙ ((_: LongMultiplication).value)
+  implicit lazy val LongMultiplicationEqual: Equal[LongMultiplication] = LongEqual ∙ ((_: LongMultiplication).value)
 
-  implicit val ShortEqual: Equal[Short] = equalA
+  implicit lazy val ShortEqual: Equal[Short] = equalA
 
-  implicit val ShortMultiplicationEqual: Equal[ShortMultiplication] = ShortEqual ∙ ((_: ShortMultiplication).value)
+  implicit lazy val ShortMultiplicationEqual: Equal[ShortMultiplication] = ShortEqual ∙ ((_: ShortMultiplication).value)
 
-  implicit val FloatEqual: Equal[Float] = equalA
+  implicit lazy val FloatEqual: Equal[Float] = equalA
 
-  implicit val DoubleEqual: Equal[Double] = equalA
+  implicit lazy val DoubleEqual: Equal[Double] = equalA
 
-  implicit val BigIntegerEqual: Equal[BigInteger] = equalA[java.math.BigInteger]
+  implicit lazy val BigIntegerEqual: Equal[BigInteger] = equalA[java.math.BigInteger]
 
-  implicit val BigIntegerMultiplicationEqual: Equal[BigIntegerMultiplication] = BigIntegerEqual ∙ ((_: BigIntegerMultiplication).value)
+  implicit lazy val BigIntegerMultiplicationEqual: Equal[BigIntegerMultiplication] = BigIntegerEqual ∙ ((_: BigIntegerMultiplication).value)
 
-  implicit val BigIntEqual: Equal[BigInt] = equalA
+  implicit lazy val BigIntEqual: Equal[BigInt] = equalA
 
-  implicit val BigIntMultiplicationEqual: Equal[BigIntMultiplication] = BigIntEqual ∙ ((_: BigIntMultiplication).value)
+  implicit lazy val BigIntMultiplicationEqual: Equal[BigIntMultiplication] = BigIntEqual ∙ ((_: BigIntMultiplication).value)
 
-  implicit val NodeSeqEqual: Equal[NodeSeq] = equalA
+  implicit lazy val NodeSeqEqual: Equal[NodeSeq] = equalA
 
   implicit def NonEmptyListEqual[A](implicit ea: Equal[A]): Equal[NonEmptyList[A]] = IterableEqual(ea) ∙ ((_: NonEmptyList[A]).list)
 

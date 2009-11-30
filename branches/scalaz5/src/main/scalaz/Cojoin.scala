@@ -7,15 +7,15 @@ trait Cojoin[M[_]] {
 object Cojoin {
   import Scalaz._
   
-  implicit val IdentityCojoin: Cojoin[Identity] = new Cojoin[Identity] {
+  implicit lazy val IdentityCojoin: Cojoin[Identity] = new Cojoin[Identity] {
     def cojoin[A](a: Identity[A]) = a
   }
 
-  implicit val NonEmptyListCojoin: Cojoin[NonEmptyList] = new Cojoin[NonEmptyList] {
+  implicit lazy val NonEmptyListCojoin: Cojoin[NonEmptyList] = new Cojoin[NonEmptyList] {
     def cojoin[A](a: NonEmptyList[A]) = a.tails
   }
 
-  implicit val Tuple1Cojoin: Cojoin[Tuple1] = new Cojoin[Tuple1] {
+  implicit lazy val Tuple1Cojoin: Cojoin[Tuple1] = new Cojoin[Tuple1] {
     def cojoin[A](a: Tuple1[A]) = Tuple1(a)
   }
 
@@ -23,19 +23,19 @@ object Cojoin {
     def cojoin[A](a: (R, A)) = (a._1, a)
   }
 
-  implicit val Function0Cojoin: Cojoin[Function0] = new Cojoin[Function0] {
+  implicit lazy val Function0Cojoin: Cojoin[Function0] = new Cojoin[Function0] {
     def cojoin[A](a: Function0[A]) = () => a
   }
 
-  implicit val ZipperCojoin: Cojoin[Zipper] = new Cojoin[Zipper] {
+  implicit lazy val ZipperCojoin: Cojoin[Zipper] = new Cojoin[Zipper] {
     def cojoin[A](a: Zipper[A]) = a.positions
   }
 
-  implicit val TreeCojoin: Cojoin[Tree] = new Cojoin[Tree] {
+  implicit lazy val TreeCojoin: Cojoin[Tree] = new Cojoin[Tree] {
     def cojoin[A](a: Tree[A]): Tree[Tree[A]] = a.cobind(identity(_))
   }
 
-  implicit val TreeLocCojoin: Cojoin[TreeLoc] = new Cojoin[TreeLoc] {
+  implicit lazy val TreeLocCojoin: Cojoin[TreeLoc] = new Cojoin[TreeLoc] {
     def cojoin[A](a: TreeLoc[A]): TreeLoc[TreeLoc[A]] = {
       val lft = (_: TreeLoc[A]).left
       val rgt = (_: TreeLoc[A]).right
@@ -54,7 +54,7 @@ object Cojoin {
   }
 
   import concurrent.Promise
-  implicit val PromiseCojoin: Cojoin[Promise] = new Cojoin[Promise] {
+  implicit lazy val PromiseCojoin: Cojoin[Promise] = new Cojoin[Promise] {
     def cojoin[A](a: Promise[A]) = promise(a)(a.strategy)
   }
 }

@@ -7,48 +7,48 @@ trait FoldLeft[-F[_]] {
 object FoldLeft {
   import Scalaz._
 
-  implicit val IdentityFoldLeft: FoldLeft[Identity] = new FoldLeft[Identity] {
+  implicit lazy val IdentityFoldLeft: FoldLeft[Identity] = new FoldLeft[Identity] {
     def foldLeft[B, A](t: Identity[A], b: B, f: (B, A) => B) = f(b, t.value)
   }
 
-  implicit val NonEmptyListFoldLeft: FoldLeft[NonEmptyList] = new FoldLeft[NonEmptyList] {
+  implicit lazy val NonEmptyListFoldLeft: FoldLeft[NonEmptyList] = new FoldLeft[NonEmptyList] {
     def foldLeft[B, A](t: NonEmptyList[A], b: B, f: (B, A) => B) = t.list.foldLeft(b)(f)
   }
 
-  implicit val StateFoldLeft: FoldLeft[PartialApply1Of2[State, Unit]#Apply] = new FoldLeft[PartialApply1Of2[State, Unit]#Apply] {
+  implicit lazy val StateFoldLeft: FoldLeft[PartialApply1Of2[State, Unit]#Apply] = new FoldLeft[PartialApply1Of2[State, Unit]#Apply] {
     def foldLeft[B, A](t: State[Unit, A], b: B, f: (B, A) => B) = f(b, t(())._2)
   }
 
-  implicit val Tuple1FoldLeft: FoldLeft[Tuple1] = new FoldLeft[Tuple1] {
+  implicit lazy val Tuple1FoldLeft: FoldLeft[Tuple1] = new FoldLeft[Tuple1] {
     def foldLeft[B, A](t: Tuple1[A], b: B, f: (B, A) => B) = f(b, t._1)
   }
 
-  implicit val Function0FoldLeft: FoldLeft[Function0] = new FoldLeft[Function0] {
+  implicit lazy val Function0FoldLeft: FoldLeft[Function0] = new FoldLeft[Function0] {
     def foldLeft[B, A](t: Function0[A], b: B, f: (B, A) => B) = f(b, t.apply)
   }
 
-  implicit val OptionFoldLeft: FoldLeft[Option] = new FoldLeft[Option] {
+  implicit lazy val OptionFoldLeft: FoldLeft[Option] = new FoldLeft[Option] {
     def foldLeft[B, A](t: Option[A], b: B, f: (B, A) => B) = t match {
       case Some(a) => f(b, a)
       case None => b
     }
   }
 
-  implicit val TreeFoldLeft: FoldLeft[Tree] = new FoldLeft[Tree] {
+  implicit lazy val TreeFoldLeft: FoldLeft[Tree] = new FoldLeft[Tree] {
     def foldLeft[B, A](t: Tree[A], b: B, f: (B, A) => B): B =
       t.foldMap((a: A) => (f.flip.curry(a): Endo[B]) σ).value(b)
   }
 
-  implicit val ZipperFoldLeft: FoldLeft[Zipper] = new FoldLeft[Zipper] {
+  implicit lazy val ZipperFoldLeft: FoldLeft[Zipper] = new FoldLeft[Zipper] {
     def foldLeft[B, A](t: Zipper[A], b: B, f: (B, A) => B): B =
       t.lefts.foldRight((t.focus #:: t.rights).foldLeft(b)(f))(f.flip)
   }
 
-  implicit val ZipStreamFoldLeft: FoldLeft[ZipStream] = new FoldLeft[ZipStream] {
+  implicit lazy val ZipStreamFoldLeft: FoldLeft[ZipStream] = new FoldLeft[ZipStream] {
     def foldLeft[B, A](t: ZipStream[A], b: B, f: (B, A) => B): B = IterableFoldLeft.foldLeft(t.value, b, f)
   }
 
-  implicit val GenericArrayFoldLeft: FoldLeft[GArray] = new FoldLeft[GArray] {
+  implicit lazy val GenericArrayFoldLeft: FoldLeft[GArray] = new FoldLeft[GArray] {
     def foldLeft[B, A](t: GArray[A], b: B, f: (B, A) => B) = t.foldLeft(b)(f)
   }
 
@@ -74,11 +74,11 @@ object FoldLeft {
     }
   }
 
-  implicit val IterableFoldLeft: FoldLeft[Iterable] = new FoldLeft[Iterable] {
+  implicit lazy val IterableFoldLeft: FoldLeft[Iterable] = new FoldLeft[Iterable] {
     def foldLeft[B, A](t: Iterable[A], b: B, f: (B, A) => B) = t.foldLeft(b)(f)
   }
 
-  implicit val JavaIterableFoldLeft: FoldLeft[java.lang.Iterable] = new FoldLeft[java.lang.Iterable] {
+  implicit lazy val JavaIterableFoldLeft: FoldLeft[java.lang.Iterable] = new FoldLeft[java.lang.Iterable] {
     def foldLeft[B, A](t: java.lang.Iterable[A], b: B, f: (B, A) => B) = {
       var x = b
       val i = t.iterator
