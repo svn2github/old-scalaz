@@ -5,8 +5,6 @@ sealed trait Effect[-A] {
   val strategy: Strategy[Unit]
 
   def !(a: A) = strategy(e(a))
-
-  def apply(a: A) = this ! a
 }
 
 trait Effects {
@@ -17,5 +15,5 @@ trait Effects {
 }
 
 object Effect {
-  implicit def EffectFrom[A](e: Effect[A]): A => Unit = (a: A) => e ! a
+  implicit def EffectFrom[A](e: Effect[A]): A => Unit = e ! _
 }

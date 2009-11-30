@@ -3,6 +3,7 @@ package scalaz
 import concurrent._
 
 object Scalaz extends ScalazLow
+    with    Actors
     with    Alphas
     with    Applys
     with    ArrayBytes
