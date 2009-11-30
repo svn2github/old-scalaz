@@ -50,6 +50,11 @@ sealed trait OptionW[A] {
   def fst: FirstOption[A] = value
 
   def lst: LastOption[A] = value
+
+  def zeroOr[M[_]](implicit p: Pure[M], e: Empty[M]): M[A] = value match {
+    case Some(a) => a η
+    case None => <∅>
+  }
 }
 
 trait Options {

@@ -4,6 +4,10 @@ trait Empty[+E[_]] {
   def empty[A]: E[A]
 }
 
+trait Emptys {
+  def <∅>[E[_], A](implicit e: Empty[E]): E[A] = e.empty  
+}
+
 object Empty {
   import Scalaz._
 

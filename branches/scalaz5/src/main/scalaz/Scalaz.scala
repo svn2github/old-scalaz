@@ -24,6 +24,7 @@ object Scalaz extends ScalazLow
     with    DLists
     with    Duals
     with    Effects
+    with    Emptys
     with    Endos
     with    Enumerations
     with    Equals
