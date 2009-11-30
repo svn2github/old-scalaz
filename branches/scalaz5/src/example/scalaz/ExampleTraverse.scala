@@ -15,16 +15,16 @@ object ExampleTraverse {
     val f = (_: String).map(_ - 48).toList
     val g = (s: String) => (() => s.parseInt).throws.either.right.toOption
 
-    // Traverse the List with the Option functor (g)
+    // Traverse the List with the Option applicative functor (domain of g)
     println(List("abc", "def") ↦ g)
 
-    // Traverse the List with the Option functor (g)
+    // Traverse the List with the Option applicative functor (domain of g)
     println(List("7", "8") ↦ g)
 
-    // Traverse the Option with the Option functor (g)
+    // Traverse the Option with the Option applicative functor (domain of g)
     println(some("abc") ↦ g)
 
-    // Traverse the Option with the Option functor (g)
+    // Traverse the Option with the Option applicative functor (domain of g)
     println(some("9") ↦ g)
   }
 }
