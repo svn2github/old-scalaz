@@ -203,6 +203,9 @@ sealed trait MA[M[_], A] {
   def foldLeftM[N[_], B](f: (B, A) => N[B], b: B)(implicit fr: FoldLeft[M], m: Monad[N]): N[B] =
       foldl[N[B]](b η, (b, a) => b ∗ ((z: B) => f(z, a)))
 
+  def foldRighttM[N[_], B](f: (B, A) => N[B], b: B)(implicit fr: FoldRight[M], m: Monad[N]): N[B] =
+      foldr[N[B]](b η, (a, b) => b ∗ ((z: B) => f(z, a)))
+
   def bktree(implicit f: FoldLeft[M], m: MetricSpace[A]) =
     foldl[BKTree[A]](emptyBKTree, _ + _)
 
