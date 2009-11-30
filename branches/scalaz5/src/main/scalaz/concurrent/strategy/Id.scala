@@ -5,7 +5,7 @@ import scalaz.concurrent.Strategy
 /**
  * A strategy that performs no evaluation of its argument.
  */
-trait Id {
+object Id {
   implicit def strategy[A]: Strategy[A] = new Strategy[A] {
     def apply(a: () => A) = a
   }

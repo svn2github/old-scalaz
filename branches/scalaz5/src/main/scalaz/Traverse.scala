@@ -49,14 +49,12 @@ object Traverse {
         case Some(x) => f(x) ∘ (Some(_: B))
       }
   }
-     /* todo
+
   import concurrent.Promise
-  import concurrent.Promise._
   implicit val PromiseTraverse: Traverse[Promise] = new Traverse[Promise] {
     def traverse[F[_], A, B](f: A => F[B], ta: Promise[A])(implicit a: Applicative[F]): F[Promise[B]] =
       a.fmap(f(ta.get), promise(_: B)(ta.strategy))
   }
-   */
 
   implicit val ZipperTraverse: Traverse[Zipper] = new Traverse[Zipper] {
     def traverse[F[_], A, B](f: A => F[B], za: Zipper[A])(implicit a: Applicative[F]): F[Zipper[B]] = {

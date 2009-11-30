@@ -12,6 +12,10 @@ sealed trait Function1W[T, R] {
   def kleisli[Z[_]](implicit p: Pure[Z]): Kleisli[Z, T, R] = ☆(k(_) η)
 
   def unary_!(implicit m: Memo[T, R]) = m(k)
+
+  import concurrent.Strategy
+  
+  def concurry(implicit s: Strategy[R]): T => () => R = (t: T) => s(() => k(t))
 }
 
 trait Function1s {

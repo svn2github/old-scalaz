@@ -133,13 +133,11 @@ object Pure {
     def pure[A](a: => A) = TreePure.pure(a).loc
   }
 
-  /* todo
   import concurrent._
-  implicit def PromisePure(implicit s: Strategy[Unit]) = new Pure[Promise] {
-    def pure[A](a: => A) = Promise.promise(a)
+  implicit def PromisePure(implicit s: Strategy[Unit]): Pure[Promise] = new Pure[Promise] {
+    def pure[A](a: => A) = promise(a)
   }
-  */
-  
+
   import java.util._
   import java.util.concurrent._
 

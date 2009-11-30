@@ -100,7 +100,10 @@ object Zero {
 
   implicit def DualZero[A](implicit za: Zero[A]): Zero[Dual[A]] = zero(za.zero σ)
 
-  // todo implicit def StrategyZero[A] = zero[Strategy[A]](concurrent.strategies.Id.strategy[A])
+  import concurrent.Strategy
+  import concurrent.strategy.Id
+
+  implicit def StrategyZero[A]: Zero[Strategy[A]] = zero(Id.strategy[A])
 
   import java.util._
   import java.util.concurrent._

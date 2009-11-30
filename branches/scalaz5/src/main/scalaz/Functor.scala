@@ -135,14 +135,12 @@ object Functor {
     }
   }
 
-        /* todo
   import scalaz.concurrent.Promise
   implicit val PromiseFunctor: Functor[Promise] = new Functor[Promise] {
     def fmap[A, B](t: Promise[A], f: A => B): Promise[B] = {
-      t.bind(a => Promise.promise(f(a))(t.strategy))
+      t.bind(a => promise(f(a))(t.strategy))
     }
   }
-  */
 
   import java.util._
   import java.util.concurrent._
