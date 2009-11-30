@@ -46,6 +46,7 @@ object Scalaz extends ScalazLow
     with    NonEmptyLists
     with    Options
     with    Orders
+    with    Promises
     with    Semigroups
     with    ShortMultiplications
     with    Shorts

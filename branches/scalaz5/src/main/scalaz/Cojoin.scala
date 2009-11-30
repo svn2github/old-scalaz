@@ -27,8 +27,7 @@ object Cojoin {
     def cojoin[A](a: Function0[A]) = () => a
   }
 
-  /* todo
-  implicit val ZipperCojoin = new Cojoin[Zipper] {
+  implicit val ZipperCojoin: Cojoin[Zipper] = new Cojoin[Zipper] {
     def cojoin[A](a: Zipper[A]) = a.positions
   }
 
@@ -40,24 +39,22 @@ object Cojoin {
     def cojoin[A](a: TreeLoc[A]): TreeLoc[TreeLoc[A]] = {
       val lft = (_: TreeLoc[A]).left
       val rgt = (_: TreeLoc[A]).right
-      val p = a.parent.unfold[Stream]((o: Option[TreeLoc[A]]) =>
+      val p = a.parent.unfold[Stream, (Stream[Tree[TreeLoc[A]]], TreeLoc[A], Stream[Tree[TreeLoc[A]]])]((o: Option[TreeLoc[A]]) =>
           for (z <- o) yield ((uf(z, lft), z, uf(z, rgt)), z.parent))
-      TreeLoc.loc(a.unfoldTree(dwn[A](_: TreeLoc[A])), uf(a, lft), uf(a, rgt), p)
+      loc(a.unfoldTree(dwn[A](_: TreeLoc[A])), uf(a, lft), uf(a, rgt), p)
     }
 
     private def uf[A](a: TreeLoc[A], f: TreeLoc[A] => Option[TreeLoc[A]]): Stream[Tree[TreeLoc[A]]] =
-      f(a).unfold[Stream]((o: Option[TreeLoc[A]]) =>
+      f(a).unfold[Stream, Tree[TreeLoc[A]]]((o: Option[TreeLoc[A]]) =>
           for (c <- o) yield (c.unfoldTree(dwn[A](_: TreeLoc[A])), f(c)))
 
-    private def dwn[A](tz: TreeLoc[A]): (TreeLoc[A], () => Stream[TreeLoc[A]]) = {
-      (tz, () => tz.firstChild.unfold[Stream]((o: Option[TreeLoc[A]]) =>
+    private def dwn[A](tz: TreeLoc[A]): (TreeLoc[A], () => Stream[TreeLoc[A]]) =
+      (tz, () => tz.firstChild.unfold[Stream, TreeLoc[A]]((o: Option[TreeLoc[A]]) =>
           for (c <- o) yield (c, c.right)))
-    }
   }
 
   import concurrent.Promise
   implicit val PromiseCojoin: Cojoin[Promise] = new Cojoin[Promise] {
-    def cojoin[A](a: Promise[A]) = Promise.promise(a)(a.strategy)
+    def cojoin[A](a: Promise[A]) = promise(a)(a.strategy)
   }
-  */
 }

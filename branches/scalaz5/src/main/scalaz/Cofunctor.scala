@@ -27,13 +27,13 @@ object Cofunctor {
     def comap[A, B](r: MetricSpace[A], f: B => A) = metricSpace[B]((b1, b2) => r distance (f(b1), f(b2)))
   }
 
-  /* todo
-  implicit val ActorCofunctor = new Cofunctor[Actor] {
-    def comap[A, B](r: Actor[A], f: B => A): Actor[B] = Actor.actor[B](r.onError, (b: B) => (r ! f(b))())(r.strategy)
+  import concurrent.{Actor, Effect}
+
+  implicit val ActorCofunctor: Cofunctor[Actor] = new Cofunctor[Actor] {
+    def comap[A, B](r: Actor[A], f: B => A): Actor[B] = actor[B](r.onError, (b: B) => (r ! f(b))())(r.strategy)
   }
 
-  implicit val EffectCofunctor = new Cofunctor[Effect] {
-    def comap[A, B](r: Effect[A], f: B => A) = Effect.effect[B]((b) => r ! f(b))(r.strategy)
+  implicit val EffectCofunctor: Cofunctor[Effect] = new Cofunctor[Effect] {
+    def comap[A, B](r: Effect[A], f: B => A) = effect[B]((b) => r ! f(b))(r.strategy)
   }
-  */
 }

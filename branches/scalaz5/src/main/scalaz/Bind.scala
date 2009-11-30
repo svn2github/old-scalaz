@@ -138,12 +138,11 @@ object Bind {
     }
   }
 
-  /* todo
   import concurrent.Promise
   implicit val PromiseBind = new Bind[Promise] {
     def bind[A, B](r: Promise[A], f: A => Promise[B]) = r bind f
   }
-  */
+
   import java.util._
   import java.util.concurrent._
 
