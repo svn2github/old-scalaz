@@ -38,6 +38,14 @@ sealed trait ListW[A] {
     case Nil => nil[A] η
     case h :: t => p(h) ∗ (if(_) (t takeWhileM p) ∘ (h :: _) else nil[A] η)
   }
+
+  def filterM[M[_]](p: A => M[Boolean])(implicit m: Monad[M]): M[List[A]] = value match {
+    case Nil => nil[A] η
+    case h :: t => {
+      def g = t filterM p
+      p(h) ∗ (if(_) g ∘ (h :: _) else g)
+    }
+  }
 }
 
 trait Lists {
