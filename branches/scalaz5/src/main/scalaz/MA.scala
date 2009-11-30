@@ -48,6 +48,8 @@ sealed trait MA[M[_], A] {
 
   def join[B](implicit m: A <:< M[B], b: Bind[M]) = ∗(z => z)
 
+  def ∞[B](implicit b: Bind[M]): M[B] = v ∗| v.∞
+  
   def μ[B](implicit m: A <:< M[B], b: Bind[M]): M[B] = join
 
   def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
