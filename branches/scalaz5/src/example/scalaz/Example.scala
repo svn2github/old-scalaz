@@ -2,6 +2,7 @@ package scalaz
 
 object Example {
   def run {
+    ExampleApplicative.run
     ExampleBifunctor.run
     ExampleCategory.run
     ExampleCofunctor.run

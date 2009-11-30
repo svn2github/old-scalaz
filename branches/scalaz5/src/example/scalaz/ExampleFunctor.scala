@@ -6,7 +6,10 @@ object ExampleFunctor {
   import Scalaz._
   
   def run {
-    // Functor map
+    // Map across the List functor
     println(List(1, 2, 3, 4, 5) ∘ (1+))
+
+    // Map across the Option functor
+    println(some(7) ∘ (1+))
   }
 }

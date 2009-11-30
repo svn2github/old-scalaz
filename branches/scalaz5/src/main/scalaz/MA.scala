@@ -19,23 +19,23 @@ sealed trait MA[M[_], A] {
 
   def <⊛>[B, C](b: M[B], z: (A, B) => C)(implicit t: Functor[M], a: Apply[M]) = a(t.fmap(v, z.curry), b)
 
-  def <⊛>[B, C, D](b: M[B], c: M[C], z: (A, B, C) => D)(implicit t: Functor[M], a: Apply[M]) = a(a(t.fmap(v, z.curry), b), c)
+  def <⊛⊛>[B, C, D](b: M[B], c: M[C], z: (A, B, C) => D)(implicit t: Functor[M], a: Apply[M]) = a(a(t.fmap(v, z.curry), b), c)
 
-  def <⊛>[B, C, D, E](b: M[B], c: M[C], d: M[D], z: (A, B, C, D) => E)(implicit t: Functor[M], a: Apply[M]) = a(a(a(t.fmap(v, z.curry), b), c), d)
+  def <⊛⊛⊛>[B, C, D, E](b: M[B], c: M[C], d: M[D], z: (A, B, C, D) => E)(implicit t: Functor[M], a: Apply[M]) = a(a(a(t.fmap(v, z.curry), b), c), d)
 
-  def <⊛>[B, C, D, E, F](b: M[B], c: M[C], d: M[D], e: M[E], z: (A, B, C, D, E) => F)(implicit t: Functor[M], a: Apply[M]) = a(a(a(a(t.fmap(v, z.curry), b), c), d), e)
+  def <⊛⊛⊛⊛>[B, C, D, E, F](b: M[B], c: M[C], d: M[D], e: M[E], z: (A, B, C, D, E) => F)(implicit t: Functor[M], a: Apply[M]) = a(a(a(a(t.fmap(v, z.curry), b), c), d), e)
 
   def ⊛>[B](b: M[B])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, (_, b: B) => b)
 
   def <⊛[B](b: M[B])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, (a, _: B) => a)
 
-  def <<⊛>>[B](b: M[B])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, (_: A, _: B))
+  def <×>[B](b: M[B])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, (_: A, _: B))
 
-  def <<⊛>>[B, C](b: M[B], c: M[C])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, c, (_: A, _: B, _: C))
+  def <××>[B, C](b: M[B], c: M[C])(implicit t: Functor[M], a: Apply[M]) = <⊛⊛>(b, c, (_: A, _: B, _: C))
 
-  def <<⊛>>[B, C, D](b: M[B], c: M[C], d: M[D])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, c, d, (_: A, _: B, _: C, _: D))
+  def <×××>[B, C, D](b: M[B], c: M[C], d: M[D])(implicit t: Functor[M], a: Apply[M]) = <⊛⊛⊛>(b, c, d, (_: A, _: B, _: C, _: D))
 
-  def <<⊛>>[B, C, D, E](b: M[B], c: M[C], d: M[D], e: M[E])(implicit t: Functor[M], a: Apply[M]) = <⊛>(b, c, d, e, (_: A, _: B, _: C, _: D, _: E))
+  def <××××>[B, C, D, E](b: M[B], c: M[C], d: M[D], e: M[E])(implicit t: Functor[M], a: Apply[M]) = <⊛⊛⊛⊛>(b, c, d, e, (_: A, _: B, _: C, _: D, _: E))
 
   def ↦[F[_], B](f: A => F[B])(implicit a: Applicative[F], t: Traverse[M]): F[M[B]] =
     t.traverse(f, v)
