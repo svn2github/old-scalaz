@@ -118,7 +118,6 @@ object Equal {
 
   implicit def ValidationEqual[E, A](implicit ee: Equal[E], ea: Equal[A]): Equal[Validation[E, A]] = EitherEqual(ee, ea) ∙ ((_: Validation[E, A]).either)
 
-  /* todo
   implicit def TreeEqual[A](implicit ea: Equal[A]): Equal[Tree[A]] =
     equal[Tree[A]]((a1, a2) => a1.rootLabel ≟ a2.rootLabel
         && IterableEqual[Tree[A]].equal(a1.subForest, a2.subForest))
@@ -129,9 +128,8 @@ object Equal {
   }
 
   import concurrent.Promise
-  implicit def PromiseEqual[A](implicit ea: Equal[A]) =
+  implicit def PromiseEqual[A](implicit ea: Equal[A]): Equal[Promise[A]] =
     equal[Promise[A]]((a1, a2) => a1.get ≟ a2.get)
-  */
 
   implicit def IterableEqual[A](implicit ea: Equal[A]): Equal[Iterable[A]] = equal((a1, a2) => {
     val i1 = a1.iterator

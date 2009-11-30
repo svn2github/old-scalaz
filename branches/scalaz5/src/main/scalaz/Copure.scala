@@ -31,22 +31,19 @@ object Copure {
     def copure[A](a: Function0[A]) = a.apply
   }
 
-  /* todo
-  implicit val ZipperCopure = new Copure[Zipper] {
+  implicit val ZipperCopure: Copure[Zipper] = new Copure[Zipper] {
     def copure[A](a: Zipper[A]) = a.focus
   }
 
-  implicit val TreeCopure = new Copure[Tree] {
+  implicit val TreeCopure: Copure[Tree] = new Copure[Tree] {
     def copure[A](a: Tree[A]) = a.rootLabel
   }
-
-  implicit val TreeLocCopure = new Copure[TreeLoc] {
+  implicit val TreeLocCopure: Copure[TreeLoc] = new Copure[TreeLoc] {
     def copure[A](a: TreeLoc[A]) = a.tree.rootLabel
   }
 
   import concurrent.Promise
-  implicit val PromiseCopure = new Copure[Promise] {
+  implicit val PromiseCopure: Copure[Promise] = new Copure[Promise] {
     def copure[A](a: Promise[A]) = a.get
   }
-  */
 }

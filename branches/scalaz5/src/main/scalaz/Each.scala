@@ -75,12 +75,10 @@ object Each {
     def each[A](e: Iterable[A], f: A => Unit) = e foreach f
   }
 
-  /* todo
   import concurrent.Promise
-  implicit val PromiseEach = new Each[Promise] {
+  implicit val PromiseEach: Each[Promise] = new Each[Promise] {
     def each[A](e: Promise[A], f: A => Unit) = f(e.get)
   }
-  */
 
   implicit val JavaIterableEach: Each[java.lang.Iterable] = new Each[java.lang.Iterable] {
     def each[A](e: java.lang.Iterable[A], f: A => Unit) = {

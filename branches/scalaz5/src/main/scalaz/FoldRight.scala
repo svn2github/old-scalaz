@@ -38,27 +38,20 @@ object FoldRight {
     }
   }
 
-  /* todo
   implicit val TreeFoldRight: FoldRight[Tree] = new FoldRight[Tree] {
     def foldRight[A, B](t: Tree[A], b: B, f: (A, => B) => B): B = {
-      import Zero._
-      import Semigroup._
-      import Monoid._
-      import Endo._
-      val m: Monoid[Endo[B]] = monoid(EndoSemigroup[B], EndoZero[B])
-      t.foldMap((a) => EndoTo(f.curry(a)(_: B)))(m)(b)
+      t.foldMap((a: A) => ((f.curry(a)(_: B)): Endo[B])) apply b
     }
   }
-        */
+
   implicit val ZipperFoldRight: FoldRight[Zipper] = new FoldRight[Zipper] {
     def foldRight[A, B](t: Zipper[A], b: B, f: (A, => B) => B): B =
       t.lefts.foldLeft(Stream.cons(t.focus, t.rights).foldRight(b)(f(_, _)))((f.flip)(_, _))
   }
-          /*
+
   implicit val ZipStreamFoldRight: FoldRight[ZipStream] = new FoldRight[ZipStream] {
     def foldRight[A, B](t: ZipStream[A], b: B, f: (A, => B) => B): B = StreamFoldRight.foldRight(t.value, b, f)
   }
-               */
   
   implicit val GenericArrayFoldRight: FoldRight[GArray] = new FoldRight[GArray] {
     def foldRight[A, B](t: GArray[A], b: B, f: (A, => B) => B) = t.foldRight(b)(f(_, _))
