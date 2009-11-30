@@ -51,5 +51,8 @@ object ExampleTraverse {
 
     // Traverse an Option using the Int multiplication monoid
     none[Long] ↣ (x => x ∏) println
+
+    // Traverse (collapse) a List using the Int addition monoid    
+    List(100, 200, 300).collapse println
   }
 }
