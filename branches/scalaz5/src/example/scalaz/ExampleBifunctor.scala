@@ -14,30 +14,30 @@ object ExampleBifunctor {
     val fl = (_: Int) + 1
 
     // Map reverse across the right of the Either binary functor
-    println(x :-> fr)
+    (x :-> fr) println
 
     // Map (+1) across the left of the Either binary functor
-    println(fl <-: x)
+    (fl <-: x) println
 
     // Map reverse across the right and (+1) across the left of the Either binary functor
-    println(fl <-: x :-> fr)
+    (fl <-: x :-> fr) println
 
     // Map reverse across the right of the Tuple2 (pair) binary functor
-    println(y :-> fr)
+    (y :-> fr) println
 
     // Map (+1) across the left of the Tuple2 (pair) binary functor
-    println(fl <-: y)
+    (fl <-: y) println
 
     // Map reverse across the right and (+1) across the left of the Tuple2 (pair) binary functor
-    println(fl <-: y :-> fr)
+    (fl <-: y :-> fr) println
 
     // Map reverse across the right of the Either binary functor
-    println(z :-> fr)
+    (z :-> fr) println
 
     // Map (+1) across the left of the Either binary functor
-    println(fl <-: z)
+    (fl <-: z) println
 
     // Map reverse across the right and (+1) across the left of the Either binary functor
-    println(fl <-: z :-> fr)
+    (fl <-: z :-> fr) println
   }
 }

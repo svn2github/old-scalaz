@@ -35,13 +35,13 @@ sealed trait Identity[A] {
 
   def show(implicit s: Show[A]) = s.show(value)
 
-  def shows(implicit s: Show[A]) = s.shows(value)
+  def shows(implicit s: Show[A]) = s.show(value).mkString
 
   def print(implicit s: Show[A]) = Console.print(shows)
 
   def println(implicit s: Show[A]) = Console.println(shows)
 
-  def text(implicit s: Show[A]) = xml.Text(s shows value)
+  def text(implicit s: Show[A]) = xml.Text(value.shows)
 
   def <===>(a: A)(implicit m: MetricSpace[A]) = m distance (value, a)
 

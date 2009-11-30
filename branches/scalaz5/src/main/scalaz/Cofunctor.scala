@@ -20,7 +20,10 @@ object Cofunctor {
   }
 
   implicit val ShowCofunctor: Cofunctor[Show] = new Cofunctor[Show] {
-    def comap[A, B](r: Show[A], f: B => A) = show[B](b => r show (f(b)))
+    def comap[A, B](r: Show[A], f: B => A) = {
+      if(r == null) error("boo")
+      show[B](b => r show (f(b)))
+    }
   }
 
   implicit val MetricSpaceCofunctor: Cofunctor[MetricSpace] = new Cofunctor[MetricSpace] {

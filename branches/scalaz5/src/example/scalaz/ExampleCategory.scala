@@ -10,9 +10,9 @@ object ExampleCategory {
     val g = (s: String) => s.reverse.toInt
 
     // Right composition of the Function1 category
-    println(f ⋙ g apply 33)
+    f ⋙ g apply 33 println
 
     // Left composition of the Function1 category
-    println(g ⋘ f apply 33)
+    g ⋘ f apply 33 println
   }
 }

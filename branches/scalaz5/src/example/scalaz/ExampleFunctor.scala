@@ -7,9 +7,9 @@ object ExampleFunctor {
   
   def run {
     // Map across the List functor
-    println(List(1, 2, 3, 4, 5) ∘ (1+))
+    List(1, 2, 3, 4, 5) ∘ (1+) println
 
     // Map across the Option functor
-    println(some(7) ∘ (1+))
+    some(7) ∘ (1+) println
   }
 }
