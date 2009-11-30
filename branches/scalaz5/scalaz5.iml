@@ -35,6 +35,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Scala Latest" level="application" />
   </component>
 </module>
 
