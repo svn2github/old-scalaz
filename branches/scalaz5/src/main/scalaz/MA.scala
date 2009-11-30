@@ -224,6 +224,11 @@ sealed trait MA[M[_], A] {
     parM[M](zipWith(f.concurry, bs))
 
   */
+
+  import scalaz.concurrent.Strategy
+
+  def parM[B](implicit b: A <:< (() => B), m: Functor[M], s: Strategy[B]): () => M[B] = 
+    () => v ∘ (z => s(z).apply)
 }
 
 trait MAs {

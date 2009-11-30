@@ -4,10 +4,10 @@ trait Strategy[A] {
   def apply(a: () => A): () => A
 }
 
-trait Strategys {
-  implicit def strategyFrom[A](f: (() => A) => () => A): Strategy[A] = new Strategy[A] {
+object Strategy {
+  implicit def StrategyFrom[A](f: (() => A) => () => A): Strategy[A] = new Strategy[A] {
     def apply(a: () => A) = f(a)
   }
 
-  implicit def strategyTo[A](s: Strategy[A]): (() => A) => () => A = (a: () => A) => s(a)
+  implicit def StrategyTo[A](s: Strategy[A]): (() => A) => () => A = (a: () => A) => s(a)
 }
