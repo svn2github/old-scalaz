@@ -2,7 +2,6 @@ package scalaz
 
 // compiles == green
 object ImplicitConversionTest {
-
   import scalaz.Scalaz._
 
   def mas {
@@ -10,10 +9,10 @@ object ImplicitConversionTest {
     implicitly[Option[Int] <%%< MA[Option, Int]]
   }
 
+  // An attempt to catch https://lampsvn.epfl.ch/trac/scala/ticket/2719
   def useMaSumBug {
-    // The following two lines work individually, but not one after the other!!
-    //  (List(1): MA[List, Int]) ∑ // error: not enough arguments for method ∑∑: (implicit r: scalaz.FoldLeft[List], implicit m: scalaz.Monoid[Int])Int. Unspecified value parameter m.
-    //  List(1) ∑
+    (List(1): MA[List, Int]).∑
+    List(1).∑
   }
 
   def apply {
