@@ -28,12 +28,12 @@ object ExampleTraverse {
     println(some("9") ↦ g)
 
     // Traverse a List of characters to get a possible List of digits using the Option applicative functor
-    println(List('1', '2', '3').traverseDigits)
+    println(List('1', '2', '3') traverseDigits)
 
     // Traverse an Option of characters to get a possible Option of digits using the Option applicative functor
-    println(some('1').traverseDigits)
+    println(some('1') traverseDigits)
 
     // Traverse a GenericArray of characters to get a possible GenericArray of digits using the Option applicative functor
-    println(collection.mutable.GenericArray('1', 'x', '3').traverseDigits)
+    println(collection.mutable.GenericArray('1', 'x', '3') traverseDigits)
   }
 }
