@@ -39,6 +39,9 @@ sealed trait ListW[A] {
     case h :: t => p(h) ∗ (if(_) (t takeWhileM p) ∘ (h :: _) else nil[A] η)
   }
 
+  def takeUntilM[M[_]](p: A => M[Boolean])(implicit m: Monad[M]): M[List[A]] =
+    takeWhileM(p(_) ∘ (! _))
+
   def filterM[M[_]](p: A => M[Boolean])(implicit m: Monad[M]): M[List[A]] = value match {
     case Nil => nil[A] η
     case h :: t => {
