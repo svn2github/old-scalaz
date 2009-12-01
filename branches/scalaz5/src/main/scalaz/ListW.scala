@@ -72,6 +72,14 @@ sealed trait ListW[A] {
     case Nil => nil[List[A]] η
     case h :: t => spanM(p(h, _)) ∗ { case (x, y) => (y groupByM p) ∘ ((h :: x) :: _) }
   }
+
+  def mapAccumLeft[B, C](c: C, f: (C, A) => (C, B)): (C, List[B]) = value match {
+    case Nil => (c, Nil)
+    case h :: t => {
+      val (i, j) = f(c, h)
+      t.mapAccumLeft(i, f) :-> (j :: _)
+    }
+  }
 }
 
 trait Lists {
