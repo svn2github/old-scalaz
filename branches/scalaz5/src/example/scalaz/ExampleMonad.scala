@@ -56,5 +56,8 @@ object ExampleMonad {
 
     // Filtering on a List through the List monad (produces the powerset)
     List(1, 2, 3).filterM(_ => List(true, false)).println
+
+  // Filtering on a List through the Option monad 
+    List(1, 2, 3).filterM(n => some(n < 3)).println
   }
 }
