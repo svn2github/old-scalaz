@@ -64,7 +64,7 @@ object ExampleMonad {
     List(1, 2, 3).replicateM[List](2) assert_≟ List(List(1, 1), List(1, 2), List(1, 3), List(2, 1), List(2, 2), List(2, 3), List(3, 1), List(3, 2), List(3, 3))
 
     // Replicating a List through the Option monad
-    List(1, 2, 3).replicateM[Option](2) assert_≟ List(some(1),some(1),some(1),some(2),some(2),some(2),some(3),some(3),some(3))
+    List(1, 2, 3).replicateM[Option](2) assert_≟ List(some(1), some(1), some(1), some(2), some(2), some(2), some(3), some(3), some(3))
 
     // Replicating an Option through the GenericArray monad
     some(7).replicateM[GenericArray](3) assert_≟ some(GenericArray(7, 7, 7))
