@@ -35,5 +35,17 @@ object ExampleMonad {
     (List(1, 2, 3) ∗ (List(7, _))).println
     (some(7) ∗ (x => if(x % 2 == 0) some(x - 1) else none)).println
     (some(8) ∗ (x => if(x % 2 == 0) some(x - 1) else none)).println
+
+    // Folding left on a List through the List monad
+    List(1, 2, 3, 4).foldLeftM((b: Int, a: Int) => List(10, 20, a, b), 0).println
+
+    // Folding left on a Stream through the Option monad
+    Stream(1, 2, 3, 4).foldLeftM((b: Int, a: Int) => some(a + b), 0).println
+
+    // Folding right on a Stream through the List monad
+    Stream(1, 2, 3, 4).foldRightM((b: Int, a: Int) => List(10, 20, a, b), 0).println
+
+    // Folding right on a List through the Option monad
+    List(1, 2, 3, 4).foldRightM((b: Int, a: Int) => some(a + b), 0).println
   }
 }
