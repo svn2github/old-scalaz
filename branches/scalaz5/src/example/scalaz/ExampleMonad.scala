@@ -30,5 +30,10 @@ object ExampleMonad {
     (some(none[Int]) μ).println
     (none[Option[Int]] μ).println
     (List(List(1, 2, 3), List(4, 5, 6)) μ).println
+
+    // bind ∗
+    (List(1, 2, 3) ∗ (List(7, _))).println
+    (some(7) ∗ (x => if(x % 2 == 0) some(x - 1) else none)).println
+    (some(8) ∗ (x => if(x % 2 == 0) some(x - 1) else none)).println
   }
 }
