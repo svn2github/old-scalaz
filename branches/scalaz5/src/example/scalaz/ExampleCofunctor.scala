@@ -8,8 +8,9 @@ object ExampleCofunctor {
   def run {
     // Contravariant functor map
     {
-      val f = (3 + (_: Int))
-      List(1, 2, 3, 4, 5) ∘ (f ∙ ((_: Int) / 2)) println
+      val plus3 = (3 + (_: Int))
+      val div2 = (_: Int) / 2
+      (List(1, 2, 3, 4, 5) ∘ (plus3 ∙ div2)) assert_≟ List(3, 4, 4, 5, 5)
     }
   }
 }
