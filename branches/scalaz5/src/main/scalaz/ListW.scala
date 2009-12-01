@@ -80,6 +80,14 @@ sealed trait ListW[A] {
       t.mapAccumLeft(i, f) :-> (j :: _)
     }
   }
+
+  def mapAccumRight[B, C](c: C, f: (C, A) => (C, B)): (C, List[B]) = value match {
+    case Nil => (c, Nil)
+    case h :: t => {
+      val (i, j) = t.mapAccumRight(c, f)
+      f(i, h) :-> (_ :: j)
+    }
+  }
 }
 
 trait Lists {
