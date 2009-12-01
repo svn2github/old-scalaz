@@ -53,5 +53,8 @@ object ExampleMonad {
 
     // Take-while on a List through the List monad
     List.range(1, 50).takeWhileM(n => if(n < 40) List(n < 10, n < 20) else List(n % 7 > 0)).println
+
+    // Filtering on a List through the List monad (produces the powerset)
+    List(1, 2, 3).filterM(_ => List(true, false)).println
   }
 }
