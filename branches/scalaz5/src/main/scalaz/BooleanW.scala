@@ -136,9 +136,17 @@ sealed trait BooleanW {
 
   def !?[A](a: => A)(implicit z: Zero[A]) = if(!isTrue) a else z.zero
 
-  def guard[M[_], A](a: => A)(implicit e: Empty[M], p: Pure[M]) = if(isTrue) p pure a else e.empty[A]
+  trait GuardPrevent[M[_]] {
+    def apply[A](a: => A)(implicit e: Empty[M], p: Pure[M]): M[A]
+  }
 
-  def prevent[M[_], A](a: => A)(implicit e: Empty[M], p: Pure[M]) = if(isTrue) e.empty[A] else p pure a
+  def guard[M[_]] = new GuardPrevent[M] {
+    def apply[A](a: => A)(implicit e: Empty[M], p: Pure[M]) = if(isTrue) a η else <∅>
+  }
+
+  def prevent[M[_]] = new GuardPrevent[M] {
+    def apply[A](a: => A)(implicit e: Empty[M], p: Pure[M]) = if(isTrue) <∅> else a η
+  }
 }
 
 trait Booleans {
