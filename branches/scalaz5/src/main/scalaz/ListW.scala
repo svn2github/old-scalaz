@@ -59,6 +59,19 @@ sealed trait ListW[A] {
     case Nil => (nil[A], nil[A]) η
     case h :: t => p(h) ∗ (b => (t partitionM p) ∘ { case (x, y) => if(b) (h :: x, y) else (x, h :: y) })
   }
+
+  def spanM[M[_]](p: A => M[Boolean])(implicit m: Monad[M]): M[(List[A], List[A])] = value match {
+    case Nil => (nil[A], nil[A]) η
+    case h :: t => p(h) ∗ (if(_) (t spanM p) ∘ ((h :: (_: List[A])) <-: _) else (nil[A], value) η) 
+  }
+
+  def breakM[M[_]](p: A => M[Boolean])(implicit m: Monad[M]): M[(List[A], List[A])] =
+    spanM(p(_) ∘ (! _))
+
+  def groupByM[M[_]](p: (A, A) => M[Boolean])(implicit m: Monad[M]): M[List[List[A]]] = value match {
+    case Nil => nil[List[A]] η
+    case h :: t => spanM(p(h, _)) ∗ { case (x, y) => (y groupByM p) ∘ ((h :: x) :: _) }
+  }
 }
 
 trait Lists {
