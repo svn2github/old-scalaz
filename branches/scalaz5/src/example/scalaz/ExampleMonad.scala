@@ -59,5 +59,17 @@ object ExampleMonad {
 
   // Filtering on a List through the Option monad 
     List(1, 2, 3).filterM(n => some(n < 3)).println
+
+    // Replicating a List through the List monad
+    List(1, 2, 3).replicateM[List](2).println
+
+    // Replicating a List through the Option monad
+    List(1, 2, 3).replicateM[Option](2).println
+
+    // Replicating an Option through the GenericArray monad
+    some(7).replicateM[GenericArray](3).println
+
+    // Replicating an Option through the Option monad
+    some(7).replicateM[Option](3).println
   }
 }
