@@ -4,15 +4,14 @@ package scalaz
 object ImplicitConversionTest {
   import scalaz.Scalaz._
 
-  def mas {
+  def MAs {
     implicitly[List[Int] <%%< MA[List, Int]]
     implicitly[Option[Int] <%%< MA[Option, Int]]
-  }
+    implicitly[(Int => String) <%%< MA[PartialApply1Of2[Function1, String]#Flip, Int]]
 
-  // An attempt to catch https://lampsvn.epfl.ch/trac/scala/ticket/2719
-  def useMaSumBug {
-    (List(1): MA[List, Int]).∑
-    List(1).∑
+    // via higher kind inference
+    trait T[A]
+    implicitly[T[Int] <%%< MA[T, Int]]
   }
 
   def apply {

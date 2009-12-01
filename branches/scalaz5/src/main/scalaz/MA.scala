@@ -40,13 +40,13 @@ sealed trait MA[M[_], A] {
   def ↦[F[_], B](f: A => F[B])(implicit a: Applicative[F], t: Traverse[M]): F[M[B]] =
     t.traverse(f, v)
 
-  def ∗[B](f: A => M[B])(implicit b: Bind[M]) = b.bind(v, f)
+  def ∗[B](f: A => M[B])(implicit b: Bind[M]): M[B] = b.bind(v, f)
 
-  def ∗|[B](f: => M[B])(implicit b: Bind[M]) = ∗(_ => f)
+  def ∗|[B](f: => M[B])(implicit b: Bind[M]): M[B] = ∗(_ => f)
 
-  def flatMap[B](f: A => M[B])(implicit b: Bind[M]) = ∗(f)
+  def flatMap[B](f: A => M[B])(implicit b: Bind[M]): M[B] = ∗(f)
 
-  def join[B](implicit m: A <:< M[B], b: Bind[M]) = ∗(z => z)
+  def join[B](implicit m: A <:< M[B], b: Bind[M]): M[B] = ∗(z => z)
 
   def μ[B](implicit m: A <:< M[B], b: Bind[M]): M[B] = join
 

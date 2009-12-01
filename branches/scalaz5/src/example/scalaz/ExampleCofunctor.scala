@@ -8,7 +8,7 @@ object ExampleCofunctor {
   def run {
     // Contravariant functor map
     {
-      val f = ma[PartialApply1Of2[Function1, Int]#Flip, Int](3+) // todo This is icky. Posted to mailing list.
+      val f = (3 + (_: Int))
       List(1, 2, 3, 4, 5) ∘ (f ∙ ((_: Int) / 2)) println
     }
   }
