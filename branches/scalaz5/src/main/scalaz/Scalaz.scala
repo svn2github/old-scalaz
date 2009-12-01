@@ -73,7 +73,10 @@ object Scalaz extends ScalazLow
 
   def ×[A, B] = (a: A) => (b: B) => (a, b)
 
+  import collection.mutable.GenericArray
+
   implicit def Function1FlipMA[A, R](f: R => A): MA[PartialApply1Of2[Function1, A]#Flip, R] = ma[PartialApply1Of2[Function1, A]#Flip, R](f)
-  implicit def ListMA[A](l: List[A]): MA[List, A] = ma[List, A](l)
-  implicit def StreamMA[A](l: Stream[A]): MA[Stream, A] = ma[Stream, A](l)
+  implicit def ListMA[A](l: List[A]): MA[List, A] = ma(l)
+  implicit def StreamMA[A](l: Stream[A]): MA[Stream, A] = ma(l)
+  implicit def GenericArrayMA[A](l: GenericArray[A]): MA[GenericArray, A] = ma(l)
 }
