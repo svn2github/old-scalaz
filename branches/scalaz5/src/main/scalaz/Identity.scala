@@ -15,6 +15,8 @@ sealed trait Identity[A] {
 
   def ≠(a: A)(implicit e: Equal[A]) = !(≟(a))
 
+  def assert_≟(a: A)(implicit e: Equal[A], s: Show[A]) = if(≠(a)) error(shows + " ≠ " + a.shows)
+
   def ?|?(a: A)(implicit o: Order[A]) = o order (value, a)
 
   def ≤(a: A)(implicit o: Order[A]) = o.order(value, a) != GT

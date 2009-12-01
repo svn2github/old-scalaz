@@ -14,30 +14,30 @@ object ExampleBifunctor {
     val fl = (_: Int) + 1
 
     // Map reverse across the right of the Either binary functor
-    (x :-> fr) println
+    (x :-> fr) assert_≟ Left(7)
 
     // Map (+1) across the left of the Either binary functor
-    (fl <-: x) println
+    (fl <-: x) assert_≟ Left(8)
 
     // Map reverse across the right and (+1) across the left of the Either binary functor
-    (fl <-: x :-> fr) println
+    (fl <-: x :-> fr) assert_≟ Left(8)
 
     // Map reverse across the right of the Tuple2 (pair) binary functor
-    (y :-> fr) println
+    (y :-> fr) assert_≟ (8, "cba")
 
     // Map (+1) across the left of the Tuple2 (pair) binary functor
-    (fl <-: y) println
+    (fl <-: y) assert_≟ (9, "abc")
 
     // Map reverse across the right and (+1) across the left of the Tuple2 (pair) binary functor
-    (fl <-: y :-> fr) println
+    (fl <-: y :-> fr) assert_≟ (9, "cba")
 
     // Map reverse across the right of the Either binary functor
-    (z :-> fr) println
+    (z :-> fr) assert_≟ Right("fed")
 
     // Map (+1) across the left of the Either binary functor
-    (fl <-: z) println
+    (fl <-: z) assert_≟ Right("def")
 
     // Map reverse across the right and (+1) across the left of the Either binary functor
-    (fl <-: z :-> fr) println
+    (fl <-: z :-> fr) assert_≟ Right("fed")
   }
 }
