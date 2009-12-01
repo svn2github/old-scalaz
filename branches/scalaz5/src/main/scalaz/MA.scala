@@ -212,6 +212,9 @@ sealed trait MA[M[_], A] {
     if(n <= 0) ∅ η
     else v ∗ (a => replicateM[N](n - 1) ∘ (a ➜: _))
 
+  def zipWithA[F[_], B, C](b: M[B], f: (A, B) => F[C])(implicit a: Applicative[M], t: Traverse[M], z: Applicative[F]): F[M[C]] =
+    (b ⊛ (a.fmap(v, f.curry))).sequence[F, C]
+
   def bktree(implicit f: FoldLeft[M], m: MetricSpace[A]) =
     foldl[BKTree[A]](emptyBKTree, _ + _)
 

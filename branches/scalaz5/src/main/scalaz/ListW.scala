@@ -47,14 +47,6 @@ sealed trait ListW[A] {
     }
   }
 
-  def zipWithM[M[_], B, C](bs: List[B], f: (A, B) => M[C])(implicit m: Monad[M]): M[List[C]] = value match {
-    case Nil => nil[C] η
-    case ha :: ta => bs match {
-      case Nil => nil[C] η
-      case hb :: tb => f(ha, hb) ∗ (c => ta.zipWithM(tb, f) ∘ (c :: _))
-    }
-  }
-
   def partitionM[M[_]](p: A => M[Boolean])(implicit m: Monad[M]): M[(List[A], List[A])] = value match {
     case Nil => (nil[A], nil[A]) η
     case h :: t => p(h) ∗ (b => (t partitionM p) ∘ { case (x, y) => if(b) (h :: x, y) else (x, h :: y) })
