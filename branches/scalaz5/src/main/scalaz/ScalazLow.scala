@@ -1,4 +1,4 @@
 package scalaz
 
-trait ScalazLow extends MAs
-                with MABs
+abstract class ScalazLow extends MAsLow
+                            with MABs

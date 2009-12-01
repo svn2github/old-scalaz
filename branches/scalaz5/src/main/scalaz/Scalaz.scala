@@ -42,6 +42,7 @@ object Scalaz extends ScalazLow
     with    Lists
     with    LongMultiplications
     with    Longs
+    with    MAs
     with    MetricSpaces
     with    Memos
     with    NonEmptyLists
@@ -73,10 +74,9 @@ object Scalaz extends ScalazLow
 
   def ×[A, B] = (a: A) => (b: B) => (a, b)
 
-  import collection.mutable.GenericArray
-
+  // todo move to MAs, once https://lampsvn.epfl.ch/trac/scala/ticket/2741 is solved.
   implicit def Function1FlipMA[A, R](f: R => A): MA[PartialApply1Of2[Function1, A]#Flip, R] = ma[PartialApply1Of2[Function1, A]#Flip, R](f)
-  implicit def ListMA[A](l: List[A]): MA[List, A] = ma(l)
-  implicit def StreamMA[A](l: Stream[A]): MA[Stream, A] = ma(l)
-  implicit def GenericArrayMA[A](l: GenericArray[A]): MA[GenericArray, A] = ma(l)
+
+  // Seq[A] implements Function1[Int, A]. Without this, Function1FlipMA would be used.
+  implicit def SeqMA[M[_] <: Seq[_], A](l: M[A]): MA[M, A] = ma[M, A](l)
 }

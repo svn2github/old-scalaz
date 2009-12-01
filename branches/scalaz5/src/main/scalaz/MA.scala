@@ -235,8 +235,14 @@ sealed trait MA[M[_], A] {
     () => v ∘ (z => s(z).apply)
 }
 
-trait MAs {
-  implicit def ma[M[_], A](a: M[A]): MA[M, A] = new MA[M, A] {
+trait MAsLow {
+  implicit def maImplicit[M[_], A](a: M[A]): MA[M, A] = new MA[M, A] {
     val v = a
   }
+}
+
+trait MAs {
+  def ma[M[_], A](a: M[A]): MA[M, A] = new MA[M, A] {
+    val v = a
+  } 
 }
