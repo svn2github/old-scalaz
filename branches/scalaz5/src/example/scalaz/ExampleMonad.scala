@@ -47,5 +47,11 @@ object ExampleMonad {
 
     // Folding right on a List through the Option monad
     List(1, 2, 3, 4).foldRightM((b: Int, a: Int) => some(a + b), 0).println
+
+    // Take-while on a List through the Option monad
+    List.range(1, 50).takeWhileM(n => if(n < 100) some(n < 10) else none).println
+
+    // Take-while on a List through the List monad
+    List.range(1, 50).takeWhileM(n => if(n < 40) List(n < 10, n < 20) else List(n % 7 > 0)).println
   }
 }
