@@ -5,7 +5,7 @@ sealed trait Identity[A] {
 
   import Scalaz._
 
-  def η[F[_]](implicit p: Pure[F]) = p pure value
+  def η[F[_]](implicit p: Pure[F]): F[A] = p pure value
 
   def σ: Dual[A] = value
   
