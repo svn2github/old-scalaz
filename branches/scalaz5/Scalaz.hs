@@ -19,11 +19,13 @@ import Lastik.Runner
 import Lastik.Output
 import Lastik.Directory
 import Lastik.Util
+import Lastik.Find
 import System.FilePath
 import System.Cmd
 import System.Exit
-import System.Process
 import Data.List
+import Codec.Archive.Zip
+
 
 exampleDir = "src" </> "example"
 mainDir = "src" </> "main"
@@ -35,6 +37,7 @@ buildExample = build </> "example"
 buildMain = build </> "main"
 buildTest = build </> "test"
 buildScaladoc = build </> "scaladoc"
+buildJar = build </> "jar"
 
 type Version = String
 
@@ -98,20 +101,16 @@ repl = example >>>> test >>>> scala (intercalate " " ["-i initrepl", cp])
 clean :: IO ()
 clean = rmdir build
 
-sversion :: String -> String -> IO ExitCode
-sversion c f = do (ec, o, e) <- readProcessWithExitCode c ["-version"] []
-                  writeFile f o
-                  appendFile f e
-                  return ec
+nosvn :: FilePather Bool
+nosvn = fileName /=? ".svn"
 
-scalaversion :: IO ExitCode
-scalaversion = sversion "scala" "scalaversion"
+nosvnf :: FilterPredicate
+nosvnf = constant nosvn ?&&? isFile
 
-scalacversion :: IO ExitCode
-scalacversion = sversion "scalac" "scalacversion"
-
-scaladocversion :: IO ExitCode
-scaladocversion = sversion "scaladoc" "scaladocversion"
-
-versions :: IO [ExitCode]
-versions = sequence [scalaversion, scalacversion, scaladocversion]
+archive :: IO ()
+archive = main >>>> example >>>> test >>>>> do mkdir buildJar
+                                               writeArchive ([buildExample, buildMain, buildTest] `zip` repeat ".")
+                                                 nosvn
+                                                 nosvnf
+                                                 [OptVerbose]
+                                                 (buildJar </> "scalaz.jar")
