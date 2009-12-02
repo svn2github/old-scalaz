@@ -22,6 +22,7 @@ import Lastik.Util
 import Lastik.Find
 import System.FilePath
 import System.Cmd
+import System.Process
 import System.Exit
 import Data.List
 import Codec.Archive.Zip
@@ -107,10 +108,30 @@ nosvn = fileName /=? ".svn"
 nosvnf :: FilterPredicate
 nosvnf = constant nosvn ?&&? isFile
 
+-- todo Codec.Archive.Zip is too buggy, use jar instead
 archive :: IO ()
 archive = main >>>> example >>>> test >>>>> do mkdir buildJar
-                                               writeArchive ([buildExample, buildMain, buildTest] `zip` repeat ".")
+                                               writeArchive ([buildExample, buildMain, buildTest, resourcesDir] `zip` repeat ".")
                                                  nosvn
                                                  nosvnf
                                                  [OptVerbose]
                                                  (buildJar </> "scalaz.jar")
+
+sversion :: FilePath -> FilePath -> IO ExitCode
+sversion c f = do (ec, o, e) <- readProcessWithExitCode c ["-version"] []
+                  writeFile f o
+                  appendFile f e
+                  return ec
+
+scalaversion :: IO ExitCode
+scalaversion = mkdir build >> sversion "scala" (build </> "scalaversion")
+
+
+scalacversion :: IO ExitCode
+scalacversion = mkdir build >> sversion "scalac" (build </> "scalacversion")
+
+scaladocversion :: IO ExitCode
+scaladocversion = mkdir build >> sversion "scaladoc" (build </> "scaladocversion")
+
+versions :: IO [ExitCode]
+versions = sequence [scalaversion, scalacversion, scaladocversion]
