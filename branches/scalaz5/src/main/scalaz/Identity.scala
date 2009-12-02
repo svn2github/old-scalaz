@@ -15,7 +15,9 @@ sealed trait Identity[A] {
 
   def ≠(a: A)(implicit e: Equal[A]) = !(≟(a))
 
-  def assert_≟(a: A)(implicit e: Equal[A], s: Show[A]) = if(≠(a)) error(shows + " ≠ " + a.shows)
+  // using the implicit parameter ev here gives better compiler error messages for mistyped expressions like  1 assert_≟ "".
+  // the simpler signature is def assert_≟(b: A)(implicit e: Equal[A], s: Show[A])
+  def assert_≟[B](b: B)(implicit e: Equal[A], s: Show[A], ev: B <:< A) = if(≠(b)) error(shows + " ≠ " + ev(b).shows)
 
   def ?|?(a: A)(implicit o: Order[A]) = o order (value, a)
 
