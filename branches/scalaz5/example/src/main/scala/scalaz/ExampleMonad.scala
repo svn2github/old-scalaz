@@ -19,7 +19,7 @@ object ExampleMonad {
     true.guard[Option](7) assert_≟ Some(7)
     false.guard[Option](7) assert_≟ None
 
-    // prevent
+    // prevent 
     true.prevent[List](8) assert_≟ List()
     false.prevent[List](8) assert_≟ List(8)
     true.prevent[Option](8) assert_≟ None
