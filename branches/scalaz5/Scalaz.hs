@@ -22,6 +22,7 @@ import Lastik.Util
 import System.FilePath
 import System.Cmd
 import System.Exit
+import System.Process
 import Data.List
 
 exampleDir = "src" </> "example"
@@ -97,3 +98,20 @@ repl = example >>>> test >>>> scala (intercalate " " ["-i initrepl", cp])
 clean :: IO ()
 clean = rmdir build
 
+sversion :: String -> String -> IO ExitCode
+sversion c f = do (ec, o, e) <- readProcessWithExitCode c ["-version"] []
+                  writeFile f o
+                  appendFile f e
+                  return ec
+
+scalaversion :: IO ExitCode
+scalaversion = sversion "scala" "scalaversion"
+
+scalacversion :: IO ExitCode
+scalacversion = sversion "scalac" "scalacversion"
+
+scaladocversion :: IO ExitCode
+scaladocversion = sversion "scaladoc" "scaladocversion"
+
+versions :: IO [ExitCode]
+versions = sequence [scalaversion, scalacversion, scaladocversion]
