@@ -4,17 +4,17 @@ package scalaz
 object ImplicitConversionTest {
   import scalaz.Scalaz._
 
-  def MAs {
-    implicitly[List[Int] <%%< MA[List, Int]]
-    implicitly[Option[Int] <%%< MA[Option, Int]]
+  def MAs[A, B] {
+    implicitly[List[A] <%%< MA[List, A]]
+    implicitly[Option[A] <%%< MA[Option, A]]
 
-    implicitly[(Int => String) <%%< MACofunctor[PartialApply1Of2[Function1, String]#Flip, Int]]
-    implicitly[(Int => String) <%%< MA[PartialApply1Of2[Function1, Int]#Apply, String]]
+    implicitly[(A => B) <%%< MACofunctor[PartialApply1Of2[Function1, B]#Flip, A]]
+    implicitly[(A => B) <%%< MA[PartialApply1Of2[Function1, A]#Apply, B]]
 
     // via higher kind inference
     trait T[A]
-    implicitly[T[Int] <%%< MACofunctor[T, Int]]
-    implicitly[T[Int] <%%< MA[T, Int]]
+    implicitly[T[A] <%%< MACofunctor[T, A]]
+    implicitly[T[A] <%%< MA[T, A]]
   }
 
   def apply {
