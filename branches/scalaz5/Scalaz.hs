@@ -28,9 +28,9 @@ import Data.List
 import Codec.Archive.Zip
 
 
-exampleDir = "example"  </> "src" </> main </> "scala"
-mainDir = "core"  </> "src" </> main </> "scala"
-testDir = "core"  </> "src" </> test </> "scala"
+exampleDir = "example"  </> "src" </> "main" </> "scala"
+mainDir = "core"  </> "src" </> "main" </> "scala"
+testDir = "core"  </> "src" </> "test" </> "scala"
 resourcesDir = "resources"
 
 build = "build"
