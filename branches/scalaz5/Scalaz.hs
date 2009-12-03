@@ -123,15 +123,17 @@ sversion c f = do (ec, o, e) <- readProcessWithExitCode c ["-version"] []
                   appendFile f e
                   return ec
 
-scalaversion :: IO ExitCode
-scalaversion = mkdir build >> sversion "scala" (build </> "scalaversion")
+sbuildversion :: FilePath -> FilePath -> IO ExitCode
+sbuildversion c f = mkdir build >> sversion c (build </> f)
 
+scalaversion :: IO ExitCode
+scalaversion = "scala" `sbuildversion` "scalaversion"
 
 scalacversion :: IO ExitCode
-scalacversion = mkdir build >> sversion "scalac" (build </> "scalacversion")
+scalacversion = "scalac" `sbuildversion` "scalacversion"
 
 scaladocversion :: IO ExitCode
-scaladocversion = mkdir build >> sversion "scaladoc" (build </> "scaladocversion")
+scaladocversion = "scaladoc" `sbuildversion` "scaladocversion"
 
 versions :: IO [ExitCode]
 versions = sequence [scalaversion, scalacversion, scaladocversion]
