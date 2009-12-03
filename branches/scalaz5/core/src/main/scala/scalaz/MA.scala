@@ -54,7 +54,7 @@ sealed trait MA[M[_], A] {
 
   def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
 
-  def ➡(f: A => Unit) (implicit e: Each[M]) = e.each(v, f)
+  def ➡(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
 
   def foreach(f: A => Unit)(implicit e: Each[M]) = ➡ (f)
 
