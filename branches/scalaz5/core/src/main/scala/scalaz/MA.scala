@@ -50,11 +50,11 @@ sealed trait MA[M[_], A] {
 
   def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
 
-  def ➜: (a: A)( implicit s: Semigroup[M[A]], q: Pure[M]): M[A] = s append (q.pure(a), v)
+  def ➜:(a: A)(implicit s: Semigroup[M[A]], q: Pure[M]): M[A] = s append (q.pure(a), v)
 
-  def ➝: (a: A)( implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
+  def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
 
-  def ➡ (f: A => Unit) ( implicit e: Each[M]) = e.each(v, f)
+  def ➡(f: A => Unit) (implicit e: Each[M]) = e.each(v, f)
 
   def foreach(f: A => Unit)(implicit e: Each[M]) = ➡ (f)
 
