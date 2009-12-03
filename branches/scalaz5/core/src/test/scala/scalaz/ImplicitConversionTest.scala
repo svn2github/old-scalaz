@@ -7,10 +7,13 @@ object ImplicitConversionTest {
   def MAs {
     implicitly[List[Int] <%%< MA[List, Int]]
     implicitly[Option[Int] <%%< MA[Option, Int]]
-    implicitly[(Int => String) <%%< MA[PartialApply1Of2[Function1, String]#Flip, Int]]
+
+    implicitly[(Int => String) <%%< MACofunctor[PartialApply1Of2[Function1, String]#Flip, Int]]
+    implicitly[(Int => String) <%%< MA[PartialApply1Of2[Function1, Int]#Apply, String]]
 
     // via higher kind inference
     trait T[A]
+    implicitly[T[Int] <%%< MACofunctor[T, Int]]
     implicitly[T[Int] <%%< MA[T, Int]]
   }
 

@@ -5,15 +5,11 @@ sealed trait MA[M[_], A] {
 
   import Scalaz._
 
-  def ∘[B](f: A => B)(implicit t: Functor[M]) = t.fmap(v, f)
+  def ∘[B](f: A => B)(implicit t: Functor[M]): M[B] = t.fmap(v, f)
 
-  def map[B](f: A => B)(implicit t: Functor[M]) = ∘(f)
+  def map[B](f: A => B)(implicit t: Functor[M]): M[B] = ∘(f)
 
-  def >|[B](f: => B)(implicit t: Functor[M]) = ∘(_ => f)
-
-  def ∙[B](f: B => A)(implicit t: Cofunctor[M]) = t.comap(v, f)
-
-  def |<[B](f: => A)(implicit t: Cofunctor[M]) = ∙((_: B) => f)
+  def >|[B](f: => B)(implicit t: Functor[M]): M[B] = ∘(_ => f)
 
   def ⊛[B](f: M[A => B])(implicit a: Apply[M]) = a(f, v)
 
@@ -54,13 +50,13 @@ sealed trait MA[M[_], A] {
 
   def ⟴(z: => M[A])(implicit p: Plus[M]) = p.plus(v, z)
 
-  def ➜:(a: A)(implicit s: Semigroup[M[A]], q: Pure[M]): M[A] = s append (q.pure(a), v)
-  
-  def ➝:(a: A)(implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
+  def ➜: (a: A)( implicit s: Semigroup[M[A]], q: Pure[M]): M[A] = s append (q.pure(a), v)
 
-  def ➡(f: A => Unit)(implicit e: Each[M]) = e.each(v, f)
+  def ➝: (a: A)( implicit p: Plus[M], q: Pure[M]) = p.plus(q.pure(a), v)
 
-  def foreach(f: A => Unit)(implicit e: Each[M]) = ➡(f)
+  def ➡ (f: A => Unit) ( implicit e: Each[M]) = e.each(v, f)
+
+  def foreach(f: A => Unit)(implicit e: Each[M]) = ➡ (f)
 
   def foldl[B](b: B, f: (B, A) => B)(implicit r: FoldLeft[M]) = r.foldLeft[B, A](v, b, f)
 
@@ -129,7 +125,7 @@ sealed trait MA[M[_], A] {
   def empty(implicit r: FoldRight[M]) = ∀(_ => false)
 
   def splitWith(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Option[Boolean])]((Nil, None), (
-      a, b) => {
+          a, b) => {
     val pa = p(a)
     (b match {
       case (_, None) => List(List(a))
@@ -138,14 +134,14 @@ sealed trait MA[M[_], A] {
   })._1
 
   def selectSplit(p: A => Boolean)(implicit r: FoldRight[M]) = foldr[(List[List[A]], Boolean)]((Nil, false), (a, xb
-      ) => xb match {
+          ) => xb match {
     case (x, b) => {
       val pa = p(a)
       (if (pa)
         if (b)
           (a :: x.head) :: x.tail else
           List(a) :: x
-        else x, pa)
+      else x, pa)
     }
   })._1
 
@@ -203,14 +199,14 @@ sealed trait MA[M[_], A] {
   }
 
   def foldLeftM[N[_], B](f: (B, A) => N[B], b: B)(implicit fr: FoldLeft[M], m: Monad[N]): N[B] =
-      foldl[N[B]](b η, (b, a) => b ∗ ((z: B) => f(z, a)))
+    foldl[N[B]](b η, (b, a) => b ∗ ((z: B) => f(z, a)))
 
   def foldRightM[N[_], B](f: (B, A) => N[B], b: B)(implicit fr: FoldRight[M], m: Monad[N]): N[B] =
-      foldr[N[B]](b η, (a, b) => b ∗ ((z: B) => f(z, a)))
+    foldr[N[B]](b η, (a, b) => b ∗ ((z: B) => f(z, a)))
 
   def replicateM[N[_]](n: Int)(implicit m: Monad[M], p: Pure[N], d: Monoid[N[A]]): M[N[A]] =
-    if(n <= 0) ∅ η
-    else v ∗ (a => replicateM[N](n - 1) ∘ (a ➜: _))
+    if (n <= 0) ∅ η
+    else v ∗ (a => replicateM[N](n - 1) ∘ (a ➜: _) )
 
   def zipWithA[F[_], B, C](b: M[B], f: (A, B) => F[C])(implicit a: Applicative[M], t: Traverse[M], z: Applicative[F]): F[M[C]] =
     (b ⊛ (a.fmap(v, f.curry))).sequence[F, C]
@@ -231,12 +227,27 @@ sealed trait MA[M[_], A] {
 
   import scalaz.concurrent.Strategy
 
-  def parM[B](implicit b: A <:< (() => B), m: Functor[M], s: Strategy[B]): () => M[B] = 
+  def parM[B](implicit b: A <:< (() => B), m: Functor[M], s: Strategy[B]): () => M[B] =
     () => v ∘ (z => s(z).apply)
 }
 
+// Previously there was an ambiguity because (A => B) could be considered as MA[(R => _), A] or MA[(_ => R), A].
+// This is a hack to fix the pressing problem that this caused.
+trait MACofunctor[M[_], A] {
+  val v: M[A]
+
+  def ∙[B](f: B => A)(implicit t: Cofunctor[M]) = t.comap(v, f)
+
+  def |<[B](f: => A)(implicit t: Cofunctor[M]) = ∙((_: B) => f)
+}
+
+
 trait MAsLow {
   implicit def maImplicit[M[_], A](a: M[A]): MA[M, A] = new MA[M, A] {
+    val v = a
+  }
+
+  implicit def maCofunctorImplicit[M[_], A](a: M[A]): MACofunctor[M, A] = new MACofunctor[M, A] {
     val v = a
   }
 }
@@ -244,5 +255,9 @@ trait MAsLow {
 trait MAs {
   def ma[M[_], A](a: M[A]): MA[M, A] = new MA[M, A] {
     val v = a
-  } 
+  }
+
+  def maCofunctor[M[_], A](a: M[A])(implicit cf: Cofunctor[M]): MACofunctor[M, A] = new MACofunctor[M, A] {
+    val v = a
+  }
 }

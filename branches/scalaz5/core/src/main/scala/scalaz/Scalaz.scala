@@ -75,7 +75,9 @@ object Scalaz extends ScalazLow
   def ×[A, B] = (a: A) => (b: B) => (a, b)
 
   // todo move to MAs, once https://lampsvn.epfl.ch/trac/scala/ticket/2741 is solved.
-  implicit def Function1FlipMA[A, R](f: R => A): MA[PartialApply1Of2[Function1, A]#Flip, R] = ma[PartialApply1Of2[Function1, A]#Flip, R](f)
+  implicit def Function1FlipMACofunctor[A, R](f: R => A): MACofunctor[PartialApply1Of2[Function1, A]#Flip, R] = maCofunctor[PartialApply1Of2[Function1, A]#Flip, R](f)
+
+  implicit def Function1ApplyMA[A, R](f: A => R): MA[PartialApply1Of2[Function1, A]#Apply, R] = ma[PartialApply1Of2[Function1, A]#Apply, R](f)
 
   // Seq[A] implements Function1[Int, A]. Without this, Function1FlipMA would be used.
   implicit def SeqMA[M[_] <: Seq[_], A](l: M[A]): MA[M, A] = ma[M, A](l)
