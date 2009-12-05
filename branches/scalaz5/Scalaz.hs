@@ -25,7 +25,6 @@ import System.Cmd
 import System.Process
 import System.Exit
 import Data.List hiding (find)
-import Codec.Archive.Zip
 
 exampleDir = "example"  </> "src" </> "main" </> "scala"
 mainDir = "core"  </> "src" </> "main" </> "scala"
@@ -103,14 +102,8 @@ repl = example >>>> test >>>> scala (intercalate " " ["-i initrepl", cp])
 clean :: IO ()
 clean = rmdir build
 
-nosvn :: FilePather Bool
-nosvn = fileName /=? ".svn"
-
-nosvnf :: FilterPredicate
-nosvnf = constant nosvn ?&&? isFile
-
 -- Codec.Archive.Zip is too buggy, using jar instead
-archive :: IO ExitSuccess
+archive :: IO ExitCode
 archive = mkdir buildJar >>
           main >>>>
           example >>>>
