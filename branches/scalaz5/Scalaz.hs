@@ -22,8 +22,10 @@ import Lastik.Util
 import Lastik.Find
 import System.FilePath
 import System.Cmd
+import System.Directory
 import System.Process
 import System.Exit
+import Control.Monad
 import Data.List hiding (find)
 import Data.Time.Clock
 import Data.Time.Calendar
@@ -156,10 +158,46 @@ archive = mkdir buildJar >>
 
 data ReleaseType = Release | PreRelease | ReleaseCandidate deriving (Eq, Show)
 
+rel :: ReleaseType
+rel = Release
+
+pre :: ReleaseType
 pre = PreRelease
+
+rc :: ReleaseType
 rc = ReleaseCandidate
 
-release t = clean >>
-            scaladoc >>>>
-            archive >>
-            releasetype t
+release :: ReleaseType -> IO ()
+release t = let c = copyFiles nosvn nosvnf
+            in do clean
+                  scaladoc
+                  archive
+                  releasetype t
+                  c mainDir (buildScalaz </> "src")
+                  c testDir (buildScalaz </> "test")
+                  c exampleDir (buildScalaz </> "example")
+
+nosvn :: FilePather Bool
+nosvn = fileName /=? ".svn"
+
+nosvnf :: FilterPredicate
+nosvnf = constant nosvn ?&&? isFile
+
+-- todo belongs in Lastik
+-- Copies from one directory to another
+copyFiles :: RecursePredicate -> FilterPredicate -> FilePath -> FilePath -> IO ()
+copyFiles r f from to = do isf <- doesFileExist from
+                           if isf
+                             then error ("Cannot copy from file " ++ from)
+                             else do isd <- doesDirectoryExist from
+                                     if isd
+                                       then do dis <- doesFileExist to
+                                               if dis
+                                                 then error ("Cannot copy to" ++ to ++ " (a file)")
+                                                 else do j <- find r f from
+                                                         k <- filterM doesFileExist j
+                                                         mkdir to
+                                                         mapM_ (\z -> let t = to </> dropWhile (pathSeparator ==) (drop (length from) z)
+                                                                      in do mkdir (dropFileName t)
+                                                                            copyFile z t) k
+                                       else error (from ++ " is not a directory")
