@@ -102,14 +102,6 @@ repl = example >>>> test >>>> scala (intercalate " " ["-i initrepl", cp])
 clean :: IO ()
 clean = rmdir build
 
--- Codec.Archive.Zip is too buggy, using jar instead
-archive :: IO ExitCode
-archive = mkdir buildJar >>
-          main >>>>
-          example >>>>
-          test >>>>
-          jar ("-cvfm " ++ buildJar </> "scalaz.jar " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF -C " ++ buildClasses ++ " .")
-
 sversion :: FilePath -> FilePath -> IO ExitCode
 sversion c f = do (ec, o, e) <- readProcessWithExitCode c ["-version"] []
                   writeFile f o
@@ -130,3 +122,13 @@ scaladocversion = "scaladoc" `sbuildversion` "scaladocversion"
 
 versions :: IO [ExitCode]
 versions = sequence [scalaversion, scalacversion, scaladocversion]
+
+
+-- Codec.Archive.Zip is too buggy, using jar instead
+archive :: IO ExitCode
+archive = mkdir buildJar >>
+          scalaversion >>
+          main >>>>
+          example >>>>
+          test >>>>
+          jar ("-cvfm " ++ buildJar </> "scalaz.jar " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF -C " ++ build ++ " scalaversion -C " ++ buildClasses ++ " .")
