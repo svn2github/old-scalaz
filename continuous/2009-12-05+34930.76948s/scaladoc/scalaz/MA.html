@@ -1,0 +1,1057 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.MA</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../lib/template.js"></script>
+    
+        </head>
+        <body class="type">
+      
+      <p id="owner"><a href="package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../lib/trait_big.png"></img>
+        <h1>MA</h1>
+      </div>
+
+      <div class="signature">
+      <div class="kind">trait</div>
+      <div class="symbol">
+        <span class="name">MA</span>
+        <span class="tparams">[<span name="M">M</span>,<span name="A">A</span>]</span>
+        
+        <span class="result">extends<span>AnyRef</span></span>
+      </div>
+        </div>
+      
+      
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.MA#!">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">!</span>
+        
+        <span class="params">(<span name="n">n: Int</span>)</span><span class="params">(<span name="i">i: Index[M[_][_]]</span>)</span>
+        <span class="result">:<span>Option[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#!!">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">!!</span>
+        
+        <span class="params">(<span name="n">n: Int</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#-!-">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">-!-</span>
+        
+        <span class="params">(<span name="n">n: Int</span>)</span><span class="params">(<span name="i">i: Index[M[_][_]]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;---&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;---&gt;</span>
+        
+        <span class="params">(<span name="w">w: M[A]</span>)</span><span class="params">(<span name="l">l: Length[M[_][_]]</span>,<span name="ind">ind: Index[M[_][_]]</span>,<span name="equ">equ: Equal[A]</span>)</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;×&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;×&gt;</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[(A, B)]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;××&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;××&gt;</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="c">c: M[C]</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[(A, B, C)]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;×××&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;×××&gt;</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>,<span name="D">D</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="c">c: M[C]</span>,<span name="d">d: M[D]</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[(A, B, C, D)]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;××××&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;××××&gt;</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>,<span name="D">D</span>,<span name="E">E</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="c">c: M[C]</span>,<span name="d">d: M[D]</span>,<span name="e">e: M[E]</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[(A, B, C, D, E)]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;⊛">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;⊛</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;⊛&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;⊛&gt;</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="z">z: (A, B) ⇒ C</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[C]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;⊛⊛&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;⊛⊛&gt;</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>,<span name="D">D</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="c">c: M[C]</span>,<span name="z">z: (A, B, C) ⇒ D</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[D]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;⊛⊛⊛&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;⊛⊛⊛&gt;</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>,<span name="D">D</span>,<span name="E">E</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="c">c: M[C]</span>,<span name="d">d: M[D]</span>,<span name="z">z: (A, B, C, D) ⇒ E</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[E]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&lt;⊛⊛⊛⊛&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;⊛⊛⊛⊛&gt;</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>,<span name="D">D</span>,<span name="E">E</span>,<span name="F">F</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="c">c: M[C]</span>,<span name="d">d: M[D]</span>,<span name="e">e: M[E]</span>,<span name="z">z: (A, B, C, D, E) ⇒ F</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[F]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#=&gt;&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">=&gt;&gt;</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (M[A]) ⇒ B</span>)</span><span class="params">(<span name="w">w: Comonad[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#&gt;|">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&gt;|</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: ⇒ B</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#bktree">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">bktree</span>
+        
+        <span class="params">(<span name="f">f: FoldLeft[M[_][_]]</span>,<span name="m">m: MetricSpace[A]</span>)</span>
+        <span class="result">:<span>BKTree[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#cojoin">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">cojoin</span>
+        
+        <span class="params">(<span name="j">j: Cojoin[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[M[A]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#collapse">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">collapse</span>
+        
+        <span class="params">(<span name="t">t: Traverse[M[_][_]]</span>,<span name="m">m: Monoid[A]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#copure">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">copure</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="p">p: Copure[M[_][_]]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#digits">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">digits</span>
+        
+        <span class="params">(<span name="c">c: $less$colon$less[A, Char]</span>,<span name="t">t: Functor[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[Option[Digit]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#empty">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">empty</span>
+        
+        <span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: Any</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scalaz.MA#flatMap">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">flatMap</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ M[B]</span>)</span><span class="params">(<span name="b">b: Bind[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foldLeftM">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foldLeftM</span>
+        <span class="tparams">[<span name="N">N</span>,<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (B, A) ⇒ N[B]</span>,<span name="b">b: B</span>)</span><span class="params">(<span name="fr">fr: FoldLeft[M[_][_]]</span>,<span name="m">m: Monad[N[_][_]]</span>)</span>
+        <span class="result">:<span>N[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foldMap">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foldMap</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ B</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>,<span name="m">m: Monoid[B]</span>)</span>
+        <span class="result">:<span>B</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foldRightM">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foldRightM</span>
+        <span class="tparams">[<span name="N">N</span>,<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (B, A) ⇒ N[B]</span>,<span name="b">b: B</span>)</span><span class="params">(<span name="fr">fr: FoldRight[M[_][_]]</span>,<span name="m">m: Monad[N[_][_]]</span>)</span>
+        <span class="result">:<span>N[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foldl">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foldl</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: B</span>,<span name="f">f: (B, A) ⇒ B</span>)</span><span class="params">(<span name="r">r: FoldLeft[M[_][_]]</span>)</span>
+        <span class="result">:<span>B</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foldl1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foldl1</span>
+        
+        <span class="params">(<span name="f">f: (A, A) ⇒ A</span>)</span><span class="params">(<span name="r">r: FoldLeft[M[_][_]]</span>)</span>
+        <span class="result">:<span>Option[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foldr">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foldr</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: B</span>,<span name="f">f: (A, ⇒ B) ⇒ B</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>B</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foldr1">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foldr1</span>
+        
+        <span class="params">(<span name="f">f: (A, ⇒ A) ⇒ A</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>Option[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#foreach">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">foreach</span>
+        
+        <span class="params">(<span name="f">f: (A) ⇒ Unit</span>)</span><span class="params">(<span name="e">e: Each[M[_][_]]</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scalaz.MA#join">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">join</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="m">m: $less$colon$less[A, M[B]]</span>,<span name="b">b: Bind[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#len">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">len</span>
+        
+        <span class="params">(<span name="l">l: Length[M[_][_]]</span>)</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#listl">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">listl</span>
+        
+        <span class="params">(<span name="r">r: FoldLeft[M[_][_]]</span>)</span>
+        <span class="result">:<span>List[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#listr">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">listr</span>
+        
+        <span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>List[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#longDigits">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">longDigits</span>
+        
+        <span class="params">(<span name="d">d: $less$colon$less[A, Digit]</span>,<span name="t">t: FoldLeft[M[_][_]]</span>)</span>
+        <span class="result">:<span>Long</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#map">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">map</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ B</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#max">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">max</span>
+        
+        <span class="params">(<span name="r">r: FoldLeft[M[_][_]]</span>,<span name="ord">ord: Order[A]</span>)</span>
+        <span class="result">:<span>Option[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#min">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">min</span>
+        
+        <span class="params">(<span name="r">r: FoldLeft[M[_][_]]</span>,<span name="ord">ord: Order[A]</span>)</span>
+        <span class="result">:<span>Option[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#parBind">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">parBind</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ M[B]</span>)</span><span class="params">(<span name="m">m: Bind[M[_][_]]</span>,<span name="t">t: Functor[M[_][_]]</span>,<span name="s">s: Strategy[M[B]]</span>)</span>
+        <span class="result">:<span>() ⇒ M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#parM">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">parM</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: $less$colon$less[A, () ⇒ B]</span>,<span name="m">m: Functor[M[_][_]]</span>,<span name="s">s: Strategy[B]</span>)</span>
+        <span class="result">:<span>() ⇒ M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#parMap">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">parMap</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ B</span>)</span><span class="params">(<span name="m">m: Functor[M[_][_]]</span>,<span name="s">s: Strategy[B]</span>)</span>
+        <span class="result">:<span>() ⇒ M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#parZipWith">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">parZipWith</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="C">C</span>]</span>
+        <span class="params">(<span name="f">f: (A, B) ⇒ C</span>,<span name="bs">bs: M[B]</span>)</span><span class="params">(<span name="z">z: Applicative[M[_][_]]</span>,<span name="s">s: Strategy[C]</span>)</span>
+        <span class="result">:<span>() ⇒ M[C]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#para">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">para</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: B</span>,<span name="f">f: (⇒ A, ⇒ M[A], B) ⇒ B</span>)</span><span class="params">(<span name="p">p: Paramorphism[M[_][_]]</span>)</span>
+        <span class="result">:<span>B</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#replicateM">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">replicateM</span>
+        <span class="tparams">[<span name="N">N</span>]</span>
+        <span class="params">(<span name="n">n: Int</span>)</span><span class="params">(<span name="m">m: Monad[M[_][_]]</span>,<span name="p">p: Pure[N[_][_]]</span>,<span name="d">d: Monoid[N[A]]</span>)</span>
+        <span class="result">:<span>M[N[A]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#selectSplit">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">selectSplit</span>
+        
+        <span class="params">(<span name="p">p: (A) ⇒ Boolean</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>List[List[A]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#sequence">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">sequence</span>
+        <span class="tparams">[<span name="N">N</span>,<span name="B">B</span>]</span>
+        <span class="params">(<span name="a">a: $less$colon$less[A, N[B]]</span>,<span name="t">t: Traverse[M[_][_]]</span>,<span name="n">n: Applicative[N[_][_]]</span>)</span>
+        <span class="result">:<span>N[M[B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#splitWith">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">splitWith</span>
+        
+        <span class="params">(<span name="p">p: (A) ⇒ Boolean</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>List[List[A]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#stream">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">stream</span>
+        
+        <span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>Stream[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">toString</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>String</span></span>
+      </div>
+        </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li><li name="scalaz.MA#traverseDigits">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">traverseDigits</span>
+        
+        <span class="params">(<span name="c">c: $less$colon$less[A, Char]</span>,<span name="t">t: Traverse[M[_][_]]</span>)</span>
+        <span class="result">:<span>Option[M[Digit]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#v">
+      <div class="signature">
+      <div class="kind">val</div>
+      <div class="symbol">
+        <span class="name">v</span>
+        
+        
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>abstract</li></ol>
+      
+    </li><li name="scalaz.MA#zipWithA">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">zipWithA</span>
+        <span class="tparams">[<span name="F">F</span>,<span name="B">B</span>,<span name="C">C</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>,<span name="f">f: (A, B) ⇒ F[C]</span>)</span><span class="params">(<span name="a">a: Applicative[M[_][_]]</span>,<span name="t">t: Traverse[M[_][_]]</span>,<span name="z">z: Applicative[F[_][_]]</span>)</span>
+        <span class="result">:<span>F[M[C]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#ε">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">ε</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="p">p: Copure[M[_][_]]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#μ">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">μ</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="m">m: $less$colon$less[A, M[B]]</span>,<span name="b">b: Bind[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#υ">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">υ</span>
+        
+        <span class="params">(<span name="j">j: Cojoin[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[M[A]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#↣↣">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">↣↣</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ B</span>)</span><span class="params">(<span name="t">t: Traverse[M[_][_]]</span>,<span name="m">m: Monoid[B]</span>)</span>
+        <span class="result">:<span>B</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#↦↦">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">↦↦</span>
+        <span class="tparams">[<span name="F">F</span>,<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ F[B]</span>)</span><span class="params">(<span name="a">a: Applicative[F[_][_]]</span>,<span name="t">t: Traverse[M[_][_]]</span>)</span>
+        <span class="result">:<span>F[M[B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∀∀">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∀∀</span>
+        
+        <span class="params">(<span name="p">p: (A) ⇒ Boolean</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∃∃">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∃∃</span>
+        
+        <span class="params">(<span name="p">p: (A) ⇒ Boolean</span>)</span><span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∑∑">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∑∑</span>
+        
+        <span class="params">(<span name="r">r: FoldLeft[M[_][_]]</span>,<span name="m">m: Monoid[A]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∑∑∑">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∑∑∑</span>
+        
+        <span class="params">(<span name="r">r: FoldRight[M[_][_]]</span>,<span name="m">m: Monoid[A]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∗∗">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∗∗</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ M[B]</span>)</span><span class="params">(<span name="b">b: Bind[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∗∗|">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∗∗|</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: ⇒ M[B]</span>)</span><span class="params">(<span name="b">b: Bind[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∘∘">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∘∘</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ B</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#∞∞">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">∞∞</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: Bind[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#⊛⊛">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">⊛⊛</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: M[(A) ⇒ B]</span>)</span><span class="params">(<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#⊛⊛&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">⊛⊛&gt;</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: M[B]</span>)</span><span class="params">(<span name="t">t: Functor[M[_][_]]</span>,<span name="a">a: Apply[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#♯♯">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">♯♯</span>
+        
+        <span class="params">(<span name="r">r: FoldLeft[M[_][_]]</span>)</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#➜➜:">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">➜➜:</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="s">s: Semigroup[M[A]]</span>,<span name="q">q: Pure[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#➝➝:">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">➝➝:</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="p">p: Plus[M[_][_]]</span>,<span name="q">q: Pure[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#➡➡">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">➡➡</span>
+        
+        <span class="params">(<span name="f">f: (A) ⇒ Unit</span>)</span><span class="params">(<span name="e">e: Each[M[_][_]]</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.MA#⟴⟴">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">⟴⟴</span>
+        
+        <span class="params">(<span name="z">z: ⇒ M[A]</span>)</span><span class="params">(<span name="p">p: Plus[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

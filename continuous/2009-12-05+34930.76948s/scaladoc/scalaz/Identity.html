@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.Identity</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../lib/template.js"></script>
+    
+        </head>
+        <body class="type">
+      
+      <p id="owner"><a href="package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../lib/trait_big.png"></img>
+        <h1>Identity</h1>
+      </div>
+
+      <div class="signature">
+      <div class="kind">trait</div>
+      <div class="symbol">
+        <span class="name">Identity</span>
+        <span class="tparams">[<span name="A">A</span>]</span>
+        
+        <span class="result">extends<span>AnyRef</span></span>
+      </div>
+        </div>
+      
+      
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.Identity#&lt;===&gt;">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">&lt;===&gt;</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="m">m: MetricSpace[A]</span>)</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#?|?">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">?|?</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Ordering</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#assert_≟">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">assert_≟</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="b">b: B</span>)</span><span class="params">(<span name="e">e: Equal[A]</span>,<span name="s">s: Show[A]</span>,<span name="ev">ev: $less$colon$less[B, A]</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#constantState">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">constantState</span>
+        <span class="tparams">[<span name="S">S</span>,<span name="A">A</span>]</span>
+        <span class="params">(<span name="s">s: ⇒ S</span>)</span>
+        <span class="result">:<span>((S) ⇒ (S, A), A)</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#dlist">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">dlist</span>
+        
+        
+        <span class="result">:<span>DList[A]</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#equals">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="o">o: Any</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scalaz.Identity#fail">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">fail</span>
+        <span class="tparams">[<span name="X">X</span>]</span>
+        
+        <span class="result">:<span>Validation[A, X]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#hashCode">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scalaz.Identity#iterate">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">iterate</span>
+        <span class="tparams">[<span name="M">M</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ A</span>)</span><span class="params">(<span name="p">p: Pure[M[_][_]]</span>,<span name="m">m: Monoid[M[A]]</span>)</span>
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#nel">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">nel</span>
+        
+        
+        <span class="result">:<span>NonEmptyList[A]</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#print">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">print</span>
+        
+        <span class="params">(<span name="s">s: Show[A]</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#println">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">println</span>
+        
+        <span class="params">(<span name="s">s: Show[A]</span>)</span>
+        <span class="result">:<span>Unit</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#repeat">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">repeat</span>
+        <span class="tparams">[<span name="M">M</span>]</span>
+        <span class="params">(<span name="p">p: Pure[M[_][_]]</span>,<span name="m">m: Monoid[M[A]]</span>)</span>
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#replicate">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">replicate</span>
+        <span class="tparams">[<span name="M">M</span>]</span>
+        <span class="params">(<span name="n">n: Int</span>)</span><span class="params">(<span name="p">p: Pure[M[_][_]]</span>,<span name="m">m: Monoid[M[A]]</span>)</span>
+        <span class="result">:<span>M[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#show">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">show</span>
+        
+        <span class="params">(<span name="s">s: Show[A]</span>)</span>
+        <span class="result">:<span>List[Char]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#shows">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">shows</span>
+        
+        <span class="params">(<span name="s">s: Show[A]</span>)</span>
+        <span class="result">:<span>String</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#state">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">state</span>
+        <span class="tparams">[<span name="S">S</span>]</span>
+        
+        <span class="result">:<span>State[S, A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#success">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">success</span>
+        <span class="tparams">[<span name="X">X</span>]</span>
+        
+        <span class="result">:<span>Validation[X, A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#text">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">text</span>
+        
+        <span class="params">(<span name="s">s: Show[A]</span>)</span>
+        <span class="result">:<span>Text</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#toString">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">toString</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>String</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li><li name="scalaz.Identity#unfold">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">unfold</span>
+        <span class="tparams">[<span name="M">M</span>,<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ Option[(B, A)]</span>)</span><span class="params">(<span name="p">p: Pure[M[_][_]]</span>,<span name="m">m: Monoid[M[B]]</span>)</span>
+        <span class="result">:<span>M[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#unfoldTree">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">unfoldTree</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ (B, () ⇒ Stream[A])</span>)</span>
+        <span class="result">:<span>Tree[B]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#unfoldTreeM">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">unfoldTreeM</span>
+        <span class="tparams">[<span name="B">B</span>,<span name="M">M</span>]</span>
+        <span class="params">(<span name="f">f: (A) ⇒ M[(B, Stream[A])]</span>)</span><span class="params">(<span name="m">m: Monad[M[_][_]]</span>)</span>
+        <span class="result">:<span>M[Tree[B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#value">
+      <div class="signature">
+      <div class="kind">val</div>
+      <div class="symbol">
+        <span class="name">value</span>
+        
+        
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>abstract</li></ol>
+      
+    </li><li name="scalaz.Identity#zipper">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">zipper</span>
+        
+        
+        <span class="result">:<span>Zipper[A]</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#η">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">η</span>
+        <span class="tparams">[<span name="F">F</span>]</span>
+        <span class="params">(<span name="p">p: Pure[F[_][_]]</span>)</span>
+        <span class="result">:<span>F[A]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#σ">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">σ</span>
+        
+        
+        <span class="result">:<span>Dual[A]</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#≟≟">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≟≟</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="e">e: Equal[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≠≠">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≠≠</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="e">e: Equal[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≤≤">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≤≤</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≥≥">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≥≥</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≨≨">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≨≨</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≩≩">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≩≩</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≮≮">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≮≮</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≯≯">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≯≯</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≰≰">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≰≰</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≱≱">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">≱≱</span>
+        
+        <span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: Order[A]</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#⊹⊹">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">⊹⊹</span>
+        
+        <span class="params">(<span name="a">a: ⇒ A</span>)</span><span class="params">(<span name="s">s: Semigroup[A]</span>)</span>
+        <span class="result">:<span>A</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>
