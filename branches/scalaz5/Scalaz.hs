@@ -30,6 +30,24 @@ import Data.List hiding (find)
 import Data.Time.Clock
 import Data.Time.Calendar
 
+commitMessage :: String
+commitMessage = "\"Automated build (Scalaz.hs)\""
+
+repo :: String
+repo = "https://scalaz.googlecode.com/svn"
+
+repo' :: String -> String
+repo' = (repo ++) . ('/' :)
+
+continuous :: String
+continuous = repo' "continuous"
+
+trunk :: String
+trunk = repo' "trunk"
+
+artifacts :: String
+artifacts = repo' "artifacts"
+
 exampleDir = "example"  </> "src" </> "main" </> "scala"
 mainDir = "core"  </> "src" </> "main" </> "scala"
 testDir = "core"  </> "src" </> "test" </> "scala"
@@ -159,15 +177,6 @@ archive = mkdir buildJar >>
 
 data ReleaseType = Release | PreRelease | ReleaseCandidate deriving (Eq, Show)
 
-rel :: ReleaseType
-rel = Release
-
-pre :: ReleaseType
-pre = PreRelease
-
-rc :: ReleaseType
-rc = ReleaseCandidate
-
 release :: ReleaseType -> IO ExitCode
 release t = let c = copyFiles nosvn nosvnf
             in do clean
@@ -180,6 +189,16 @@ release t = let c = copyFiles nosvn nosvnf
                   c etcDir buildScalaz
                   mkdir buildRelease
                   jar ("-cvfM " ++ buildRelease </> "scalaz.zip" ++ " -C " ++ build ++ " scalaz")
+
+svn :: String -> IO ExitCode
+svn k = system ("svn " ++ k)
+
+-- todo
+pre :: IO ExitCode
+pre = do release PreRelease
+         t <- readFile (buildScalaz </> "time")
+         svn ("import " ++ buildScalaz ++ " " ++ continuous ++ '/' : t  ++ " -m " ++ commitMessage)
+
 
 nosvn :: FilePather Bool
 nosvn = fileName /=? ".svn"
