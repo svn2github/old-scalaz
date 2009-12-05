@@ -29,7 +29,6 @@ import Control.Monad
 import Data.List hiding (find)
 import Data.Time.Clock
 import Data.Time.Calendar
-import Codec.Archive.Zip
 
 exampleDir = "example"  </> "src" </> "main" </> "scala"
 mainDir = "core"  </> "src" </> "main" </> "scala"
