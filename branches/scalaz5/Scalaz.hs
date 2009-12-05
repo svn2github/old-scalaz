@@ -142,4 +142,7 @@ archive = mkdir buildJar >>
           main >>>>
           example >>>>
           test >>>>
-          jar ("-cvfm " ++ buildJar' ++ " " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF -C " ++ buildScalaz ++ " scalaversion -C " ++ buildClasses ++ " .")
+          let z = intercalate " " (fmap (\(d, f) -> "-C " ++ d ++ " " ++ f) [(buildScalaz, "scalaversion"), (buildScalaz, "scalazversion"), (buildScalaz, "time"), (buildScalaz, "scalacversion")])
+              r = "-cvfm " ++ buildJar' ++ " " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF " ++ z ++ " -C " ++ buildClasses ++ " ."
+          in jar r
+
