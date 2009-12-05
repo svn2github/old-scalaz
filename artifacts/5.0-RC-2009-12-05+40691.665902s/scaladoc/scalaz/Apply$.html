@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.Apply</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../lib/object_big.png"></img>
+        <h1>Apply</h1>
+      </div>
+
+      <div class="signature">
+      <div class="kind">object</div>
+      <div class="symbol">
+        <span class="name">Apply</span>
+        
+        
+        <span class="result">extends<span>AnyRef</span></span>
+      </div>
+        </div>
+      
+      
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.Apply#EitherLeftApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">EitherLeftApply</span>
+        <span class="tparams">[<span name="X">X</span>]</span>
+        
+        <span class="result">:<span>Apply[LeftProjection[B, X][B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#EitherRightApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">EitherRightApply</span>
+        <span class="tparams">[<span name="X">X</span>]</span>
+        
+        <span class="result">:<span>Apply[RightProjection[X, B][B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Function0Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Function0Apply</span>
+        
+        
+        <span class="result">:<span>Apply[() ⇒ R[R]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Function1Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Function1Apply</span>
+        <span class="tparams">[<span name="R">R</span>]</span>
+        
+        <span class="result">:<span>Apply[(R) ⇒ B[B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Function2Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Function2Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>]</span>
+        
+        <span class="result">:<span>Apply[(R, S) ⇒ C[C]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Function3Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Function3Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>]</span>
+        
+        <span class="result">:<span>Apply[(R, S, T) ⇒ D[D]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Function4Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Function4Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>,<span name="U">U</span>]</span>
+        
+        <span class="result">:<span>Apply[(R, S, T, U) ⇒ E[E]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Function5Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Function5Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>,<span name="U">U</span>,<span name="V">V</span>]</span>
+        
+        <span class="result">:<span>Apply[(R, S, T, U, V) ⇒ F[F]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Function6Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Function6Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>,<span name="U">U</span>,<span name="V">V</span>,<span name="W">W</span>]</span>
+        
+        <span class="result">:<span>Apply[(R, S, T, U, V, W) ⇒ G[G]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#GenericArrayApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">GenericArrayApply</span>
+        
+        
+        <span class="result">:<span>Apply[GenericArray[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#IdentityApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">IdentityApply</span>
+        
+        
+        <span class="result">:<span>Apply[Identity[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaArrayBlockingQueueApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaArrayBlockingQueueApply</span>
+        
+        
+        <span class="result">:<span>Apply[ArrayBlockingQueue[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaArrayListApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaArrayListApply</span>
+        
+        
+        <span class="result">:<span>Apply[ArrayList[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaConcurrentLinkedQueueApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaConcurrentLinkedQueueApply</span>
+        
+        
+        <span class="result">:<span>Apply[ConcurrentLinkedQueue[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaCopyOnWriteArrayListApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaCopyOnWriteArrayListApply</span>
+        
+        
+        <span class="result">:<span>Apply[CopyOnWriteArrayList[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaLinkedBlockingQueueApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaLinkedBlockingQueueApply</span>
+        
+        
+        <span class="result">:<span>Apply[LinkedBlockingQueue[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaLinkedListApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaLinkedListApply</span>
+        
+        
+        <span class="result">:<span>Apply[LinkedList[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaPriorityQueueApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaPriorityQueueApply</span>
+        
+        
+        <span class="result">:<span>Apply[PriorityQueue[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaStackApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaStackApply</span>
+        
+        
+        <span class="result">:<span>Apply[Stack[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaSynchronousQueueApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaSynchronousQueueApply</span>
+        
+        
+        <span class="result">:<span>Apply[SynchronousQueue[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#JavaVectorApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">JavaVectorApply</span>
+        
+        
+        <span class="result">:<span>Apply[Vector[E][E]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#ListApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">ListApply</span>
+        
+        
+        <span class="result">:<span>Apply[List[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#NonEmptyListApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">NonEmptyListApply</span>
+        
+        
+        <span class="result">:<span>Apply[NonEmptyList[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#OptionApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">OptionApply</span>
+        
+        
+        <span class="result">:<span>Apply[Option[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#StateApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">StateApply</span>
+        <span class="tparams">[<span name="S">S</span>]</span>
+        
+        <span class="result">:<span>Apply[State[S, B][B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#StreamApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">StreamApply</span>
+        
+        
+        <span class="result">:<span>Apply[Stream[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#TreeApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">TreeApply</span>
+        
+        
+        <span class="result">:<span>Apply[Tree[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Tuple1Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Tuple1Apply</span>
+        
+        
+        <span class="result">:<span>Apply[(T1)[T1]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Tuple2Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Tuple2Apply</span>
+        <span class="tparams">[<span name="R">R</span>]</span>
+        <span class="params">(<span name="sr">sr: Semigroup[R]</span>)</span>
+        <span class="result">:<span>Apply[(R, B)[B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Tuple3Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Tuple3Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>]</span>
+        <span class="params">(<span name="sr">sr: Semigroup[R]</span>,<span name="ss">ss: Semigroup[S]</span>)</span>
+        <span class="result">:<span>Apply[(R, S, C)[C]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Tuple4Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Tuple4Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>]</span>
+        <span class="params">(<span name="sr">sr: Semigroup[R]</span>,<span name="ss">ss: Semigroup[S]</span>,<span name="st">st: Semigroup[T]</span>)</span>
+        <span class="result">:<span>Apply[(R, S, T, D)[D]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Tuple5Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Tuple5Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>,<span name="U">U</span>]</span>
+        <span class="params">(<span name="sr">sr: Semigroup[R]</span>,<span name="ss">ss: Semigroup[S]</span>,<span name="st">st: Semigroup[T]</span>,<span name="su">su: Semigroup[U]</span>)</span>
+        <span class="result">:<span>Apply[(R, S, T, U, E)[E]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Tuple6Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Tuple6Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>,<span name="U">U</span>,<span name="V">V</span>]</span>
+        <span class="params">(<span name="sr">sr: Semigroup[R]</span>,<span name="ss">ss: Semigroup[S]</span>,<span name="st">st: Semigroup[T]</span>,<span name="su">su: Semigroup[U]</span>,<span name="sv">sv: Semigroup[V]</span>)</span>
+        <span class="result">:<span>Apply[(R, S, T, U, V, F)[F]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#Tuple7Apply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">Tuple7Apply</span>
+        <span class="tparams">[<span name="R">R</span>,<span name="S">S</span>,<span name="T">T</span>,<span name="U">U</span>,<span name="V">V</span>,<span name="W">W</span>]</span>
+        <span class="params">(<span name="sr">sr: Semigroup[R]</span>,<span name="ss">ss: Semigroup[S]</span>,<span name="st">st: Semigroup[T]</span>,<span name="su">su: Semigroup[U]</span>,<span name="sv">sv: Semigroup[V]</span>,<span name="sw">sw: Semigroup[W]</span>)</span>
+        <span class="result">:<span>Apply[(R, S, T, U, V, W, G)[G]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#ValidationApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">ValidationApply</span>
+        <span class="tparams">[<span name="X">X</span>]</span>
+        <span class="params">(<span name="s">s: Semigroup[X]</span>)</span>
+        <span class="result">:<span>Apply[Validation[X, B][B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#ValidationFailureApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">ValidationFailureApply</span>
+        <span class="tparams">[<span name="X">X</span>]</span>
+        
+        <span class="result">:<span>Apply[FailProjection[B, X][B]]</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#ZipStreamApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">ZipStreamApply</span>
+        
+        
+        <span class="result">:<span>Apply[ZipStream[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Apply#ZipTreeApply">
+      <div class="signature">
+      <div class="kind">val</div>
+      <div class="symbol">
+        <span class="name">ZipTreeApply</span>
+        
+        
+        <span class="result">:<span>Apply[Tree[A][A]]</span></span>
+      </div>
+        </div>
+      
+      
+      
+    </li><li name="scalaz.Apply#ZipperApply">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">ZipperApply</span>
+        
+        
+        <span class="result">:<span>Apply[Zipper[A][A]]</span></span>
+      </div>
+        </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: Any</span>)</span>
+        <span class="result">:<span>Boolean</span></span>
+      </div>
+        </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>Int</span></span>
+      </div>
+        </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <div class="kind">def</div>
+      <div class="symbol">
+        <span class="name">toString</span>
+        
+        <span class="params">()</span>
+        <span class="result">:<span>String</span></span>
+      </div>
+        </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>
