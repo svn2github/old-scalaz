@@ -35,6 +35,7 @@ exampleDir = "example"  </> "src" </> "main" </> "scala"
 mainDir = "core"  </> "src" </> "main" </> "scala"
 testDir = "core"  </> "src" </> "test" </> "scala"
 resourcesDir = "resources"
+etcDir = "etc"
 
 build = "build"
 buildClasses = build </> "classes"
@@ -43,6 +44,7 @@ buildScaladoc = buildScalaz </> "scaladoc"
 buildJar = buildScalaz
 jarFile = "scalaz.jar"
 buildJar' = buildJar </> jarFile
+buildRelease = build </> "release"
 
 type Version = String
 
@@ -167,7 +169,7 @@ pre = PreRelease
 rc :: ReleaseType
 rc = ReleaseCandidate
 
-release :: ReleaseType -> IO ()
+release :: ReleaseType -> IO ExitCode
 release t = let c = copyFiles nosvn nosvnf
             in do clean
                   scaladoc
@@ -176,6 +178,8 @@ release t = let c = copyFiles nosvn nosvnf
                   c mainDir (buildScalaz </> "src")
                   c testDir (buildScalaz </> "test")
                   c exampleDir (buildScalaz </> "example")
+                  c etcDir buildScalaz
+                  jar ("-cvfM scalaz.zip -C " ++ build ++ " scalaz")
 
 nosvn :: FilePather Bool
 nosvn = fileName /=? ".svn"
