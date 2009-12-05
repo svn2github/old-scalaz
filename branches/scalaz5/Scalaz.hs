@@ -25,6 +25,9 @@ import System.Cmd
 import System.Process
 import System.Exit
 import Data.List hiding (find)
+import Data.Time.Clock
+import Data.Time.Calendar
+import Codec.Archive.Zip
 
 exampleDir = "example"  </> "src" </> "main" </> "scala"
 mainDir = "core"  </> "src" </> "main" </> "scala"
@@ -32,9 +35,12 @@ testDir = "core"  </> "src" </> "test" </> "scala"
 resourcesDir = "resources"
 
 build = "build"
-buildScaladoc = build </> "scaladoc"
 buildClasses = build </> "classes"
-buildJar = build </> "jar"
+buildScalaz = build </> "scalaz"
+buildScaladoc = buildScalaz </> "scaladoc"
+buildJar = buildScalaz
+jarFile = "scalaz.jar"
+buildJar' = buildJar </> jarFile
 
 type Version = String
 
@@ -109,7 +115,7 @@ sversion c f = do (ec, o, e) <- readProcessWithExitCode c ["-version"] []
                   return ec
 
 sbuildversion :: FilePath -> FilePath -> IO ExitCode
-sbuildversion c f = mkdir build >> sversion c (build </> f)
+sbuildversion c f = mkdir build >> sversion c (buildScalaz </> f)
 
 scalaversion :: IO ExitCode
 scalaversion = "scala" `sbuildversion` "scalaversion"
@@ -120,14 +126,20 @@ scalacversion = "scalac" `sbuildversion` "scalacversion"
 scaladocversion :: IO ExitCode
 scaladocversion = "scaladoc" `sbuildversion` "scaladocversion"
 
+scalazversion :: IO ()
+scalazversion = version' >>= writeFile (buildScalaz </> "scalazversion")
+
+time :: IO ()
+time = getCurrentTime >>= \t -> writeFile (buildScalaz </> "time") (show (utctDay t) ++ "+" ++ show (utctDayTime t))
+
 versions :: IO [ExitCode]
-versions = sequence [scalaversion, scalacversion, scaladocversion]
+versions = mkdir buildScalaz >> time >> scalazversion >> sequence [scalaversion, scalacversion, scaladocversion]
 
 -- Codec.Archive.Zip is too buggy, using jar instead
 archive :: IO ExitCode
 archive = mkdir buildJar >>
-          scalaversion >>
+          versions >>
           main >>>>
           example >>>>
           test >>>>
-          jar ("-cvfm " ++ buildJar </> "scalaz.jar " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF -C " ++ build ++ " scalaversion -C " ++ buildClasses ++ " .")
+          jar ("-cvfm " ++ buildJar' ++ " " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF -C " ++ buildScalaz ++ " scalaversion -C " ++ buildClasses ++ " .")
