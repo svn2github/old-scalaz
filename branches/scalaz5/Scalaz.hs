@@ -124,7 +124,10 @@ allExample :: IO ExitCode
 allExample = runExample "Example"
 
 repl :: IO ExitCode
-repl = example >>>> test >>>> scala (intercalate " " ["-i initrepl", cp])
+repl = example >>>> test >>>> qrepl
+
+qrepl :: IO ExitCode
+qrepl = scala (intercalate " " ["-i initrepl", cp])
 
 clean :: IO ()
 clean = rmdir build
