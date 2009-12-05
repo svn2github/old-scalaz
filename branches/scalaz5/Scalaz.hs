@@ -123,7 +123,6 @@ scaladocversion = "scaladoc" `sbuildversion` "scaladocversion"
 versions :: IO [ExitCode]
 versions = sequence [scalaversion, scalacversion, scaladocversion]
 
-
 -- Codec.Archive.Zip is too buggy, using jar instead
 archive :: IO ExitCode
 archive = mkdir buildJar >>
