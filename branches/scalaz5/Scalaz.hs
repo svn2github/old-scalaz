@@ -178,7 +178,8 @@ release t = let c = copyFiles nosvn nosvnf
                   c testDir (buildScalaz </> "test")
                   c exampleDir (buildScalaz </> "example")
                   c etcDir buildScalaz
-                  jar ("-cvfM scalaz.zip -C " ++ build ++ " scalaz")
+                  mkdir buildRelease
+                  jar ("-cvfM " ++ buildRelease </> "scalaz.zip" ++ " -C " ++ build ++ " scalaz")
 
 nosvn :: FilePather Bool
 nosvn = fileName /=? ".svn"
