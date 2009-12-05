@@ -24,9 +24,8 @@ import System.FilePath
 import System.Cmd
 import System.Process
 import System.Exit
-import Data.List
+import Data.List hiding (find)
 import Codec.Archive.Zip
-
 
 exampleDir = "example"  </> "src" </> "main" </> "scala"
 mainDir = "core"  </> "src" </> "main" </> "scala"
@@ -34,10 +33,8 @@ testDir = "core"  </> "src" </> "test" </> "scala"
 resourcesDir = "resources"
 
 build = "build"
-buildExample = build </> "example"
-buildMain = build </> "main"
-buildTest = build </> "test"
 buildScaladoc = build </> "scaladoc"
+buildClasses = build </> "classes"
 buildJar = build </> "jar"
 
 type Version = String
@@ -46,7 +43,7 @@ version' :: IO Version
 version' = readFile "version"
 
 cp :: String
-cp = "classpath" ~?? [buildExample, buildMain, buildTest]
+cp = "classpath" ~?? [buildClasses]
 
 s :: FilePath -> S.Scalac
 s d = S.scalac {
@@ -55,22 +52,22 @@ s d = S.scalac {
 }
 
 main' :: S.Scalac
-main' = s buildMain
+main' = s buildClasses
 
 main :: IO ExitCode
 main = main' +->- [mainDir]
 
 example' :: S.Scalac
-example' = main' >=>=> s buildExample
+example' = main' >=>=> s buildClasses
 
 example :: IO ExitCode
-example = main >>>> (example' +->- [exampleDir])
+example = main >>>> (example' ->- [exampleDir])
 
 test' :: S.Scalac
-test' = main' >=>=> s buildTest
+test' = main' >=>=> s buildClasses
 
 test :: IO ExitCode
-test = main >>>> (test' +->- [testDir])
+test = main >>>> (test' ->- [testDir])
 
 -- todo Update Lastik Scaladoc for Scala 2.8.0
 scaladoc' :: Version -> SD.Scaladoc
@@ -86,6 +83,10 @@ scaladoc = do v <- version'
 -- todo scala function in Lastik
 scala :: String -> IO ExitCode
 scala k = system ("scala " ++ k)
+
+-- todo jar function in Lastik
+jar :: String -> IO ExitCode
+jar k = system ("jar " ++ k)
 
 runExample' :: String -> IO ExitCode
 runExample' e = example >>>> scala (intercalate " " [cp, e])
@@ -108,14 +109,13 @@ nosvn = fileName /=? ".svn"
 nosvnf :: FilterPredicate
 nosvnf = constant nosvn ?&&? isFile
 
--- todo Codec.Archive.Zip is too buggy, use jar instead
-archive :: IO ()
-archive = main >>>> example >>>> test >>>>> do mkdir buildJar
-                                               writeArchive ([buildExample, buildMain, buildTest, resourcesDir] `zip` repeat ".")
-                                                 nosvn
-                                                 nosvnf
-                                                 [OptVerbose]
-                                                 (buildJar </> "scalaz.jar")
+-- Codec.Archive.Zip is too buggy, using jar instead
+archive :: IO ExitSuccess
+archive = mkdir buildJar >>
+          main >>>>
+          example >>>>
+          test >>>>
+          jar ("-cvfm " ++ buildJar </> "scalaz.jar " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF -C " ++ buildClasses ++ " .")
 
 sversion :: FilePath -> FilePath -> IO ExitCode
 sversion c f = do (ec, o, e) <- readProcessWithExitCode c ["-version"] []
