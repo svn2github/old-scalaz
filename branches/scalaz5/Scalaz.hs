@@ -132,13 +132,21 @@ scalazversion = version' >>= writeFile (buildScalaz </> "scalazversion")
 time :: IO ()
 time = getCurrentTime >>= \t -> writeFile (buildScalaz </> "time") (show (utctDay t) ++ "+" ++ show (utctDayTime t))
 
-versions :: IO [ExitCode]
-versions = mkdir buildScalaz >> time >> scalazversion >> sequence [scalaversion, scalacversion, scaladocversion]
+releasetype :: ReleaseType -> IO ()
+releasetype t = let r' Release = ("*", " ", " ")
+                    r' PreRelease = (" ", "*", " ")
+                    r' ReleaseCandidate = (" ", " ", "*")
+                    (a, b, c) = r' t
+                    z = "[" ++ a ++ "] Release\n[" ++ b ++ "] Pre-release\n[" ++ c ++ "] Release Candidate\n"
+                in writeFile (buildScalaz </> "releasetype") z
+
+meta :: IO [ExitCode]
+meta = mkdir buildScalaz >> time >> scalazversion >> sequence [scalaversion, scalacversion, scaladocversion]
 
 -- Codec.Archive.Zip is too buggy, using jar instead
 archive :: IO ExitCode
 archive = mkdir buildJar >>
-          versions >>
+          meta >>
           main >>>>
           example >>>>
           test >>>>
@@ -146,3 +154,12 @@ archive = mkdir buildJar >>
               r = "-cvfm " ++ buildJar' ++ " " ++ resourcesDir </> "META-INF" </> "MANIFEST.MF " ++ z ++ " -C " ++ buildClasses ++ " ."
           in jar r
 
+data ReleaseType = Release | PreRelease | ReleaseCandidate deriving (Eq, Show)
+
+pre = PreRelease
+rc = ReleaseCandidate
+
+release t = clean >>
+            scaladoc >>>>
+            archive >>
+            releasetype t
