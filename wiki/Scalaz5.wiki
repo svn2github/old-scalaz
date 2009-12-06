@@ -29,7 +29,7 @@ Scalaz 5.0 will target Scala 2.8.0.
     * scala.collection.immutable.Set
     * scala.Responder
     * java.util.concurrent.Callable
-    * java.util.Map.Entry[K, _]
+    * java.util.Map.Entry\[K, \_\]
   * Cofunctors
     * java.lang.Comparable
     * java.lang.Comparator
