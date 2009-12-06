@@ -24,7 +24,7 @@ Scalaz 5.0 will target Scala 2.8.0.
   * Monads
     * scala.util.parsing.Parsers.Parser
     * scala.util.parsing.combinator.Parsers.Parser
-    * collection.immutable.Set
+    * scala.collection.immutable.Set
     * scala.Responder
 
 
