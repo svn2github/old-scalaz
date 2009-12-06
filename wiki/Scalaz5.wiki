@@ -23,13 +23,14 @@ Scalaz 5.0 will target Scala 2.8.0.
   * Support / take advantage of the new collections hierarchy. e.g. can we just have a single instance of Pure for all collections?
   * Monads
     * scala.util.parsing.combinator.Parsers.Parser
+    * scala.util.parsing.combinator.Parsers.~
     * scala.util.parsing.combinator.Parsers.OnceParser
     * scala.util.parsing.combinator.Parsers.ParseResult
     * scala.util.parsing.combinator.Parsers.Success
     * scala.collection.immutable.Set
     * scala.Responder
     * java.util.concurrent.Callable
-    * java.util.Map.Entry\[K, \_\]
+    * java.util.Map.Entry[K, \_]
   * Cofunctors
     * java.lang.Comparable
     * java.lang.Comparator
