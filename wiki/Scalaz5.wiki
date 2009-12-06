@@ -37,15 +37,15 @@ Scalaz 5.0 will target Scala 2.8.0.
 
 = Partial Type Application =
 Possibly make type application nicer. The current PartialApplyNOfX#Apply and PartialApplyNOfX#Flip is a little cumbersome. I propose adding traits Curry and Flip:
-
+{{{
 trait Curry[T[_, _]] { trait C[Z] = { type Apply[Y] = T[Z, Y] }; type Apply[X] = C[X] }
 trait Flip[T[_, _]] { type Apply[X] = Curry[T]#Apply[X] }
-
+}}}
 To make the syntax nicer, define two type aliases:
-
+{{{
 type ![A, B] = Curry[A]#Apply[B]
 type ¡[A, B] = Flip[A]#Apply[B]
-
+}}}
 ... with Curry2, Curry3, etc, having aliases !!, !!!, etc.
 
 = Links =
