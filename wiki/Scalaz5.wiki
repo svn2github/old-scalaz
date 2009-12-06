@@ -21,6 +21,12 @@ Scalaz 5.0 will target Scala 2.8.0.
   * Is there a continuous build that works yet? -- jzaugg: I'll ping Dave Pollack again on this one...
   * Use unicode identifiers where appropriate. Include an ASCII equivalent if one doesn't already exist.
   * Support / take advantage of the new collections hierarchy. e.g. can we just have a single instance of Pure for all collections?
+  * Monads
+    * scala.util.parsing.Parsers.Parser
+    * scala.util.parsing.combinator.Parsers.Parser
+    * collection.immutable.Set
+    * scala.Responder
+
 
 = Links =
 
