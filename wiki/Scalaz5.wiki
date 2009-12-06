@@ -26,7 +26,10 @@ Scalaz 5.0 will target Scala 2.8.0.
     * scala.util.parsing.combinator.Parsers.Parser
     * scala.collection.immutable.Set
     * scala.Responder
-
+    * java.util.concurrent.Callable
+  * Cofunctors
+    * java.lang.Comparable
+    * java.lang.Comparator
 
 = Links =
 
