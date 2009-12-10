@@ -1,0 +1,202 @@
+* {
+	color: black;
+	text-decoration: none;
+	font-family: inherit;
+	font-size: inherit;
+	border-width: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	font-family: sans-serif;
+	font-size: 10pt;
+}
+
+a {
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#owner {
+	padding: 4px;
+	font-size: 12pt;
+	display: block;
+}
+
+.value #owner {
+	background-color: #ced8f4;
+}
+
+.type #owner {
+	background-color: #f4cece;
+}
+
+#definition {
+	display: block;
+	padding: 6px;
+}
+
+#definition > img {
+	float: left;
+}
+
+#definition > h1 {
+	padding: 12px 0 12px 6px;
+	color: white;
+	font-size: 24pt;
+	display: inline-block;
+}
+
+.value #definition {
+	background-color: #142556;
+}
+
+.type #definition {
+	background-color: #561414;
+}
+
+#comment {
+	padding-left: 8px;
+}
+
+#values > h3 {
+	color: white;
+	padding: 4px;
+	background-color: #142556;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+#types > h3 {
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size: 12pt;
+	background-color: #561414;
+}
+
+#constructors > h3 {
+	padding: 4px;
+	color: white;
+	font-weight: bold;
+	font-size: 12pt;
+	background-color: #000000;
+}
+
+.signature {
+	padding: 1px;
+	font-family: monospace;
+	font-size: 10pt;
+	clear: both;
+	display: block;
+	background-color: #dddddd;
+}
+
+.signature .kind {
+	text-align: right;
+	float: left;
+	width: 72px;
+}
+
+.signature .symbol {
+	display: block;
+	margin-left: 80px;
+}
+
+.signature .name {
+	display: inline-block;
+	font-weight: bold;
+}
+
+#values .signature .name {
+	color: #142556;
+}
+
+#types .signature .name {
+	color: #561414;
+}
+
+#template > div.members > ol {
+	background-color: white;
+}
+
+.members > ol > li {
+	display: block;
+}
+
+.members .paramcmts {
+	margin-left: 80px;
+}
+
+.members .paramcmts > li.tparam {
+	background-color: #ffcc66;
+	display: none;
+}
+
+.members .paramcmts > li.param {
+	background-color: #cc99ff;
+	display: none;
+}
+
+.members .attributes {
+	border-bottom-color: black;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-left: 80px;
+}
+
+.members .attributes > li {
+	padding: 2px;
+	font-size: 10pt;
+	display: inline-block;
+}
+
+.members .comment {
+	display: block;
+	margin-left: 80px;
+}
+
+.comment > p {
+	margin-bottom: 4px;
+	margin-top: 4px;
+	display: block;
+}
+
+#mbrsel {
+	padding: 4px;
+	background-color: #cccccc;
+	display: block;
+}
+
+#mbrsel > div > h3 {
+	padding: 4px;
+	display: block;
+	float: left;
+}
+
+#mbrsel > div > ol {
+	margin-left: 80px;
+}
+
+#mbrsel > div > ol > li {
+	display: block;
+	padding: 4px 8px 4px 8px;
+	font-weight: bold;
+	background-color: white;
+	display: inline-block;
+	cursor: crosshair;
+}
+
+#mbrsel > div > ol > li.in {
+	background-color: white;
+}
+
+#mbrsel > div > ol > li.out {
+	color: #888888;
+	background-color: #bbbbbb;
+}
+

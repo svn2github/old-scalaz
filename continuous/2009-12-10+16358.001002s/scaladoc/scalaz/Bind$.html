@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.Bind</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../lib/object_big.png"></img>
+        <h1>Bind</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Bind</span><span class="result"> extends AnyRef</span>
+      </span>
+      </div>
+      
+      
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.Bind#CallableBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">CallableBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.concurrent.Callable">Callable</span>[V][V]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#EitherLeftBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">EitherLeftBind</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.Either.LeftProjection">LeftProjection</span>[B, X][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#EitherRightBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">EitherRightBind</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.Either.RightProjection">RightProjection</span>[X, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Function0Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function0Bind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[() ⇒ R[R]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Function1Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function1Bind</span><span class="tparams">[<span name="R">R</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R) ⇒ B[B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Function2Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function2Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S) ⇒ C[C]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Function3Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function3Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T) ⇒ D[D]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Function4Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function4Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T, U) ⇒ E[E]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Function5Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function5Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T, U, V) ⇒ F[F]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Function6Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function6Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>, <span name="W">W</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T, U, V, W) ⇒ G[G]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#GenericArrayBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">GenericArrayBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.GenericArray">GenericArray</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#IdentityBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">IdentityBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="Identity.html" class="extype" name="scalaz.Identity">Identity</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaArrayBlockingQueueBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaArrayBlockingQueueBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.concurrent.ArrayBlockingQueue">ArrayBlockingQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaArrayListBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaArrayListBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.ArrayList">ArrayList</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaConcurrentLinkedQueueBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaConcurrentLinkedQueueBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.concurrent.ConcurrentLinkedQueue">ConcurrentLinkedQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaCopyOnWriteArrayListBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaCopyOnWriteArrayListBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.concurrent.CopyOnWriteArrayList">CopyOnWriteArrayList</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaLinkedBlockingQueueBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaLinkedBlockingQueueBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.concurrent.LinkedBlockingQueue">LinkedBlockingQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaLinkedListBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaLinkedListBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.LinkedList">LinkedList</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaPriorityQueueBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaPriorityQueueBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.PriorityQueue">PriorityQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaStackBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaStackBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.Stack">Stack</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaSynchronousQueueBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaSynchronousQueueBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.concurrent.SynchronousQueue">SynchronousQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#JavaVectorBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaVectorBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.Vector">Vector</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#ListBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ListBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#MapEntryBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">MapEntryBind</span><span class="tparams">[<span name="X">X</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[X]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="java.util.Map.Entry">Entry</span>[X, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#NonEmptyListBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">NonEmptyListBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#OptionBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">OptionBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.Option">Option</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#PromiseBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">PromiseBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="concurrent/Promise.html" class="extype" name="scalaz.concurrent.Promise">Promise</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#ResponderBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ResponderBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.Responder">Responder</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#StateBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">StateBind</span><span class="tparams">[<span name="S">S</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="State.html" class="extype" name="scalaz.State">State</a>[S, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#StreamBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">StreamBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.Stream">Stream</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#TreeBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">TreeBind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="Tree.html" class="extype" name="scalaz.Tree">Tree</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Tuple1Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple1Bind</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(T1)[T1]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Tuple2Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple2Bind</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[R]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, B)[B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Tuple3Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple3Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[R]</span>, <span name="arg1">arg1: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[S]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, C)[C]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Tuple4Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple4Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[R]</span>, <span name="arg1">arg1: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[S]</span>, <span name="arg2">arg2: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[T]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T, D)[D]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Tuple5Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple5Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[R]</span>, <span name="arg1">arg1: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[S]</span>, <span name="arg2">arg2: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[T]</span>, <span name="arg3">arg3: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[U]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T, U, E)[E]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Tuple6Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple6Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[R]</span>, <span name="arg1">arg1: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[S]</span>, <span name="arg2">arg2: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[T]</span>, <span name="arg3">arg3: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[U]</span>, <span name="arg4">arg4: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[V]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T, U, V, F)[F]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#Tuple7Bind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple7Bind</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>, <span name="W">W</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[R]</span>, <span name="arg1">arg1: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[S]</span>, <span name="arg2">arg2: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[T]</span>, <span name="arg3">arg3: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[U]</span>, <span name="arg4">arg4: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[V]</span>, <span name="arg5">arg5: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[W]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[(R, S, T, U, V, W, G)[G]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#ValidationBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ValidationBind</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="Validation.html" class="extype" name="scalaz.Validation">Validation</a>[X, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Bind#ValidationFailureBind">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ValidationFailureBind</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="FailProjection.html" class="extype" name="scalaz.FailProjection">FailProjection</a>[B, X][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>
