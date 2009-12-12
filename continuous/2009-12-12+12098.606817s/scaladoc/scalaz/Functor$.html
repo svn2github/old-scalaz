@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.Functor</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../lib/object_big.png"></img>
+        <h1>Functor</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Functor</span><span class="result"> extends AnyRef</span>
+      </span>
+      </div>
+      
+      
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.Functor#CallableFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">CallableFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.concurrent.Callable">Callable</span>[V][V]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#EitherLeftFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">EitherLeftFunctor</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="scala.Either.LeftProjection">LeftProjection</span>[B, X][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#EitherRightFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">EitherRightFunctor</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="scala.Either.RightProjection">RightProjection</span>[X, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Function0Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function0Functor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[() ⇒ R[R]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Function1Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function1Functor</span><span class="tparams">[<span name="R">R</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R) ⇒ B[B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Function2Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function2Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S) ⇒ C[C]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Function3Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function3Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T) ⇒ D[D]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Function4Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function4Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T, U) ⇒ E[E]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Function5Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function5Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T, U, V) ⇒ F[F]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Function6Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function6Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>, <span name="W">W</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T, U, V, W) ⇒ G[G]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#GenericArrayFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">GenericArrayFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="scala.collection.mutable.GenericArray">GenericArray</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#IdentityFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">IdentityFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="Identity.html" class="extype" name="scalaz.Identity">Identity</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaArrayBlockingQueueFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaArrayBlockingQueueFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.concurrent.ArrayBlockingQueue">ArrayBlockingQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaArrayListFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaArrayListFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.ArrayList">ArrayList</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaCollectionFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaCollectionFunctor</span><span class="tparams">[<span name="S">S</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Empty.html" class="extype" name="scalaz.Empty">Empty</a>[S[X][X]]</span>)</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[S[X][X]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Functor#JavaConcurrentLinkedQueueFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaConcurrentLinkedQueueFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.concurrent.ConcurrentLinkedQueue">ConcurrentLinkedQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaCopyOnWriteArrayListFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaCopyOnWriteArrayListFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.concurrent.CopyOnWriteArrayList">CopyOnWriteArrayList</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaLinkedBlockingQueueFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaLinkedBlockingQueueFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.concurrent.LinkedBlockingQueue">LinkedBlockingQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaLinkedListFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaLinkedListFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.LinkedList">LinkedList</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaPriorityQueueFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaPriorityQueueFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.PriorityQueue">PriorityQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaStackFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaStackFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.Stack">Stack</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaSynchronousQueueFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaSynchronousQueueFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.concurrent.SynchronousQueue">SynchronousQueue</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#JavaVectorFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">JavaVectorFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.Vector">Vector</span>[E][E]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#ListFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ListFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#MapEntryFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">MapEntryFunctor</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="java.util.Map.Entry">Entry</span>[X, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#NonEmptyListFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">NonEmptyListFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#OptionFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">OptionFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="scala.Option">Option</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#PromiseFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">PromiseFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="concurrent/Promise.html" class="extype" name="scalaz.concurrent.Promise">Promise</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#ResponderFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ResponderFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="scala.Responder">Responder</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#StateFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">StateFunctor</span><span class="tparams">[<span name="S">S</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="State.html" class="extype" name="scalaz.State">State</a>[S, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#StreamFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">StreamFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<span class="extype" name="scala.collection.immutable.Stream">Stream</span>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#TreeFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">TreeFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="Tree.html" class="extype" name="scalaz.Tree">Tree</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#TreeLocFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">TreeLocFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="TreeLoc.html" class="extype" name="scalaz.TreeLoc">TreeLoc</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Tuple1Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple1Functor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(T1)[T1]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Tuple2Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple2Functor</span><span class="tparams">[<span name="R">R</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, B)[B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Tuple3Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple3Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, C)[C]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Tuple4Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple4Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T, D)[D]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Tuple5Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple5Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T, U, E)[E]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Tuple6Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple6Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T, U, V, F)[F]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#Tuple7Functor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple7Functor</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>, <span name="W">W</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[(R, S, T, U, V, W, G)[G]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#ValidationFailureFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ValidationFailureFunctor</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="FailProjection.html" class="extype" name="scalaz.FailProjection">FailProjection</a>[B, X][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#ValidationFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ValidationFunctor</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="Validation.html" class="extype" name="scalaz.Validation">Validation</a>[X, B][B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#ZipStreamFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ZipStreamFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="ZipStream.html" class="extype" name="scalaz.ZipStream">ZipStream</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scalaz.Functor#ZipperFunctor">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ZipperFunctor</span><span class="result">: <a href="Functor.html" class="extype" name="scalaz.Functor">Functor</a>[<a href="Zipper.html" class="extype" name="scalaz.Zipper">Zipper</a>[A][A]]</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>implicit</li></ol>
+      
+    </li><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

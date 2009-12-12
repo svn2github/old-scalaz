@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http.servlet.HttpServletRequest</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="../../package.html">scalaz</a>.<a href="../package.html">http</a>.<a href="package.html">servlet</a></p>
+
+      <div id="definition">
+        <img src="../../../lib/object_big.png"></img>
+        <h1>HttpServletRequest</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">HttpServletRequest</span><span class="result"> extends <a href="HttpServletRequests.html" class="extype" name="scalaz.http.servlet.HttpServletRequests">HttpServletRequests</a></span>
+      </span>
+      </div>
+      
+      <div id="comment"><p>A wrapper around Java Servlet <code>HttpServletRequest</code>.</p></div>
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scalaz.http.servlet.HttpServletRequests">HttpServletRequests</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.http.servlet.HttpServletRequests#HttpServletRequestRequest">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">HttpServletRequestRequest</span><span class="params">(<span name="r">r: <span class="extype" name="javax.servlet.http.HttpServletRequest">HttpServletRequest</span></span>)</span><span class="result">: <a href="HttpServletRequest.html" class="extype" name="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      <div class="comment"><p>Wraps the given Java Servlet HTTP request.</p></div>
+    </li><li name="scalaz.http.servlet.HttpServletRequest.MethodPath">
+      <a href="HttpServletRequest$$MethodPath$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">MethodPath</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.servlet.HttpServletRequest.Path">
+      <a href="HttpServletRequest$$Path$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Path</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.servlet.HttpServletRequests#RequestHttpServletRequest">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">RequestHttpServletRequest</span><span class="params">(<span name="request">request: <a href="HttpServletRequest.html" class="extype" name="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a></span>)</span><span class="result">: <span class="extype" name="javax.servlet.http.HttpServletRequest">HttpServletRequest</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>implicit</li></ol>
+      <div class="comment"><p>Unwraps the given HTTP request into a servlet HTTP request.</p></div>
+    </li><li name="scalaz.http.servlet.HttpServletRequest#c">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">c</span><span class="tparams">[<span name="IN">IN</span>]</span><span class="params">(<span name="r">r: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>)</span><span class="params">(<span name="request">request: <a href="HttpServletRequest.html" class="extype" name="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a></span>)</span><span class="result">: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Removes the length of the context path of the given servlet request unless it is empty.</p></div>
+    </li><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scalaz.http.servlet.HttpServletRequest#link">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">link</span><span class="params">(<span name="s">s: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="request">request: <a href="HttpServletRequest.html" class="extype" name="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Prepends the context path of the given HTTP servlet request to the given argument. This is useful for creating
+anchor tags in HTML documents.</p></div>
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

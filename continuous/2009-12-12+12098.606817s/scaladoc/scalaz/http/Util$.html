@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http.Util</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="../package.html">scalaz</a>.<a href="package.html">http</a></p>
+
+      <div id="definition">
+        <img src="../../lib/object_big.png"></img>
+        <h1>Util</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Util</span><span class="result"> extends AnyRef</span>
+      </span>
+      </div>
+      
+      <div id="comment"><p>Utility functions not specific to any particular context within HTTP.
+</p></div>
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        <div class="members" id="types">
+              <h3>Type Members</h3>
+              <ol><li name="scalaz.http.Util.AsHashMap">
+      <a href="Util$$AsHashMap.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">AsHashMap</span><span class="tparams">[<span name="T">T</span>, <span name="SM">SM</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li></ol>
+            </div>
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.http.Util.Digits">
+      <a href="Util$$Digits$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Digits</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.Util.Nel">
+      <a href="Util$$Nel$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Nel</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.Util#asHashMap">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">asHashMap</span><span class="tparams">[<span name="T">T</span>, <span name="SM">SM</span>]</span><span class="result">: <a href="Util$$AsHashMap.html" class="extype" name="scalaz.http.Util.AsHashMap">AsHashMap</a>[T[_][_], SM[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Indexes the given sequence of key/value pairs using an empty hash-map. The key/value pair type constructor must
+support fold-left and the index is created in constant space.</p></div>
+    </li><li name="scalaz.http.Util#asMap">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">asMap</span><span class="tparams">[<span name="T">T</span>, <span name="SM">SM</span>, <span name="K">K</span>, <span name="V">V</span>]</span><span class="params">(<span name="e">e: <span class="extype" name="scala.collection.immutable.Map">Map</span>[K, SM[V]]</span>, <span name="kvs">kvs: T[(K, V)]</span>)</span><span class="params">(<span name="f">f: <a href="../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[T[_][_]]</span>, <span name="s">s: <a href="../Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[SM[V]]</span>, <span name="md">md: <a href="../Monad.html" class="extype" name="scalaz.Monad">Monad</a>[SM[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[K, SM[V]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Indexes the given sequence of key/value pairs using the given map. The key/value pair type constructor must support
+fold-left and the index is created in constant space.</p></div>
+    </li><li name="scalaz.http.Util#encode">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">encode</span><span class="params">(<span name="p">p: (<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="java.lang.String">String</span>)*</span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Encodes the given parameters by inserting an ampersand (<code>&</code>) between each pair and an equals sign
+(<code>=</code>) with each pair.</p></div>
+    </li><li name="scalaz.http.Util#encodeParameters">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">encodeParameters</span><span class="params">(<span name="p">p: (<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>], <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>])*</span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Encodes the given parameters by inserting an ampersand (<code>&</code>) between each pair and an equals sign
+(<code>=</code>) with each pair.</p></div>
+    </li><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scalaz.http.Util#mapHeads">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">mapHeads</span><span class="tparams">[<span name="K">K</span>, <span name="C">C</span>]</span><span class="params">(<span name="p">p: <span class="extype" name="scala.collection.immutable.Map">Map</span>[K, <a href="../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[C]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[K, C]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Returns a map of key/value pairs where only the first value for the given key is available.</p></div>
+    </li><li name="scalaz.http.Util#parameters">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">parameters</span><span class="params">(<span name="p">p: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[(<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>], <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>])]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Splits the given argument by ampersand (<code>&</code>) then each list again by the equals sign (<code>=</code>).
+e.g. <code>parameters("a=b&c=d&e=f") == [("a", "b"), ("c", "d"), ("e", "f")]</code></p></div>
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.Identity</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../lib/template.js"></script>
+    
+        </head>
+        <body class="type">
+      
+      <p id="owner"><a href="package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../lib/trait_big.png"></img>
+        <h1>Identity</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Identity</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </div>
+      
+      
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.Identity#&lt;===&gt;">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">&lt;===&gt;</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="m">m: <a href="MetricSpace.html" class="extype" name="scalaz.MetricSpace">MetricSpace</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#?|?">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">?|?</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <a href="Ordering.html" class="extype" name="scalaz.Ordering">Ordering</a></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#assert_≟">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">assert_≟</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="b">b: B</span>)</span><span class="params">(<span name="e">e: <a href="Equal.html" class="extype" name="scalaz.Equal">Equal</a>[A]</span>, <span name="s">s: <a href="Show.html" class="extype" name="scalaz.Show">Show</a>[A]</span>, <span name="ev">ev: <span class="extype" name="scala.Predef.&lt;:&lt;">&lt;:&lt;</span>[B, A]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#constantState">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">constantState</span><span class="tparams">[<span name="S">S</span>]</span><span class="params">(<span name="s">s: ⇒ S</span>)</span><span class="result">: <a href="State.html" class="extype" name="scalaz.State">State</a>[S, A]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#dlist">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">dlist</span><span class="result">: <a href="DList.html" class="extype" name="scalaz.DList">DList</a>[A]</span>
+      </span>
+      </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#doWhile">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">doWhile</span><span class="params">(<span name="f">f: (A) ⇒ A</span>, <span name="p">p: (A) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: A</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#equals">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="o">o: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scalaz.Identity#fail">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">fail</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Validation.html" class="extype" name="scalaz.Validation">Validation</a>[A, X]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#hashCode">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scalaz.Identity#iterate">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">iterate</span><span class="tparams">[<span name="M">M</span>]</span><span class="params">(<span name="f">f: (A) ⇒ A</span>)</span><span class="params">(<span name="p">p: <a href="Pure.html" class="extype" name="scalaz.Pure">Pure</a>[M[_][_]]</span>, <span name="m">m: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M[A]]</span>)</span><span class="result">: M[A]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#nel">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">nel</span><span class="result">: <a href="NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[A]</span>
+      </span>
+      </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#print">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">print</span><span class="params">(<span name="s">s: <a href="Show.html" class="extype" name="scalaz.Show">Show</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#println">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">println</span><span class="params">(<span name="s">s: <a href="Show.html" class="extype" name="scalaz.Show">Show</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#repeat">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">repeat</span><span class="tparams">[<span name="M">M</span>]</span><span class="params">(<span name="p">p: <a href="Pure.html" class="extype" name="scalaz.Pure">Pure</a>[M[_][_]]</span>, <span name="m">m: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M[A]]</span>)</span><span class="result">: M[A]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#replicate">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">replicate</span><span class="tparams">[<span name="M">M</span>]</span><span class="params">(<span name="n">n: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="params">(<span name="p">p: <a href="Pure.html" class="extype" name="scalaz.Pure">Pure</a>[M[_][_]]</span>, <span name="m">m: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M[A]]</span>)</span><span class="result">: M[A]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#show">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">show</span><span class="params">(<span name="s">s: <a href="Show.html" class="extype" name="scalaz.Show">Show</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#shows">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">shows</span><span class="params">(<span name="s">s: <a href="Show.html" class="extype" name="scalaz.Show">Show</a>[A]</span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#state">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">state</span><span class="tparams">[<span name="S">S</span>]</span><span class="result">: <a href="State.html" class="extype" name="scalaz.State">State</a>[S, A]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#success">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">success</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Validation.html" class="extype" name="scalaz.Validation">Validation</a>[X, A]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#text">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">text</span><span class="params">(<span name="s">s: <a href="Show.html" class="extype" name="scalaz.Show">Show</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.xml.Text">Text</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#toRadians">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toRadians</span><span class="params">(<span name="r">r: <a href="geo/Radians.html" class="extype" name="scalaz.geo.Radians">Radians</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#toString">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>override</li></ol>
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li><li name="scalaz.Identity#unfold">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">unfold</span><span class="tparams">[<span name="M">M</span>, <span name="B">B</span>]</span><span class="params">(<span name="f">f: (A) ⇒ <span class="extype" name="scala.Option">Option</span>[(B, A)]</span>)</span><span class="params">(<span name="p">p: <a href="Pure.html" class="extype" name="scalaz.Pure">Pure</a>[M[_][_]]</span>, <span name="m">m: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M[B]]</span>)</span><span class="result">: M[B]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#unfoldTree">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">unfoldTree</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (A) ⇒ (B, () ⇒ <span class="extype" name="scala.collection.immutable.Stream">Stream</span>[A])</span>)</span><span class="result">: <a href="Tree.html" class="extype" name="scalaz.Tree">Tree</a>[B]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#unfoldTreeM">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">unfoldTreeM</span><span class="tparams">[<span name="B">B</span>, <span name="M">M</span>]</span><span class="params">(<span name="f">f: (A) ⇒ M[(B, <span class="extype" name="scala.collection.immutable.Stream">Stream</span>[A])]</span>)</span><span class="params">(<span name="m">m: <a href="Monad.html" class="extype" name="scalaz.Monad">Monad</a>[M[_][_]]</span>)</span><span class="result">: M[<a href="Tree.html" class="extype" name="scalaz.Tree">Tree</a>[B]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#value">
+      <div class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">value</span><span class="result">: A</span>
+      </span>
+      </div>
+      
+      <ol class="attributes"><li>abstract</li></ol>
+      
+    </li><li name="scalaz.Identity#whileDo">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">whileDo</span><span class="params">(<span name="f">f: (A) ⇒ A</span>, <span name="p">p: (A) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: A</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#zipper">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">zipper</span><span class="result">: <a href="Zipper.html" class="extype" name="scalaz.Zipper">Zipper</a>[A]</span>
+      </span>
+      </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#η">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">η</span><span class="tparams">[<span name="F">F</span>]</span><span class="params">(<span name="p">p: <a href="Pure.html" class="extype" name="scalaz.Pure">Pure</a>[F[_][_]]</span>)</span><span class="result">: F[A]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#σ">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">σ</span><span class="result">: <a href="Dual.html" class="extype" name="scalaz.Dual">Dual</a>[A]</span>
+      </span>
+      </div>
+      
+      
+      
+    </li><li name="scalaz.Identity#≟">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≟</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="e">e: <a href="Equal.html" class="extype" name="scalaz.Equal">Equal</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≠">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≠</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="e">e: <a href="Equal.html" class="extype" name="scalaz.Equal">Equal</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≤">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≤</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≥">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≥</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≨">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≨</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≩">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≩</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≮">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≮</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≯">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≯</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≰">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≰</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#≱">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">≱</span><span class="params">(<span name="a">a: A</span>)</span><span class="params">(<span name="o">o: <a href="Order.html" class="extype" name="scalaz.Order">Order</a>[A]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li><li name="scalaz.Identity#⊹">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">⊹</span><span class="params">(<span name="a">a: ⇒ A</span>)</span><span class="params">(<span name="s">s: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[A]</span>)</span><span class="result">: A</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

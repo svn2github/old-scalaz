@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http.response</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="../../package.html">scalaz</a>.<a href="../package.html">http</a></p>
+
+      <div id="definition">
+        <img src="../../../lib/package_big.png"></img>
+        <h1>response</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">response</span>
+      </span>
+      </div>
+      
+      
+      
+      <div id="template">
+      
+        
+        
+        <div class="members" id="types">
+              <h3>Type Members</h3>
+              <ol><li name="scalaz.http.response.Body">
+      <a href="Body.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Body</span><span class="tparams">[<span name="OUT">OUT</span>, <span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>Type constructors that can be used in request and response bodies.
+</p></div>
+    </li><li name="scalaz.http.response.Bodys">
+      <a href="Bodys.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Bodys</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.response.ContentTypeResolver">
+      <a href="ContentTypeResolver.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">ContentTypeResolver</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>A function to resolve a content-type given a file extension.
+</p></div>
+    </li><li name="scalaz.http.response.Response">
+      <a href="Response.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Response</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>HTTP response.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6">RFC 2616 Section 6 Response</a>.
+</p></div>
+    </li><li name="scalaz.http.response.ResponseHeader">
+      <a href="ResponseHeader.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">ResponseHeader</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>HTTP response headers.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14">RFC 2616 Section 14 Header Field Definitions</a>.
+</p></div>
+    </li><li name="scalaz.http.response.ResponseHeaders">
+      <a href="ResponseHeaders.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">ResponseHeaders</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.response.Status">
+      <a href="Status.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Status</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>HTTP response status codes.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10">RFC 2616 Section 10 Status Code Definitions</a>.
+</p></div>
+    </li><li name="scalaz.http.response.StatusLine">
+      <a href="StatusLine.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">StatusLine</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>HTTP response status line.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1">RFC 2616 Section 6.1 Status-Line</a>.
+</p></div>
+    </li></ol>
+            </div>
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.http.response.AcceptRanges">
+      <a href="AcceptRanges$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">AcceptRanges</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.5">§</a></p></div>
+    </li><li name="scalaz.http.response.Accepted">
+      <a href="Accepted$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Accepted</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3">§</a></p></div>
+    </li><li name="scalaz.http.response.Age">
+      <a href="Age$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Age</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.6">§</a></p></div>
+    </li><li name="scalaz.http.response.BadGateway">
+      <a href="BadGateway$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">BadGateway</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.3">§</a></p></div>
+    </li><li name="scalaz.http.response.BadRequest">
+      <a href="BadRequest$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">BadRequest</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1">§</a></p></div>
+    </li><li name="scalaz.http.response.Body">
+      <a href="Body$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Body</span><span class="result"> extends Bodys</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>Type constructors that can be used in request and response bodies.</p></div>
+    </li><li name="scalaz.http.response.Conflict">
+      <a href="Conflict$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Conflict</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.10">§</a></p></div>
+    </li><li name="scalaz.http.response.ContentTypeResolver">
+      <a href="ContentTypeResolver$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentTypeResolver</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>A function to resolve a content-type given a file extension.</p></div>
+    </li><li name="scalaz.http.response.Continue">
+      <a href="Continue$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Continue</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.1.1">§</a></p></div>
+    </li><li name="scalaz.http.response.Created">
+      <a href="Created$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Created</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2">§</a></p></div>
+    </li><li name="scalaz.http.response.ETag">
+      <a href="ETag$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ETag</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">§</a></p></div>
+    </li><li name="scalaz.http.response.ExpectationFailed">
+      <a href="ExpectationFailed$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ExpectationFailed</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.18">§</a></p></div>
+    </li><li name="scalaz.http.response.Forbidden">
+      <a href="Forbidden$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Forbidden</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4">§</a></p></div>
+    </li><li name="scalaz.http.response.Found">
+      <a href="Found$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Found</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3">§</a></p></div>
+    </li><li name="scalaz.http.response.GatewayTimeout">
+      <a href="GatewayTimeout$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">GatewayTimeout</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.5">§</a></p></div>
+    </li><li name="scalaz.http.response.Gone">
+      <a href="Gone$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Gone</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11">§</a></p></div>
+    </li><li name="scalaz.http.response.HTTPVersionNotSupported">
+      <a href="HTTPVersionNotSupported$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">HTTPVersionNotSupported</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.6">§</a></p></div>
+    </li><li name="scalaz.http.response.InternalServerError">
+      <a href="InternalServerError$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">InternalServerError</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1">§</a></p></div>
+    </li><li name="scalaz.http.response.LengthRequired">
+      <a href="LengthRequired$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">LengthRequired</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.12">§</a></p></div>
+    </li><li name="scalaz.http.response.Location">
+      <a href="Location$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Location</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30">§</a></p></div>
+    </li><li name="scalaz.http.response.MethodNotAllowed">
+      <a href="MethodNotAllowed$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">MethodNotAllowed</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6">§</a></p></div>
+    </li><li name="scalaz.http.response.MovedPermanently">
+      <a href="MovedPermanently$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">MovedPermanently</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.2">§</a></p></div>
+    </li><li name="scalaz.http.response.MultipleChoices">
+      <a href="MultipleChoices$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">MultipleChoices</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.1">§</a></p></div>
+    </li><li name="scalaz.http.response.NoContent">
+      <a href="NoContent$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">NoContent</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5">§</a></p></div>
+    </li><li name="scalaz.http.response.NonAuthoritativeInformation">
+      <a href="NonAuthoritativeInformation$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">NonAuthoritativeInformation</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.4">§</a></p></div>
+    </li><li name="scalaz.http.response.NotAcceptable">
+      <a href="NotAcceptable$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">NotAcceptable</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7">§</a></p></div>
+    </li><li name="scalaz.http.response.NotFound">
+      <a href="NotFound$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">NotFound</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">§</a></p></div>
+    </li><li name="scalaz.http.response.NotImplemented">
+      <a href="NotImplemented$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">NotImplemented</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2">§</a></p></div>
+    </li><li name="scalaz.http.response.NotModified">
+      <a href="NotModified$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">NotModified</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.5">§</a></p></div>
+    </li><li name="scalaz.http.response.OK">
+      <a href="OK$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">OK</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">§</a></p></div>
+    </li><li name="scalaz.http.response.PartialContent">
+      <a href="PartialContent$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">PartialContent</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.7">§</a></p></div>
+    </li><li name="scalaz.http.response.PaymentRequired">
+      <a href="PaymentRequired$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">PaymentRequired</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.3">§</a></p></div>
+    </li><li name="scalaz.http.response.PreconditionFailed">
+      <a href="PreconditionFailed$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">PreconditionFailed</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.13">§</a></p></div>
+    </li><li name="scalaz.http.response.ProxyAuthenticate">
+      <a href="ProxyAuthenticate$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ProxyAuthenticate</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.33">§</a></p></div>
+    </li><li name="scalaz.http.response.ProxyAuthenticationRequired">
+      <a href="ProxyAuthenticationRequired$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ProxyAuthenticationRequired</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.8">§</a></p></div>
+    </li><li name="scalaz.http.response.RequestEntityTooLarge">
+      <a href="RequestEntityTooLarge$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">RequestEntityTooLarge</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.14">§</a></p></div>
+    </li><li name="scalaz.http.response.RequestTimeout">
+      <a href="RequestTimeout$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">RequestTimeout</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.9">§</a></p></div>
+    </li><li name="scalaz.http.response.RequestURITooLong">
+      <a href="RequestURITooLong$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">RequestURITooLong</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.15">§</a></p></div>
+    </li><li name="scalaz.http.response.RequestedRangeNotSatisfiable">
+      <a href="RequestedRangeNotSatisfiable$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">RequestedRangeNotSatisfiable</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.17">§</a></p></div>
+    </li><li name="scalaz.http.response.ResetContent">
+      <a href="ResetContent$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ResetContent</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.6">§</a></p></div>
+    </li><li name="scalaz.http.response.Response">
+      <a href="Response$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Response</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>HTTP response.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6">RFC 2616 Section 6 Response</a>.</p></div>
+    </li><li name="scalaz.http.response.ResponseHeader">
+      <a href="ResponseHeader$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ResponseHeader</span><span class="result"> extends ResponseHeaders</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>HTTP response headers.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14">RFC 2616 Section 14 Header Field Definitions</a>.</p></div>
+    </li><li name="scalaz.http.response.RetryAfter">
+      <a href="RetryAfter$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">RetryAfter</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.37">§</a></p></div>
+    </li><li name="scalaz.http.response.SeeOther">
+      <a href="SeeOther$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">SeeOther</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.4">§</a></p></div>
+    </li><li name="scalaz.http.response.Server">
+      <a href="Server$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Server</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.38">§</a></p></div>
+    </li><li name="scalaz.http.response.ServiceUnavailable">
+      <a href="ServiceUnavailable$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ServiceUnavailable</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4">§</a></p></div>
+    </li><li name="scalaz.http.response.Status">
+      <a href="Status$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Status</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>HTTP response status codes.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10">RFC 2616 Section 10 Status Code Definitions</a>.</p></div>
+    </li><li name="scalaz.http.response.StatusLine">
+      <a href="StatusLine$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">StatusLine</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>HTTP response status line.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1">RFC 2616 Section 6.1 Status-Line</a>.
+</p></div>
+    </li><li name="scalaz.http.response.StreamResponse">
+      <a href="StreamResponse$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">StreamResponse</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>Functions to create responses that have a stream body.
+</p></div>
+    </li><li name="scalaz.http.response.SwitchingProtocols">
+      <a href="SwitchingProtocols$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">SwitchingProtocols</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.1.2">§</a></p></div>
+    </li><li name="scalaz.http.response.TemporaryRedirect">
+      <a href="TemporaryRedirect$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">TemporaryRedirect</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.8">§</a></p></div>
+    </li><li name="scalaz.http.response.Unauthorized">
+      <a href="Unauthorized$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Unauthorized</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">§</a></p></div>
+    </li><li name="scalaz.http.response.UnsupportedMediaType">
+      <a href="UnsupportedMediaType$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">UnsupportedMediaType</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.16">§</a></p></div>
+    </li><li name="scalaz.http.response.UseProxy">
+      <a href="UseProxy$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">UseProxy</span><span class="result"> extends Status with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.6">§</a></p></div>
+    </li><li name="scalaz.http.response.Vary">
+      <a href="Vary$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Vary</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.44">§</a></p></div>
+    </li><li name="scalaz.http.response.WWWAuthenticate">
+      <a href="WWWAuthenticate$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">WWWAuthenticate</span><span class="result"> extends ResponseHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.47">§</a></p></div>
+    </li><li name="scalaz.http.response.xhtml">
+      <a href="xhtml/package.html" class="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">xhtml</span>
+      </span>
+      </a>
+      
+      
+      
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

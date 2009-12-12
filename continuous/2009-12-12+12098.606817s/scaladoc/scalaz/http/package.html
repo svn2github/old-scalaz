@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="../package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../../lib/package_big.png"></img>
+        <h1>http</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">http</span>
+      </span>
+      </div>
+      
+      
+      
+      <div id="template">
+      
+        
+        
+        <div class="members" id="types">
+              <h3>Type Members</h3>
+              <ol><li name="scalaz.http.Application">
+      <a href="Application.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Application</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>A web application that transforms a request to a response.
+</p></div>
+    </li><li name="scalaz.http.EntityHeader">
+      <a href="EntityHeader.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">EntityHeader</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>HTTP entity header fields.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7.1">RFC 2616 Section 7.1 Entity Header Fields</a>.
+</p></div>
+    </li><li name="scalaz.http.EntityHeaders">
+      <a href="EntityHeaders.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">EntityHeaders</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.GeneralHeader">
+      <a href="GeneralHeader.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">GeneralHeader</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>HTTP general header fields.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.5">RFC 2616 Section 4.5 General Header Fields</a>.
+</p></div>
+    </li><li name="scalaz.http.GeneralHeaders">
+      <a href="GeneralHeaders.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">GeneralHeaders</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.InputStreamer">
+      <a href="InputStreamer.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">InputStreamer</span><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      <ol class="paramcmts"></ol>
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>Takes an input-stream to an environment for bytes.
+</p></div>
+    </li><li name="scalaz.http.StreamStreamApplications">
+      <a href="StreamStreamApplications.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">StreamStreamApplications</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.Version">
+      <a href="Version.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Version</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      <ol class="attributes"><li>sealed</li></ol>
+      <div class="comment"><p>HTTP version.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.1">RFC 2616 Section 3.1 HTTP Version</a>.
+</p></div>
+    </li><li name="scalaz.http.Versions">
+      <a href="Versions.html" class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Versions</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      
+    </li></ol>
+            </div>
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.http.Allow">
+      <a href="Allow$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Allow</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7">§</a></p></div>
+    </li><li name="scalaz.http.Application">
+      <a href="Application$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Application</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>Functions over web applications that transforms a request to a response.
+</p></div>
+    </li><li name="scalaz.http.CacheControl">
+      <a href="CacheControl$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">CacheControl</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">§</a></p></div>
+    </li><li name="scalaz.http.Connection">
+      <a href="Connection$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Connection</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.10">§</a></p></div>
+    </li><li name="scalaz.http.ContentEncoding">
+      <a href="ContentEncoding$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentEncoding</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">§</a></p></div>
+    </li><li name="scalaz.http.ContentLanguage">
+      <a href="ContentLanguage$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentLanguage</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.12">§</a></p></div>
+    </li><li name="scalaz.http.ContentLength">
+      <a href="ContentLength$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentLength</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13">§</a></p></div>
+    </li><li name="scalaz.http.ContentLocation">
+      <a href="ContentLocation$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentLocation</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.14">§</a></p></div>
+    </li><li name="scalaz.http.ContentMD5">
+      <a href="ContentMD5$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentMD5</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.15">§</a></p></div>
+    </li><li name="scalaz.http.ContentRange">
+      <a href="ContentRange$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentRange</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.16">§</a></p></div>
+    </li><li name="scalaz.http.ContentType">
+      <a href="ContentType$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ContentType</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">§</a></p></div>
+    </li><li name="scalaz.http.Date">
+      <a href="Date$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Date</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.18">§</a></p></div>
+    </li><li name="scalaz.http.EntityHeader">
+      <a href="EntityHeader$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">EntityHeader</span><span class="result"> extends EntityHeaders</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>HTTP entity header fields.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7.1">RFC 2616 Section 7.1 Entity Header Fields</a>.</p></div>
+    </li><li name="scalaz.http.Expires">
+      <a href="Expires$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Expires</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">§</a></p></div>
+    </li><li name="scalaz.http.GeneralHeader">
+      <a href="GeneralHeader$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">GeneralHeader</span><span class="result"> extends GeneralHeaders</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>HTTP general header fields.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.5">RFC 2616 Section 4.5 General Header Fields</a>.</p></div>
+    </li><li name="scalaz.http.InputStreamer">
+      <a href="InputStreamer$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">InputStreamer</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>Functions over values that take an input-stream to an environment for bytes.
+</p></div>
+    </li><li name="scalaz.http.LastModified">
+      <a href="LastModified$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">LastModified</span><span class="result"> extends EntityHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.29">§</a></p></div>
+    </li><li name="scalaz.http.Pragma">
+      <a href="Pragma$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Pragma</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.32">§</a></p></div>
+    </li><li name="scalaz.http.Slinky">
+      <a href="Slinky$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Slinky</span><span class="result"> extends EntityHeaders with GeneralHeaders with Versions with Lines with Methods with RequestHeaders with ResponseHeaders with Uris with StreamStreamApplications with Bodys with HttpSessions with HttpServletResponses with HttpServletRequests with HttpServlets with Doctypes</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.StreamStreamApplication">
+      <a href="StreamStreamApplication$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">StreamStreamApplication</span><span class="result"> extends StreamStreamApplications</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>Functions for web applications whose request and response body and transformed using <code>scala.Stream</code>.
+</p></div>
+    </li><li name="scalaz.http.Trailer">
+      <a href="Trailer$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Trailer</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.40">§</a></p></div>
+    </li><li name="scalaz.http.TransferEncoding">
+      <a href="TransferEncoding$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">TransferEncoding</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.41">§</a></p></div>
+    </li><li name="scalaz.http.Upgrade">
+      <a href="Upgrade$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Upgrade</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.42">§</a></p></div>
+    </li><li name="scalaz.http.Util">
+      <a href="Util$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Util</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>Utility functions not specific to any particular context within HTTP.
+</p></div>
+    </li><li name="scalaz.http.Version">
+      <a href="Version$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Version</span><span class="result"> extends Versions</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p>HTTP version.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.1">RFC 2616 Section 3.1 HTTP Version</a>.</p></div>
+    </li><li name="scalaz.http.Via">
+      <a href="Via$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Via</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.45">§</a></p></div>
+    </li><li name="scalaz.http.Warning">
+      <a href="Warning$.html" class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Warning</span><span class="result"> extends GeneralHeader with Product</span>
+      </span>
+      </a>
+      
+      
+      <div class="comment"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.46">§</a></p></div>
+    </li><li name="scalaz.http.request">
+      <a href="request/package.html" class="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">request</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.response">
+      <a href="response/package.html" class="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">response</span>
+      </span>
+      </a>
+      
+      
+      
+    </li><li name="scalaz.http.servlet">
+      <a href="servlet/package.html" class="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">servlet</span>
+      </span>
+      </a>
+      
+      
+      
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

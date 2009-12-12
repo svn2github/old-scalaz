@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http.response.Response</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+		      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="../../package.html">scalaz</a>.<a href="../package.html">http</a>.<a href="package.html">response</a></p>
+
+      <div id="definition">
+        <img src="../../../lib/object_big.png"></img>
+        <h1>Response</h1>
+      </div>
+
+      <div class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Response</span><span class="result"> extends AnyRef</span>
+      </span>
+      </div>
+      
+      <div id="comment"><p>HTTP response.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6">RFC 2616 Section 6 Response</a>.</p></div>
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.http.response.Response#emptyHeadersBodyResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyHeadersBodyResponse</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="l">l: <a href="StatusLine.html" class="extype" name="scalaz.http.response.StatusLine">StatusLine</a></span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status line and no headers and empty body.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyHeadersBodyStatusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyHeadersBodyStatusResponse</span><span class="tparams">[<span name="OUT">OUT</span>, <span name="IN">IN</span>]</span><span class="params">(<span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>, <span name="req">req: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status, to give rise to a status line whose version is derived from the given request, no headers and empty body.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyHeadersBodyVersionStatusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyHeadersBodyVersionStatusResponse</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="v">v: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>, <span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given version and status in the status line, no headers and empty body.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyHeadersResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyHeadersResponse</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="l">l: <a href="StatusLine.html" class="extype" name="scalaz.http.response.StatusLine">StatusLine</a></span>, <span name="b">b: OUT[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status line and body and no headers.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyHeadersStatusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyHeadersStatusResponse</span><span class="tparams">[<span name="OUT">OUT</span>, <span name="IN">IN</span>]</span><span class="params">(<span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>, <span name="b">b: OUT[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="params">(<span name="req">req: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status, to give rise to a status line whose version is derived from the given request, body and no headers.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyHeadersVersionStatusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyHeadersVersionStatusResponse</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="v">v: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>, <span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>, <span name="b">b: OUT[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given version and status in the status line, body and no headers.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyResponse</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="l">l: <a href="StatusLine.html" class="extype" name="scalaz.http.response.StatusLine">StatusLine</a></span>, <span name="h">h: <span class="extype" name="scala.collection.immutable.List">List</span>[(<a href="ResponseHeader.html" class="extype" name="scalaz.http.response.ResponseHeader">ResponseHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>])]</span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status line and headers and empty body.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyStatusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyStatusResponse</span><span class="tparams">[<span name="OUT">OUT</span>, <span name="IN">IN</span>]</span><span class="params">(<span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>, <span name="h">h: <span class="extype" name="scala.collection.immutable.List">List</span>[(<a href="ResponseHeader.html" class="extype" name="scalaz.http.response.ResponseHeader">ResponseHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>])]</span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>, <span name="req">req: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status, to give rise to a status line whose version is derived from the given request, headers and empty body.</p></div>
+    </li><li name="scalaz.http.response.Response#emptyVersionStatusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">emptyVersionStatusResponse</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="v">v: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>, <span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>, <span name="h">h: <span class="extype" name="scala.collection.immutable.List">List</span>[(<a href="ResponseHeader.html" class="extype" name="scalaz.http.response.ResponseHeader">ResponseHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>])]</span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given version and status in the status line, headers and empty body.</p></div>
+    </li><li name="scala.AnyRef#equals">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+    </li><li name="scala.AnyRef#hashCode">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+    </li><li name="scalaz.http.response.Response#redirect">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">redirect</span><span class="tparams">[<span name="OUT">OUT</span>, <span name="IN">IN</span>]</span><span class="params">(<span name="location">location: <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]</span>, <span name="parameters">parameters: (<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="java.lang.String">String</span>)*</span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>, <span name="req">req: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with a version derived from the given request that redirects (301 Moved Permanently) to the given location.</p></div>
+    </li><li name="scalaz.http.response.Response#redirects">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">redirects</span><span class="tparams">[<span name="OUT">OUT</span>, <span name="IN">IN</span>]</span><span class="params">(<span name="location">location: <span class="extype" name="java.lang.String">String</span></span>, <span name="parameters">parameters: (<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="java.lang.String">String</span>)*</span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>, <span name="req">req: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with a version derived from the given request that redirects (301 Moved Permanently) to the given location.
+<strong>This function fails if the given string value is empty</strong>.</p></div>
+    </li><li name="scalaz.http.response.Response#response">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">response</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="l">l: <a href="StatusLine.html" class="extype" name="scalaz.http.response.StatusLine">StatusLine</a></span>, <span name="h">h: <span class="extype" name="scala.collection.immutable.List">List</span>[(<a href="ResponseHeader.html" class="extype" name="scalaz.http.response.ResponseHeader">ResponseHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>])]</span>, <span name="b">b: OUT[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status line, headers and body.</p></div>
+    </li><li name="scalaz.http.response.Response#statusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">statusResponse</span><span class="tparams">[<span name="OUT">OUT</span>, <span name="IN">IN</span>]</span><span class="params">(<span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>, <span name="h">h: <span class="extype" name="scala.collection.immutable.List">List</span>[(<a href="ResponseHeader.html" class="extype" name="scalaz.http.response.ResponseHeader">ResponseHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>])]</span>, <span name="b">b: OUT[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="params">(<span name="req">req: <a href="../request/Request.html" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given status, to give rise to a status line whose version is derived from the given request, and headers and empty body.</p></div>
+    </li><li name="scala.AnyRef#toString">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </div>
+      
+      
+      <div class="comment"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+    </li><li name="scalaz.http.response.Response#versionRedirect">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">versionRedirect</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="version">version: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>, <span name="location">location: <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]</span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given version that redirects (301 Moved Permanently) to the given location.</p></div>
+    </li><li name="scalaz.http.response.Response#versionRedirects">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">versionRedirects</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="version">version: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>, <span name="location">location: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="e">e: <a href="../../Empty.html" class="extype" name="scalaz.Empty">Empty</a>[OUT[_][_]]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given version that redirects (301 Moved Permanently) to the given location.
+<strong>This function fails if the given string value is empty</strong>.</p></div>
+    </li><li name="scalaz.http.response.Response#versionStatusResponse">
+      <div class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">versionStatusResponse</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="params">(<span name="v">v: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>, <span name="s">s: <a href="Status.html" class="extype" name="scalaz.http.response.Status">Status</a></span>, <span name="h">h: <span class="extype" name="scala.collection.immutable.List">List</span>[(<a href="ResponseHeader.html" class="extype" name="scalaz.http.response.ResponseHeader">ResponseHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>])]</span>, <span name="b">b: OUT[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <a href="Response.html" class="extype" name="scalaz.http.response.Response">Response</a>[OUT[_][_]]</span>
+      </span>
+      </div>
+      <ol class="paramcmts"></ol>
+      
+      <div class="comment"><p>Create a response with the given version and status in the status line, headers and body.</p></div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>
