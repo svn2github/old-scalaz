@@ -11,7 +11,7 @@ Haskell-like syntax
   * In do-notation and bindings, swap <- for = and swap = for {} except with a source file level pragma
   * Target .NET and supply supporting DLL (and JAR)
   * Have String literals backed by a finger-tree
-  * Applicative comprehensions e.g. [[exp1 exp2 exp3]]
+  * Applicative comprehensions e.g. \[\[exp1 exp2 exp3]]
   * Comonad comprehensions
   * Parallel libraries
   * Strictness annotations available in many places e.g. function arguments, data type constructor arguments
