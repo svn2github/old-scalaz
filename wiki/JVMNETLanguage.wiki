@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Someone really needs to invent a practical, pure, lazy language for the JVM et. al.
+Someone really needs to invent a practical (and therefore pure, lazy) language for the JVM et. al.
 
 
 = Details =
