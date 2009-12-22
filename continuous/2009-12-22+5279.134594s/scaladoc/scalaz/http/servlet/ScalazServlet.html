@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http.servlet.ScalazServlet</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../../lib/template.js"></script>
+    
+        </head>
+        <body class="type">
+      
+      <p id="owner"><a href="../../package.html">scalaz</a>.<a href="../package.html">http</a>.<a href="package.html">servlet</a></p>
+
+      <div id="definition">
+        <img src="../../../lib/class_big.png" />
+        <h1>ScalazServlet</h1>
+      </div>
+
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">ScalazServlet</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>, <span name="A">A &lt;: AnyRef {...}</span>]</span><span class="result"> extends <span class="extype" name="javax.servlet.http.HttpServlet">HttpServlet</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment">
+      <div class="comment cmt"><p>A servlet that can run scalaz applications. It is intended that subclasses apply one or more type arguments until a
+concrete class.
+</p></div>
+      
+      <div class="block">
+            attributes: abstract 
+          </div>
+      
+      <div class="block">
+                known subclasses: <a href="StreamStreamServlet.html">StreamStreamServlet</a>
+              </div>
+    </div>
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="javax.servlet.http.HttpServlet">HttpServlet</li><li class="in" name="javax.servlet.GenericServlet">GenericServlet</li><li class="in" name="java.io.Serializable">Serializable</li><li class="in" name="javax.servlet.ServletConfig">ServletConfig</li><li class="in" name="javax.servlet.Servlet">Servlet</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        <div class="members" id="types">
+              <h3>Type Members</h3>
+              <ol><li name="scalaz.http.servlet.ScalazServlet#App">
+      <h4 class="signature">
+      <span class="kind">type</span>
+      <span class="symbol">
+        <span class="name">App</span><span class="result"> = AnyRef {...}</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">A servlet application from request to response</p><div class="fullcomment">
+      <div class="comment cmt"><p>A servlet application from request to response.</p></div>
+      
+      
+      
+      
+    </div>
+    </li></ol>
+            </div>
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.http.servlet.ScalazServlet#applicationInitParam">
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">applicationInitParam</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The <code>init-param</code> to specify in <code>web</p><div class="fullcomment">
+      <div class="comment cmt"><p>The <code>init-param</code> to specify in <code>web.xml</code> that denotes the class that is assignable to the
+class given in the constructor. It is the application that takes a request to a response.</p></div>
+      
+      
+      
+      
+    </div>
+    </li><li name="javax.servlet.GenericServlet#destroy">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">destroy</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.AnyRef#equals">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence</p><div class="fullcomment">
+      <div class="comment cmt"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+      <dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.
+</p></p></dd></dl>
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+    </div>
+    </li><li name="javax.servlet.GenericServlet#getInitParameter">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getInitParameter</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.GenericServlet#getInitParameterNames">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getInitParameterNames</span><span class="params">()</span><span class="result">: java.util.Enumeration[_]</span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.GenericServlet#getServletConfig">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getServletConfig</span><span class="params">()</span><span class="result">: <span class="extype" name="javax.servlet.ServletConfig">ServletConfig</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.GenericServlet#getServletContext">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getServletContext</span><span class="params">()</span><span class="result">: <span class="extype" name="javax.servlet.ServletContext">ServletContext</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.GenericServlet#getServletInfo">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getServletInfo</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.GenericServlet#getServletName">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getServletName</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.AnyRef#hashCode">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns a hash code value for the object</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+      
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+    </div>
+    </li><li name="javax.servlet.GenericServlet#init">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">init</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.GenericServlet#log">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">log</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.String">String</span></span>, <span name="arg1">arg1: <span class="extype" name="java.lang.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.GenericServlet#log">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">log</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.http.HttpServlet#service">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">service</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="javax.servlet.ServletRequest">ServletRequest</span></span>, <span name="arg1">arg1: <span class="extype" name="javax.servlet.ServletResponse">ServletResponse</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.AnyRef#toString">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns a string representation of the object</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+      
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+    </div>
+    </li></ol>
+            </div>
+        
+        <div class="members" id="constructors">
+              <h3>Instance constructors</h3>
+              <ol><li name="scalaz.http.servlet.ScalazServlet#this">
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">ScalazServlet</span><span class="params">(<span name="cl">cl: <span class="extype" name="java.lang.Class">Class</span>[A]</span>)</span><span class="params">(<span name="in">in: <a href="../InputStreamer.html" class="extype" name="scalaz.http.InputStreamer">InputStreamer</a>[IN[_][_]]</span>, <span name="e">e: <a href="../../Each.html" class="extype" name="scalaz.Each">Each</a>[OUT[_][_]]</span>)</span>
+      </span>
+      </h4>
+      
+    </li><li name="javax.servlet.http.HttpServlet#this">
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">ScalazServlet</span><span class="params">()</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+        
+      </div>
+      
+    </body>
+      </html>
