@@ -12,9 +12,15 @@ Compiler written in Haskell
 Haskell-like syntax
   * In do-notation and bindings, swap <- for = and swap = for {} except with a source file level pragma
   * Target .NET and supply supporting DLL (and JAR)
-  * Have String literals backed by a finger-tree
-  * Applicative comprehensions e.g. [[exp1 exp2 exp3]]
-  * Comonad comprehensions
+  * Three versions of String literals
+    * Typical array-based
+    * Finger-tree based
+    * Lazy list based
+  * Applicative comprehensions (two versions)
+    * [| f a b |]
+    * Using a keyword ap: ap { x <- f; y <- a; z <- b; pure (f a b) }
+  * Comonad comprehensions (codo or co keyword)
+  * Arrow syntax http://www.haskell.org/arrows/syntax.html
   * Parallel libraries
   * Strictness annotations available in many places e.g. function arguments, data type constructor arguments
   * FFI inside a ST-like monad distinguishing between .NET and Java. With unsafe available.
