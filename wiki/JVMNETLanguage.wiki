@@ -21,8 +21,10 @@ Haskell-like syntax
     * Using a keyword ap: ap { x <- f; y <- a; z <- b; pure (f a b) }
   * Comonad comprehensions (codo or co keyword)
   * Arrow syntax http://www.haskell.org/arrows/syntax.html
+  * Correct type-class hierarchy
   * Parallel libraries
   * Strictness annotations available in many places e.g. function arguments, data type constructor arguments
   * FFI inside a ST-like monad distinguishing between .NET and Java. With unsafe available.
   * Provide accessible libraries to compiler tools so that decent build scripts can be written.
   * (?)Translate Haskell syntax for target compilation
+  * Implement GHC type system extensions?
