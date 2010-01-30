@@ -22,6 +22,7 @@ Haskell-like syntax
   * Comonad comprehensions (codo or co keyword)
   * Arrow syntax http://www.haskell.org/arrows/syntax.html
   * Correct type-class hierarchy
+    * (.) :: (Functor f) => f a -> (a -> b) -> f b
   * Parallel libraries
   * Strictness annotations available in many places e.g. function arguments, data type constructor arguments
   * FFI inside a ST-like monad distinguishing between .NET and Java. With unsafe available.
