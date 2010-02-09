@@ -32,3 +32,5 @@ Haskell-like syntax
   * Pattern guards
     * http://www.haskell.org/ghc/docs/latest/html/users_guide/syntax-extns.html#pattern-guards
     * http://research.microsoft.com/~simonpj/Haskell/guards.html
+  * Tuple Sections
+    * http://www.haskell.org/ghc/docs/latest/html/users_guide/syntax-extns.html#tuple-sections
