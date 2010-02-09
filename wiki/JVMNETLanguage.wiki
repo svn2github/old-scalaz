@@ -28,9 +28,11 @@ Haskell-like syntax
   * FFI inside a ST-like type constructor distinguishing between .NET and Java. With unsafe available.
   * Provide accessible libraries to compiler tools so that decent build scripts can be written.
   * (?)Translate Haskell syntax for target compilation
-  * Implement GHC type system extensions?
+  * Functional Dependencies
+  * Other GHC type system extensions(?)
   * Pattern guards
     * http://www.haskell.org/ghc/docs/latest/html/users_guide/syntax-extns.html#pattern-guards
     * http://research.microsoft.com/~simonpj/Haskell/guards.html
   * Tuple Sections
     * http://www.haskell.org/ghc/docs/latest/html/users_guide/syntax-extns.html#tuple-sections
+  * (Many) other GHC syntax extensions.
