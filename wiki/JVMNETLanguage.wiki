@@ -29,3 +29,6 @@ Haskell-like syntax
   * Provide accessible libraries to compiler tools so that decent build scripts can be written.
   * (?)Translate Haskell syntax for target compilation
   * Implement GHC type system extensions?
+  * Pattern guards
+    * http://www.haskell.org/ghc/docs/latest/html/users_guide/syntax-extns.html#pattern-guards
+    * http://research.microsoft.com/~simonpj/Haskell/guards.html
