@@ -23,8 +23,8 @@ Haskell-like syntax
   * Arrow syntax http://www.haskell.org/arrows/syntax.html
   * Correct type-class hierarchy
     * (.) :: (Functor f) => f a -> (a -> b) -> f b
-    * Functor < - Pointed < - Applicative < - Monad
-    * MonadOr/MonadPlus
+    * Functor <- Pointed <- Applicative <- Monad
+    * MonadOr and MonadPlus distinction
     * Semigroup < - Monoid
     * others?
   * Parallel libraries
