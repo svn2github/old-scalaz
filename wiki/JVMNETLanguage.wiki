@@ -23,9 +23,9 @@ Haskell-like syntax
   * Arrow syntax http://www.haskell.org/arrows/syntax.html
   * Correct type-class hierarchy
     * (.) :: (Functor f) => f a -> (a -> b) -> f b
-    * Functor <- Pointed <- Applicative <- Monad
+    * Functor < - Pointed < - Applicative < - Monad
     * MonadOr/MonadPlus
-    * Semigroup <- Monoid
+    * Semigroup < - Monoid
     * others?
   * Parallel libraries
   * Strictness annotations available in many places e.g. function arguments, data type constructor arguments
