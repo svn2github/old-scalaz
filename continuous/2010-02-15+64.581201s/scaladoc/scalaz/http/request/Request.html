@@ -1,0 +1,1251 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http.request.Request</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../../../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../../../lib/template.js"></script>
+    
+        </head>
+        <body class="type">
+      
+      <p id="owner"><a href="../../package.html">scalaz</a>.<a href="../package.html">http</a>.<a href="package.html">request</a></p>
+
+      <div id="definition">
+        <img src="../../../lib/trait_big.png" />
+        <h1>Request</h1>
+      </div>
+
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Request</span><span class="tparams">[<span name="IN">IN</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment">
+      <div class="comment cmt"><p>HTTP request.
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5">RFC 2616 Section 5 Request</a>.
+</p></div>
+      
+      <div class="block">
+            attributes: sealed 
+          </div>
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        <div class="members" id="types">
+              <h3>Type Members</h3>
+              <ol><li name="scalaz.http.request.Request.Debug">
+      <h4 class="signature"><a href="Request$Debug.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Debug</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      
+    </li></ol>
+            </div>
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.http.request.Request#!">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!</span><span class="tparams">[<span name="E">E</span>]</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>, <span name="e">e: ⇒ E</span>)</span><span class="result">: <a href="../../Validation.html" class="extype" name="scalaz.Validation">Validation</a>[E, <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the first occurrence of the given request parameter in the request URI or the given error value</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the first occurrence of the given request parameter in the request URI or the given error value.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#!">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"> Returns the first occurrence of the given request parameter in the request URI</p><div class="fullcomment">
+      <div class="comment cmt"><p> Returns the first occurrence of the given request parameter in the request URI.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#!!">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!!</span><span class="tparams">[<span name="E">E</span>]</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>, <span name="e">e: ⇒ E</span>)</span><span class="result">: <a href="../../Validation.html" class="extype" name="scalaz.Validation">Validation</a>[E, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of the given request parameter in the request URI or the given error value</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of the given request parameter in the request URI or the given error value.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#!!">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!!</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of the given request parameter in the request URI</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of the given request parameter in the request URI.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#!!||">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!!||</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of the given request parameter in the request URI if it exists or in the request body
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of the given request parameter in the request URI if it exists or in the request body
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#!?">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!?</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if the given request parameter occurs in the request URI</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if the given request parameter occurs in the request URI.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#!|">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">!|</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the first occurrence of the given request parameter in the request URI if it exists or in the request body
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the first occurrence of the given request parameter in the request URI if it exists or in the request body
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#-">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">-</span><span class="params">(<span name="h">h: <a href="RequestHeader.html" class="extype" name="scalaz.http.request.RequestHeader">RequestHeader</a></span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Deletes all headers of the given value from a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Deletes all headers of the given value from a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#&gt;&gt;">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">&gt;&gt;</span><span class="params">(<span name="b">b: IN[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the body of a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Sets the body of a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^!!^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^!!^</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of a given request parameter in the request URI</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of a given request parameter in the request URI.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^!!||^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^!!||^</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of a given request parameter in the request URI if it exists or in the request body
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of a given request parameter in the request URI if it exists or in the request body
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^!^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^!^</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"> Returns the first occurrence of a given request parameter in the request URI</p><div class="fullcomment">
+      <div class="comment cmt"><p> Returns the first occurrence of a given request parameter in the request URI.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^!|^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^!|^</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"> Returns the first occurrence of a given request parameter in the request URI if it exists or in the request body
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p> Returns the first occurrence of a given request parameter in the request URI if it exists or in the request body
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^|!^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^|!^</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the first occurrence of a given request parameter in the request body if it exists or in the request URI
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the first occurrence of a given request parameter in the request body if it exists or in the request URI
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^|^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^|^</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"> Returns the first occurrence of a given request parameter in the request body</p><div class="fullcomment">
+      <div class="comment cmt"><p> Returns the first occurrence of a given request parameter in the request body.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^||!!^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^||!!^</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of a given request parameter in the request body if it exists or in the request URI
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of a given request parameter in the request body if it exists or in the request URI
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#^||^">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">^||^</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <a href="../../Kleisli.html" class="extype" name="scalaz.Kleisli">Kleisli</a>[<span class="extype" name="scala.Option">Option</span>[A][A], <span class="extype" name="java.lang.String">String</span>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"> Returns all occurrences of a given request parameter in the request body</p><div class="fullcomment">
+      <div class="comment cmt"><p> Returns all occurrences of a given request parameter in the request body.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#apply">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="v">v: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the request version of the status line of a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Sets the request version of the status line of a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#apply">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="u">u: <a href="Uri.html" class="extype" name="scalaz.http.request.Uri">Uri</a></span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the request URI of the status line of a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Sets the request URI of the status line of a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#apply">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="m">m: <a href="Method.html" class="extype" name="scalaz.http.request.Method">Method</a></span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the request method of the status line of a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Sets the request method of the status line of a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#apply">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="h">h: <a href="RequestHeader.html" class="extype" name="scalaz.http.request.RequestHeader">RequestHeader</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the first value that corresponds to the given request header</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the first value that corresponds to the given request header.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#apply">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="l">l: <a href="Line.html" class="extype" name="scalaz.http.request.Line">Line</a></span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets the status line of a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Sets the status line of a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#apply">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span><span class="params">(<span name="h">h: <a href="RequestHeader.html" class="extype" name="scalaz.http.request.RequestHeader">RequestHeader</a></span>, <span name="v">v: <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]</span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Adds the given request header and value to a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Adds the given request header and value to a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#body">
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">body</span><span class="result">: IN[<span class="extype" name="scala.Byte">Byte</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"><a href="http://www</p><div class="fullcomment">
+      <div class="comment cmt"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.3">§</a></p></div>
+      
+      <div class="block">
+            attributes: abstract 
+          </div>
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#debug">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">debug</span><span class="tparams">[<span name="OUT">OUT</span>]</span><span class="result">: <a href="Request$Debug.html" class="extype" name="scalaz.http.request.Request.Debug">Debug</a>[OUT[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create a response that details the parts of the request in a XHTML document</p><div class="fullcomment">
+      <div class="comment cmt"><p>Create a response that details the parts of the request in a XHTML document.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scala.AnyRef#equals">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence</p><div class="fullcomment">
+      <div class="comment cmt"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+      <dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.
+</p></p></dd></dl>
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scala.AnyRef#hashCode">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns a hash code value for the object</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+      
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#headers">
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">headers</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[(<a href="RequestHeader.html" class="extype" name="scalaz.http.request.RequestHeader">RequestHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>])]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"><a href="http://www</p><div class="fullcomment">
+      <div class="comment cmt"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.3">§</a></p></div>
+      
+      <div class="block">
+            attributes: abstract 
+          </div>
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#headersMap">
+      <h4 class="signature">
+      <span class="kind">var</span>
+      <span class="symbol">
+        <span class="name">headersMap</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<a href="RequestHeader.html" class="extype" name="scalaz.http.request.RequestHeader">RequestHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.http.request.Request#headersMapHeads">
+      <h4 class="signature">
+      <span class="kind">var</span>
+      <span class="symbol">
+        <span class="name">headersMapHeads</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<a href="RequestHeader.html" class="extype" name="scalaz.http.request.RequestHeader">RequestHeader</a>, <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.http.request.Request#isDelete">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isDelete</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if this request method is DELETE</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if this request method is DELETE.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#isGet">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isGet</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if this request method is GET</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if this request method is GET.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#isHead">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isHead</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if this request method is HEAD</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if this request method is HEAD.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#isInternetExplorer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isInternetExplorer</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Inspects the user-agent header to determine if the request was made by Microsoft Internet Explorer</p><div class="fullcomment">
+      <div class="comment cmt"><p>Inspects the user-agent header to determine if the request was made by Microsoft Internet Explorer.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#isOptions">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isOptions</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if this request method is OPTIONS</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if this request method is OPTIONS.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#isPost">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isPost</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if this request method is POST</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if this request method is POST.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#isPut">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isPut</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if this request method is PUT</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if this request method is PUT.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#isTrace">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">isTrace</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if this request method is TRACE</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if this request method is TRACE.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#line">
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">line</span><span class="result">: <a href="Line.html" class="extype" name="scalaz.http.request.Line">Line</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"><a href="http://www</p><div class="fullcomment">
+      <div class="comment cmt"><p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1">§</a></p></div>
+      
+      <div class="block">
+            attributes: abstract 
+          </div>
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#method">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">method</span><span class="result">: <a href="Method.html" class="extype" name="scalaz.http.request.Method">Method</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request method of the status line</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request method of the status line.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#parametersMap">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">parametersMap</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.collection.immutable.Map">Map</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>], <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request URI parameters</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request URI parameters.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#parametersMapHeads">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">parametersMapHeads</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.collection.immutable.Map">Map</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>], <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request URI parameters with only the first occurring value</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request URI parameters with only the first occurring value.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#parts">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">parts</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="java.lang.String">String</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the components of the path split by '/', stripped of empty components</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the components of the path split by '/', stripped of empty components</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#path">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">path</span><span class="params">(<span name="f">f: (<a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if the request path of the request URI satisfies the given condition</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if the request path of the request URI satisfies the given condition.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#path">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">path</span><span class="result">: <a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request path of the request URI of the status line</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request path of the request URI of the status line.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#pathEquals">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">pathEquals</span><span class="params">(<span name="s">s: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if the request path of the request URI equals the given value</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if the request path of the request URI equals the given value.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#pathExtension">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">pathExtension</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the path extension - characters after the last dot (</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the path extension - characters after the last dot (.) in the path.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#pathStartsWith">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">pathStartsWith</span><span class="params">(<span name="s">s: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if the request path starts with the given value</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if the request path starts with the given value.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#post">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">post</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: AnyRef {...}</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Provides look up for POST request parameters in the request body</p><div class="fullcomment">
+      <div class="comment cmt"><p>Provides look up for POST request parameters in the request body. Only the first invocation uses the given
+fold-left and subsequent invocations look-up using a memoisation table (scoped to each request).</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#queryString">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">queryString</span><span class="params">(<span name="f">f: (<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if the query string of the request URI satisfies the given condition</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if the query string of the request URI satisfies the given condition.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#queryString">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">queryString</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The query string of the request URI of the status line</p><div class="fullcomment">
+      <div class="comment cmt"><p>The query string of the request URI of the status line.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#queryStringEquals">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">queryStringEquals</span><span class="params">(<span name="s">s: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if the query string of the request URI equals the given value</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if the query string of the request URI equals the given value.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scala.AnyRef#toString">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns a string representation of the object</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+      
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#uri">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">uri</span><span class="result">: <a href="Uri.html" class="extype" name="scalaz.http.request.Uri">Uri</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request URI of the status line</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request URI of the status line.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#userAgent">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">userAgent</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../../NonEmptyList.html" class="extype" name="scalaz.NonEmptyList">NonEmptyList</a>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The user-agent request header value</p><div class="fullcomment">
+      <div class="comment cmt"><p>The user-agent request header value.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#version">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">version</span><span class="result">: <a href="../Version.html" class="extype" name="scalaz.http.Version">Version</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request version of the status line</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request version of the status line.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#versionMajor">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">versionMajor</span><span class="result">: <a href="../../Digit.html" class="extype" name="scalaz.Digit">Digit</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request version major of the status line</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request version major of the status line.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#versionMinor">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">versionMinor</span><span class="result">: <a href="../../Digit.html" class="extype" name="scalaz.Digit">Digit</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The request version minor of the status line</p><div class="fullcomment">
+      <div class="comment cmt"><p>The request version minor of the status line.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#|">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">|</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the first occurrence of the given request parameter in the request body</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the first occurrence of the given request parameter in the request body.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#|!">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">|!</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns the first occurrence of the given request parameter in the request body if it exists or in the request URI
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns the first occurrence of the given request parameter in the request body if it exists or in the request URI
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#|+|">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">|+|</span><span class="params">(<span name="b">b: IN[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="params">(<span name="s">s: <a href="../../Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[IN[<span class="extype" name="scala.Byte">Byte</span>]]</span>)</span><span class="result">: <a href="" class="extype" name="scalaz.http.request.Request">Request</a>[IN[_][_]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Appends the given value to the body of a request</p><div class="fullcomment">
+      <div class="comment cmt"><p>Appends the given value to the body of a request.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#|?">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">|?</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>true</code> if the given request parameter occurs in the request body</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>true</code> if the given request parameter occurs in the request body.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#||">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">||</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of the given request parameter in the request body</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of the given request parameter in the request body.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#||!!">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">||!!</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Char">Char</span>]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns all occurrences of the given request parameter in the request body if it exists or in the request URI
+otherwise</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns all occurrences of the given request parameter in the request body if it exists or in the request URI
+otherwise.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#~!?">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">~!?</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>false</code> if the given request parameter occurs in the request URI</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>false</code> if the given request parameter occurs in the request URI.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scalaz.http.request.Request#~|?">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">~|?</span><span class="params">(<span name="p">p: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="params">(<span name="f">f: <a href="../../FoldLeft.html" class="extype" name="scalaz.FoldLeft">FoldLeft</a>[IN[_][_]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns <code>false</code> if the given request parameter occurs in the request body</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns <code>false</code> if the given request parameter occurs in the request body.</p></div>
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Request$.html">companion</a>
+            </div>
+    </div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>
