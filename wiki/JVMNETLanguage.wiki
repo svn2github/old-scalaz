@@ -12,6 +12,7 @@ Compiler written in Haskell
 Haskell-like syntax
   * In do-notation and bindings, swap <- for = and swap = for {} except with a source file level pragma
   * Target .NET and supply supporting DLL (and JAR)
+  * if is a Prelude function (compiles appropriately to platform's if/else)
   * Three versions of String literals
     * Typical array-based
     * Finger-tree based
