@@ -35,6 +35,7 @@ Haskell-like syntax
   * Provide accessible libraries to compiler tools so that decent build scripts can be written.
   * (?)Translate Haskell syntax for target compilation
   * Functional Dependencies
+  * Disallow orphan type-class instances http://lukepalmer.wordpress.com/2009/01/25/a-world-without-orphans/
   * Other GHC type system extensions(?)
   * Pattern guards
     * http://www.haskell.org/ghc/docs/latest/html/users_guide/syntax-extns.html#pattern-guards
