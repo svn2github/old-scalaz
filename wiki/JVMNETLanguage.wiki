@@ -30,6 +30,7 @@ Haskell-like syntax
     * Semigroup <- Monoid
     * others?
   * Parallel libraries
+  * Support nested block comments {- boo {- bar -} baz -}
   * Strictness annotations available in many places e.g. function arguments, data type constructor arguments
   * FFI inside a ST-like type constructor distinguishing between .NET and Java. With unsafe available.
   * Provide accessible libraries to compiler tools so that decent build scripts can be written.
