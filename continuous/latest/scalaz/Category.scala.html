@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Category.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait Category[C[_,_]] extends java.lang.Object" id="9318">Category</a>[<a title="[_, _]&gt;: Nothing &lt;: Any" id="15705">C</a>[<a title="&gt;: Nothing &lt;: Any" id="29765">_</a>, <a title="&gt;: Nothing &lt;: Any" id="29766">_</a>]] <a title="java.lang.Object" id="1764">{</a>
+  <span class="keyword">def</span> <a title="[A]C[A,A]" id="29755">id</a>[<a title="&gt;: Nothing &lt;: Any" id="29757">A</a>]: <a href="#15705" title="C[A,A]">C</a>[A, A]
+  <span class="keyword">def</span> <a title="[X, Y, Z](f: C[Y,Z],g: C[X,Y])C[X,Z]" id="29758">compose</a>[<a title="&gt;: Nothing &lt;: Any" id="29762">X</a>, <a title="&gt;: Nothing &lt;: Any" id="29763">Y</a>, <a title="&gt;: Nothing &lt;: Any" id="29764">Z</a>](<a title="C[Y,Z]" id="75584">f</a>: <a href="#15705" title="C[Y,Z]">C</a>[Y, Z], <a title="C[X,Y]" id="75585">g</a>: <a href="#15705" title="C[X,Y]">C</a>[X, Y]): <a href="#15705" title="C[X,Z]">C</a>[X, Z]
+}
+
+<span class="keyword">object</span> <a title="object scalaz.Category" id="9319">Category</a> <a title="ScalaObject" id="430">{</a>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#11737" title="object scalaz.Scalaz">Scalaz</a>._
+  
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Category[Function1]" id="29769">Function1Category</a>: <a href="#9318" title="scalaz.Category[Function1]">Category</a>[Function1] = <a href="#145728" title="java.lang.Object with scalaz.Category[Function1]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Category[Function1]" id="145728">Category</a>[Function1] {
+    <span class="keyword">def</span> <a title="[A](A) =&gt; A" id="145732">id</a>[<a title="&gt;: Nothing &lt;: Any" id="145734">A</a>] = <a title="A" id="145746">a</a> =&gt; <a href="#145746" title="A">a</a>
+    <span class="keyword">def</span> <a title="[X, Y, Z](f: (Y) =&gt; Z,g: (X) =&gt; Y)(X) =&gt; Z" id="145735">compose</a>[<a title="&gt;: Nothing &lt;: Any" id="145739">X</a>, <a title="&gt;: Nothing &lt;: Any" id="145740">Y</a>, <a title="&gt;: Nothing &lt;: Any" id="145741">Z</a>](<a title="(Y) =&gt; Z" id="145747">f</a>: Y =&gt; Z, <a title="(X) =&gt; Y" id="145748">g</a>: X =&gt; Y) = <a href="#145747" title="(g: (X) =&gt; Y)(X) =&gt; Z" id="25102">f</a> compose <a href="#145748" title="(X) =&gt; Y">g</a>   
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[M[_]](implicit evidence$1: scalaz.Monad[M])scalaz.Category[[A,B]scalaz.Kleisli[M,A,B]]" id="29788">KleisliCategory</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="29772">M</a>[<a title="&gt;: Nothing &lt;: Any" id="29789">_</a>]: Monad]: <a href="#9318" title="scalaz.Category[[A,B]scalaz.Kleisli[M,A,B]]">Category</a>[PartialApplyK[Kleisli, M]#Apply] = <a href="#145796" title="java.lang.Object with scalaz.Category[[A,B]scalaz.Kleisli[M,A,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Category[[A,B]scalaz.Kleisli[M,A,B]]" id="145796">Category</a>[PartialApplyK[Kleisli, M]#Apply] {
+    <span class="keyword">def</span> <a title="[A]scalaz.Kleisli[M,A,A]" id="145802">id</a>[<a title="&gt;: Nothing &lt;: Any" id="145804">A</a>] = <a href="Kleisli.scala.html#23243" title="(f: (A) =&gt; M[A])scalaz.Kleisli[M,A,A]">☆</a>(<a href="Identity.scala.html#23258" title="(x: A)scalaz.Identity[A]">_</a> <a href="Identity.scala.html#26597" title="(implicit p: scalaz.Pure[M])M[A]">η</a>)
+    <span class="keyword">def</span> <a title="[X, Y, Z](f: scalaz.Kleisli[M,Y,Z],g: scalaz.Kleisli[M,X,Y])scalaz.Kleisli[M,X,Z]" id="145805">compose</a>[<a title="&gt;: Nothing &lt;: Any" id="145809">X</a>, <a title="&gt;: Nothing &lt;: Any" id="145810">Y</a>, <a title="&gt;: Nothing &lt;: Any" id="145811">Z</a>](<a title="scalaz.Kleisli[M,Y,Z]" id="145908">f</a>: <a href="Kleisli.scala.html#10632" title="scalaz.Kleisli[M,Y,Z]">Kleisli</a>[M, Y, Z], <a title="scalaz.Kleisli[M,X,Y]" id="145909">g</a>: <a href="Kleisli.scala.html#10632" title="scalaz.Kleisli[M,X,Y]">Kleisli</a>[M, X, Y]) = <a href="Kleisli.scala.html#23742" title="(k: scalaz.Kleisli[M,X,Y])(implicit b: scalaz.Bind[M])scalaz.Kleisli[M,X,Z]">f</a> <a href="#29788" title="scalaz.Monad[M]">&lt;=&lt;</a> <a href="#145909" title="scalaz.Kleisli[M,X,Y]">g</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[M[_]](implicit evidence$2: scalaz.Comonad[M])scalaz.Category[[A,B]scalaz.Cokleisli[M,A,B]]" id="29777">CokleisliCategory</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="29775">M</a>[<a title="&gt;: Nothing &lt;: Any" id="29778">_</a>]: Comonad]: <a href="#9318" title="scalaz.Category[[A,B]scalaz.Cokleisli[M,A,B]]">Category</a>[PartialApplyK[Cokleisli, M]#Apply] = <a href="#145989" title="java.lang.Object with scalaz.Category[[A,B]scalaz.Cokleisli[M,A,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Category[[A,B]scalaz.Cokleisli[M,A,B]]" id="145989">Category</a>[PartialApplyK[Cokleisli, M]#Apply] {
+    <span class="keyword">def</span> <a title="&lt;refinement&gt;[A] extends java.lang.Object with scalaz.Cokleisli[M,A,A]" id="145995">id</a>[<a title="&gt;: Nothing &lt;: Any" id="145997">A</a>] = <a href="Cokleisli.scala.html#23088" title="(f: (M[A]) =&gt; A)java.lang.Object with scalaz.Cokleisli[M,A,A]">★</a>(<a href="MA.scala.html#22784" title="(a: M[A])scalaz.MA[M,A]">_</a> <a href="MA.scala.html#23967" title="(implicit p: scalaz.Copure[M])A">ε</a>)
+    <span class="keyword">def</span> <a title="[X, Y, Z](f: scalaz.Cokleisli[M,Y,Z],g: scalaz.Cokleisli[M,X,Y])scalaz.Cokleisli[M,X,Z]" id="145998">compose</a>[<a title="&gt;: Nothing &lt;: Any" id="146002">X</a>, <a title="&gt;: Nothing &lt;: Any" id="146003">Y</a>, <a title="&gt;: Nothing &lt;: Any" id="146004">Z</a>](<a title="scalaz.Cokleisli[M,Y,Z]" id="146129">f</a>: <a href="Cokleisli.scala.html#9507" title="scalaz.Cokleisli[M,Y,Z]">Cokleisli</a>[M, Y, Z], <a title="scalaz.Cokleisli[M,X,Y]" id="146130">g</a>: <a href="Cokleisli.scala.html#9507" title="scalaz.Cokleisli[M,X,Y]">Cokleisli</a>[M, X, Y]) = <a href="Cokleisli.scala.html#23675" title="(c: scalaz.Cokleisli[M,X,Y])(implicit b: scalaz.Comonad[M])scalaz.Cokleisli[M,X,Z]">f</a> <a href="#29777" title="scalaz.Comonad[M]">=&lt;=</a> <a href="#146130" title="scalaz.Cokleisli[M,X,Y]">g</a> 
+  }
+}
+
+        </pre>
+    </body>
+</html>

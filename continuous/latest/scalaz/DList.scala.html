@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/DList.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait DList[A] extends java.lang.Object with ScalaObject" id="9609">DList</a>[<a title="&gt;: Nothing &lt;: Any" id="15694">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(as: List[A])List[A]" id="145164">apply</a>(<a title="List[A]" id="145185">as</a>: <span title="List[A]">List</span>[A]): <span title="List[A]">List</span>[A]
+
+  <span class="keyword">def</span> <a title="=&gt; List[A]" id="145165">toList</a> = <a href="#145164" title="(as: List[A])List[A]">apply</a>(<span title="object Nil">Nil</span>)
+
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#11737" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">def</span> <a title="=&gt; Option[A]" id="145167">head</a> = <a href="#145165" title="=&gt; List[A]">toList</a>.<a title="=&gt; Option[A]" id="26090">headOption</a>
+
+  <span class="keyword">def</span> <a title="=&gt; Option[List[A]]" id="145168">tail</a> = <a href="#145165" title="=&gt; List[A]">toList</a> <span title="Option[List[A]]" class="keyword">match</span> {
+    <span title="None.type" class="keyword">case</span> <span title="object Nil">Nil</span> =&gt; <a title="object None" id="866">None</a>
+    <span title="Some[List[A]]" class="keyword">case</span> _ :: <a title="List[A]" id="145202">t</a> =&gt; <a title="(x: List[A])Some[List[A]]" id="1124">Some</a>(<a href="#145202" title="List[A]">t</a>)
+  }
+
+  <span class="keyword">def</span> <a title="(a: A)scalaz.DList[A]" id="145169">::</a>(<a title="A" id="145221">a</a>: <a href="#15694" title="A">A</a>) = <a href="#23110" title="(f: (List[A]) =&gt; List[A])scalaz.DList[A]">dlist</a>(<a href="#145221" title="A">a</a> <a href="#145231" title="A">::</a> <a href="#145164" title="(as: List[A])List[A]">apply</a><span title="(x: A)List[A]">(</span><a href="#145230" title="List[A]">_</a>: <span title="List[A]">List</span>[A]))
+
+  <span class="keyword">def</span> <a title="(a: A)scalaz.DList[A]" id="145170">::&gt;</a>(<a title="A" id="145241">a</a>: <a href="#15694" title="A">A</a>) = <a href="#23110" title="(f: (List[A]) =&gt; List[A])scalaz.DList[A]">dlist</a>((d: <span title="List[A]">List</span>[A]) =&gt; <a href="#145164" title="(as: List[A])List[A]">apply</a>(<a href="#145241" title="A">a</a> <a href="#145248" title="A">::</a> <a href="#145247" title="(x: A)List[A]">d</a>))
+
+  <span class="keyword">def</span> <a title="(as: scalaz.DList[A])scalaz.DList[A]" id="145171">:::</a>(<a title="scalaz.DList[A]" id="145258">as</a>: <a href="#9609" title="scalaz.DList[A]">DList</a>[A]) = <a href="#23110" title="(f: (List[A]) =&gt; List[A])scalaz.DList[A]">dlist</a>((d: <span title="List[A]">List</span>[A]) =&gt; <a href="#145164" title="(as: List[A])List[A]">apply</a>(<a href="#145164" title="(as: List[A])List[A]">as</a>(<a href="#145264" title="List[A]">d</a>)))
+
+  <span class="keyword">def</span> <a title="[B](b: B,f: (A, B) =&gt; B)B" id="145172">foldRight</a>[<a title="&gt;: Nothing &lt;: Any" id="145174">B</a>](<a title="B" id="145269">b</a>: <a href="#145174" title="B">B</a>, <a title="(A, B) =&gt; B" id="145270">f</a>: (A, B) =&gt; B): <a href="#145174" title="B">B</a> = <a href="#145165" title="=&gt; List[A]">toList</a>.<a title="(z: B)(f: (A, B) =&gt; B)B" id="25624">foldRight</a>(<a href="#145269" title="B">b</a>)(<a href="#145270" title="(A, B) =&gt; B">f</a>)
+
+  <span class="keyword">def</span> <a title="[B](f: (A) =&gt; B)scalaz.DList[B]" id="145175">map</a>[<a title="&gt;: Nothing &lt;: Any" id="145177">B</a>](<a title="(A) =&gt; B" id="145293">f</a>: A =&gt; B) = <a href="#145172" title="[B](b: B,f: (A, B) =&gt; B)B">foldRight</a><span title="(b: scalaz.DList[B],f: (A, scalaz.DList[B]) =&gt; scalaz.DList[B])scalaz.DList[B]">[</span><a href="#9609" title="scalaz.DList[B]">DList</a>[B]](<a href="#23113" title="[A]scalaz.DList[A]">emptyDList</a><span title="scalaz.DList[B]">[</span><a href="#145177" title="B">B</a>], <a href="#145293" title="(v1: A)B">f</a>(<a href="#145312" title="A">_</a>) <a href="#145314" title="B">::</a> <a href="#145169" title="(a: B)scalaz.DList[B]">_</a>)
+
+  <span class="keyword">def</span> <a title="[B](f: (A) =&gt; scalaz.DList[B])scalaz.DList[B]" id="145178">flatMap</a>[<a title="&gt;: Nothing &lt;: Any" id="145180">B</a>](<a title="(A) =&gt; scalaz.DList[B]" id="145321">f</a>: A =&gt; DList[B]) = <a href="#145172" title="[B](b: B,f: (A, B) =&gt; B)B">foldRight</a><span title="(b: scalaz.DList[B],f: (A, scalaz.DList[B]) =&gt; scalaz.DList[B])scalaz.DList[B]">[</span><a href="#9609" title="scalaz.DList[B]">DList</a>[B]](<a href="#23113" title="[A]scalaz.DList[A]">emptyDList</a><span title="scalaz.DList[B]">[</span><a href="#145180" title="B">B</a>], <a href="#145321" title="(v1: A)scalaz.DList[B]">f</a>(<a href="#145327" title="A">_</a>) <a href="#145329" title="scalaz.DList[B]">:::</a> <a href="#145171" title="(as: scalaz.DList[B])scalaz.DList[B]">_</a>)
+
+  <span class="keyword">def</span> <a title="(f: (A) =&gt; Unit)Unit" id="145181">foreach</a>(<a title="(A) =&gt; Unit" id="145336">f</a>: A =&gt; Unit) = <a href="#145165" title="(f: (A) =&gt; Unit)Unit" id="25609">toList</a> foreach <a href="#145336" title="(A) =&gt; Unit">f</a>
+
+  <span class="keyword">override</span> <span class="keyword">def</span> <a title="()java.lang.String" id="145182">toString</a> = <a title="(x$1: java.lang.String)java.lang.String" id="3086" class="char">'D'</a> + <a href="#145165" title="=&gt; List[A]">toList</a>.<a title="()String" id="25864">toString</a>
+}
+
+<span class="keyword">trait</span> <a title="trait DLists extends java.lang.Object with ScalaObject" id="9618">DLists</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="[A](f: (List[A]) =&gt; List[A])scalaz.DList[A]" id="23110">dlist</a>[<a title="&gt;: Nothing &lt;: Any" id="23112">A</a>](<a title="(List[A]) =&gt; List[A]" id="145224">f</a>: List[A] =&gt; List[A]): <a href="#9609" title="scalaz.DList[A]">DList</a>[A] = <a href="#145367" title="java.lang.Object with scalaz.DList[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.DList[A]" id="145367">DList</a>[A] {
+    <span class="keyword">def</span> <a title="(as: List[A])List[A]" id="145371">apply</a>(<a title="List[A]" id="145372">as</a>: <span title="List[A]">List</span>[A]) = <a href="#145224" title="(v1: List[A])List[A]">f</a>(<a href="#145372" title="List[A]">as</a>)
+  }
+
+  <span class="keyword">def</span> <a title="[A]scalaz.DList[A]" id="23113">emptyDList</a>[<a title="&gt;: Nothing &lt;: Any" id="23115">A</a>] = <a href="#23110" title="(f: (List[A]) =&gt; List[A])scalaz.DList[A]">dlist</a>(<a title="(x: List[A])List[A]" id="476">identity</a>(<a href="#145304" title="List[A]">_</a>: <span title="List[A]">List</span>[A]))
+}
+
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Function2W.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Function2W[T1, T2, R] extends java.lang.Object with ScalaObject" id="10227">Function2W</a>[<a title="&gt;: Nothing &lt;: Any" id="15677">T1</a>, <a title="&gt;: Nothing &lt;: Any" id="15678">T2</a>, <a title="&gt;: Nothing &lt;: Any" id="15679">R</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">val</span> <a title="=&gt; (T1, T2) =&gt; R" id="26702">k</a>: (T1, T2) =&gt; R
+
+  <span class="keyword">def</span> <a title="=&gt; (T2, T1) =&gt; R" id="26703">flip</a> = (v2: <a href="#15678" title="T2">T2</a>, v1: <a href="#15677" title="T1">T1</a>) =&gt; <a href="#26702" title="(v1: T1,v2: T2)R">k</a>(<a href="#141545" title="T1">v1</a>, <a href="#141544" title="T2">v2</a>)
+
+  <span class="keyword">def</span> <a title="[X](f: (R, R) =&gt; X,t1: (T1, T1),t2: (T2, T2))X" id="26704">on</a>[<a title="&gt;: Nothing &lt;: Any" id="26706">X</a>](<a title="(R, R) =&gt; X" id="141549">f</a>: (R, R) =&gt; X, <a title="(T1, T1)" id="141550">t1</a>: <span title="(T1, T1)">(</span>T1, T1), <a title="(T2, T2)" id="141551">t2</a>: <span title="(T2, T2)">(</span>T2, T2)) = <a href="#141549" title="(v1: R,v2: R)X">f</a>(<a href="#26702" title="(v1: T1,v2: T2)R">k</a>(<a href="#141550" title="(T1, T1)">t1</a>.<span title="=&gt; T1">_1</span>, <a href="#141551" title="(T2, T2)">t2</a>.<span title="=&gt; T2">_1</span>), <a href="#26702" title="(v1: T1,v2: T2)R">k</a>(<a href="#141550" title="(T1, T1)">t1</a>.<span title="=&gt; T1">_2</span>, <a href="#141551" title="(T2, T2)">t2</a>.<span title="=&gt; T2">_2</span>))
+
+  <span class="keyword">import</span> concurrent.Strategy
+  <span class="keyword">import</span> concurrent.Promise
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#11737" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">def</span> <a title="(implicit s: scalaz.concurrent.Strategy[Unit])(T1, T2) =&gt; scalaz.concurrent.Promise[R]" id="26710">promise</a>(<span class="keyword">implicit</span> <a title="scalaz.concurrent.Strategy[Unit]" id="141566">s</a>: <a href="concurrent/Strategy.scala.html#12738" title="scalaz.concurrent.Strategy[Unit]">Strategy</a>[Unit]) = (x: <a href="#15677" title="T1">T1</a>, y: <a href="#15678" title="T2">T2</a>) =&gt; <a href="Identity.scala.html#23258" title="(x: T1)scalaz.Identity[T1]">x</a>.<a href="Identity.scala.html#26600" title="[F[_]](implicit p: scalaz.Pure[F])F[T1]">pure</a><a href="MA.scala.html#22784" title="(a: scalaz.concurrent.Promise[T1])scalaz.MA[scalaz.concurrent.Promise,T1]">[</a><a href="concurrent/Promise.scala.html#12723" title="scalaz.concurrent.Promise">Promise</a>].<a href="MA.scala.html#23803" title="(b: scalaz.concurrent.Promise[T2])(z: (T1, T2) =&gt; R)(implicit t: scalaz.Functor[scalaz.concurrent.Promise],implicit a: scalaz.Apply[scalaz.concurrent.Promise])scalaz.concurrent.Promise[R]">&lt;**&gt;</a>(<a href="Identity.scala.html#23258" title="(x: T2)scalaz.Identity[T2]">y</a>.<a href="Identity.scala.html#26600" title="[F[_]](implicit p: scalaz.Pure[F])F[T2]">pure</a><a href="Pure.scala.html#42296" title="(implicit p: scalaz.Pure[scalaz.concurrent.Promise])scalaz.concurrent.Promise[T2]">[</a><a href="concurrent/Promise.scala.html#12723" title="scalaz.concurrent.Promise">Promise</a>])<a href="Functor.scala.html#33202" title="=&gt; scalaz.Functor[scalaz.concurrent.Promise]">(</a><a href="#26702" title="=&gt; (T1, T2) =&gt; R">k</a>)
+
+  <span class="keyword">def</span> <a title="[TT](f: (TT) =&gt; T1)(implicit ev: =:=[T1,T2])(TT, TT) =&gt; R" id="26711">comap</a>[<a title="&gt;: Nothing &lt;: Any" id="26713">TT</a>](<a title="(TT) =&gt; T1" id="142237">f</a>: TT =&gt; T1)(<span class="keyword">implicit</span> <a title="=:=[T1,T2]" id="142238">ev</a>: T1 <a title="=:=[T1,T2]" id="8656">=:=</a> T2): (TT, TT) =&gt; R = (<a title="TT" id="142242">t1</a>, <a title="TT" id="142243">t2</a>) =&gt; <a href="#26702" title="(v1: T1,v2: T2)R">k</a>(<a href="#142237" title="(v1: TT)T1">f</a>(<a href="#142242" title="TT">t1</a>), <a href="#142238" title="(v1: T1)T2">ev</a>(<a href="#142237" title="(v1: TT)T1">f</a>(<a href="#142243" title="TT">t2</a>)))
+}
+
+<span class="keyword">trait</span> <a title="trait Function2s extends java.lang.Object with ScalaObject" id="10215">Function2s</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[T1, T2, R](f: (T1, T2) =&gt; R)scalaz.Function2W[T1,T2,R]" id="23219">Function2To</a>[<a title="&gt;: Nothing &lt;: Any" id="23223">T1</a>, <a title="&gt;: Nothing &lt;: Any" id="23224">T2</a>, <a title="&gt;: Nothing &lt;: Any" id="23225">R</a>](<a title="(T1, T2) =&gt; R" id="26714">f</a>: (T1, T2) =&gt; R): <a href="#10227" title="scalaz.Function2W[T1,T2,R]">Function2W</a>[T1, T2, R] = <a href="#142255" title="java.lang.Object with scalaz.Function2W[T1,T2,R]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Function2W[T1,T2,R]" id="142255">Function2W</a>[T1, T2, R] {
+    <span class="keyword">val</span> <a title="(T1, T2) =&gt; R" id="142259">k</a> = <a href="#26714" title="(T1, T2) =&gt; R">f</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[T1, T2, R](f: scalaz.Function2W[T1,T2,R])(T1, T2) =&gt; R" id="23226">Function2From</a>[<a title="&gt;: Nothing &lt;: Any" id="23230">T1</a>, <a title="&gt;: Nothing &lt;: Any" id="23231">T2</a>, <a title="&gt;: Nothing &lt;: Any" id="23232">R</a>](<a title="scalaz.Function2W[T1,T2,R]" id="26698">f</a>: <a href="#10227" title="scalaz.Function2W[T1,T2,R]">Function2W</a>[T1, T2, R]): <a title="(T1, T2) =&gt; R" id="1003">Function2</a>[T1, T2, R] = <a href="#26698" title="scalaz.Function2W[T1,T2,R]">f</a>.<a href="#26702" title="=&gt; (T1, T2) =&gt; R">k</a>
+}
+
+        </pre>
+    </body>
+</html>

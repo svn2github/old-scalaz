@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/PartialApplyKA.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait PartialApplyKA[T[_[_],_,_], M[_], A] extends java.lang.Object" id="11433">PartialApplyKA</a>[<a title="[_[_], _, _]&gt;: Nothing &lt;: Any" id="16170">T</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="23771">_</a>[<a title="&gt;: Nothing &lt;: Any" id="23774">_</a>], <a title="&gt;: Nothing &lt;: Any" id="23772">_</a>, <a title="&gt;: Nothing &lt;: Any" id="23773">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="16171">M</a>[<a title="&gt;: Nothing &lt;: Any" id="23775">_</a>], <a title="&gt;: Nothing &lt;: Any" id="16172">A</a>] <a title="java.lang.Object" id="1764">{</a>
+  <span class="keyword">type</span> <a title="[B]T[M,A,B]" id="23767">Apply</a>[<a title="&gt;: Nothing &lt;: Any" id="23768">B</a>] = <a href="#16170" title="T[M,A,B]">T</a>[M, A, B]
+
+  <span class="keyword">type</span> <a title="[B]T[M,B,A]" id="23769">Flip</a>[<a title="&gt;: Nothing &lt;: Any" id="23770">B</a>] = <a href="#16170" title="T[M,B,A]">T</a>[M, B, A]
+}
+
+        </pre>
+    </body>
+</html>

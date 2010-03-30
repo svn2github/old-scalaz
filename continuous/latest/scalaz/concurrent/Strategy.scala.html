@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/concurrent/Strategy.scala</title>
+        <script type="text/javascript" src="../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+<span class="keyword">package</span> concurrent
+
+<span class="keyword">trait</span> <a title="trait Strategy[A] extends java.lang.Object" id="12738">Strategy</a>[<a title="&gt;: Nothing &lt;: Any" id="16271">A</a>] <a title="java.lang.Object" id="1764">{</a>
+  /**
+   * Evaluate `a` in a manner specific to this strategy. A typical strategy will schedule asynchronous
+   * evaluation of `a` and return a function that, when itself evaluated, will block until the result is ready.
+   *
+   * @return A function that returns the value of A.
+   */
+  <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="21141">apply</a>(<a title="() =&gt; A" id="21149">a</a>: () =&gt; A): () =&gt; A
+}
+
+<span class="keyword">object</span> <a title="object scalaz.concurrent.Strategy" id="12739">Strategy</a> <a title="ScalaObject" id="430">{</a>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](f: (() =&gt; A) =&gt; () =&gt; A)scalaz.concurrent.Strategy[A]" id="254818">StrategyFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="254820">A</a>](<a title="(() =&gt; A) =&gt; () =&gt; A" id="254826">f</a>: (() =&gt; A) =&gt; () =&gt; A): <a href="#12738" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#254829" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="254829">Strategy</a>[A] {
+    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="254833">apply</a>(<a title="() =&gt; A" id="254834">a</a>: () =&gt; A) = <a href="#254826" title="(v1: () =&gt; A)() =&gt; A" id="25097">f</a>(<a href="#254834" title="() =&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](s: scalaz.concurrent.Strategy[A])(() =&gt; A) =&gt; () =&gt; A" id="254821">StrategyTo</a>[<a title="&gt;: Nothing &lt;: Any" id="254823">A</a>](<a title="scalaz.concurrent.Strategy[A]" id="254849">s</a>: <a href="#12738" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A]): (() =&gt; A) =&gt; () =&gt; A = (a: () =&gt; A) =&gt; <a href="#21141" title="(a: () =&gt; A)() =&gt; A">s</a>(<a href="#254853" title="() =&gt; A">a</a>)
+}
+
+        </pre>
+    </body>
+</html>

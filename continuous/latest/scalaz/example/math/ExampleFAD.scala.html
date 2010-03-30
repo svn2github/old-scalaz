@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/example/math/ExampleFAD.scala</title>
+        <script type="text/javascript" src="../../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz.example.math
+
+<span class="keyword">import</span> scalaz._
+<span class="keyword">import</span> Scalaz._
+
+<span class="keyword">object</span> <a title="object scalaz.example.math.ExampleFAD" id="16051">ExampleFAD</a> <a title="ScalaObject" id="430">{</a>
+  <span class="keyword">def</span> <a title="(args: Array[String])Unit" id="22542">main</a>(<a title="Array[String]" id="181463">args</a>: <a title="Array[String]" id="1036">Array</a>[String]) = <a href="#22543" title="=&gt; Unit">run</a>
+
+  <span class="keyword">def</span> <a title="=&gt; Unit" id="22543">run</a> {
+    <span class="keyword">import</span> scalaz.math._
+    <span class="keyword">import</span> FAD._
+
+    <span class="keyword">def</span> <a title="[T](x: T)(implicit r: scalaz.math.Real[T])T" id="181468">f</a>[<a title="&gt;: Nothing &lt;: Any" id="181470">T</a><a id="1">]</a>(<a title="T" id="181476">x</a>: <a href="#181470" title="T">T</a>)(<span class="keyword">implicit</span> <a title="scalaz.math.Real[T]" id="181477">r</a>: <a href="../../math/FAD.scala.html#16234" title="scalaz.math.Real[T]">Real</a>[T]) = {
+      <span class="keyword">import</span> <a href="#181477" title="scalaz.math.Real[T]">r</a>._
+
+      <a href="../../math/FAD.scala.html#181822" title="(rhs: T)T">x</a> <a href="../../math/FAD.scala.html#181822" title="(rhs: T)T" id="181716">*</a> <a href="../../math/FAD.scala.html#181815" title="implicit scalaz.math.Real.fromDouble : (x: Double)T" class="double">2.</a> + <a href="../../math/FAD.scala.html#181822" title="(rhs: T)T">x</a> * <a href="#181476" title="T">x</a>
+    }
+
+    // Evaluate the function at x = 1
+    <a href="#181468" title="(x: Double)(implicit r: scalaz.math.Real[Double])Double">f</a><a href="../../math/FAD.scala.html#182125" title="object scalaz.math.Real.DoubleReal">(</a><span title="Double(1.0)" class="double">1.</span>).<a href="../../Identity.scala.html#26611" title="(b: Double)(implicit e: scalaz.Equal[Double],implicit s: scalaz.Show[Double],implicit ev: &lt;:&lt;[Double,Double])Unit">toDouble</a> <a href="../../Equal.scala.html#30302" title="=&gt; scalaz.Equal[Double]">assert_≟</a> <span title="Double(3.0)" class="double">3.0</span>
+
+    // Calculate the differential of f with respect to x, at x = 1.
+    <a href="../../math/FAD.scala.html#181473" title="[T](f: (scalaz.math.Dual[T]) =&gt; scalaz.math.Dual[T])(x: T)(implicit evidence$1: scalaz.math.Real[T])T">diff</a><span title="(f: (scalaz.math.Dual[Double]) =&gt; scalaz.math.Dual[Double])(x: Double)(implicit evidence$1: scalaz.math.Real[Double])Double">[</span><a title="Double" id="2662">Double</a>](<a href="#181468" title="(x: scalaz.math.Dual[Double])(implicit r: scalaz.math.Real[scalaz.math.Dual[Double]])scalaz.math.Dual[Double]">f</a><a href="../../math/FAD.scala.html#182127" title="(implicit evidence$4: scalaz.math.Real[Double])java.lang.Object with scalaz.math.Real[scalaz.math.Dual[Double]]{def t: scalaz.math.Real[Double]; def signum(x: scalaz.math.Dual[Double]): Nothing}">(</a><a href="#186115" title="scalaz.math.Dual[Double]">_</a>))<a href="../../math/FAD.scala.html#182125" title="object scalaz.math.Real.DoubleReal">(</a><span title="Double(1.0)" class="double">1.</span>).<a href="../../Identity.scala.html#26611" title="(b: Double)(implicit e: scalaz.Equal[Double],implicit s: scalaz.Show[Double],implicit ev: &lt;:&lt;[Double,Double])Unit">toDouble</a> <a href="../../Equal.scala.html#30302" title="=&gt; scalaz.Equal[Double]">assert_≟</a> <span title="Double(4.0)" class="double">4.0</span>
+  }
+}
+
+        </pre>
+    </body>
+</html>

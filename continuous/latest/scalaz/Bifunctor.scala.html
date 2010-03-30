@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Bifunctor.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait Bifunctor[F[_,_]] extends java.lang.Object" id="8922">Bifunctor</a>[<a title="[_, _]&gt;: Nothing &lt;: Any" id="16166">F</a>[<a title="&gt;: Nothing &lt;: Any" id="75534">_</a>, <a title="&gt;: Nothing &lt;: Any" id="75535">_</a>]] <a title="java.lang.Object" id="1764">{</a>
+  <span class="keyword">def</span> <a title="[A, B, C, D](k: F[A,B],f: (A) =&gt; C,g: (B) =&gt; D)F[C,D]" id="75525">bimap</a>[<a title="&gt;: Nothing &lt;: Any" id="75530">A</a>, <a title="&gt;: Nothing &lt;: Any" id="75531">B</a>, <a title="&gt;: Nothing &lt;: Any" id="75532">C</a>, <a title="&gt;: Nothing &lt;: Any" id="75533">D</a>](<a title="F[A,B]" id="75536">k</a>: <a href="#16166" title="F[A,B]">F</a>[A, B], <a title="(A) =&gt; C" id="75537">f</a>: A =&gt; C, <a title="(B) =&gt; D" id="75538">g</a>: B =&gt; D): <a href="#16166" title="F[C,D]">F</a>[C, D]
+}
+
+<span class="keyword">object</span> <a title="object scalaz.Bifunctor" id="8923">Bifunctor</a> <a title="ScalaObject" id="430">{</a>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#11737" title="object scalaz.Scalaz">Scalaz</a>._
+  
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Bifunctor[Tuple2]" id="188756">Tuple2Bifunctor</a>: <a href="#8922" title="scalaz.Bifunctor[Tuple2]">Bifunctor</a>[Tuple2] = <a href="#224422" title="java.lang.Object with scalaz.Bifunctor[Tuple2]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Bifunctor[Tuple2]" id="224422">Bifunctor</a>[Tuple2] {
+    <span class="keyword">def</span> <a title="[A, B, C, D](k: (A, B),f: (A) =&gt; C,g: (B) =&gt; D)(C, D)" id="224426">bimap</a>[<a title="&gt;: Nothing &lt;: Any" id="224431">A</a>, <a title="&gt;: Nothing &lt;: Any" id="224432">B</a>, <a title="&gt;: Nothing &lt;: Any" id="224433">C</a>, <a title="&gt;: Nothing &lt;: Any" id="224434">D</a>](<a title="(A, B)" id="224435">k</a>: <a title="(A, B)" id="694">(</a>A, B), <a title="(A) =&gt; C" id="224436">f</a>: A =&gt; C, <a title="(B) =&gt; D" id="224437">g</a>: B =&gt; D) =
+      <a title="(_1: C,_2: D)(C, D)" id="695">(</a><a href="#224436" title="(v1: A)C">f</a>(<a href="#224435" title="(A, B)">k</a>.<a title="=&gt; A" id="24857">_1</a>), <a href="#224437" title="(v1: B)D">g</a>(<a href="#224435" title="(A, B)">k</a>.<a title="=&gt; B" id="24859">_2</a>))
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Bifunctor[Either]" id="188757">EitherBifunctor</a>: <a href="#8922" title="scalaz.Bifunctor[Either]">Bifunctor</a>[Either] = <a href="#224500" title="java.lang.Object with scalaz.Bifunctor[Either]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Bifunctor[Either]" id="224500">Bifunctor</a>[Either] {
+    <span class="keyword">def</span> <a title="[A, B, C, D](k: Either[A,B],f: (A) =&gt; C,g: (B) =&gt; D)Either[C,D]" id="224504">bimap</a>[<a title="&gt;: Nothing &lt;: Any" id="224509">A</a>, <a title="&gt;: Nothing &lt;: Any" id="224510">B</a>, <a title="&gt;: Nothing &lt;: Any" id="224511">C</a>, <a title="&gt;: Nothing &lt;: Any" id="224512">D</a>](<a title="Either[A,B]" id="224513">k</a>: <a title="Either[A,B]" id="688">Either</a>[A, B], <a title="(A) =&gt; C" id="224514">f</a>: A =&gt; C, <a title="(B) =&gt; D" id="224515">g</a>: B =&gt; D) =
+      <a href="#224513" title="Either[A,B]">k</a> <span title="Either[C,D]" class="keyword">match</span> {
+        <span title="Left[C,Nothing]" class="keyword">case</span> Left(<a title="A" id="224543">a</a>) =&gt; <a title="(a: C)Left[C,Nothing]" id="977">Left</a>(<a href="#224514" title="(v1: A)C">f</a>(<a href="#224543" title="A">a</a>))
+        <span title="Right[Nothing,D]" class="keyword">case</span> Right(<a title="B" id="224553">b</a>) =&gt; <a title="(b: D)Right[Nothing,D]" id="746">Right</a>(<a href="#224515" title="(v1: B)D">g</a>(<a href="#224553" title="B">b</a>))
+      }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Bifunctor[scalaz.Validation]" id="188758">ValidationBifunctor</a>: <a href="#8922" title="scalaz.Bifunctor[scalaz.Validation]">Bifunctor</a>[Validation] = <a href="#224587" title="java.lang.Object with scalaz.Bifunctor[scalaz.Validation]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Bifunctor[scalaz.Validation]" id="224587">Bifunctor</a>[Validation] {
+    <span class="keyword">def</span> <a title="[A, B, C, D](k: scalaz.Validation[A,B],f: (A) =&gt; C,g: (B) =&gt; D)scalaz.Validation[C,D]" id="224591">bimap</a>[<a title="&gt;: Nothing &lt;: Any" id="224596">A</a>, <a title="&gt;: Nothing &lt;: Any" id="224597">B</a>, <a title="&gt;: Nothing &lt;: Any" id="224598">C</a>, <a title="&gt;: Nothing &lt;: Any" id="224599">D</a>](<a title="scalaz.Validation[A,B]" id="224600">k</a>: <a href="Validation.scala.html#12492" title="scalaz.Validation[A,B]">Validation</a>[A, B], <a title="(A) =&gt; C" id="224601">f</a>: A =&gt; C, <a title="(B) =&gt; D" id="224602">g</a>: B =&gt; D) =
+      <a href="#224600" title="scalaz.Validation[A,B]">k</a> <span title="scalaz.Validation[C,D]" class="keyword">match</span> {
+        <span title="scalaz.Validation[C,Nothing]" class="keyword">case</span> Failure(<a title="A" id="224630">a</a>) =&gt; <a href="Validation.scala.html#23447" title="(e: C)scalaz.Validation[C,Nothing]">failure</a>(<a href="#224601" title="(v1: A)C">f</a>(<a href="#224630" title="A">a</a>))
+        <span title="scalaz.Validation[Nothing,D]" class="keyword">case</span> Success(<a title="B" id="224640">b</a>) =&gt; <a href="Validation.scala.html#23442" title="(a: D)scalaz.Validation[Nothing,D]">success</a>(<a href="#224602" title="(v1: B)D">g</a>(<a href="#224640" title="B">b</a>))
+      }
+  }
+
+  <span class="keyword">import</span> java.util.<a title="object java.util.Map" id="5981">Map</a>.Entry
+  <span class="keyword">import</span> java.util.<a title="object java.util.AbstractMap" id="6347">AbstractMap</a>.SimpleImmutableEntry
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Bifunctor[java.util.Map.Entry]" id="188761">MapEntryBifunctor</a>: <a href="#8922" title="scalaz.Bifunctor[java.util.Map.Entry]">Bifunctor</a>[Entry] = <a href="#224674" title="java.lang.Object with scalaz.Bifunctor[java.util.Map.Entry]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Bifunctor[java.util.Map.Entry]" id="224674">Bifunctor</a>[Entry] {
+    <span class="keyword">def</span> <a title="[A, B, C, D](k: java.util.Map.Entry[A,B],f: (A) =&gt; C,g: (B) =&gt; D)java.util.AbstractMap.SimpleImmutableEntry[C,D]" id="224678">bimap</a>[<a title="&gt;: Nothing &lt;: Any" id="224683">A</a>, <a title="&gt;: Nothing &lt;: Any" id="224684">B</a>, <a title="&gt;: Nothing &lt;: Any" id="224685">C</a>, <a title="&gt;: Nothing &lt;: Any" id="224686">D</a>](<a title="java.util.Map.Entry[A,B]" id="224687">k</a>: <a title="java.util.Map.Entry[A,B]" id="24041">Entry</a>[A, B], <a title="(A) =&gt; C" id="224688">f</a>: A =&gt; C, <a title="(B) =&gt; D" id="224689">g</a>: B =&gt; D) = <span title="java.util.AbstractMap.SimpleImmutableEntry[C,D]" class="keyword">new</span> <a title="java.util.AbstractMap.SimpleImmutableEntry[C,D]" id="42908">SimpleImmutableEntry</a>(<a href="#224688" title="(v1: A)C">f</a>(<a href="#224687" title="java.util.Map.Entry[A,B]">k</a>.<a title="()A" id="24080">getKey</a>), <a href="#224689" title="(v1: B)D">g</a>(<a href="#224687" title="java.util.Map.Entry[A,B]">k</a>.<a title="()B" id="24081">getValue</a>))
+  }
+
+}
+
+        </pre>
+    </body>
+</html>

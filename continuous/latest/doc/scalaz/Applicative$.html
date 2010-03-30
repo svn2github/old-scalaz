@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.Applicative</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		      <script type="text/javascript" src="../lib/jquery.js"></script>
+          
+		  <style type="text/css">
+		    @import url(../lib/template.css) screen;
+		  </style>
+		  <script type="text/javascript" src="../lib/template.js"></script>
+    
+        </head>
+        <body class="value">
+      
+      <p id="owner"><a href="package.html">scalaz</a></p>
+
+      <div id="definition">
+        <img src="../lib/object_big.png" />
+        <h1>Applicative</h1>
+      </div>
+
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Applicative</span><span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment">
+      
+      
+      
+      
+      
+      <div class="block">
+              Go to: <a href="Applicative.html">companion</a>
+            </div>
+    </div>
+      
+      <div id="template">
+      
+        <div id="mbrsel">
+              <div id="ancestors">
+                <h3>Inherits</h3>
+                <ol><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+              </div>
+            </div>
+        
+        
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li name="scalaz.Applicative#EitherLeftApplicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">EitherLeftApplicative</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[<span class="extype" name="scala.Either.LeftProjection">LeftProjection</span>[B, X][B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#EitherRightApplicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">EitherRightApplicative</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[<span class="extype" name="scala.Either.RightProjection">RightProjection</span>[X, B][B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Function1Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function1Applicative</span><span class="tparams">[<span name="R">R</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R) ⇒ B[B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Function2Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function2Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S) ⇒ C[C]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Function3Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function3Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T) ⇒ D[D]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Function4Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function4Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T, U) ⇒ E[E]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Function5Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function5Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T, U, V) ⇒ F[F]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Function6Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Function6Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>, <span name="W">W</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T, U, V, W) ⇒ G[G]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#MapEntryApplicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">MapEntryApplicative</span><span class="tparams">[<span name="X">X</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[X]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[<span class="extype" name="java.util.Map.Entry">Entry</span>[X, B][B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#MonoidalApplicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">MonoidalApplicative</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[B]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[<a href="Const.html" class="extype" name="scalaz.Const">Const</a>[B, B][B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#StateApplicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">StateApplicative</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[<a href="State.html" class="extype" name="scalaz.State">State</a>[A, B][B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Tuple2Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple2Applicative</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[R]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, B)[B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Tuple3Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple3Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[R]</span>, <span name="arg1">arg1: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[S]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, C)[C]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Tuple4Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple4Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[R]</span>, <span name="arg1">arg1: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[S]</span>, <span name="arg2">arg2: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[T]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T, D)[D]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Tuple5Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple5Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[R]</span>, <span name="arg1">arg1: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[S]</span>, <span name="arg2">arg2: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[T]</span>, <span name="arg3">arg3: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[U]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T, U, E)[E]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Tuple6Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple6Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[R]</span>, <span name="arg1">arg1: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[S]</span>, <span name="arg2">arg2: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[T]</span>, <span name="arg3">arg3: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[U]</span>, <span name="arg4">arg4: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[V]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T, U, V, F)[F]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#Tuple7Applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Tuple7Applicative</span><span class="tparams">[<span name="R">R</span>, <span name="S">S</span>, <span name="T">T</span>, <span name="U">U</span>, <span name="V">V</span>, <span name="W">W</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[R]</span>, <span name="arg1">arg1: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[S]</span>, <span name="arg2">arg2: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[T]</span>, <span name="arg3">arg3: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[U]</span>, <span name="arg4">arg4: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[V]</span>, <span name="arg5">arg5: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[W]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[(R, S, T, U, V, W, G)[G]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#ValidationApplicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ValidationApplicative</span><span class="tparams">[<span name="X">X</span>]</span><span class="params">(<span name="arg0">arg0: <a href="Semigroup.html" class="extype" name="scalaz.Semigroup">Semigroup</a>[X]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[<a href="Validation.html" class="extype" name="scalaz.Validation">Validation</a>[X, B][B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#ValidationFailureApplicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ValidationFailureApplicative</span><span class="tparams">[<span name="X">X</span>]</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[<a href="FailProjection.html" class="extype" name="scalaz.FailProjection">FailProjection</a>[B, X][B]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scalaz.Applicative#applicative">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">applicative</span><span class="tparams">[<span name="Z">Z</span>]</span><span class="params">(<span name="p">p: <a href="Pure.html" class="extype" name="scalaz.Pure">Pure</a>[Z[_][_]]</span>, <span name="a">a: <a href="Apply.html" class="extype" name="scalaz.Apply">Apply</a>[Z[_][_]]</span>)</span><span class="result">: <a href="Applicative.html" class="extype" name="scalaz.Applicative">Applicative</a>[Z[_][_]]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.AnyRef#equals">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence</p><div class="fullcomment">
+      <div class="comment cmt"><p>This method is used to compare the receiver object (<code>this</code>)
+with the argument object (<code>arg0</code>) for equivalence.</p><p><p>
+The default implementations of this method is an <a
+href="http://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a>:
+  <ul>
+ <li>It is reflexive: for any instance <code>x</code> of type <code>Any</code>,
+ <code>x.equals(x)</code> should return <code>true</code>.</li>
+ <li>It is symmetric: for any instances <code>x</code> and <code>y</code> of type
+ <code>Any</code>, <code>x.equals(y)</code> should return <code>true</code> if and only
+ if <code>y.equals(x)</code> returns <code>true</code>.</li>
+ <li>It is transitive: for any instances
+ <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code>
+ if <code>x.equals(y)</code> returns <code>true</code> and
+ <code>y.equals(z)</code> returns
+ <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul>
+</p></p><p><p>
+If you override this method, you should verify that
+your implementation remains an equivalence relation.
+Additionally, when overriding this method it is often necessary to
+override <code>hashCode</code> to ensure that objects that are
+"equal" (<code>o1.equals(o2)</code> returns <code>true</code>)
+hash to the same <a href="Int.html"><code>Int</code></a>
+(<code>o1.hashCode.equals(o2.hashCode)</code>).
+</p></div>
+      <dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.
+</p></p></dd></dl>
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+      <div class="block">
+              Go to: <a href="Applicative.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scala.AnyRef#hashCode">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns a hash code value for the object</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns a hash code value for the object.</p><p><p>
+The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash
+codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet not be
+equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A
+degenerate implementation could always return <code>0</code>.
+However, it is required that if two objects are equal
+(<code>o1.equals(o2)</code> returns <code>true</code>) that they
+have identical hash codes
+(<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when
+overriding this method, be sure to verify that the behavior is
+consistent with the <code>equals</code> method.
+</p></p><p><p></p></div>
+      
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+      <div class="block">
+              Go to: <a href="Applicative.html">companion</a>
+            </div>
+    </div>
+    </li><li name="scala.AnyRef#toString">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns a string representation of the object</p><div class="fullcomment">
+      <div class="comment cmt"><p>Returns a string representation of the object.
+<p>
+The default representation is platform dependent.
+</p></div>
+      
+      
+      <div class="block">
+            definition classes: AnyRef ⇐ Any
+          </div>
+      
+      <div class="block">
+              Go to: <a href="Applicative.html">companion</a>
+            </div>
+    </div>
+    </li></ol>
+            </div>
+        
+        
+        
+      </div>
+      
+    </body>
+      </html>

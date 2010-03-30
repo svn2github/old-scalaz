@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/geo/Bearing.scala</title>
+        <script type="text/javascript" src="../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+<span class="keyword">package</span> geo
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Bearing extends java.lang.Object" id="15823">Bearing</a> <a title="java.lang.Object" id="1764">{</a>
+  <span class="keyword">val</span> <a title="=&gt; Double" id="30591">value</a>: <span title="Double">Double</span>
+}
+
+<span class="keyword">trait</span> <a title="trait Bearings extends java.lang.Object with ScalaObject" id="15829">Bearings</a> <a title="ScalaObject" id="430">{</a>
+  <span class="keyword">def</span> <a title="(d: Double)java.lang.Object with scalaz.geo.Bearing" id="23046">bearing</a>(<a title="Double" id="166010">d</a>: <span title="Double">Double</span>) = <a href="#166013" title="java.lang.Object with scalaz.geo.Bearing{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.Bearing" id="166013">Bearing</a> {
+    <span class="keyword">val</span> <a title="Double" id="166015">value</a> = <a href="#166010" title="(x$1: Int)Double" id="3965">d</a> % <span title="Int(360)" class="int">360</span>
+  }
+}
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Pure.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait Pure[+P[_]] extends java.lang.Object" id="11706">Pure</a>[+<a title="[_]&gt;: Nothing &lt;: Any" id="16407">P</a>[<a title="&gt;: Nothing &lt;: Any" id="41907">_</a>]] <a title="java.lang.Object" id="1764">{</a>
+  <span class="keyword">def</span> <a title="[A](a: =&gt; A)P[A]" id="41904">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="41906">A</a>](<a title="=&gt; A" id="42895">a</a>: =&gt; A): <a href="#16407" title="P[A]">P</a>[A]
+}
+
+<span class="keyword">object</span> <a title="object scalaz.Pure" id="11707">Pure</a> <a title="ScalaObject" id="430">{</a>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#11737" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.Identity]" id="42158">IdentityPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.Identity]">Pure</a>[Identity] = <a href="#303456" title="java.lang.Object with scalaz.Pure[scalaz.Identity]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.Identity]" id="303456">Pure</a>[Identity] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Identity[A]" id="303460">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303462">A</a>](<a title="=&gt; A" id="303463">a</a>: =&gt; A) = <a href="Identity.scala.html#23258" title="(x: A)scalaz.Identity[A]">a</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[B](implicit evidence$1: scalaz.Monoid[B])java.lang.Object with scalaz.Pure[[B]scalaz.Const[B,B]]" id="43025">ConstPure</a>[<a title="&gt;: Nothing &lt;: Any" id="42161">B</a>: Monoid] = <a href="#43028" title="java.lang.Object with scalaz.Pure[[B]scalaz.Const[B,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B]scalaz.Const[B,B]]" id="43028">Pure</a>[PartialApply1Of2[Const, B]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Const[B,A]" id="43032">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="43034">A</a>](<a title="=&gt; A" id="43035">a</a>: =&gt; A) = <a href="Const.scala.html#34737" title="[B, A](value: B)scalaz.Const[B,A]">Const</a><span title="(value: B)scalaz.Const[B,A]">[</span><a href="#42161" title="B">B</a>, <a href="#43034" title="A">A</a>](<a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[B])B">∅</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.NonEmptyList]" id="42162">NonEmptyListPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.NonEmptyList]">Pure</a>[NonEmptyList] = <a href="#303492" title="java.lang.Object with scalaz.Pure[scalaz.NonEmptyList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.NonEmptyList]" id="303492">Pure</a>[NonEmptyList] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.NonEmptyList[A]" id="303496">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303498">A</a>](<a title="=&gt; A" id="303499">a</a>: =&gt; A) = <a href="Identity.scala.html#23258" title="(x: A)scalaz.Identity[A]">a</a>.<a href="Identity.scala.html#26682" title="=&gt; scalaz.NonEmptyList[A]">wrapNel</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[S]scalaz.Pure[[B]scalaz.State[S,B]]" id="42163">StatePure</a>[<a title="&gt;: Nothing &lt;: Any" id="42165">S</a>]: <a href="#11706" title="scalaz.Pure[[B]scalaz.State[S,B]]">Pure</a>[PartialApply1Of2[State, S]#Apply] = <a href="#303589" title="java.lang.Object with scalaz.Pure[[B]scalaz.State[S,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B]scalaz.State[S,B]]" id="303589">Pure</a>[PartialApply1Of2[State, S]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.State[S,A]" id="303595">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303597">A</a>](<a title="=&gt; A" id="303598">a</a>: =&gt; A) = <a href="Identity.scala.html#23258" title="(x: A)scalaz.Identity[A]">a</a>.<a href="Identity.scala.html#26641" title="[S]scalaz.State[S,A]">state</a><span title="scalaz.State[S,A]">[</span><a href="#42165" title="S">S</a>]
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; &lt;refinement&gt; extends java.lang.Object with scalaz.Pure[Tuple1]" id="42166">Tuple1Pure</a> = <a href="#43244" title="java.lang.Object with scalaz.Pure[Tuple1]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Tuple1]" id="43244">Pure</a>[Tuple1] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(A,)" id="43246">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="43248">A</a>](<a title="=&gt; A" id="43249">a</a>: =&gt; A) = <a title="(_1: A)(A,)" id="527">Tuple1</a>(<a href="#43249" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R](implicit evidence$2: scalaz.Zero[R])scalaz.Pure[[B](R, B)]" id="43053">Tuple2Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42169">R</a>: Zero]: <a href="#11706" title="scalaz.Pure[[B](R, B)]">Pure</a>[PartialApply1Of2[Tuple2, R]#Apply] = <a href="#303690" title="java.lang.Object with scalaz.Pure[[B](R, B)]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B](R, B)]" id="303690">Pure</a>[PartialApply1Of2[Tuple2, R]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, A)" id="303696">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303698">A</a>](<a title="=&gt; A" id="303699">a</a>: =&gt; A) = <a title="(_1: R,_2: A)(R, A)" id="695">(</a><a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[R])R">∅</a>, <a href="#303699" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S](implicit evidence$3: scalaz.Zero[R],implicit evidence$4: scalaz.Zero[S])scalaz.Pure[[C](R, S, C)]" id="43061">Tuple3Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42173">R</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42174">S</a>: Zero]: <a href="#11706" title="scalaz.Pure[[C](R, S, C)]">Pure</a>[PartialApply2Of3[Tuple3, R, S]#Apply] = <a href="#303733" title="java.lang.Object with scalaz.Pure[[C](R, S, C)]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[C](R, S, C)]" id="303733">Pure</a>[PartialApply2Of3[Tuple3, R, S]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, A)" id="303739">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303741">A</a>](<a title="=&gt; A" id="303742">a</a>: =&gt; A) = <a title="(_1: R,_2: S,_3: A)(R, S, A)" id="533">(</a><a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[R])R">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[S])S">∅</a>, <a href="#303742" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T](implicit evidence$5: scalaz.Zero[R],implicit evidence$6: scalaz.Zero[S],implicit evidence$7: scalaz.Zero[T])scalaz.Pure[[D](R, S, T, D)]" id="43071">Tuple4Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42179">R</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42180">S</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42181">T</a>: Zero]: <a href="#11706" title="scalaz.Pure[[D](R, S, T, D)]">Pure</a>[PartialApply3Of4[Tuple4, R, S, T]#Apply] = <a href="#303786" title="java.lang.Object with scalaz.Pure[[D](R, S, T, D)]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[D](R, S, T, D)]" id="303786">Pure</a>[PartialApply3Of4[Tuple4, R, S, T]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T, A)" id="303792">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303794">A</a>](<a title="=&gt; A" id="303795">a</a>: =&gt; A) = <a title="(_1: R,_2: S,_3: T,_4: A)(R, S, T, A)" id="458">(</a><a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[R])R">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[S])S">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[T])T">∅</a>, <a href="#303795" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T, U](implicit evidence$8: scalaz.Zero[R],implicit evidence$9: scalaz.Zero[S],implicit evidence$10: scalaz.Zero[T],implicit evidence$11: scalaz.Zero[U])scalaz.Pure[[E](R, S, T, U, E)]" id="43083">Tuple5Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42187">R</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42188">S</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42189">T</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42190">U</a>: Zero]: <a href="#11706" title="scalaz.Pure[[E](R, S, T, U, E)]">Pure</a>[PartialApply4Of5[Tuple5, R, S, T, U]#Apply] = <a href="#303849" title="java.lang.Object with scalaz.Pure[[E](R, S, T, U, E)]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[E](R, S, T, U, E)]" id="303849">Pure</a>[PartialApply4Of5[Tuple5, R, S, T, U]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T, U, A)" id="303855">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303857">A</a>](<a title="=&gt; A" id="303858">a</a>: =&gt; A) = <a title="(_1: R,_2: S,_3: T,_4: U,_5: A)(R, S, T, U, A)" id="1157">(</a><a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[R])R">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[S])S">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[T])T">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[U])U">∅</a>, <a href="#303858" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T, U, V](implicit evidence$12: scalaz.Zero[R],implicit evidence$13: scalaz.Zero[S],implicit evidence$14: scalaz.Zero[T],implicit evidence$15: scalaz.Zero[U],implicit evidence$16: scalaz.Zero[V])scalaz.Pure[[F](R, S, T, U, V, F)]" id="43097">Tuple6Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42197">R</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42198">S</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42199">T</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42200">U</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42201">V</a>: Zero]: <a href="#11706" title="scalaz.Pure[[F](R, S, T, U, V, F)]">Pure</a>[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply] = <a href="#303922" title="java.lang.Object with scalaz.Pure[[F](R, S, T, U, V, F)]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[F](R, S, T, U, V, F)]" id="303922">Pure</a>[PartialApply5Of6[Tuple6, R, S, T, U, V]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T, U, V, A)" id="303928">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="303930">A</a>](<a title="=&gt; A" id="303931">a</a>: =&gt; A) = <a title="(_1: R,_2: S,_3: T,_4: U,_5: V,_6: A)(R, S, T, U, V, A)" id="392">(</a><a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[R])R">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[S])S">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[T])T">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[U])U">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[V])V">∅</a>, <a href="#303931" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T, U, V, W](implicit evidence$17: scalaz.Zero[R],implicit evidence$18: scalaz.Zero[S],implicit evidence$19: scalaz.Zero[T],implicit evidence$20: scalaz.Zero[U],implicit evidence$21: scalaz.Zero[V],implicit evidence$22: scalaz.Zero[W])scalaz.Pure[[G](R, S, T, U, V, W, G)]" id="43113">Tuple7Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42209">R</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42210">S</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42211">T</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42212">U</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42213">V</a>: Zero, <a title="&gt;: Nothing &lt;: Any" id="42214">W</a>: Zero]: <a href="#11706" title="scalaz.Pure[[G](R, S, T, U, V, W, G)]">Pure</a>[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply] = <a href="#304005" title="java.lang.Object with scalaz.Pure[[G](R, S, T, U, V, W, G)]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[G](R, S, T, U, V, W, G)]" id="304005">Pure</a>[PartialApply6Of7[Tuple7, R, S, T, U, V, W]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T, U, V, W, A)" id="304011">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304013">A</a>](<a title="=&gt; A" id="304014">a</a>: =&gt; A) = <a title="(_1: R,_2: S,_3: T,_4: U,_5: V,_6: W,_7: A)(R, S, T, U, V, W, A)" id="53">(</a><a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[R])R">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[S])S">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[T])T">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[U])U">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[V])V">∅</a>, <a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[W])W">∅</a>, <a href="#304014" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[Function0]" id="42215">Function0Pure</a>: <a href="#11706" title="scalaz.Pure[Function0]">Pure</a>[Function0] = <a href="#304096" title="java.lang.Object with scalaz.Pure[Function0]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Function0]" id="304096">Pure</a>[Function0] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.lang.Object with () =&gt; A" id="304100">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304102">A</a>](<a title="=&gt; A" id="304103">a</a>: =&gt; A) = <a href="#304111" title="java.lang.Object with () =&gt; A" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with () =&gt; A" id="304111">Function0</a>[A] {
+      <span class="keyword">def</span> <a title="()A" id="304115">apply</a> = <a href="#304103" title="=&gt; A">a</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R]scalaz.Pure[[B](R) =&gt; B]" id="42216">Function1Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42218">R</a>]: <a href="#11706" title="scalaz.Pure[[B](R) =&gt; B]">Pure</a>[PartialApply1Of2[Function1, R]#Apply] = <a href="#304140" title="java.lang.Object with scalaz.Pure[[B](R) =&gt; B]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B](R) =&gt; B]" id="304140">Pure</a>[PartialApply1Of2[Function1, R]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R) =&gt; A" id="304146">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304148">A</a>](<a title="=&gt; A" id="304149">a</a>: =&gt; A) = (_: <a href="#42218" title="R">R</a>) =&gt; <a href="#304149" title="=&gt; A">a</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S]scalaz.Pure[[C](R, S) =&gt; C]" id="42219">Function2Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42222">R</a>, <a title="&gt;: Nothing &lt;: Any" id="42223">S</a>]: <a href="#11706" title="scalaz.Pure[[C](R, S) =&gt; C]">Pure</a>[PartialApply2Of3[Function2, R, S]#Apply] = <a href="#304171" title="java.lang.Object with scalaz.Pure[[C](R, S) =&gt; C]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[C](R, S) =&gt; C]" id="304171">Pure</a>[PartialApply2Of3[Function2, R, S]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S) =&gt; A" id="304177">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304179">A</a>](<a title="=&gt; A" id="304180">a</a>: =&gt; A) = (_: <a href="#42222" title="R">R</a>, _: <a href="#42223" title="S">S</a>) =&gt; <a href="#304180" title="=&gt; A">a</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T]scalaz.Pure[[D](R, S, T) =&gt; D]" id="42224">Function3Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42228">R</a>, <a title="&gt;: Nothing &lt;: Any" id="42229">S</a>, <a title="&gt;: Nothing &lt;: Any" id="42230">T</a>]: <a href="#11706" title="scalaz.Pure[[D](R, S, T) =&gt; D]">Pure</a>[PartialApply3Of4[Function3, R, S, T]#Apply] = <a href="#304203" title="java.lang.Object with scalaz.Pure[[D](R, S, T) =&gt; D]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[D](R, S, T) =&gt; D]" id="304203">Pure</a>[PartialApply3Of4[Function3, R, S, T]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T) =&gt; A" id="304209">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304211">A</a>](<a title="=&gt; A" id="304212">a</a>: =&gt; A) = (_: <a href="#42228" title="R">R</a>, _: <a href="#42229" title="S">S</a>, _: <a href="#42230" title="T">T</a>) =&gt; <a href="#304212" title="=&gt; A">a</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T, U]scalaz.Pure[[E](R, S, T, U) =&gt; E]" id="42231">Function4Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42236">R</a>, <a title="&gt;: Nothing &lt;: Any" id="42237">S</a>, <a title="&gt;: Nothing &lt;: Any" id="42238">T</a>, <a title="&gt;: Nothing &lt;: Any" id="42239">U</a>]: <a href="#11706" title="scalaz.Pure[[E](R, S, T, U) =&gt; E]">Pure</a>[PartialApply4Of5[Function4, R, S, T, U]#Apply] = <a href="#304236" title="java.lang.Object with scalaz.Pure[[E](R, S, T, U) =&gt; E]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[E](R, S, T, U) =&gt; E]" id="304236">Pure</a>[PartialApply4Of5[Function4, R, S, T, U]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T, U) =&gt; A" id="304242">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304244">A</a>](<a title="=&gt; A" id="304245">a</a>: =&gt; A) = (_: <a href="#42236" title="R">R</a>, _: <a href="#42237" title="S">S</a>, _: <a href="#42238" title="T">T</a>, _: <a href="#42239" title="U">U</a>) =&gt; <a href="#304245" title="=&gt; A">a</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T, U, V]scalaz.Pure[[F](R, S, T, U, V) =&gt; F]" id="42240">Function5Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42246">R</a>, <a title="&gt;: Nothing &lt;: Any" id="42247">S</a>, <a title="&gt;: Nothing &lt;: Any" id="42248">T</a>, <a title="&gt;: Nothing &lt;: Any" id="42249">U</a>, <a title="&gt;: Nothing &lt;: Any" id="42250">V</a>]: <a href="#11706" title="scalaz.Pure[[F](R, S, T, U, V) =&gt; F]">Pure</a>[PartialApply5Of6[Function5, R, S, T, U, V]#Apply] = <a href="#304270" title="java.lang.Object with scalaz.Pure[[F](R, S, T, U, V) =&gt; F]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[F](R, S, T, U, V) =&gt; F]" id="304270">Pure</a>[PartialApply5Of6[Function5, R, S, T, U, V]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T, U, V) =&gt; A" id="304276">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304278">A</a>](<a title="=&gt; A" id="304279">a</a>: =&gt; A) = (_: <a href="#42246" title="R">R</a>, _: <a href="#42247" title="S">S</a>, _: <a href="#42248" title="T">T</a>, _: <a href="#42249" title="U">U</a>, _: <a href="#42250" title="V">V</a>) =&gt; <a href="#304279" title="=&gt; A">a</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[R, S, T, U, V, W]scalaz.Pure[[G](R, S, T, U, V, W) =&gt; G]" id="42251">Function6Pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42258">R</a>, <a title="&gt;: Nothing &lt;: Any" id="42259">S</a>, <a title="&gt;: Nothing &lt;: Any" id="42260">T</a>, <a title="&gt;: Nothing &lt;: Any" id="42261">U</a>, <a title="&gt;: Nothing &lt;: Any" id="42262">V</a>, <a title="&gt;: Nothing &lt;: Any" id="42263">W</a>]: <a href="#11706" title="scalaz.Pure[[G](R, S, T, U, V, W) =&gt; G]">Pure</a>[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply] = <a href="#304305" title="java.lang.Object with scalaz.Pure[[G](R, S, T, U, V, W) =&gt; G]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[G](R, S, T, U, V, W) =&gt; G]" id="304305">Pure</a>[PartialApply6Of7[Function6, R, S, T, U, V, W]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)(R, S, T, U, V, W) =&gt; A" id="304311">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304313">A</a>](<a title="=&gt; A" id="304314">a</a>: =&gt; A) = (_: <a href="#42258" title="R">R</a>, _: <a href="#42259" title="S">S</a>, _: <a href="#42260" title="T">T</a>, _: <a href="#42261" title="U">U</a>, _: <a href="#42262" title="V">V</a>, _: <a href="#42263" title="W">W</a>) =&gt; <a href="#304314" title="=&gt; A">a</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[List]" id="42264">ListPure</a>: <a href="#11706" title="scalaz.Pure[List]">Pure</a>[List] = <a href="#304339" title="java.lang.Object with scalaz.Pure[List]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[List]" id="304339">Pure</a>[List] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)List[A]" id="304343">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304345">A</a>](<a title="=&gt; A" id="304346">a</a>: =&gt; A) = <a title="(xs: A*)List[A]" id="19735">List</a>(<a href="#304346" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[Stream]" id="42265">StreamPure</a>: <a href="#11706" title="scalaz.Pure[Stream]">Pure</a>[Stream] = <a href="#304370" title="java.lang.Object with scalaz.Pure[Stream]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Stream]" id="304370">Pure</a>[Stream] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.Stream[A]" id="304374">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304376">A</a>](<a title="=&gt; A" id="304377">a</a>: =&gt; A) = <span title="(xs: A*)scala.collection.immutable.Stream[A]">Stream</span>(<a href="#304377" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[Option]" id="42266">OptionPure</a>: <a href="#11706" title="scalaz.Pure[Option]">Pure</a>[Option] = <a href="#304401" title="java.lang.Object with scalaz.Pure[Option]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Option]" id="304401">Pure</a>[Option] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)Some[A]" id="304405">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304407">A</a>](<a title="=&gt; A" id="304408">a</a>: =&gt; A) = <span title="(x: A)Some[A]">Some</span>(<a href="#304408" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.FirstOption]" id="42267">FirstOptionPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.FirstOption]">Pure</a>[FirstOption] = <a href="#304428" title="java.lang.Object with scalaz.Pure[scalaz.FirstOption]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.FirstOption]" id="304428">Pure</a>[FirstOption] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.FirstOption[A]" id="304432">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304434">A</a>](<a title="=&gt; A" id="304435">a</a>: =&gt; A) = <span title="(x: A)Some[A]">Some</span><a href="OptionW.scala.html#23365" title="(o: Option[A])scalaz.OptionW[A]">(</a><a href="#304435" title="=&gt; A">a</a>).<a href="OptionW.scala.html#26406" title="=&gt; scalaz.FirstOption[A]">fst</a>
+  }
+  
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.LastOption]" id="42268">LastOptionPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.LastOption]">Pure</a>[LastOption] = <a href="#304484" title="java.lang.Object with scalaz.Pure[scalaz.LastOption]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.LastOption]" id="304484">Pure</a>[LastOption] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.LastOption[A]" id="304488">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304490">A</a>](<a title="=&gt; A" id="304491">a</a>: =&gt; A) = <span title="(x: A)Some[A]">Some</span><a href="OptionW.scala.html#23365" title="(o: Option[A])scalaz.OptionW[A]">(</a><a href="#304491" title="=&gt; A">a</a>).<a href="OptionW.scala.html#26407" title="=&gt; scalaz.LastOption[A]">lst</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.Scalaz.GArray]" id="42269">GenericArrayPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.Scalaz.GArray]">Pure</a>[GArray] = <a href="#304540" title="java.lang.Object with scalaz.Pure[scalaz.Scalaz.GArray]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.Scalaz.GArray]" id="304540">Pure</a>[GArray] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.GenericArray[A]" id="304544">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304546">A</a>](<a title="=&gt; A" id="304547">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="scala.collection.mutable.GenericArray[A]" id="304555">t</a> = <span title="scalaz.Scalaz.GArray[A]" class="keyword">new</span> <a title="scalaz.Scalaz.GArray[A]" id="28693">GArray</a>[A](<span title="Int(1)" class="int">1</span>)
+      <a href="#304555" title="(idx: Int,elem: A)Unit" id="30606">t</a>(<span title="Int(0)" class="int">0</span>) = <a href="#304547" title="=&gt; A">a</a>
+      <a href="#304555" title="scala.collection.mutable.GenericArray[A]">t</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Pure[[B]Either.LeftProjection[B,X]]" id="42270">EitherLeftPure</a>[<a title="&gt;: Nothing &lt;: Any" id="42272">X</a>]: <a href="#11706" title="scalaz.Pure[[B]Either.LeftProjection[B,X]]">Pure</a>[PartialApply1Of2[Either.LeftProjection, X]#Flip] = <a href="#304576" title="java.lang.Object with scalaz.Pure[[B]Either.LeftProjection[B,X]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B]Either.LeftProjection[B,X]]" id="304576">Pure</a>[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)Either.LeftProjection[A,Nothing]" id="304582">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304584">A</a>](<a title="=&gt; A" id="304585">a</a>: =&gt; A) = <a title="(a: A)Left[A,Nothing]" id="977">Left</a>(<a href="#304585" title="=&gt; A">a</a>).<a title="=&gt; Either.LeftProjection[A,Nothing]" id="25139">left</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Pure[[B]Either.RightProjection[X,B]]" id="42273">EitherRightPure</a>[<a title="&gt;: Nothing &lt;: Any" id="42275">X</a>]: <a href="#11706" title="scalaz.Pure[[B]Either.RightProjection[X,B]]">Pure</a>[PartialApply1Of2[Either.RightProjection, X]#Apply] = <a href="#304610" title="java.lang.Object with scalaz.Pure[[B]Either.RightProjection[X,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B]Either.RightProjection[X,B]]" id="304610">Pure</a>[PartialApply1Of2[Either.RightProjection, X]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)Either.RightProjection[Nothing,A]" id="304616">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304618">A</a>](<a title="=&gt; A" id="304619">a</a>: =&gt; A) = <a title="(b: A)Right[Nothing,A]" id="746">Right</a>(<a href="#304619" title="=&gt; A">a</a>).<a title="=&gt; Either.RightProjection[Nothing,A]" id="25283">right</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[Responder]" id="42276">ResponderPure</a>: <a href="#11706" title="scalaz.Pure[Responder]">Pure</a>[Responder] = <a href="#304642" title="java.lang.Object with scalaz.Pure[Responder]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Responder]" id="304642">Pure</a>[Responder] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)Responder[A]" id="304646">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304648">A</a>](<a title="=&gt; A" id="304649">a</a>: =&gt; A) = <a href="#304657" title="Responder[A]" class="keyword">new</a> <a title="anonymous class $anon extends Responder[A]" id="304657">Responder</a>[A] {
+      <span class="keyword">def</span> <a title="(k: (A) =&gt; Unit)Unit" id="304661">respond</a>(<a title="(A) =&gt; Unit" id="304662">k</a>: A =&gt; Unit) = <a href="#304662" title="(v1: A)Unit" id="25097">k</a>(<a href="#304649" title="=&gt; A">a</a>)
+    }
+  }
+
+  <span class="keyword">import</span> java.util.concurrent.Callable
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.concurrent.Callable]" id="42278">CallablePure</a>: <a href="#11706" title="scalaz.Pure[java.util.concurrent.Callable]">Pure</a>[Callable] = <a href="#304691" title="java.lang.Object with scalaz.Pure[java.util.concurrent.Callable]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.concurrent.Callable]" id="304691">Pure</a>[Callable] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.lang.Object with java.util.concurrent.Callable[A]" id="304695">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304697">A</a>](<a title="=&gt; A" id="304698">a</a>: =&gt; A) = <a href="#304706" title="java.lang.Object with java.util.concurrent.Callable[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with java.util.concurrent.Callable[A]" id="304706">Callable</a>[A] {
+      <span class="keyword">def</span> <a title="()A" id="304710">call</a> = <a href="#304698" title="=&gt; A">a</a>
+    }
+  }
+
+  <span class="keyword">import</span> java.util.<a title="object java.util.Map" id="5981">Map</a>.Entry
+  <span class="keyword">import</span> java.util.<a title="object java.util.AbstractMap" id="6347">AbstractMap</a>.SimpleImmutableEntry
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X](implicit evidence$23: scalaz.Zero[X])scalaz.Pure[[B]java.util.Map.Entry[X,B]]" id="43191">MapEntryPure</a>[<a title="&gt;: Nothing &lt;: Any" id="42283">X</a>: Zero]: <a href="#11706" title="scalaz.Pure[[B]java.util.Map.Entry[X,B]]">Pure</a>[PartialApply1Of2[Entry, X]#Apply] = <a href="#304735" title="java.lang.Object with scalaz.Pure[[B]java.util.Map.Entry[X,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B]java.util.Map.Entry[X,B]]" id="304735">Pure</a>[PartialApply1Of2[Entry, X]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.AbstractMap.SimpleImmutableEntry[X,A]" id="304741">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304743">A</a>](<a title="=&gt; A" id="304744">a</a>: =&gt; A) = <span title="java.util.AbstractMap.SimpleImmutableEntry[X,A]" class="keyword">new</span> <a title="java.util.AbstractMap.SimpleImmutableEntry[X,A]" id="42908">SimpleImmutableEntry</a>(<a href="Zero.scala.html#23463" title="(implicit z: scalaz.Zero[X])X">∅</a>, <a href="#304744" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Pure[[B]scalaz.Validation[X,B]]" id="42284">ValidationPure</a>[<a title="&gt;: Nothing &lt;: Any" id="42286">X</a>]: <a href="#11706" title="scalaz.Pure[[B]scalaz.Validation[X,B]]">Pure</a>[PartialApply1Of2[Validation, X]#Apply] = <a href="#304890" title="java.lang.Object with scalaz.Pure[[B]scalaz.Validation[X,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B]scalaz.Validation[X,B]]" id="304890">Pure</a>[PartialApply1Of2[Validation, X]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Validation[Nothing,A]" id="304896">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="304898">A</a>](<a title="=&gt; A" id="304899">a</a>: =&gt; A) = <a href="Identity.scala.html#23258" title="(x: A)scalaz.Identity[A]">a</a>.<a href="Identity.scala.html#26667" title="scalaz.Validation[Nothing,A]">success</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Pure[[B]scalaz.FailProjection[B,X]]" id="42287">ValidationFailurePure</a>[<a title="&gt;: Nothing &lt;: Any" id="42289">X</a>]: <a href="#11706" title="scalaz.Pure[[B]scalaz.FailProjection[B,X]]">Pure</a>[PartialApply1Of2[FailProjection, X]#Flip] = <a href="#304992" title="java.lang.Object with scalaz.Pure[[B]scalaz.FailProjection[B,X]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[[B]scalaz.FailProjection[B,X]]" id="304992">Pure</a>[PartialApply1Of2[FailProjection, X]#Flip] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.lang.Object with scalaz.FailProjection[A,Nothing]" id="304998">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305000">A</a>](<a title="=&gt; A" id="305001">a</a>: =&gt; A) = <a href="Validation.scala.html#45605" title="(e: A)scalaz.Failure[A,Nothing]">Failure</a>(<a href="#305001" title="=&gt; A">a</a>).<a href="Validation.scala.html#24141" title="=&gt; &lt;refinement&gt; extends java.lang.Object with scalaz.FailProjection[A,Nothing]">fail</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; &lt;refinement&gt; extends java.lang.Object with scalaz.Pure[scalaz.Zipper]" id="42290">ZipperPure</a> = <a href="#42888" title="java.lang.Object with scalaz.Pure[scalaz.Zipper]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.Zipper]" id="42888">Pure</a>[Zipper] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Zipper[A]" id="42890">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="42892">A</a>](<a title="=&gt; A" id="42893">a</a>: =&gt; A) = <a href="Identity.scala.html#23258" title="(x: A)scalaz.Identity[A]">a</a>.<a href="Identity.scala.html#26658" title="=&gt; scalaz.Zipper[A]">zipper</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.ZipStream]" id="42291">ZipStreamPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.ZipStream]">Pure</a>[ZipStream] = <a href="#305028" title="java.lang.Object with scalaz.Pure[scalaz.ZipStream]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.ZipStream]" id="305028">Pure</a>[ZipStream] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.ZipStream[A]" id="305032">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305034">A</a>](<a title="=&gt; A" id="305035">a</a>: =&gt; A) = <a href="ZipStream.scala.html#23471" title="(s: Stream[A])scalaz.ZipStream[A]">zip</a>(<span title="(xs: A*)scala.collection.immutable.Stream[A]">Stream</span>(<a href="#305035" title="=&gt; A">a</a>))
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.Endo]" id="42292">EndoPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.Endo]">Pure</a>[Endo] = <a href="#305064" title="java.lang.Object with scalaz.Pure[scalaz.Endo]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.Endo]" id="305064">Pure</a>[Endo] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Endo[A]" id="305068">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305070">A</a>](<a title="=&gt; A" id="305071">a</a>: =&gt; A) = <a href="Endo.scala.html#23179" title="(a: =&gt; A)scalaz.Endo[A]">constantEndo</a>(<a href="#305071" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.Tree]" id="42293">TreePure</a>: <a href="#11706" title="scalaz.Pure[scalaz.Tree]">Pure</a>[Tree] = <a href="#305099" title="java.lang.Object with scalaz.Pure[scalaz.Tree]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.Tree]" id="305099">Pure</a>[Tree] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Tree[A]" id="305103">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305105">A</a>](<a title="=&gt; A" id="305106">a</a>: =&gt; A) = <a href="Tree.scala.html#23428" title="(root: A)scalaz.Tree[A]">leaf</a>(<a href="#305106" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[scalaz.TreeLoc]" id="42294">TreeLocPure</a>: <a href="#11706" title="scalaz.Pure[scalaz.TreeLoc]">Pure</a>[TreeLoc] = <a href="#305126" title="java.lang.Object with scalaz.Pure[scalaz.TreeLoc]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.TreeLoc]" id="305126">Pure</a>[TreeLoc] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.TreeLoc[A]" id="305130">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305132">A</a>](<a title="=&gt; A" id="305133">a</a>: =&gt; A) = <a href="#42293" title="=&gt; scalaz.Pure[scalaz.Tree]">TreePure</a>.<a href="#41904" title="(a: =&gt; A)scalaz.Tree[A]">pure</a>(<a href="#305133" title="=&gt; A">a</a>).<a href="Tree.scala.html#30837" title="=&gt; scalaz.TreeLoc[A]">loc</a>
+  }
+
+  <span class="keyword">import</span> concurrent._
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Pure.PromisePure : (implicit s: scalaz.concurrent.Strategy[Unit])scalaz.Pure[scalaz.concurrent.Promise]" id="42296">PromisePure</a>(<span class="keyword">implicit</span> <a title="scalaz.concurrent.Strategy[Unit]" id="42870">s</a>: <a href="concurrent/Strategy.scala.html#12738" title="scalaz.concurrent.Strategy[Unit]">Strategy</a>[Unit]): <a href="#11706" title="scalaz.Pure[scalaz.concurrent.Promise]">Pure</a>[Promise] = <a href="#305153" title="java.lang.Object with scalaz.Pure[scalaz.concurrent.Promise]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scalaz.concurrent.Promise]" id="305153">Pure</a>[Promise] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.concurrent.Promise[A]" id="305157">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305159">A</a>](<a title="=&gt; A" id="305160">a</a>: =&gt; A) = <a href="concurrent/Promise.scala.html#23381" title="(a: =&gt; A)(implicit s: scalaz.concurrent.Strategy[Unit])scalaz.concurrent.Promise[A]">promise</a><a href="#42870" title="scalaz.concurrent.Strategy[Unit]">(</a><a href="#305160" title="=&gt; A">a</a>)
+  }
+
+  <span class="keyword">import</span> java.util._
+  <span class="keyword">import</span> java.util.concurrent._
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.ArrayList]" id="42299">JavaArrayListPure</a>: <a href="#11706" title="scalaz.Pure[java.util.ArrayList]">Pure</a>[ArrayList] = <a href="#305183" title="java.lang.Object with scalaz.Pure[java.util.ArrayList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.ArrayList]" id="305183">Pure</a>[ArrayList] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.ArrayList[A]" id="305187">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305189">A</a>](<a title="=&gt; A" id="305190">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.ArrayList[A]" id="305198">k</a> = <a title="()java.util.ArrayList[A]" id="34334" class="keyword">new</a> <a title="java.util.ArrayList[A]" id="6439">ArrayList</a>[A]
+      <a href="#305198" title="(x$1: A)Boolean" id="34367">k</a> add <a href="#305190" title="=&gt; A">a</a>
+      <a href="#305198" title="java.util.ArrayList[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.HashSet]" id="42300">JavaHashSetPure</a>: <a href="#11706" title="scalaz.Pure[java.util.HashSet]">Pure</a>[HashSet] = <a href="#305315" title="java.lang.Object with scalaz.Pure[java.util.HashSet]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.HashSet]" id="305315">Pure</a>[HashSet] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.HashSet[A]" id="305319">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305321">A</a>](<a title="=&gt; A" id="305322">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.HashSet[A]" id="305330">k</a> = <span title="java.util.HashSet[A]" class="keyword">new</span> <a title="java.util.HashSet[A]" id="6403">HashSet</a>[A]
+      <a href="#305330" title="(x$1: A)Boolean">k</a> add <a href="#305322" title="=&gt; A">a</a>
+      <a href="#305330" title="java.util.HashSet[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.LinkedHashSet]" id="42301">JavaLinkedHashSetPure</a>: <a href="#11706" title="scalaz.Pure[java.util.LinkedHashSet]">Pure</a>[LinkedHashSet] = <a href="#305414" title="java.lang.Object with scalaz.Pure[java.util.LinkedHashSet]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.LinkedHashSet]" id="305414">Pure</a>[LinkedHashSet] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.LinkedHashSet[A]" id="305418">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305420">A</a>](<a title="=&gt; A" id="305421">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.LinkedHashSet[A]" id="305429">k</a> = <a title="()java.util.LinkedHashSet[A]" id="42825" class="keyword">new</a> <a title="java.util.LinkedHashSet[A]" id="6100">LinkedHashSet</a>[A]
+      <a href="#305429" title="(x$1: A)Boolean">k</a> add <a href="#305421" title="=&gt; A">a</a>
+      <a href="#305429" title="java.util.LinkedHashSet[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.LinkedList]" id="42302">JavaLinkedListPure</a>: <a href="#11706" title="scalaz.Pure[java.util.LinkedList]">Pure</a>[LinkedList] = <a href="#305513" title="java.lang.Object with scalaz.Pure[java.util.LinkedList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.LinkedList]" id="305513">Pure</a>[LinkedList] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.LinkedList[A]" id="305517">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305519">A</a>](<a title="=&gt; A" id="305520">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.LinkedList[A]" id="305528">k</a> = <span title="java.util.LinkedList[A]" class="keyword">new</span> <a title="java.util.LinkedList[A]" id="6118">LinkedList</a>[A]
+      <a href="#305528" title="(x$1: A)Boolean" id="34163">k</a> add <a href="#305520" title="=&gt; A">a</a>
+      <a href="#305528" title="java.util.LinkedList[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.PriorityQueue]" id="42303">JavaPriorityQueuePure</a>: <a href="#11706" title="scalaz.Pure[java.util.PriorityQueue]">Pure</a>[PriorityQueue] = <a href="#305659" title="java.lang.Object with scalaz.Pure[java.util.PriorityQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.PriorityQueue]" id="305659">Pure</a>[PriorityQueue] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.PriorityQueue[A]" id="305663">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305665">A</a>](<a title="=&gt; A" id="305666">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.PriorityQueue[A]" id="305674">k</a> = <span title="java.util.PriorityQueue[A]" class="keyword">new</span> <a title="java.util.PriorityQueue[A]" id="6124">PriorityQueue</a>[A]
+      <a href="#305674" title="(x$1: A)Boolean" id="34090">k</a> add <a href="#305666" title="=&gt; A">a</a>
+      <a href="#305674" title="java.util.PriorityQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.Stack]" id="42304">JavaStackPure</a>: <a href="#11706" title="scalaz.Pure[java.util.Stack]">Pure</a>[Stack] = <a href="#305887" title="java.lang.Object with scalaz.Pure[java.util.Stack]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.Stack]" id="305887">Pure</a>[Stack] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.Stack[A]" id="305891">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305893">A</a>](<a title="=&gt; A" id="305894">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.Stack[A]" id="305902">k</a> = <span title="java.util.Stack[A]" class="keyword">new</span> <a title="java.util.Stack[A]" id="5926">Stack</a>[A]
+      <a href="#305902" title="(x$1: A)Boolean">k</a> add <a href="#305894" title="=&gt; A">a</a>
+      <a href="#305902" title="java.util.Stack[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.TreeSet]" id="42305">JavaTreeSetPure</a>: <a href="#11706" title="scalaz.Pure[java.util.TreeSet]">Pure</a>[TreeSet] = <a href="#305952" title="java.lang.Object with scalaz.Pure[java.util.TreeSet]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.TreeSet]" id="305952">Pure</a>[TreeSet] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.TreeSet[A]" id="305956">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="305958">A</a>](<a title="=&gt; A" id="305959">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.TreeSet[A]" id="305967">k</a> = <a title="()java.util.TreeSet[A]" id="42665" class="keyword">new</a> <a title="java.util.TreeSet[A]" id="6430">TreeSet</a>[A]
+      <a href="#305967" title="(x$1: A)Boolean" id="42687">k</a> add <a href="#305959" title="=&gt; A">a</a>
+      <a href="#305967" title="java.util.TreeSet[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.Vector]" id="42306">JavaVectorPure</a>: <a href="#11706" title="scalaz.Pure[java.util.Vector]">Pure</a>[Vector] = <a href="#306113" title="java.lang.Object with scalaz.Pure[java.util.Vector]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.Vector]" id="306113">Pure</a>[Vector] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.Vector[A]" id="306117">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="306119">A</a>](<a title="=&gt; A" id="306120">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.Vector[A]" id="306128">k</a> = <a title="()java.util.Vector[A]" id="33838" class="keyword">new</a> <a title="java.util.Vector[A]" id="6244">Vector</a>[A]
+      <a href="#306128" title="(x$1: A)Boolean">k</a> add <a href="#306120" title="=&gt; A">a</a>
+      <a href="#306128" title="java.util.Vector[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.concurrent.ArrayBlockingQueue]" id="42307">JavaArrayBlockingQueuePure</a>: <a href="#11706" title="scalaz.Pure[java.util.concurrent.ArrayBlockingQueue]">Pure</a>[ArrayBlockingQueue] = <a href="#306245" title="java.lang.Object with scalaz.Pure[java.util.concurrent.ArrayBlockingQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.concurrent.ArrayBlockingQueue]" id="306245">Pure</a>[ArrayBlockingQueue] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.concurrent.ArrayBlockingQueue[A]" id="306249">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="306251">A</a>](<a title="=&gt; A" id="306252">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.ArrayBlockingQueue[A]" id="306260">k</a> = <span title="java.util.concurrent.ArrayBlockingQueue[A]" class="keyword">new</span> <a title="java.util.concurrent.ArrayBlockingQueue[A]" id="19337">ArrayBlockingQueue</a>[A](<span title="Int(0)" class="int">0</span>)
+      <a href="#306260" title="(x$1: A)Boolean" id="33759">k</a> add <a href="#306252" title="=&gt; A">a</a>
+      <a href="#306260" title="java.util.concurrent.ArrayBlockingQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.concurrent.ConcurrentLinkedQueue]" id="42308">JavaConcurrentLinkedQueuePure</a>: <a href="#11706" title="scalaz.Pure[java.util.concurrent.ConcurrentLinkedQueue]">Pure</a>[ConcurrentLinkedQueue] = <a href="#306288" title="java.lang.Object with scalaz.Pure[java.util.concurrent.ConcurrentLinkedQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.concurrent.ConcurrentLinkedQueue]" id="306288">Pure</a>[ConcurrentLinkedQueue] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.concurrent.ConcurrentLinkedQueue[A]" id="306292">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="306294">A</a>](<a title="=&gt; A" id="306295">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.ConcurrentLinkedQueue[A]" id="306303">k</a> = <span title="java.util.concurrent.ConcurrentLinkedQueue[A]" class="keyword">new</span> <a title="java.util.concurrent.ConcurrentLinkedQueue[A]" id="19568">ConcurrentLinkedQueue</a>[A]
+      <a href="#306303" title="(x$1: A)Boolean" id="23554">k</a> add <a href="#306295" title="=&gt; A">a</a>
+      <a href="#306303" title="java.util.concurrent.ConcurrentLinkedQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.concurrent.CopyOnWriteArrayList]" id="42309">JavaCopyOnWriteArrayListPure</a>: <a href="#11706" title="scalaz.Pure[java.util.concurrent.CopyOnWriteArrayList]">Pure</a>[CopyOnWriteArrayList] = <a href="#306385" title="java.lang.Object with scalaz.Pure[java.util.concurrent.CopyOnWriteArrayList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.concurrent.CopyOnWriteArrayList]" id="306385">Pure</a>[CopyOnWriteArrayList] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.concurrent.CopyOnWriteArrayList[A]" id="306389">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="306391">A</a>](<a title="=&gt; A" id="306392">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.CopyOnWriteArrayList[A]" id="306400">k</a> = <span title="java.util.concurrent.CopyOnWriteArrayList[A]" class="keyword">new</span> <a title="java.util.concurrent.CopyOnWriteArrayList[A]" id="19325">CopyOnWriteArrayList</a>[A]
+      <a href="#306400" title="(x$1: A)Boolean" id="33583">k</a> add <a href="#306392" title="=&gt; A">a</a>
+      <a href="#306400" title="java.util.concurrent.CopyOnWriteArrayList[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.concurrent.CopyOnWriteArraySet]" id="42310">JavaCopyOnWriteArraySetPure</a>: <a href="#11706" title="scalaz.Pure[java.util.concurrent.CopyOnWriteArraySet]">Pure</a>[CopyOnWriteArraySet] = <a href="#306498" title="java.lang.Object with scalaz.Pure[java.util.concurrent.CopyOnWriteArraySet]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.concurrent.CopyOnWriteArraySet]" id="306498">Pure</a>[CopyOnWriteArraySet] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.concurrent.CopyOnWriteArraySet[A]" id="306502">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="306504">A</a>](<a title="=&gt; A" id="306505">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.CopyOnWriteArraySet[A]" id="306513">k</a> = <span title="java.util.concurrent.CopyOnWriteArraySet[A]" class="keyword">new</span> <a title="java.util.concurrent.CopyOnWriteArraySet[A]" id="19634">CopyOnWriteArraySet</a>[A]
+      <a href="#306513" title="(x$1: A)Boolean" id="42568">k</a> add <a href="#306505" title="=&gt; A">a</a>
+      <a href="#306513" title="java.util.concurrent.CopyOnWriteArraySet[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.concurrent.LinkedBlockingQueue]" id="42311">JavaLinkedBlockingQueuePure</a>: <a href="#11706" title="scalaz.Pure[java.util.concurrent.LinkedBlockingQueue]">Pure</a>[LinkedBlockingQueue] = <a href="#306593" title="java.lang.Object with scalaz.Pure[java.util.concurrent.LinkedBlockingQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.concurrent.LinkedBlockingQueue]" id="306593">Pure</a>[LinkedBlockingQueue] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.concurrent.LinkedBlockingQueue[A]" id="306597">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="306599">A</a>](<a title="=&gt; A" id="306600">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.LinkedBlockingQueue[A]" id="306608">k</a> = <span title="java.util.concurrent.LinkedBlockingQueue[A]" class="keyword">new</span> <a title="java.util.concurrent.LinkedBlockingQueue[A]" id="19331">LinkedBlockingQueue</a>[A]
+      <a href="#306608" title="(x$1: A)Boolean">k</a> add <a href="#306600" title="=&gt; A">a</a>
+      <a href="#306608" title="java.util.concurrent.LinkedBlockingQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Pure[java.util.concurrent.SynchronousQueue]" id="42312">JavaSynchronousQueuePure</a>: <a href="#11706" title="scalaz.Pure[java.util.concurrent.SynchronousQueue]">Pure</a>[SynchronousQueue] = <a href="#306693" title="java.lang.Object with scalaz.Pure[java.util.concurrent.SynchronousQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[java.util.concurrent.SynchronousQueue]" id="306693">Pure</a>[SynchronousQueue] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)java.util.concurrent.SynchronousQueue[A]" id="306697">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="306699">A</a>](<a title="=&gt; A" id="306700">a</a>: =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.SynchronousQueue[A]" id="306708">k</a> = <span title="java.util.concurrent.SynchronousQueue[A]" class="keyword">new</span> <a title="java.util.concurrent.SynchronousQueue[A]" id="19496">SynchronousQueue</a>[A]
+      <a href="#306708" title="(x$1: A)Boolean">k</a> add <a href="#306700" title="=&gt; A">a</a>
+      <a href="#306708" title="java.util.concurrent.SynchronousQueue[A]">k</a>
+    }
+  }
+}
+
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/IterableW.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait Iterables extends java.lang.Object with ScalaObject" id="10602">Iterables</a> <a title="ScalaObject" id="430">{</a>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](i: java.lang.Iterable[A])Iterable[A]" id="23270">JavaIterableTo</a>[<a title="&gt;: Nothing &lt;: Any" id="23272">A</a>](<a title="java.lang.Iterable[A]" id="26568">i</a>: java.lang.<span title="java.lang.Iterable[A]">Iterable</span>[A]): <span title="Iterable[A]">Iterable</span>[A] = <a href="#302919" title="java.lang.Object with Iterable[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with Iterable[A]" id="302919">Iterable</a>[A] {
+    <span class="keyword">val</span> <a title="java.util.Iterator[A]" id="303036">k</a> = <a href="#26568" title="java.lang.Iterable[A]">i</a>.<a title="()java.util.Iterator[A]" id="23633">iterator</a>
+    <span class="keyword">override</span> <span class="keyword">def</span> <a title="=&gt; &lt;refinement&gt; extends java.lang.Object with Iterator[A]" id="303038">iterator</a> = <a href="#303048" title="java.lang.Object with Iterator[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with Iterator[A]" id="303048">Iterator</a>[A] {
+      <span class="keyword">def</span> <a title="=&gt; Boolean" id="303052">hasNext</a> = <a href="#303036" title="=&gt; java.util.Iterator[A]">k</a>.<a title="()Boolean" id="72905">hasNext</a>
+      <span class="keyword">def</span> <a title="()A" id="303053">next</a> = <a href="#303036" title="=&gt; java.util.Iterator[A]">k</a>.<a title="()A" id="72906">next</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](k: Iterable[A])java.lang.Iterable[A]" id="23273">JavaIterableFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="23275">A</a>](<a title="Iterable[A]" id="26565">k</a>: <span title="Iterable[A]">Iterable</span>[A]): java.lang.<span title="java.lang.Iterable[A]">Iterable</span>[A] = <a href="#303079" title="java.lang.Object with java.lang.Iterable[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with java.lang.Iterable[A]" id="303079">java</a>.lang.<span title="java.lang.Iterable[A]">Iterable</span>[A] {
+    <span class="keyword">val</span> <a title="Iterator[A]" id="303083">i</a> = <a href="#26565" title="Iterable[A]">k</a>.<a title="=&gt; Iterator[A]" id="25904">iterator</a>
+    <span class="keyword">def</span> <a title="()java.lang.Object with java.util.Iterator[A]{def remove(): Nothing}" id="303085">iterator</a> = <a href="#303089" title="java.lang.Object with java.util.Iterator[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with java.util.Iterator[A]" id="303089">java</a>.util.<a title="java.util.Iterator[A]" id="6535">Iterator</a>[A] {
+      <span class="keyword">def</span> <a title="()Boolean" id="303093">hasNext</a> = <a href="#303083" title="=&gt; Iterator[A]">i</a>.<a title="=&gt; Boolean" id="32186">hasNext</a>
+      <span class="keyword">def</span> <a title="()A" id="303094">next</a> = <a href="#303083" title="=&gt; Iterator[A]">i</a>.<a title="()A" id="32187">next</a>
+      <span class="keyword">def</span> <a title="()Nothing" id="303095">remove</a> = <a title="(message: String)Nothing" id="476">error</a>(<span title="java.lang.String(&quot;not supported&quot;)" class="string">&quot;not supported&quot;</span>)
+    }
+  }
+}
+
+        </pre>
+    </body>
+</html>
