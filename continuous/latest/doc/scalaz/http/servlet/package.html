@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>Scaladoc for scalaz.http.servlet</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		      <script type="text/javascript" src="../../../lib/jquery.js"></script>
+          
+      <link href="../../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="value">
+
+      <p id="owner"><a href="../../package.html" class="extype" name="scalaz">scalaz</a>.<a href="../package.html" class="extype" name="scalaz.http">http</a></p>
+
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <h1>servlet</h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">package</span>
+      <span class="symbol">
+        <span class="name">servlet</span>
+      </span>
+      </h4>
+      <div class="fullcomment" id="comment"></div>
+      
+      <div id="template">
+
+        <div id="mbrsel">
+          
+          <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in">Public</li><li class="all out">All</li></ol>
+          </div>
+        </div>
+        
+                
+        
+        <div class="members" id="types">
+              <h3>Type Members</h3>
+              <ol><li visbl="pub" name="scalaz.http.servlet.FlashFilter">
+      <h4 class="signature"><a href="FlashFilter.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">FlashFilter</span><span class="result"> extends Filter</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A filter that will keep a session variable until the next request where its value is placed in a request attribute .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServlet">
+      <h4 class="signature"><a href="HttpServlet.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpServlet</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpServlet .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServletRequest">
+      <h4 class="signature"><a href="HttpServletRequest.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpServletRequest</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpServletRequest .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServletRequests">
+      <h4 class="signature"><a href="HttpServletRequests.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpServletRequests</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServletResponse">
+      <h4 class="signature"><a href="HttpServletResponse.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpServletResponse</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpServletResponse .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServletResponses">
+      <h4 class="signature"><a href="HttpServletResponses.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpServletResponses</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpServletResponse .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServlets">
+      <h4 class="signature"><a href="HttpServlets.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpServlets</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpSession">
+      <h4 class="signature"><a href="HttpSession.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpSession</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpSession .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpSessions">
+      <h4 class="signature"><a href="HttpSessions.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">HttpSessions</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpSession .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.ScalazServlet">
+      <h4 class="signature"><a href="ScalazServlet.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">ScalazServlet</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>, <span name="A">A &lt;: AnyRef {...}</span>]</span><span class="result"> extends HttpServlet</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A servlet that can run scalaz applications .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.ServletApplication">
+      <h4 class="signature"><a href="ServletApplication.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">ServletApplication</span><span class="tparams">[<span name="IN">IN</span>, <span name="OUT">OUT</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A HTTP servlet application .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.StreamStreamServlet">
+      <h4 class="signature"><a href="StreamStreamServlet.html">
+      <span class="kind">class</span>
+      <span class="symbol">
+        <span class="name">StreamStreamServlet</span><span class="result"> extends ScalazServlet[Stream[A][A], Stream[A][A], StreamStreamServletApplication]</span>
+      </span>
+      </a></h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.http.servlet.StreamStreamServletApplication">
+      <h4 class="signature"><a href="StreamStreamServletApplication.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">StreamStreamServletApplication</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A servlet web application with a request body and response body made up of a stream of bytes .</p>
+    </li></ol>
+            </div>
+        
+        <div class="members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="scalaz.http.servlet.FlashFilter">
+      <h4 class="signature"><a href="FlashFilter$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">FlashFilter</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A filter that will keep a session variable until the next request where its value is placed in a request attribute .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServlet">
+      <h4 class="signature"><a href="HttpServlet$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">HttpServlet</span><span class="result"> extends HttpServlets</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpServlet .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServletRequest">
+      <h4 class="signature"><a href="HttpServletRequest$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">HttpServletRequest</span><span class="result"> extends HttpServletRequests</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A wrapper around Java Servlet HttpServletRequest .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpServletResponse">
+      <h4 class="signature"><a href="HttpServletResponse$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">HttpServletResponse</span><span class="result"> extends HttpServletResponses</span>
+      </span>
+      </a></h4>
+      
+    </li><li visbl="pub" name="scalaz.http.servlet.HttpSession">
+      <h4 class="signature"><a href="HttpSession$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">HttpSession</span><span class="result"> extends HttpSessions</span>
+      </span>
+      </a></h4>
+      
+    </li><li visbl="pub" name="scalaz.http.servlet.ServletApplication">
+      <h4 class="signature"><a href="ServletApplication$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">ServletApplication</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A HTTP servlet application .</p>
+    </li><li visbl="pub" name="scalaz.http.servlet.StreamStreamServletApplication">
+      <h4 class="signature"><a href="StreamStreamServletApplication$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">StreamStreamServletApplication</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A servlet web application with a request body and response body made up of a stream of bytes .</p>
+    </li></ol>
+            </div>
+                
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>
