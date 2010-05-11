@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/PureCollections.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+// generated during SBT build in Boilerplate.scala
+<span class="keyword">trait</span> <a title="trait PureCollections extends java.lang.Object with ScalaObject" id="12322">PureCollections</a> <a title="ScalaObject" id="543">{</a>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[IndexedSeq]" id="51131">IndexedSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51133">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[IndexedSeq]">Pure</a>[collection.IndexedSeq] = <a href="#113446" title="java.lang.Object with scalaz.Pure[IndexedSeq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[IndexedSeq]" id="113446">Pure</a>[collection.IndexedSeq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)IndexedSeq[A]" id="113450">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113452">A</a>](<a title="=&gt; A" id="113453">a</a>: =&gt; A): collection.<a title="IndexedSeq[A]" id="7059">IndexedSeq</a>[A] = collection.<a title="(elems: A*)IndexedSeq[A]" id="7060">IndexedSeq</a>(<a href="#113453" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[Iterable]" id="51134">IterablePure</a>[<a title="&gt;: Nothing &lt;: Any" id="51136">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[Iterable]">Pure</a>[collection.Iterable] = <a href="#113469" title="java.lang.Object with scalaz.Pure[Iterable]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Iterable]" id="113469">Pure</a>[collection.Iterable] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)Iterable[A]" id="113473">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113475">A</a>](<a title="=&gt; A" id="113476">a</a>: =&gt; A): collection.<a title="Iterable[A]" id="7299">Iterable</a>[A] = collection.<a title="(elems: A*)Iterable[A]" id="7300">Iterable</a>(<a href="#113476" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.LinearSeq]" id="51137">LinearSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51139">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.LinearSeq]">Pure</a>[collection.LinearSeq] = <a href="#113492" title="java.lang.Object with scalaz.Pure[scala.collection.LinearSeq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.LinearSeq]" id="113492">Pure</a>[collection.LinearSeq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.LinearSeq[A]" id="113496">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113498">A</a>](<a title="=&gt; A" id="113499">a</a>: =&gt; A): collection.<a title="scala.collection.LinearSeq[A]" id="7872">LinearSeq</a>[A] = collection.<a title="(elems: A*)scala.collection.LinearSeq[A]" id="7873">LinearSeq</a>(<a href="#113499" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[Seq]" id="51140">SeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51142">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[Seq]">Pure</a>[collection.Seq] = <a href="#113515" title="java.lang.Object with scalaz.Pure[Seq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Seq]" id="113515">Pure</a>[collection.Seq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)Seq[A]" id="113519">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113521">A</a>](<a title="=&gt; A" id="113522">a</a>: =&gt; A): collection.<a title="Seq[A]" id="7959">Seq</a>[A] = collection.<a title="(elems: A*)Seq[A]" id="7960">Seq</a>(<a href="#113522" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.Set]" id="51143">SetPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51145">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.Set]">Pure</a>[collection.Set] = <a href="#113538" title="java.lang.Object with scalaz.Pure[scala.collection.Set]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.Set]" id="113538">Pure</a>[collection.Set] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.Set[A]" id="113542">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113544">A</a>](<a title="=&gt; A" id="113545">a</a>: =&gt; A): collection.<a title="scala.collection.Set[A]" id="7740">Set</a>[A] = collection.<a title="(elems: A*)scala.collection.Set[A]" id="7741">Set</a>(<a href="#113545" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[Traversable]" id="51146">TraversablePure</a>[<a title="&gt;: Nothing &lt;: Any" id="51148">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[Traversable]">Pure</a>[collection.Traversable] = <a href="#113561" title="java.lang.Object with scalaz.Pure[Traversable]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[Traversable]" id="113561">Pure</a>[collection.Traversable] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)Traversable[A]" id="113565">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113567">A</a>](<a title="=&gt; A" id="113568">a</a>: =&gt; A): collection.<a title="Traversable[A]" id="7566">Traversable</a>[A] = collection.<a title="(elems: A*)Traversable[A]" id="7567">Traversable</a>(<a href="#113568" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.IndexedSeq]" id="51149">ImmutableIndexedSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51151">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.IndexedSeq]">Pure</a>[collection.immutable.IndexedSeq] = <a href="#113584" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.IndexedSeq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.IndexedSeq]" id="113584">Pure</a>[collection.immutable.IndexedSeq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.IndexedSeq[A]" id="113588">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113590">A</a>](<a title="=&gt; A" id="113591">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.IndexedSeq[A]" id="20966">IndexedSeq</a>[A] = collection.immutable.<a title="(elems: A*)scala.collection.immutable.IndexedSeq[A]" id="20967">IndexedSeq</a>(<a href="#113591" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.Iterable]" id="51152">ImmutableIterablePure</a>[<a title="&gt;: Nothing &lt;: Any" id="51154">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.Iterable]">Pure</a>[collection.immutable.Iterable] = <a href="#113607" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.Iterable]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.Iterable]" id="113607">Pure</a>[collection.immutable.Iterable] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.Iterable[A]" id="113611">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113613">A</a>](<a title="=&gt; A" id="113614">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.Iterable[A]" id="21344">Iterable</a>[A] = collection.immutable.<a title="(elems: A*)scala.collection.immutable.Iterable[A]" id="21345">Iterable</a>(<a href="#113614" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.LinearSeq]" id="51155">ImmutableLinearSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51157">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.LinearSeq]">Pure</a>[collection.immutable.LinearSeq] = <a href="#113630" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.LinearSeq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.LinearSeq]" id="113630">Pure</a>[collection.immutable.LinearSeq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.LinearSeq[A]" id="113634">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113636">A</a>](<a title="=&gt; A" id="113637">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.LinearSeq[A]" id="21416">LinearSeq</a>[A] = collection.immutable.<a title="(elems: A*)scala.collection.immutable.LinearSeq[A]" id="21417">LinearSeq</a>(<a href="#113637" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[List]" id="51158">ImmutableListPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51160">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[List]">Pure</a>[collection.immutable.List] = <a href="#113653" title="java.lang.Object with scalaz.Pure[List]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[List]" id="113653">Pure</a>[collection.immutable.List] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)List[A]" id="113657">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113659">A</a>](<a title="=&gt; A" id="113660">a</a>: =&gt; A): collection.immutable.<a title="List[A]" id="20825">List</a>[A] = collection.immutable.<a title="(xs: A*)List[A]" id="20826">List</a>(<a href="#113660" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.Queue]" id="51161">ImmutableQueuePure</a>[<a title="&gt;: Nothing &lt;: Any" id="51163">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.Queue]">Pure</a>[collection.immutable.Queue] = <a href="#113680" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.Queue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.Queue]" id="113680">Pure</a>[collection.immutable.Queue] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.Queue[A]" id="113684">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113686">A</a>](<a title="=&gt; A" id="113687">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.Queue[A]" id="21509">Queue</a>[A] = collection.immutable.<a title="(xs: A*)scala.collection.immutable.Queue[A]" id="21510">Queue</a>(<a href="#113687" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.Seq]" id="51164">ImmutableSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51166">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.Seq]">Pure</a>[collection.immutable.Seq] = <a href="#113707" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.Seq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.Seq]" id="113707">Pure</a>[collection.immutable.Seq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.Seq[A]" id="113711">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113713">A</a>](<a title="=&gt; A" id="113714">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.Seq[A]" id="21500">Seq</a>[A] = collection.immutable.<a title="(elems: A*)scala.collection.immutable.Seq[A]" id="21501">Seq</a>(<a href="#113714" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.Set]" id="51167">ImmutableSetPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51169">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.Set]">Pure</a>[collection.immutable.Set] = <a href="#113730" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.Set]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.Set]" id="113730">Pure</a>[collection.immutable.Set] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.Set[A]" id="113734">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113736">A</a>](<a title="=&gt; A" id="113737">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.Set[A]" id="21188">Set</a>[A] = collection.immutable.<a title="(elems: A*)scala.collection.immutable.Set[A]" id="21189">Set</a>(<a href="#113737" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.Stream]" id="51170">ImmutableStreamPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51172">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.Stream]">Pure</a>[collection.immutable.Stream] = <a href="#113753" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.Stream]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.Stream]" id="113753">Pure</a>[collection.immutable.Stream] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.Stream[A]" id="113757">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113759">A</a>](<a title="=&gt; A" id="113760">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.Stream[A]" id="21311">Stream</a>[A] = collection.immutable.<a title="(xs: A*)scala.collection.immutable.Stream[A]" id="21312">Stream</a>(<a href="#113760" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.immutable.Vector]" id="51173">ImmutableVectorPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51175">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.immutable.Vector]">Pure</a>[collection.immutable.Vector] = <a href="#113780" title="java.lang.Object with scalaz.Pure[scala.collection.immutable.Vector]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.immutable.Vector]" id="113780">Pure</a>[collection.immutable.Vector] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.immutable.Vector[A]" id="113784">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113786">A</a>](<a title="=&gt; A" id="113787">a</a>: =&gt; A): collection.immutable.<a title="scala.collection.immutable.Vector[A]" id="21212">Vector</a>[A] = collection.immutable.<a title="(elems: A*)scala.collection.immutable.Vector[A]" id="21213">Vector</a>(<a href="#113787" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.ArrayBuffer]" id="51176">MutableArrayBufferPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51178">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.ArrayBuffer]">Pure</a>[collection.mutable.ArrayBuffer] = <a href="#113803" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.ArrayBuffer]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.ArrayBuffer]" id="113803">Pure</a>[collection.mutable.ArrayBuffer] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.ArrayBuffer[A]" id="113807">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113809">A</a>](<a title="=&gt; A" id="113810">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.ArrayBuffer[A]" id="29799">ArrayBuffer</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.ArrayBuffer[A]" id="29800">ArrayBuffer</a>(<a href="#113810" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.ArraySeq]" id="51179">MutableArraySeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51181">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.ArraySeq]">Pure</a>[collection.mutable.ArraySeq] = <a href="#113826" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.ArraySeq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.ArraySeq]" id="113826">Pure</a>[collection.mutable.ArraySeq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.ArraySeq[A]" id="113830">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113832">A</a>](<a title="=&gt; A" id="113833">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.ArraySeq[A]" id="29457">ArraySeq</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.ArraySeq[A]" id="29458">ArraySeq</a>(<a href="#113833" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.Buffer]" id="51182">MutableBufferPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51184">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.Buffer]">Pure</a>[collection.mutable.Buffer] = <a href="#113849" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.Buffer]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.Buffer]" id="113849">Pure</a>[collection.mutable.Buffer] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.Buffer[A]" id="113853">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113855">A</a>](<a title="=&gt; A" id="113856">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.Buffer[A]" id="29838">Buffer</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.Buffer[A]" id="29839">Buffer</a>(<a href="#113856" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.DoubleLinkedList]" id="51185">MutableDoubleLinkedListPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51187">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.DoubleLinkedList]">Pure</a>[collection.mutable.DoubleLinkedList] = <a href="#113872" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.DoubleLinkedList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.DoubleLinkedList]" id="113872">Pure</a>[collection.mutable.DoubleLinkedList] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.DoubleLinkedList[A]" id="113876">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113878">A</a>](<a title="=&gt; A" id="113879">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.DoubleLinkedList[A]" id="29667">DoubleLinkedList</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.DoubleLinkedList[A]" id="29668">DoubleLinkedList</a>(<a href="#113879" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.HashSet]" id="51188">MutableHashSetPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51190">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.HashSet]">Pure</a>[collection.mutable.HashSet] = <a href="#113895" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.HashSet]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.HashSet]" id="113895">Pure</a>[collection.mutable.HashSet] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.HashSet[A]" id="113899">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113901">A</a>](<a title="=&gt; A" id="113902">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.HashSet[A]" id="30024">HashSet</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.HashSet[A]" id="30025">HashSet</a>(<a href="#113902" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.IndexedSeq]" id="51191">MutableIndexedSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51193">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.IndexedSeq]">Pure</a>[collection.mutable.IndexedSeq] = <a href="#113918" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.IndexedSeq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.IndexedSeq]" id="113918">Pure</a>[collection.mutable.IndexedSeq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.IndexedSeq[A]" id="113922">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113924">A</a>](<a title="=&gt; A" id="113925">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.IndexedSeq[A]" id="29610">IndexedSeq</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.IndexedSeq[A]" id="29611">IndexedSeq</a>(<a href="#113925" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.Iterable]" id="51194">MutableIterablePure</a>[<a title="&gt;: Nothing &lt;: Any" id="51196">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.Iterable]">Pure</a>[collection.mutable.Iterable] = <a href="#113941" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.Iterable]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.Iterable]" id="113941">Pure</a>[collection.mutable.Iterable] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.Iterable[A]" id="113945">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113947">A</a>](<a title="=&gt; A" id="113948">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.Iterable[A]" id="29985">Iterable</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.Iterable[A]" id="29986">Iterable</a>(<a href="#113948" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.LinearSeq]" id="51197">MutableLinearSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51199">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.LinearSeq]">Pure</a>[collection.mutable.LinearSeq] = <a href="#113964" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.LinearSeq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.LinearSeq]" id="113964">Pure</a>[collection.mutable.LinearSeq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.LinearSeq[A]" id="113968">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113970">A</a>](<a title="=&gt; A" id="113971">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.LinearSeq[A]" id="30063">LinearSeq</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.LinearSeq[A]" id="30064">LinearSeq</a>(<a href="#113971" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.LinkedHashSet]" id="51200">MutableLinkedHashSetPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51202">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.LinkedHashSet]">Pure</a>[collection.mutable.LinkedHashSet] = <a href="#113987" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.LinkedHashSet]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.LinkedHashSet]" id="113987">Pure</a>[collection.mutable.LinkedHashSet] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.LinkedHashSet[A]" id="113991">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="113993">A</a>](<a title="=&gt; A" id="113994">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.LinkedHashSet[A]" id="29736">LinkedHashSet</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.LinkedHashSet[A]" id="29737">LinkedHashSet</a>(<a href="#113994" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.LinkedList]" id="51203">MutableLinkedListPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51205">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.LinkedList]">Pure</a>[collection.mutable.LinkedList] = <a href="#114010" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.LinkedList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.LinkedList]" id="114010">Pure</a>[collection.mutable.LinkedList] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.LinkedList[A]" id="114014">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="114016">A</a>](<a title="=&gt; A" id="114017">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.LinkedList[A]" id="29751">LinkedList</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.LinkedList[A]" id="29752">LinkedList</a>(<a href="#114017" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.ListBuffer]" id="51206">MutableListBufferPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51208">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.ListBuffer]">Pure</a>[collection.mutable.ListBuffer] = <a href="#114033" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.ListBuffer]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.ListBuffer]" id="114033">Pure</a>[collection.mutable.ListBuffer] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.ListBuffer[A]" id="114037">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="114039">A</a>](<a title="=&gt; A" id="114040">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.ListBuffer[A]" id="29499">ListBuffer</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.ListBuffer[A]" id="29500">ListBuffer</a>(<a href="#114040" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.Queue]" id="51209">MutableQueuePure</a>[<a title="&gt;: Nothing &lt;: Any" id="51211">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.Queue]">Pure</a>[collection.mutable.Queue] = <a href="#114056" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.Queue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.Queue]" id="114056">Pure</a>[collection.mutable.Queue] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.Queue[A]" id="114060">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="114062">A</a>](<a title="=&gt; A" id="114063">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.Queue[A]" id="30153">Queue</a>[A] = collection.mutable.<a title="(xs: A*)scala.collection.mutable.Queue[A]" id="30154">Queue</a>(<a href="#114063" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.Seq]" id="51212">MutableSeqPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51214">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.Seq]">Pure</a>[collection.mutable.Seq] = <a href="#114079" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.Seq]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.Seq]" id="114079">Pure</a>[collection.mutable.Seq] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.Seq[A]" id="114083">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="114085">A</a>](<a title="=&gt; A" id="114086">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.Seq[A]" id="30138">Seq</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.Seq[A]" id="30139">Seq</a>(<a href="#114086" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.Set]" id="51215">MutableSetPure</a>[<a title="&gt;: Nothing &lt;: Any" id="51217">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.Set]">Pure</a>[collection.mutable.Set] = <a href="#114102" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.Set]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.Set]" id="114102">Pure</a>[collection.mutable.Set] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.Set[A]" id="114106">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="114108">A</a>](<a title="=&gt; A" id="114109">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.Set[A]" id="29850">Set</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.Set[A]" id="29851">Set</a>(<a href="#114109" title="=&gt; A">a</a>)
+  }
+
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.Pure[scala.collection.mutable.Traversable]" id="51218">MutableTraversablePure</a>[<a title="&gt;: Nothing &lt;: Any" id="51220">A</a>]: <a href="Pure.scala.html#12229" title="scalaz.Pure[scala.collection.mutable.Traversable]">Pure</a>[collection.mutable.Traversable] = <a href="#114125" title="java.lang.Object with scalaz.Pure[scala.collection.mutable.Traversable]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Pure[scala.collection.mutable.Traversable]" id="114125">Pure</a>[collection.mutable.Traversable] {
+    <span class="keyword">def</span> <a title="[A](a: =&gt; A)scala.collection.mutable.Traversable[A]" id="114129">pure</a>[<a title="&gt;: Nothing &lt;: Any" id="114131">A</a>](<a title="=&gt; A" id="114132">a</a>: =&gt; A): collection.mutable.<a title="scala.collection.mutable.Traversable[A]" id="29565">Traversable</a>[A] = collection.mutable.<a title="(elems: A*)scala.collection.mutable.Traversable[A]" id="29566">Traversable</a>(<a href="#114132" title="=&gt; A">a</a>)
+  }
+
+}
+        </pre>
+    </body>
+</html>

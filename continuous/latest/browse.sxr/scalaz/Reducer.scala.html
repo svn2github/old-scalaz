@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Reducer.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+/**
+ * A Reducer[C,M] is a Monoid[M] that maps
+ * values of type C through `unit` to values of type M. A C-Reducer may also
+ * supply operations which tack on another C to an existing 'Monoid' M on the left
+ * or right. These specialized reductions may be more efficient in some scenarios
+ * and are used when appropriate by a 'Generator'. The names 'cons' and 'snoc' work
+ * by analogy to the synonymous operations in the list monoid.
+ * 
+ * Minimal definition: 'unit' or 'snoc'
+ * 
+ * Based on a Haskell library by Edward Kmett
+ **/
+<span class="keyword">abstract</span> <span class="keyword">class</span> <a title="class Reducer[C, M] extends java.lang.Object with ScalaObject" id="12343">Reducer</a>[<a title="&gt;: Nothing &lt;: Any" id="17108">C</a>, <a title="&gt;: Nothing &lt;: Any" id="17109">M</a>]<span title="ScalaObject">(</span><span class="keyword">implicit</span> <a title="scalaz.Monoid[M]" id="31050">m</a>: <a href="Monoid.scala.html#11548" title="scalaz.Monoid[M]">Monoid</a>[M]) {
+  <span class="keyword">val</span> <a title="scalaz.Monoid[M]" id="27391">monoid</a> = <a href="#31050" title="scalaz.Monoid[M]">m</a>
+  <span class="keyword">def</span> <a title="(c: C)M" id="27393">unit</a>(<a title="C" id="27403">c</a>: <a href="#17108" title="C">C</a>): <a href="#17109" title="M">M</a> = <a href="#27394" title="(m: M,c: C)M">snoc</a>(<a href="Zero.scala.html#24293" title="(implicit z: scalaz.Zero[M])M">mzero</a>, <a href="#27403" title="C">c</a>)
+  <span class="keyword">def</span> <a title="(m: M,c: C)M" id="27394">snoc</a>(<a title="M" id="30654">m</a>: <a href="#17109" title="M">M</a>, <a title="C" id="30655">c</a>: <a href="#17108" title="C">C</a>): <a href="#17109" title="M">M</a> = <a href="Identity.scala.html#27741" title="(a: =&gt; M)(implicit s: scalaz.Semigroup[M])M">m</a> <a href="#31050" title="scalaz.Monoid[M]">|+|</a> <a href="#27393" title="(c: C)M">unit</a>(<a href="#30655" title="C">c</a>)
+  <span class="keyword">def</span> <a title="(c: C,m: M)M" id="27395">cons</a>(<a title="C" id="30853">c</a>: <a href="#17108" title="C">C</a>, <a title="M" id="30854">m</a>: <a href="#17109" title="M">M</a>): <a href="#17109" title="M">M</a> = <a href="#27393" title="(c: C)M">unit</a><a href="Identity.scala.html#27741" title="(a: =&gt; M)(implicit s: scalaz.Semigroup[M])M">(</a><a href="#30853" title="C">c</a>) <a href="#31050" title="scalaz.Monoid[M]">|+|</a> <a href="#30854" title="M">m</a>
+}
+
+<span class="keyword">trait</span> <a title="trait Reducers extends java.lang.Object with ScalaObject" id="12349">Reducers</a> <span title="ScalaObject">{</span>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[C, M](r: scalaz.Reducer[C,M])scalaz.Monoid[M]" id="24207">ReducerMonoid</a>[<a title="&gt;: Nothing &lt;: Any" id="24210">C</a>, <a title="&gt;: Nothing &lt;: Any" id="24211">M</a>](<a title="scalaz.Reducer[C,M]" id="28867">r</a>: <a href="#12343" title="scalaz.Reducer[C,M]">Reducer</a>[C, M]) = <a href="#28867" title="scalaz.Reducer[C,M]">r</a>.<a href="#27391" title="=&gt; scalaz.Monoid[M]">monoid</a>
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[C, M, N](implicit m: scalaz.Reducer[C,M],implicit n: scalaz.Reducer[C,N])scalaz.Reducer[C,(M, N)]" id="24212">ReducerTuple2</a>[<a title="&gt;: Nothing &lt;: Any" id="24216">C</a>, <a title="&gt;: Nothing &lt;: Any" id="24217">M</a>, <a title="&gt;: Nothing &lt;: Any" id="24218">N</a>](<span class="keyword">implicit</span> <a title="scalaz.Reducer[C,M]" id="27382">m</a>: <a href="#12343" title="scalaz.Reducer[C,M]">Reducer</a>[C, M], <a title="scalaz.Reducer[C,N]" id="27383">n</a>: <a href="#12343" title="scalaz.Reducer[C,N]">Reducer</a>[C, N]) = {
+    <span class="keyword">implicit</span> <span class="keyword">val</span> <a title="scalaz.Monoid[M]" id="27386">mm</a> = <a href="#27382" title="scalaz.Reducer[C,M]">m</a>.<a href="#27391" title="=&gt; scalaz.Monoid[M]">monoid</a>
+    <span class="keyword">implicit</span> <span class="keyword">val</span> <a title="scalaz.Monoid[N]" id="27387">mn</a> = <a href="#27383" title="scalaz.Reducer[C,N]">n</a>.<a href="#27391" title="=&gt; scalaz.Monoid[N]">monoid</a>
+    <a href="#27397" title="scalaz.Reducer[C,(M, N)]" class="keyword">new</a> <a href="Monoid.scala.html#31054" title="anonymous class $anon extends scalaz.Reducer[C,(M, N)]" id="27397">Reducer</a>[C, (M, N)] {
+      <span class="keyword">override</span> <span class="keyword">def</span> <a title="(x: C)(M, N)" id="27399">unit</a>(<a title="C" id="27402">x</a>: <a href="#24216" title="C">C</a>) = <span title="(_1: M,_2: N)(M, N)">(</span><a href="Identity.scala.html#24056" title="(x: C)scalaz.Identity[C]">x</a>.<a href="Identity.scala.html#27836" title="[M](implicit r: scalaz.Reducer[C,M])M">unit</a><a href="#27382" title="(implicit r: scalaz.Reducer[C,M])M">[</a><a href="#24217" title="M">M</a>], <a href="Identity.scala.html#24056" title="(x: C)scalaz.Identity[C]">x</a>.<a href="Identity.scala.html#27836" title="[M](implicit r: scalaz.Reducer[C,M])M">unit</a><a href="#27383" title="(implicit r: scalaz.Reducer[C,N])N">[</a><a href="#24218" title="N">N</a>])
+      <span class="keyword">override</span> <span class="keyword">def</span> <a title="(p: (M, N),x: C)(M, N)" id="27400">snoc</a>(<a title="(M, N)" id="30652">p</a>: <span title="(M, N)">(</span>M,N), <a title="C" id="30653">x</a>: <a href="#24216" title="C">C</a>) = <span title="(_1: M,_2: N)(M, N)">(</span><a href="#30652" title="(M, N)">p</a>.<a href="Identity.scala.html#27844" title="(c: C)(implicit r: scalaz.Reducer[C,M])M">_1</a> <a href="#27382" title="scalaz.Reducer[C,M]">snoc</a> <a href="#30653" title="C">x</a>, <a href="#30652" title="(M, N)">p</a>.<a href="Identity.scala.html#27844" title="(c: C)(implicit r: scalaz.Reducer[C,N])N">_2</a> <a href="#27383" title="scalaz.Reducer[C,N]">snoc</a> <a href="#30653" title="C">x</a>)
+      <span class="keyword">override</span> <span class="keyword">def</span> <a title="(x: C,p: (M, N))(M, N)" id="27401">cons</a>(<a title="C" id="30851">x</a>: <a href="#24216" title="C">C</a>, <a title="(M, N)" id="30852">p</a>: <span title="(M, N)">(</span>M,N)) = <span title="(_1: M,_2: N)(M, N)">(</span><a href="Identity.scala.html#27847" title="(m: M)(implicit r: scalaz.Reducer[C,M])M">x</a> <a href="#27382" title="scalaz.Reducer[C,M]">cons</a> <a href="#30852" title="(M, N)">p</a>.<span title="=&gt; M">_1</span>, <a href="Identity.scala.html#27847" title="(m: N)(implicit r: scalaz.Reducer[C,N])N">x</a> <a href="#27383" title="scalaz.Reducer[C,N]">cons</a> <a href="#30852" title="(M, N)">p</a>.<span title="=&gt; N">_2</span>)
+    }
+  }
+}
+
+        </pre>
+    </body>
+</html>

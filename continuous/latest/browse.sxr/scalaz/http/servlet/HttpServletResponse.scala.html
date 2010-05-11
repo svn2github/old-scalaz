@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/http/servlet/HttpServletResponse.scala</title>
+        <script type="text/javascript" src="../../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+<span class="keyword">package</span> http
+<span class="keyword">package</span> servlet
+
+<span class="keyword">import</span> javax.servlet.http.Cookie
+<span class="keyword">import</span> response.Response
+<span class="keyword">import</span> <a href="../Util.scala.html#14591" title="object scalaz.http.Util">Util</a>.<a href="../Util.scala.html#82779" title="object scalaz.http.Util.Nel">Nel</a>._
+<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+
+/**
+ * A wrapper around Java Servlet &lt;code&gt;HttpServletResponse&lt;/code&gt;.
+ *
+ * @author &lt;a href=&quot;mailto:code@tmorris.net&quot;&gt;Tony Morris&lt;/a&gt;
+ */
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait HttpServletResponse extends java.lang.Object with ScalaObject" id="16300">HttpServletResponse</a> <span title="ScalaObject">{</span>
+  /**
+   * The wrapped HTTP servlet response.
+   */
+  <span class="keyword">val</span> <a title="=&gt; javax.servlet.http.HttpServletResponse" id="166548">response</a>: javax.servlet.http.<span title="javax.servlet.http.HttpServletResponse">HttpServletResponse</span>
+
+  /**
+   * Sets the given header to the given value on this response.
+   */
+  <span class="keyword">def</span> <a title="(header: String,value: String)Unit" id="166549">update</a>(<a title="String" id="166644">header</a>: <span title="String">String</span>, <a title="String" id="166645">value</a>: <span title="String">String</span>) = <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<span title="(x$1: java.lang.String,x$2: java.lang.String)Unit">setHeader</span>(<a href="#166644" title="String">header</a>, <a href="#166645" title="String">value</a>)
+
+  /**
+   * Sets the given header to the given values on this response.
+   */
+  <span class="keyword">def</span> <a title="[V[_]](header: String,value: V[String])(implicit v: scalaz.Each[V])Unit" id="166550">update</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="166552">V</a>[<a title="&gt;: Nothing &lt;: Any" id="166674">_</a>]](<a title="String" id="166669">header</a>: <span title="String">String</span>, <a title="V[String]" id="166670">value</a>: <a href="#166552" title="V[String]">V</a>[String])(<span class="keyword">implicit</span> <a title="scalaz.Each[V]" id="166671">v</a>: <a href="../../Each.scala.html#9502" title="scalaz.Each[V]">Each</a>[V]) = <a href="#166671" title="scalaz.Each[V]">v</a>.<a href="../../Each.scala.html#101003" title="[A](e: V[A],f: (A) =&gt; Unit)Unit">each</a><span title="(e: V[String],f: (String) =&gt; Unit)Unit">[</span><span title="String">String</span>](<a href="#166670" title="V[String]">value</a>, <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<a title="(x$1: java.lang.String,x$2: java.lang.String)Unit" id="166629">addHeader</a>(<a href="#166669" title="String">header</a>, <a href="#166680" title="String">_</a>))
+
+  /**
+   * Sets the given header to the given value on this response.
+   */
+  <span class="keyword">def</span> <a title="(header: String,value: Int)Unit" id="166553">update</a>(<a title="String" id="166686">header</a>: <span title="String">String</span>, <a title="Int" id="166687">value</a>: <a title="Int" id="3688">Int</a>) = <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<a title="(x$1: java.lang.String,x$2: Int)Unit" id="166632">setIntHeader</a>(<a href="#166686" title="String">header</a>, <a href="#166687" title="Int">value</a>)
+
+  /**
+   * Sets the given header to the given value on this response.
+   */
+  <span class="keyword">def</span> <a title="(header: String,value: Long)Unit" id="166554">update</a>(<a title="String" id="166691">header</a>: <span title="String">String</span>, <a title="Long" id="166692">value</a>: <a title="Long" id="3695">Long</a>) = <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<a title="(x$1: java.lang.String,x$2: Long)Unit" id="166620">setDateHeader</a>(<a href="#166691" title="String">header</a>, <a href="#166692" title="Long">value</a>)
+
+  /**
+   * Sets the given header to the given cookie value on this response.
+   */
+  <span class="keyword">def</span> <a title="(header: String,cookie: javax.servlet.http.Cookie)Unit" id="166555">update</a>(<a title="String" id="166696">header</a>: <span title="String">String</span>, <a title="javax.servlet.http.Cookie" id="166697">cookie</a>: <a title="javax.servlet.http.Cookie" id="117454">Cookie</a>) = <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<a title="(x$1: javax.servlet.http.Cookie)Unit" id="166601">addCookie</a>(<a href="#166697" title="javax.servlet.http.Cookie">cookie</a>)
+
+  /**
+   * Side-effects against this HTTP servlet response using the given response.
+   */
+  <span class="keyword">def</span> <a title="[OUT[_]](res: scalaz.http.response.Response[OUT])(implicit e: scalaz.Each[OUT])Unit" id="166556">respond</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="166558">OUT</a>[<a title="&gt;: Nothing &lt;: Any" id="166731">_</a>]](<a title="scalaz.http.response.Response[OUT]" id="166728">res</a>: <a href="../response/Response.scala.html#14983" title="scalaz.http.response.Response[OUT]">Response</a>[OUT])(<span class="keyword">implicit</span> <a title="scalaz.Each[OUT]" id="166729">e</a>: <a href="../../Each.scala.html#9502" title="scalaz.Each[OUT]">Each</a>[OUT]) {
+    <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<a title="(x$1: Int)Unit" id="166638">setStatus</a>(<a href="#166728" title="scalaz.http.response.Response[OUT]">res</a>.<a href="../response/Response.scala.html#98704" title="=&gt; scalaz.http.response.StatusLine">line</a>.<a href="../response/Status.scala.html#99271" title="implicit scalaz.http.response.Status.StatusInt : (s: scalaz.http.response.Status)Int">status</a>)
+
+    <a href="#166728" title="scalaz.http.response.Response[OUT]">res</a>.<a href="../response/Response.scala.html#98705" title="=&gt; List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])]">headers</a>.<a title="(f: ((scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])) =&gt; Unit)Unit" id="26623">foreach</a> <a href="#166756" title="Unit">{</a> <span title="Unit" class="keyword">case</span> (<a title="scalaz.http.response.ResponseHeader" id="166759">h</a>, <a title="scalaz.NonEmptyList[Char]" id="166760">v</a>) =&gt; <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<span title="(x$1: java.lang.String,x$2: java.lang.String)Unit">setHeader</span>(<a href="../response/ResponseHeader.scala.html#100326" title="implicit scalaz.http.response.ResponseHeaders.ResponseHeaderString : (rh: scalaz.http.response.ResponseHeader)String">h</a>, <a href="../Util.scala.html#82787" title="(xs: scalaz.NonEmptyList[Char])List[Char]">v</a>.<a title="=&gt; String" id="27228">mkString</a>) }
+
+    <span class="keyword">val</span> <a title="javax.servlet.ServletOutputStream" id="166734">out</a> = <a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>.<a title="()javax.servlet.ServletOutputStream" id="166650">getOutputStream</a>
+    <a href="#166729" title="scalaz.Each[OUT]">e</a>.<a href="../../Each.scala.html#101003" title="[A](e: OUT[A],f: (A) =&gt; Unit)Unit">each</a><span title="(e: OUT[Byte],f: (Byte) =&gt; Unit)Unit">[</span><a title="Byte" id="3667">Byte</a>](<a href="#166728" title="scalaz.http.response.Response[OUT]">res</a>.<a href="../response/Response.scala.html#98706" title="=&gt; OUT[Byte]">body</a>, <a href="#166734" title="javax.servlet.ServletOutputStream">out</a>.<a title="(x$1: Int)Unit" id="166846">write</a>(<a href="#166844" title="=&gt; Int" id="3705">_</a>))
+  }
+}
+
+/**
+ * A wrapper around Java Servlet &lt;code&gt;HttpServletResponse&lt;/code&gt;.
+ */
+<span class="keyword">trait</span> <a title="trait HttpServletResponses extends java.lang.Object with ScalaObject" id="16306">HttpServletResponses</a> <span title="ScalaObject">{</span>
+  /**
+   * Wraps the given Java Servlet HTTP response.
+   */
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.servlet.HttpServletResponses.HttpServletResponseResponse : (r: javax.servlet.http.HttpServletResponse)scalaz.http.servlet.HttpServletResponse" id="114262">HttpServletResponseResponse</a>(<a title="javax.servlet.http.HttpServletResponse" id="166865">r</a>: javax.servlet.http.<span title="javax.servlet.http.HttpServletResponse">HttpServletResponse</span>): <a href="#16300" title="scalaz.http.servlet.HttpServletResponse">HttpServletResponse</a> = <a href="#166867" title="java.lang.Object with scalaz.http.servlet.HttpServletResponse{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.http.servlet.HttpServletResponse" id="166867">HttpServletResponse</a> {
+    <span class="keyword">val</span> <a title="javax.servlet.http.HttpServletResponse" id="166871">response</a> = <a href="#166865" title="javax.servlet.http.HttpServletResponse">r</a>
+  }
+
+  /**
+   * Unwraps the given HTTP response into a servlet HTTP response.
+   */
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.servlet.HttpServletResponses.ResponseHttpServletResponse : (response: scalaz.http.servlet.HttpServletResponse)javax.servlet.http.HttpServletResponse" id="114263">ResponseHttpServletResponse</a>(<a title="scalaz.http.servlet.HttpServletResponse" id="166877">response</a>: <a href="#16300" title="scalaz.http.servlet.HttpServletResponse">HttpServletResponse</a>) = <a href="#166877" title="scalaz.http.servlet.HttpServletResponse">response</a>.<a href="#166548" title="=&gt; javax.servlet.http.HttpServletResponse">response</a>
+}
+
+<span class="keyword">object</span> <a title="object scalaz.http.servlet.HttpServletResponse" id="16301">HttpServletResponse</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#16306" title="scalaz.http.servlet.HttpServletResponses">HttpServletResponse</a>s
+        </pre>
+    </body>
+</html>

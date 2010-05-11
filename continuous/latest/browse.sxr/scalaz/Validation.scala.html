@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Validation.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Validation[+E, +A] extends java.lang.Object with ScalaObject" id="13219">Validation</a>[+<a title="&gt;: Nothing &lt;: Any" id="17096">E</a>, +<a title="&gt;: Nothing &lt;: Any" id="17097">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">def</span> <a title="[X](e: (E) =&gt; X,a: (A) =&gt; X)X" id="25119">fold</a>[<a title="&gt;: Nothing &lt;: Any" id="25121">X</a>](<a title="(E) =&gt; X" id="209517">e</a>: E =&gt; X, <a title="(A) =&gt; X" id="209518">a</a>: A =&gt; X): <a href="#25121" title="X">X</a> = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="X" class="keyword">match</span> {
+    <span title="X" class="keyword">case</span> Success(<a title="A" id="227747">x</a>) =&gt; <a href="#209518" title="(v1: A)X">a</a>(<a href="#227747" title="A">x</a>)
+    <span title="X" class="keyword">case</span> Failure(<a title="E" id="227752">x</a>) =&gt; <a href="#209517" title="(v1: E)X">e</a>(<a href="#227752" title="E">x</a>)
+  }
+
+  <span class="keyword">def</span> <a title="=&gt; Either[E,A]" id="25122">either</a> : <span title="Either[E,A]">Either</span>[E, A] = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="Either[E,A]" class="keyword">match</span> {
+    <span title="Right[Nothing,A]" class="keyword">case</span> Success(<a title="A" id="227757">a</a>) =&gt; <a title="(b: A)Right[Nothing,A]" id="916">Right</a>(<a href="#227757" title="A">a</a>)
+    <span title="Left[E,Nothing]" class="keyword">case</span> Failure(<a title="E" id="227765">e</a>) =&gt; <a title="(a: E)Left[E,Nothing]" id="1237">Left</a>(<a href="#227765" title="E">e</a>)
+  }
+
+  <span class="keyword">def</span> <a title="=&gt; Boolean" id="25123">isSuccess</a> : <span title="Boolean">Boolean</span> = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="Boolean" class="keyword">match</span> {
+    <span title="Boolean(true)" class="keyword">case</span> Success(_) =&gt; <span title="Boolean(true)" class="keyword">true</span>
+    <span title="Boolean(false)" class="keyword">case</span> Failure(_) =&gt; <span title="Boolean(false)" class="keyword">false</span>
+  }
+
+  <span class="keyword">def</span> <a title="=&gt; Boolean" id="25124">isFailure</a> : <span title="Boolean">Boolean</span> = <a title="=&gt; Boolean" id="3652">!</a><a href="#25123" title="=&gt; Boolean">isSuccess</a>
+
+  <span class="keyword">def</span> <a title="=&gt; Option[A]" id="25125">toOption</a> : <span title="Option[A]">Option</span>[A] = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="Option[A]" class="keyword">match</span> {
+    <span title="Some[A]" class="keyword">case</span> Success(<a title="A" id="227779">a</a>) =&gt; <span title="(x: A)Some[A]">Some</span>(<a href="#227779" title="A">a</a>)
+    <span title="None.type" class="keyword">case</span> Failure(_) =&gt; <span title="object None">None</span>
+  }
+
+  <span class="keyword">def</span> <a title="[EE &gt;: E, AA &gt;: A](x: scalaz.Validation[EE,AA])(implicit evidence$1: scalaz.Semigroup[EE],implicit evidence$2: scalaz.Semigroup[AA])scalaz.Validation[EE,AA]" id="227789">&gt;&gt;*&lt;&lt;</a>[<a title="&gt;: E &lt;: Any" id="25129">EE</a> &gt;: E: Semigroup, <a title="&gt;: A &lt;: Any" id="25130">AA</a> &gt;: A: Semigroup](<a title="scalaz.Validation[EE,AA]" id="227787">x</a>: <a href="#13219" title="scalaz.Validation[EE,AA]">Validation</a>[EE, AA]): <a href="#13219" title="scalaz.Validation[EE,AA]">Validation</a>[EE, AA] = <a title="(_1: scalaz.Validation[E,A],_2: scalaz.Validation[EE,AA])(scalaz.Validation[E,A], scalaz.Validation[EE,AA])" id="856">(</a><a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a>, <a href="#227787" title="scalaz.Validation[EE,AA]">x</a>) <span title="scalaz.Validation[EE,AA]" class="keyword">match</span> {
+    <span title="scalaz.Success[Nothing,AA]" class="keyword">case</span> (Success(<a title="A" id="227804">a1</a>), Success(<a title="AA" id="227807">a2</a>)) =&gt; <a href="#67089" title="(a: AA)scalaz.Success[Nothing,AA]">Success</a>(<a href="Identity.scala.html#27740" title="(a: =&gt; AA)(implicit s: scalaz.Semigroup[AA])AA">(</a><a href="#227804" title="A">a1</a>: <a href="#25130" title="AA">AA</a>) <a href="#227789" title="scalaz.Semigroup[AA]">⊹</a> <a href="#227807" title="AA">a2</a>)
+    <span title="scalaz.Success[Nothing,A]" class="keyword">case</span> (Success(<a title="A" id="227905">a1</a>), Failure(_)) =&gt; <a href="#67089" title="(a: A)scalaz.Success[Nothing,A]">Success</a>(<a href="#227905" title="A">a1</a>)
+    <span title="scalaz.Success[Nothing,AA]" class="keyword">case</span> (Failure(_), Success(<a title="AA" id="227920">a2</a>)) =&gt; <a href="#67089" title="(a: AA)scalaz.Success[Nothing,AA]">Success</a>(<a href="#227920" title="AA">a2</a>)
+    <span title="scalaz.Failure[EE,Nothing]" class="keyword">case</span> (Failure(<a title="E" id="227931">e1</a>), Failure(<a title="EE" id="227934">e2</a>)) =&gt; <a href="#67132" title="(e: EE)scalaz.Failure[EE,Nothing]">Failure</a>(<a href="Identity.scala.html#27740" title="(a: =&gt; EE)(implicit s: scalaz.Semigroup[EE])EE">(</a><a href="#227931" title="E">e1</a>: <a href="#25129" title="EE">EE</a>) <a href="#227789" title="scalaz.Semigroup[EE]">⊹</a> <a href="#227934" title="EE">e2</a>)
+  }
+
+  <span class="keyword">def</span> <a title="=&gt; scalaz.FailProjection[E,A]" id="25131">fail</a> : <a href="#9808" title="scalaz.FailProjection[E,A]">FailProjection</a>[E, A] = <a href="#228027" title="java.lang.Object with scalaz.FailProjection[E,A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.FailProjection[E,A]" id="228027">FailProjection</a>[E, A] {
+    <span class="keyword">val</span> <a title="scalaz.Validation[E,A]" id="228031">validation</a> = <a href="#13219" title="scalaz.Validation[E,A]">Validation</a>.<span class="keyword">this</span>
+  }
+
+  <span class="keyword">def</span> <a title="[M[_], AA &gt;: A](implicit evidence$3: scalaz.Pure[M])scalaz.Validation[E,M[AA]]" id="228037">lift</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="25135">M</a>[<a title="&gt;: Nothing &lt;: Any" id="228038">_</a>]: Pure, <a title="&gt;: A &lt;: Any" id="25136">AA</a> &gt;: A]: <a href="#13219" title="scalaz.Validation[E,M[AA]]">Validation</a>[E, M[AA]] = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="scalaz.Validation[E,M[AA]]" class="keyword">match</span> {
+    <span title="scalaz.Success[Nothing,M[AA]]" class="keyword">case</span> Success(<a title="A" id="228042">a</a>) =&gt; <a href="#67089" title="(a: M[AA])scalaz.Success[Nothing,M[AA]]">Success</a>((<a href="#228042" title="A">a</a>: <a href="#25136" title="AA">AA</a>) <a href="Identity.scala.html#27732" title="(implicit p: scalaz.Pure[M])M[AA]">η</a>)
+    <span title="scalaz.Failure[E,Nothing]" class="keyword">case</span> Failure(<a title="E" id="228131">e</a>) =&gt; <a href="#67132" title="(e: E)scalaz.Failure[E,Nothing]">Failure</a>(<a href="#228131" title="E">e</a>)
+  }
+
+  /**
+   * Wraps the failure value in a NonEmptyList
+   */
+  <span class="keyword">def</span> <a title="=&gt; scalaz.Validation[scalaz.NonEmptyList[E],A]" id="25137">liftFailNel</a>: <a href="#13219" title="scalaz.Validation[scalaz.NonEmptyList[E],A]">Validation</a>[NonEmptyList[E], A] = <a href="#25131" title="=&gt; scalaz.FailProjection[E,A]">fail</a>.<a href="#25101" title="=&gt; scalaz.Validation[scalaz.NonEmptyList[E],A]">liftNel</a>
+
+  <span class="keyword">def</span> <a title="[AA &gt;: A](f: (E) =&gt; AA)AA" id="25138">|||</a>[<a title="&gt;: A &lt;: Any" id="25140">AA</a> &gt;: A](<a title="(E) =&gt; AA" id="228140">f</a>: E =&gt; AA): <a href="#25140" title="AA">AA</a> = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="AA" class="keyword">match</span> {
+    <span title="A" class="keyword">case</span> Success(<a title="A" id="228144">a</a>) =&gt; <a href="#228144" title="A">a</a>
+    <span title="AA" class="keyword">case</span> Failure(<a title="E" id="228147">e</a>) =&gt; <a href="#228140" title="(v1: E)AA">f</a>(<a href="#228147" title="E">e</a>)
+  }
+
+  <span class="keyword">def</span> <a title="[AA &gt;: A](f: =&gt; AA)AA" id="25141">|</a>[<a title="&gt;: A &lt;: Any" id="25143">AA</a> &gt;: A](<a title="=&gt; AA" id="209543">f</a>: =&gt; AA): <a href="#25143" title="AA">AA</a> = <a href="#25138" title="[AA &gt;: A](f: (E) =&gt; AA)AA">|||</a><span title="(f: (E) =&gt; AA)AA">[</span><a href="#25143" title="AA">AA</a>](<a title="E" id="228153">_</a> =&gt; <a href="#209543" title="=&gt; AA">f</a>)
+
+  <span class="keyword">def</span> <a title="(f: (A) =&gt; Boolean)Boolean" id="25144">exists</a>(<a title="(A) =&gt; Boolean" id="228155">f</a>: A =&gt; Boolean): <span title="Boolean">Boolean</span> = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="Boolean" class="keyword">match</span> {
+    <span title="Boolean" class="keyword">case</span> Success(<a title="A" id="228158">a</a>) =&gt; <a href="#228155" title="(v1: A)Boolean">f</a>(<a href="#228158" title="A">a</a>)
+    <span title="Boolean(false)" class="keyword">case</span> Failure(_) =&gt; <span title="Boolean(false)" class="keyword">false</span>
+  }
+
+  <span class="keyword">def</span> <a title="(f: (A) =&gt; Boolean)Boolean" id="25145">forall</a>(<a title="(A) =&gt; Boolean" id="228164">f</a>: A =&gt; Boolean): <span title="Boolean">Boolean</span> = <a href="#13219" title="scalaz.Validation[E,A]" class="keyword">this</a> <span title="Boolean" class="keyword">match</span> {
+    <span title="Boolean" class="keyword">case</span> Success(<a title="A" id="228167">a</a>) =&gt; <a href="#228164" title="(v1: A)Boolean">f</a>(<a href="#228167" title="A">a</a>)
+    <span title="Boolean(true)" class="keyword">case</span> Failure(_) =&gt; <span title="Boolean(true)" class="keyword">true</span>
+  }
+}
+
+<span class="keyword">final</span> case <span class="keyword">class</span> <a title="class Success[E, A] extends java.lang.Object with scalaz.Validation[E,A] with ScalaObject with Product" id="67089">Success</a>[<a title="&gt;: Nothing &lt;: Any" id="67092">E</a>, <a title="&gt;: Nothing &lt;: Any" id="67093">A</a>]<span title="ScalaObject">(</span><a title="[E, A]A" id="176925">a</a>: <a href="#67093" title="A">A</a>) <span class="keyword">extends</span> <a href="#13219" title="scalaz.Validation[E,A]">Validation</a>[E, A]
+<span class="keyword">final</span> case <span class="keyword">class</span> <a title="class Failure[E, A] extends java.lang.Object with scalaz.Validation[E,A] with ScalaObject with Product" id="67132">Failure</a>[<a title="&gt;: Nothing &lt;: Any" id="67135">E</a>, <a title="&gt;: Nothing &lt;: Any" id="67136">A</a>]<span title="ScalaObject">(</span><a title="[E, A]E" id="79355">e</a>: <a href="#67135" title="E">E</a>) <span class="keyword">extends</span> <a href="#13219" title="scalaz.Validation[E,A]">Validation</a>[E, A]
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait FailProjection[+E, +A] extends java.lang.Object with ScalaObject" id="9808">FailProjection</a>[+<a title="&gt;: Nothing &lt;: Any" id="17102">E</a>, +<a title="&gt;: Nothing &lt;: Any" id="17103">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">val</span> <a title="=&gt; scalaz.Validation[E,A]" id="25093">validation</a>: <a href="#13219" title="scalaz.Validation[E,A]">Validation</a>[E, A]
+
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">def</span> <a title="=&gt; Option[E]" id="25095">toOption</a>: <span title="Option[E]">Option</span>[E] = <a href="#25093" title="=&gt; scalaz.Validation[E,A]">validation</a> <span title="Option[E]" class="keyword">match</span> {
+    <span title="None.type" class="keyword">case</span> Success(_) =&gt; <span title="object None">None</span>
+    <span title="Some[E]" class="keyword">case</span> Failure(<a title="E" id="228258">e</a>) =&gt; <span title="(x: E)Some[E]">Some</span>(<a href="#228258" title="E">e</a>)
+  }
+  
+  <span class="keyword">def</span> <a title="[M[_], EE &gt;: E](implicit evidence$4: scalaz.Pure[M])scalaz.Validation[M[EE],A]" id="216255">lift</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="25099">M</a>[<a title="&gt;: Nothing &lt;: Any" id="216256">_</a>]: Pure, <a title="&gt;: E &lt;: Any" id="25100">EE</a> &gt;: E]: <a href="#13219" title="scalaz.Validation[M[EE],A]">Validation</a>[M[EE], A] = <a href="#25093" title="=&gt; scalaz.Validation[E,A]">validation</a> <span title="scalaz.Validation[M[EE],A]" class="keyword">match</span> {
+    <span title="scalaz.Success[Nothing,A]" class="keyword">case</span> Success(<a title="A" id="228265">a</a>) =&gt; <a href="#67089" title="(a: A)scalaz.Success[Nothing,A]">Success</a>(<a href="#228265" title="A">a</a>)
+    <span title="scalaz.Failure[M[EE],Nothing]" class="keyword">case</span> Failure(<a title="E" id="228273">e</a>) =&gt; <a href="#67132" title="(e: M[EE])scalaz.Failure[M[EE],Nothing]">Failure</a>((<a href="#228273" title="E">e</a>: <a href="#25100" title="EE">EE</a>) <a href="Identity.scala.html#27732" title="(implicit p: scalaz.Pure[M])M[EE]">η</a>)
+  }
+
+  <span class="keyword">def</span> <a title="=&gt; scalaz.Validation[scalaz.NonEmptyList[E],A]" id="25101">liftNel</a>: <a href="#13219" title="scalaz.Validation[scalaz.NonEmptyList[E],A]">Validation</a>[NonEmptyList[E], A] = <a href="#216255" title="[M[_], EE &gt;: E](implicit evidence$4: scalaz.Pure[M])scalaz.Validation[M[EE],A]">lift</a><a href="Pure.scala.html#51227" title="(implicit evidence$4: scalaz.Pure[scalaz.NonEmptyList])scalaz.Validation[scalaz.NonEmptyList[E],A]">[</a><a href="NonEmptyList.scala.html#11635" title="scalaz.NonEmptyList">NonEmptyList</a>, <a href="#17102" title="E">E</a>]
+
+  <span class="keyword">def</span> <a title="[EE &gt;: E](f: (A) =&gt; EE)EE" id="25102">|||</a>[<a title="&gt;: E &lt;: Any" id="25104">EE</a> &gt;: E](<a title="(A) =&gt; EE" id="228465">f</a>: A =&gt; EE): <a href="#25104" title="EE">EE</a> = <a href="#25093" title="=&gt; scalaz.Validation[E,A]">validation</a> <span title="EE" class="keyword">match</span> {
+    <span title="EE" class="keyword">case</span> Success(<a title="A" id="228469">a</a>) =&gt; <a href="#228465" title="(v1: A)EE">f</a>(<a href="#228469" title="A">a</a>)
+    <span title="E" class="keyword">case</span> Failure(<a title="E" id="228474">e</a>) =&gt; <a href="#228474" title="E">e</a>
+  }
+
+  <span class="keyword">def</span> <a title="[EE &gt;: E](f: =&gt; EE)EE" id="25105">|</a>[<a title="&gt;: E &lt;: Any" id="25107">EE</a> &gt;: E](<a title="=&gt; EE" id="228476">f</a>: =&gt; EE): <a href="#25107" title="EE">EE</a> = <a href="#25102" title="[EE &gt;: E](f: (A) =&gt; EE)EE">|||</a><span title="(f: (A) =&gt; EE)EE">[</span><a href="#25107" title="EE">EE</a>](<a title="A" id="228481">_</a> =&gt; <a href="#228476" title="=&gt; EE">f</a>)
+
+  <span class="keyword">def</span> <a title="(f: (E) =&gt; Boolean)Boolean" id="25108">exists</a>(<a title="(E) =&gt; Boolean" id="228483">f</a>: E =&gt; Boolean): <span title="Boolean">Boolean</span> = <a href="#25093" title="=&gt; scalaz.Validation[E,A]">validation</a> <span title="Boolean" class="keyword">match</span> {
+    <span title="Boolean(false)" class="keyword">case</span> Success(_) =&gt; <span title="Boolean(false)" class="keyword">false</span>
+    <span title="Boolean" class="keyword">case</span> Failure(<a title="E" id="228488">e</a>) =&gt; <a href="#228483" title="(v1: E)Boolean">f</a>(<a href="#228488" title="E">e</a>)
+  }
+
+  <span class="keyword">def</span> <a title="(f: (E) =&gt; Boolean)Boolean" id="25109">forall</a>(<a title="(E) =&gt; Boolean" id="228492">f</a>: E =&gt; Boolean): <span title="Boolean">Boolean</span> = <a href="#25093" title="=&gt; scalaz.Validation[E,A]">validation</a> <span title="Boolean" class="keyword">match</span> {
+    <span title="Boolean(true)" class="keyword">case</span> Success(_) =&gt; <span title="Boolean(true)" class="keyword">true</span>
+    <span title="Boolean" class="keyword">case</span> Failure(<a title="E" id="228497">e</a>) =&gt; <a href="#228492" title="(v1: E)Boolean">f</a>(<a href="#228497" title="E">e</a>)
+  }
+}
+
+<span class="keyword">trait</span> <a title="trait Validations extends java.lang.Object with ScalaObject" id="13228">Validations</a> <span title="ScalaObject">{</span>
+  <span class="keyword">type</span> <a title="[E, X]scalaz.Validation[scalaz.NonEmptyList[E],X]" id="24268">ValidationNEL</a>[<a title="&gt;: Nothing &lt;: Any" id="24269">E</a>, <a title="&gt;: Nothing &lt;: Any" id="24270">X</a>] = <a href="#13219" title="scalaz.Validation[scalaz.NonEmptyList[E],X]">Validation</a>[NonEmptyList[E], X]
+
+  <span class="keyword">def</span> <a title="[E, A](a: A)scalaz.Validation[E,A]" id="24271">success</a>[<a title="&gt;: Nothing &lt;: Any" id="24274">E</a>, <a title="&gt;: Nothing &lt;: Any" id="24275">A</a>](<a title="A" id="90013">a</a>: <a href="#24275" title="A">A</a>): <a href="#13219" title="scalaz.Validation[E,A]">Validation</a>[E, A] = <a href="#67089" title="(a: A)scalaz.Success[Nothing,A]">Success</a>(<a href="#90013" title="A">a</a>)
+
+  <span class="keyword">def</span> <a title="[E, A](e: E)scalaz.Validation[E,A]" id="24276">failure</a>[<a title="&gt;: Nothing &lt;: Any" id="24279">E</a>, <a title="&gt;: Nothing &lt;: Any" id="24280">A</a>](<a title="E" id="90031">e</a>: <a href="#24279" title="E">E</a>): <a href="#13219" title="scalaz.Validation[E,A]">Validation</a>[E, A] = <a href="#67132" title="(e: E)scalaz.Failure[E,Nothing]">Failure</a>(<a href="#90031" title="E">e</a>)
+
+  <span class="keyword">def</span> <a title="[E, A](e: Either[E,A])scalaz.Validation[E,A]" id="24281">validation</a>[<a title="&gt;: Nothing &lt;: Any" id="24284">E</a>, <a title="&gt;: Nothing &lt;: Any" id="24285">A</a>](<a title="Either[E,A]" id="207496">e</a>: <span title="Either[E,A]">Either</span>[E, A]): <a href="#13219" title="scalaz.Validation[E,A]">Validation</a>[E, A] = <a href="#207496" title="Either[E,A]">e</a>.<a title="(fa: (E) =&gt; Product with scalaz.Validation[E,A],fb: (A) =&gt; Product with scalaz.Validation[E,A])Product with scalaz.Validation[E,A]" id="26273">fold</a>(<a href="#67132" title="(e: E)scalaz.Failure[E,Nothing]">Failure</a>(<a href="#228519" title="E">_</a>), <a href="#67089" title="(a: A)scalaz.Success[Nothing,A]">Success</a>(<a href="#228526" title="A">_</a>))
+}
+
+        </pre>
+    </body>
+</html>

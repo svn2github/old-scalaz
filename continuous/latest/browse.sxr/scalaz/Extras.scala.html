@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Extras.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait Distributes[F[_], G[_]] extends java.lang.Object" id="9391">Distributes</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="17222">F</a>[<a title="&gt;: Nothing &lt;: Any" id="294942">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17223">G</a>[<a title="&gt;: Nothing &lt;: Any" id="294943">_</a>]] <span title="java.lang.Object">{</span>
+  <span class="keyword">def</span> <a title="[A](f: F[G[A]])G[F[A]]" id="294939">apply</a>[<a title="&gt;: Nothing &lt;: Any" id="294941">A</a>](<a title="F[G[A]]" id="294945">f</a>: <a href="#17222" title="F[G[A]]">F</a>[G[A]]): <a href="#17223" title="G[F[A]]">G</a>[F[A]]
+}
+
+/** A natural transformation beween functors F and G **/
+<span class="keyword">trait</span> <a title="trait :~&gt;[F[_], G[_]] extends java.lang.Object" id="8356">:~&gt;</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="17224">F</a>[<a title="&gt;: Nothing &lt;: Any" id="294950">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17225">G</a>[<a title="&gt;: Nothing &lt;: Any" id="294951">_</a>]] <span title="java.lang.Object">{</span>
+  <span class="keyword">def</span> <a title="[A](f: F[A])G[A]" id="294947">apply</a>[<a title="&gt;: Nothing &lt;: Any" id="294949">A</a>](<a title="F[A]" id="294953">f</a>: <a href="#17224" title="F[A]">F</a>[A]): <a href="#17225" title="G[A]">G</a>[A]
+}
+
+/** A constrained natural transformation **/
+<span class="keyword">trait</span> <a title="trait Constrained[F[_], G[_], E[_]] extends java.lang.Object" id="9322">Constrained</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="17226">F</a>[<a title="&gt;: Nothing &lt;: Any" id="294958">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17227">G</a>[<a title="&gt;: Nothing &lt;: Any" id="294959">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17228">E</a>[<a title="&gt;: Nothing &lt;: Any" id="294960">_</a>]] <span title="java.lang.Object">{</span>
+  <span class="keyword">def</span> <a title="[A](f: F[A])(implicit evidence$1: E[A])G[A]" id="294963">apply</a>[<a title="&gt;: Nothing &lt;: Any" id="294957">A</a>: E](<a title="F[A]" id="294962">f</a>: <a href="#17226" title="F[A]">F</a>[A]): <a href="#17227" title="G[A]">G</a>[A]
+}
+
+/** A transformation natural in both sides of a bifunctor **/
+<span class="keyword">trait</span> <a title="trait :~~&gt;[F[_,_], G[_,_]] extends java.lang.Object" id="8359">:~~&gt;</a>[<a title="[_, _]&gt;: Nothing &lt;: Any" id="17229">F</a>[<a title="&gt;: Nothing &lt;: Any" id="294971">_</a>,<a title="&gt;: Nothing &lt;: Any" id="294972">_</a>], <a title="[_, _]&gt;: Nothing &lt;: Any" id="17230">G</a>[<a title="&gt;: Nothing &lt;: Any" id="294973">_</a>,<a title="&gt;: Nothing &lt;: Any" id="294974">_</a>]] <span title="java.lang.Object">{</span>
+  <span class="keyword">def</span> <a title="[A, B](f: F[A,B])G[A,B]" id="294966">apply</a>[<a title="&gt;: Nothing &lt;: Any" id="294969">A</a>,<a title="&gt;: Nothing &lt;: Any" id="294970">B</a>](<a title="F[A,B]" id="294976">f</a>: <a href="#17229" title="F[A,B]">F</a>[A,B]): <a href="#17230" title="G[A,B]">G</a>[A,B]
+}
+
+/** A constrained transformation natural in both sides of a bifunctor **/
+<span class="keyword">trait</span> <a title="trait Biconstrained[F[_,_], G[_,_], C[_], E[_]] extends java.lang.Object" id="8605">Biconstrained</a>[<a title="[_, _]&gt;: Nothing &lt;: Any" id="17231">F</a>[<a title="&gt;: Nothing &lt;: Any" id="294983">_</a>,<a title="&gt;: Nothing &lt;: Any" id="294984">_</a>], <a title="[_, _]&gt;: Nothing &lt;: Any" id="17232">G</a>[<a title="&gt;: Nothing &lt;: Any" id="294985">_</a>,<a title="&gt;: Nothing &lt;: Any" id="294986">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17233">C</a>[<a title="&gt;: Nothing &lt;: Any" id="294987">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17234">E</a>[<a title="&gt;: Nothing &lt;: Any" id="294988">_</a>]] <span title="java.lang.Object">{</span>
+  <span class="keyword">def</span> <a title="[A, B](f: F[A,B])(implicit evidence$2: C[A],implicit evidence$3: E[B])G[A,B]" id="294992">apply</a>[<a title="&gt;: Nothing &lt;: Any" id="294981">A</a>: C, <a title="&gt;: Nothing &lt;: Any" id="294982">B</a>: E](<a title="F[A,B]" id="294990">f</a>: <a href="#17231" title="F[A,B]">F</a>[A,B]): <a href="#17232" title="G[A,B]">G</a>[A,B]
+}
+
+<span class="keyword">trait</span> <a title="trait Dinatural[F[_,_], G[_,_]] extends java.lang.Object" id="9388">Dinatural</a>[<a title="[_, _]&gt;: Nothing &lt;: Any" id="17235">F</a>[<a title="&gt;: Nothing &lt;: Any" id="294999">_</a>,<a title="&gt;: Nothing &lt;: Any" id="295000">_</a>], <a title="[_, _]&gt;: Nothing &lt;: Any" id="17236">G</a>[<a title="&gt;: Nothing &lt;: Any" id="295001">_</a>,<a title="&gt;: Nothing &lt;: Any" id="295002">_</a>]] <span title="java.lang.Object">{</span>
+  <span class="keyword">def</span> <a title="[A](f: F[A,A])G[A,A]" id="294996">apply</a>[<a title="&gt;: Nothing &lt;: Any" id="294998">A</a>](<a title="F[A,A]" id="295004">f</a>: <a href="#17235" title="F[A,A]">F</a>[A,A]): <a href="#17236" title="G[A,A]">G</a>[A,A]
+}
+
+<span class="keyword">trait</span> <a title="trait Extras extends java.lang.Object with ScalaObject" id="9796">Extras</a> <a title="ScalaObject" id="543">{</a>
+  <span class="keyword">type</span> <a title="[A]A" id="23992">Id</a>[<a title="&gt;: Nothing &lt;: Any" id="23993">A</a>] = <a href="#23993" title="A">A</a>
+  <span class="keyword">trait</span> <a title="trait Konst[A] extends java.lang.Object" id="23994">Konst</a>[<a title="&gt;: Nothing &lt;: Any" id="23995">A</a>] <span title="java.lang.Object">{</span>
+    <span class="keyword">type</span> <a title="[B]A" id="295008">Apply</a>[<a title="&gt;: Nothing &lt;: Any" id="295009">B</a>] = <a href="#23995" title="A">A</a>
+  }
+}
+
+
+        </pre>
+    </body>
+</html>

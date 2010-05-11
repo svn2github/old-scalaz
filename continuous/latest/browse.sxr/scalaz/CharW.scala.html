@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/CharW.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait CharW extends java.lang.Object with scalaz.PimpedType[Char] with ScalaObject" id="9130">CharW</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#11890" title="scalaz.PimpedType[Char]">PimpedType</a>[Char] {
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+  
+  <span class="keyword">def</span> <a title="=&gt; scalaz.CharMultiplication" id="96240">∏</a> : <a href="Multiplications.scala.html#9106" title="scalaz.CharMultiplication">CharMultiplication</a> = <a href="Multiplications.scala.html#24176" title="(n: Char)scalaz.CharMultiplication">multiplication</a>(<a href="PimpedType.scala.html#24501" title="=&gt; Char">value</a>)
+
+  <span class="keyword">def</span> <a title="=&gt; Option[scalaz.Digit]" id="96241">digit</a> : <span title="Option[scalaz.Digit]">Option</span>[Digit] = <a href="Digit.scala.html#23942" title="(p: (scalaz.Digit) =&gt; Boolean)Option[scalaz.Digit]">digits</a> find (<a href="#114197" title="scalaz.Digit">_</a>.<a href="Digit.scala.html#27981" title="(x$1: Char)Boolean">toChar</a> == <a href="PimpedType.scala.html#24501" title="=&gt; Char">value</a>)
+
+  <span class="keyword">def</span> <a title="=&gt; Option[scalaz.Alpha]" id="96242">alpha</a> : <span title="Option[scalaz.Alpha]">Option</span>[Alpha] = <a href="Alpha.scala.html#23884" title="(p: (scalaz.Alpha) =&gt; Boolean)Option[scalaz.Alpha]">alphas</a> find(<a href="#114214" title="scalaz.Alpha">_</a>.<a href="Alpha.scala.html#28842" title="(x$1: Char)Boolean">toChar</a> == <a href="PimpedType.scala.html#24501" title="=&gt; Char">value</a>)
+}
+
+<span class="keyword">trait</span> <a title="trait Chars extends java.lang.Object with ScalaObject" id="9112">Chars</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Chars.CharTo : (c: Char)scalaz.CharW" id="23909">CharTo</a>(<a title="Char" id="27988">c</a>: <a title="Char" id="3681">Char</a>): <a href="#9130" title="scalaz.CharW">CharW</a> = <a href="#114223" title="java.lang.Object with scalaz.CharW{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.CharW" id="114223">CharW</a> {
+    <span class="keyword">val</span> <a title="Char" id="114227">value</a> = <a href="#27988" title="Char">c</a>
+  }
+}
+
+        </pre>
+    </body>
+</html>

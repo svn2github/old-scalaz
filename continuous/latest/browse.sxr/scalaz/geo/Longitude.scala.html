@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/geo/Longitude.scala</title>
+        <script type="text/javascript" src="../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+<span class="keyword">package</span> geo
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Longitude extends java.lang.Object" id="15423">Longitude</a> <a title="java.lang.Object" id="2093">{</a>
+  <span class="keyword">val</span> <a title="=&gt; Double" id="115906">value</a>: <span title="Double">Double</span>
+}
+
+<span class="keyword">trait</span> <a title="trait Longitudes extends java.lang.Object with ScalaObject" id="15429">Longitudes</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(d: Double)java.lang.Object with scalaz.geo.Longitude" id="46110">longitude</a>(<a title="Double" id="196419">d</a>: <span title="Double">Double</span>) = <a href="#196422" title="java.lang.Object with scalaz.geo.Longitude{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.Longitude" id="196422">Longitude</a> {
+    <span class="keyword">val</span> <a title="Double" id="196424">value</a> = <a title="(x$1: Int)Double" id="5018">(</a><a href="#196419" title="(x$1: Int)Double" id="5010">d</a> + <span title="Int(180)" class="int">180</span>) <a title="(x$1: Int)Double" id="5012">%</a> <span title="Int(360)" class="int">360</span> - <span title="Int(180)" class="int">180</span>
+  }
+}
+
+<span class="keyword">object</span> <a title="object scalaz.geo.Longitude" id="15424">Longitude</a> <span title="ScalaObject">{</span>
+  <span class="keyword">import</span> Predef.{implicitly =&gt; i}
+  <span class="keyword">import</span> <a href="../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Show[scalaz.geo.Longitude]" id="260628">LongitudeShow</a>: <a href="../Show.scala.html#12784" title="scalaz.Show[scalaz.geo.Longitude]">Show</a>[Longitude] = <a href="../Show.scala.html#24229" title="(f: (scalaz.geo.Longitude) =&gt; String)scalaz.Show[scalaz.geo.Longitude]">shows</a>(<a href="#361701" title="scalaz.geo.Longitude">_</a>.<a href="../Identity.scala.html#24056" title="(x: Double)scalaz.Identity[Double]">value</a>.<a href="../Identity.scala.html#27766" title="(x$1: Any)java.lang.String" id="5154">shows</a> + <span title="java.lang.String(&quot;°&quot;)" class="string">&quot;°&quot;</span>)
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Equal[scalaz.geo.Longitude]" id="260629">LongitudeEqual</a>: <a href="../Equal.scala.html#9781" title="scalaz.Equal[scalaz.geo.Longitude]">Equal</a>[Longitude] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26108" title="(f: (scalaz.geo.Longitude) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Equal])scalaz.Equal[scalaz.geo.Longitude]">[</a><a href="../Equal.scala.html#9781" title="scalaz.Equal[Double]">Equal</a>[Double]] <a href="../Cofunctor.scala.html#46377" title="=&gt; scalaz.Cofunctor[scalaz.Equal]">∙</a> (<a href="#361887" title="scalaz.geo.Longitude">_</a>.<a href="#115906" title="=&gt; Double">value</a>)
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Order[scalaz.geo.Longitude]" id="260630">LongitudeOrder</a>: <a href="../Order.scala.html#11806" title="scalaz.Order[scalaz.geo.Longitude]">Order</a>[Longitude] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26108" title="(f: (scalaz.geo.Longitude) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Order])scalaz.Order[scalaz.geo.Longitude]">[</a><a href="../Order.scala.html#11806" title="scalaz.Order[Double]">Order</a>[Double]] <a href="../Cofunctor.scala.html#46378" title="=&gt; scalaz.Cofunctor[scalaz.Order]">∙</a> (<a href="#361986" title="scalaz.geo.Longitude">_</a>.<a href="#115906" title="=&gt; Double">value</a>)
+}
+        </pre>
+    </body>
+</html>

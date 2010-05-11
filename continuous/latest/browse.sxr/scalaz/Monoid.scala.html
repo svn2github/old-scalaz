@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Monoid.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+/**
+ * A categorical monoid.
+ *
+ * &lt;p&gt;
+ * All monoid instances must satisfy the semigroup law and 2 additional laws:
+ * &lt;ol&gt;
+ * &lt;li&gt;&lt;strong&gt;left identity&lt;/strong&gt;&lt;br/&gt;&lt;code&gt;forall a. append(zero, a) == a&lt;/code&gt;&lt;/li&gt;
+ * &lt;li&gt;&lt;strong&gt;right identity&lt;/strong&gt;&lt;br/&gt;&lt;code&gt;forall a. append(a, zero) == a&lt;/code&gt;&lt;/li&gt;
+ * &lt;/p&gt;
+ */
+<span class="keyword">trait</span> <a title="trait Monoid[M] extends java.lang.Object with scalaz.Zero[M] with scalaz.Semigroup[M]" id="11548">Monoid</a>[<a title="&gt;: Nothing &lt;: Any" id="17352">M</a>] <span class="keyword">extends</span> <a href="Zero.scala.html#13282" title="scalaz.Zero[M]">Zero</a>[M] <span class="keyword">with</span> <a href="Semigroup.scala.html#12589" title="scalaz.Semigroup[M]">Semigroup</a>[M]
+
+<span class="keyword">abstract</span> <span class="keyword">class</span> <a title="class MonoidLow extends java.lang.Object with ScalaObject" id="11554">MonoidLow</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[M](implicit s: scalaz.Semigroup[M],implicit z: scalaz.Zero[M])scalaz.Monoid[M]" id="31054">monoid</a>[<a title="&gt;: Nothing &lt;: Any" id="31056">M</a>](<span class="keyword">implicit</span> <a title="scalaz.Semigroup[M]" id="31566">s</a>: <a href="Semigroup.scala.html#12589" title="scalaz.Semigroup[M]">Semigroup</a>[M], <a title="scalaz.Zero[M]" id="31567">z</a>: <a href="Zero.scala.html#13282" title="scalaz.Zero[M]">Zero</a>[M]): <a href="#11548" title="scalaz.Monoid[M]">Monoid</a>[M] = <a href="#348052" title="java.lang.Object with scalaz.Monoid[M]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Monoid[M]" id="348052">Monoid</a>[M] {
+    <span class="keyword">def</span> <a title="(s1: M,s2: =&gt; M)M" id="348056">append</a>(<a title="M" id="348059">s1</a>: <a href="#31056" title="M">M</a>, <a title="=&gt; M" id="348060">s2</a>: =&gt; M) = <a href="Semigroup.scala.html#27416" title="(s1: M,s2: =&gt; M)M">s</a> append (<a href="#348059" title="M">s1</a>, <a href="#348060" title="=&gt; M">s2</a>)
+
+    <span class="keyword">val</span> <a title="M" id="348057">zero</a> = <a href="#31567" title="scalaz.Zero[M]">z</a>.<a href="Zero.scala.html#27396" title="=&gt; M">zero</a>
+  }
+}
+
+<span class="keyword">object</span> <a title="object scalaz.Monoid" id="11549">Monoid</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#11554" title="scalaz.MonoidLow">MonoidLow</a> {
+  <span class="keyword">import</span> <a href="Semigroup.scala.html#12590" title="object scalaz.Semigroup">Semigroup</a>._
+  <span class="keyword">import</span> <a href="Zero.scala.html#13283" title="object scalaz.Zero">Zero</a>._
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A, B](implicit bz: scalaz.Zero[B])scalaz.Monoid[Either.LeftProjection[A,B]]" id="31060">EitherLeftMonoid</a>[<a title="&gt;: Nothing &lt;: Any" id="31063">A</a>, <a title="&gt;: Nothing &lt;: Any" id="31064">B</a>](<span class="keyword">implicit</span> <a title="scalaz.Zero[B]" id="31562">bz</a>: <a href="Zero.scala.html#13282" title="scalaz.Zero[B]">Zero</a>[B]): <a href="#11548" title="scalaz.Monoid[Either.LeftProjection[A,B]]">Monoid</a>[Either.LeftProjection[A, B]] = <a href="#31054" title="[M](implicit s: scalaz.Semigroup[M],implicit z: scalaz.Zero[M])scalaz.Monoid[M]">monoid</a><span title="(implicit s: scalaz.Semigroup[Either.LeftProjection[A,B]],implicit z: scalaz.Zero[Either.LeftProjection[A,B]])scalaz.Monoid[Either.LeftProjection[A,B]]">[</span>Either.<a title="Either.LeftProjection[A,B]" id="26139">LeftProjection</a>[A, B]](<a href="Semigroup.scala.html#31205" title="scalaz.Semigroup[Either.LeftProjection[A,B]]">EitherLeftSemigroup</a>, <a href="Zero.scala.html#31428" title="[A, B](implicit bz: scalaz.Zero[B])scalaz.Zero[Either.LeftProjection[A,B]]">EitherLeftZero</a><span title="(implicit bz: scalaz.Zero[B])scalaz.Zero[Either.LeftProjection[A,B]]">[</span><a href="#31063" title="A">A</a>, <a href="#31064" title="B">B</a>](<a href="#31562" title="scalaz.Zero[B]">bz</a>))
+}
+
+        </pre>
+    </body>
+</html>

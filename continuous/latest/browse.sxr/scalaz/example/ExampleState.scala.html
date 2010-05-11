@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/example/ExampleState.scala</title>
+        <script type="text/javascript" src="../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz.example
+
+<span class="keyword">import</span> scalaz._
+
+<span class="keyword">object</span> <a title="object scalaz.example.ExampleState" id="14150">ExampleState</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(args: Array[String])Unit" id="23334">main</a>(<a title="Array[String]" id="39723">args</a>: <a title="Array[String]" id="1323">Array</a>[String]) = <a href="#23336" title="=&gt; Unit">run</a>
+
+  <span class="keyword">import</span> Scalaz._
+
+  <span class="keyword">def</span> <a title="=&gt; Unit" id="23336">run</a> {
+    <a href="#23337" title="=&gt; Unit">treeLabel</a>
+  }
+
+  /**
+   * See &lt;a href=&quot;http://blog.tmorris.net/the-state-monad-for-scala-users&quot;&gt;The State Monad for Scala users&lt;/a&gt;
+   */
+  <span class="keyword">def</span> <a title="=&gt; Unit" id="23337">treeLabel</a> {
+    <span class="keyword">sealed</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <a title="class Tree[+A] extends java.lang.Object with ScalaObject" id="39728">Tree</a>[+<a title="&gt;: Nothing &lt;: Any" id="39729">A</a>] <span title="ScalaObject">{</span>
+      /**
+       * Label the Leaf nodes of a the tree with increasing integers, traversing
+       * left to right. The current value of the label is be explicitly threaded
+       * through the recursion. 
+       */
+      <span class="keyword">def</span> <a title="(seed: Int)(Tree[(A, Int)], Int)" id="39742">number</a>(<a title="Int" id="39747">seed</a>: <span title="Int">Int</span>): <a title="(Tree[(A, Int)], Int)" id="855">(</a>Tree[(A, Int)], Int) = <a href="#39728" title="Tree[A]" class="keyword">this</a> <span title="(Tree[(A, Int)], Int)" class="keyword">match</span> {
+        <span title="(Leaf[(A, Int)], Int)" class="keyword">case</span> Leaf(<a title="A" id="39814">x</a>) =&gt; <span title="(_1: Leaf[(A, Int)],_2: Int)(Leaf[(A, Int)], Int)">(</span><a href="#39750" title="(a: (A, Int))Leaf[(A, Int)]">Leaf</a><span title="(_1: A,_2: Int)(A, Int)">(</span><a href="#39814" title="A">x</a>, <a href="#39747" title="Int">seed</a>), <a href="#39747" title="(x$1: Int)Int">seed</a> + <span title="Int(1)" class="int">1</span>)
+        <span title="(Tree[(A, Int)], Int)" class="keyword">case</span> Branch(<a title="Tree[A]" id="39892">left</a>, <a title="Tree[A]" id="39893">right</a>) =&gt; <a href="#39742" title="(seed: Int)(Tree[(A, Int)], Int)">left</a> number <a href="#39747" title="Int">seed</a> <span title="(Tree[(A, Int)], Int)" class="keyword">match</span> {
+          <span title="(Tree[(A, Int)], Int)" class="keyword">case</span> (<a title="Tree[(A, Int)]" id="39898">l</a>, <a title="Int" id="39899">ls</a>) =&gt; {
+            <a href="#39742" title="(seed: Int)(Tree[(A, Int)], Int)">right</a> number <a href="#39899" title="Int">ls</a> <span title="(Tree[(A, Int)], Int)" class="keyword">match</span> {
+              <span title="(Branch[(A, Int)], Int)" class="keyword">case</span> (<a title="Tree[(A, Int)]" id="39904">r</a>, <a title="Int" id="39905">rs</a>) =&gt; <span title="(_1: Branch[(A, Int)],_2: Int)(Branch[(A, Int)], Int)">(</span><a href="#39845" title="(left: Tree[(A, Int)],right: Tree[(A, Int)])Branch[(A, Int)]">Branch</a>(<a href="#39898" title="Tree[(A, Int)]">l</a>, <a href="#39904" title="Tree[(A, Int)]">r</a>), <a href="#39905" title="Int">rs</a>)
+            }
+          }
+        }
+      }
+
+      /**
+       * Use the State Monad to implicitly thread the current value
+       * of the label through the recursion.
+       */
+      <span class="keyword">def</span> <a title="=&gt; scalaz.State[Int,Tree[(A, Int)]]" id="39743">numberSM</a>: <a href="../State.scala.html#12808" title="scalaz.State[Int,Tree[(A, Int)]]">State</a>[Int, Tree[(A, Int)]] = <a href="#39728" title="Tree[A]" class="keyword">this</a> <span title="scalaz.State[Int,Tree[(A, Int)]]" class="keyword">match</span> {
+        <span title="scalaz.State[Int,Leaf[(A, Int)]]" class="keyword">case</span> Leaf(<a title="A" id="39928">x</a>) =&gt; <span class="keyword">for</span>{<a title="Int" id="39939">s</a> &lt;- <a href="../State.scala.html#24241" title="[S]scalaz.State[S,S]">init</a><a href="../State.scala.html#25958" title="(f: (Int) =&gt; scalaz.State[Int,Leaf[(A, Int)]])scalaz.State[Int,Leaf[(A, Int)]]">[</a><span title="Int">Int</span>];
+                            <a title="Unit" id="39988">_</a> &lt;- <a href="../State.scala.html#24244" title="(f: (Int) =&gt; Int)scalaz.State[Int,Unit]">modify</a><a href="../State.scala.html#25955" title="(f: (Unit) =&gt; Leaf[(A, Int)])scalaz.State[Int,Leaf[(A, Int)]]">(</a><span title="(x$1: Int)Int">(</span><a href="#39973" title="Int">_</a>: <span title="Int">Int</span>) + <span title="Int(1)" class="int">1</span>)} <span class="keyword">yield</span> <a href="#39750" title="(a: (A, Int))Leaf[(A, Int)]">Leaf</a>(<span title="(_1: A,_2: Int)(A, Int)">(</span><a href="#39928" title="A">x</a>, <a href="#39939" title="Int">s</a>))
+        <span title="scalaz.State[Int,Branch[(A, Int)]]" class="keyword">case</span> Branch(<a title="Tree[A]" id="40006">left</a>, <a title="Tree[A]" id="40007">right</a>) =&gt; <span class="keyword">for</span>{<a title="Tree[(A, Int)]" id="40013">l</a> &lt;- <a href="#40006" title="Tree[A]">left</a>.<a href="../State.scala.html#25958" title="(f: (Tree[(A, Int)]) =&gt; scalaz.State[Int,Branch[(A, Int)]])scalaz.State[Int,Branch[(A, Int)]]">numberSM</a>
+                                        <a title="Tree[(A, Int)]" id="40018">r</a> &lt;- <a href="#40007" title="Tree[A]">right</a>.<a href="../State.scala.html#25955" title="(f: (Tree[(A, Int)]) =&gt; Branch[(A, Int)])scalaz.State[Int,Branch[(A, Int)]]">numberSM</a>} <span class="keyword">yield</span> <a href="#39845" title="(left: Tree[(A, Int)],right: Tree[(A, Int)])Branch[(A, Int)]">Branch</a>(<a href="#40013" title="Tree[(A, Int)]">l</a>, <a href="#40018" title="Tree[(A, Int)]">r</a>)
+      }
+
+      /**
+       * As above, but using State as an Applicative Functor rather than as a Monad.
+       * This is possible as the generators in the for comprehension above are independent.
+       * Note the correspondence between `&lt;* modify` and `_ &lt;- modify`.
+       */
+      <span class="keyword">def</span> <a title="=&gt; scalaz.State[Int,Tree[(A, Int)]]" id="39744">numberSA</a>: <a href="../State.scala.html#12808" title="scalaz.State[Int,Tree[(A, Int)]]">State</a>[Int, Tree[(A, Int)]] = <a href="#39728" title="Tree[A]" class="keyword">this</a> <span title="scalaz.State[Int,Tree[(A, Int)]]" class="keyword">match</span> {
+        <span title="scalaz.State[Int,Leaf[(A, Int)]]" class="keyword">case</span> Leaf(<a title="A" id="40032">x</a>) =&gt; <a href="../MA.scala.html#24637" title="(f: (Int) =&gt; Leaf[(A, Int)])(implicit t: scalaz.Functor[[B]scalaz.State[Int,B]])scalaz.State[Int,Leaf[(A, Int)]]">(</a><a href="../State.scala.html#24241" title="[S]scalaz.State[S,S]">init</a><a href="../MA.scala.html#24702" title="(b: scalaz.State[Int,Unit])(implicit t: scalaz.Functor[[B]scalaz.State[Int,B]],implicit a: scalaz.Apply[[B]scalaz.State[Int,B]])scalaz.State[Int,Int]">[</a><span title="Int">Int</span>] <a href="../Scalaz.scala.html#23731" title="(s: scalaz.State[Int,Int])scalaz.MA[[B]scalaz.State[Int,B],Int]">&lt;*</a> <a href="../State.scala.html#24244" title="(f: (Int) =&gt; Int)scalaz.State[Int,Unit]">modify</a>(<span title="(x$1: Int)Int">(</span><a href="#40160" title="Int">_</a>: <span title="Int">Int</span>) + <span title="Int(1)" class="int">1</span>)) <a href="../Functor.scala.html#40284" title="&lt;refinement&gt; extends java.lang.Object with scalaz.Functor[[B]scalaz.State[Int,B]]">∘</a> {s: <span title="Int">Int</span> =&gt; <a href="#39750" title="(a: (A, Int))Leaf[(A, Int)]">Leaf</a>(<span title="(_1: A,_2: Int)(A, Int)">(</span><a href="#40032" title="A">x</a>, <a href="#44941" title="Int">s</a>))}
+        <span title="scalaz.State[Int,Branch[(A, Int)]]" class="keyword">case</span> Branch(<a title="Tree[A]" id="45066">left</a>, <a title="Tree[A]" id="45067">right</a>) =&gt; <a href="#45066" title="Tree[A]">left</a>.<a href="../Scalaz.scala.html#23731" title="(s: scalaz.State[Int,Tree[(A, Int)]])scalaz.MA[[B]scalaz.State[Int,B],Tree[(A, Int)]]">numberSA</a>.<a href="../MA.scala.html#24667" title="(b: scalaz.State[Int,Tree[(A, Int)]])(z: (Tree[(A, Int)], Tree[(A, Int)]) =&gt; Branch[(A, Int)])(implicit t: scalaz.Functor[[B]scalaz.State[Int,B]],implicit a: scalaz.Apply[[B]scalaz.State[Int,B]])scalaz.State[Int,Branch[(A, Int)]]">&lt;**&gt;</a>(<a href="#45067" title="Tree[A]">right</a>.<a href="#39744" title="=&gt; scalaz.State[Int,Tree[(A, Int)]]">numberSA</a>)<a href="../Functor.scala.html#40284" title="&lt;refinement&gt; extends java.lang.Object with scalaz.Functor[[B]scalaz.State[Int,B]]">(</a><a href="#39845" title="object Branch">Branch</a>.<a href="#39845" title="(left: Tree[(A, Int)],right: Tree[(A, Int)])Branch[(A, Int)]">apply</a>)
+      }
+    }
+
+    <span class="keyword">final</span> case <span class="keyword">class</span> <a title="class Leaf[A] extends Tree[A] with ScalaObject with Product" id="39750">Leaf</a>[<a title="&gt;: Nothing &lt;: Any" id="39752">A</a>]<span title="ScalaObject">(</span><a title="[A]A" id="39820">a</a>: <a href="#39752" title="A">A</a>) <span class="keyword">extends</span> <a href="#39728" title="Tree[A]">Tree</a>[A]
+    <span class="keyword">final</span> case <span class="keyword">class</span> <a title="class Branch[A] extends Tree[A] with ScalaObject with Product" id="39845">Branch</a>[<a title="&gt;: Nothing &lt;: Any" id="39847">A</a>]<span title="ScalaObject">(</span><a title="[A]Tree[A]" id="39911">left</a>: <a href="#39728" title="Tree[A]">Tree</a>[A], <a title="[A]Tree[A]" id="39912">right</a>: <a href="#39728" title="Tree[A]">Tree</a>[A]) <span class="keyword">extends</span> <a href="#39728" title="Tree[A]">Tree</a>[A]
+
+    <span class="keyword">implicit</span> <span class="keyword">val</span> <a title="scalaz.Show[Tree[_]]" id="39738">TreeShow</a> = <a href="../Show.scala.html#24232" title="[A]scalaz.Show[A]">showA</a><span title="scalaz.Show[Tree[_]]">[</span><a href="#39728" title="Tree[_]">Tree</a>[_]]
+    <span class="keyword">implicit</span> <span class="keyword">val</span> <a title="scalaz.Equal[Tree[_]]" id="39739">TreeEqual</a> = <a href="../Equal.scala.html#23988" title="[A]scalaz.Equal[A]">equalA</a><span title="scalaz.Equal[Tree[_]]">[</span><a href="#39728" title="Tree[_]">Tree</a>[_]]
+
+    <span class="keyword">val</span> <a title="Branch[java.lang.String]" id="39740">tree</a> = <a href="#39845" title="(left: Tree[java.lang.String],right: Tree[java.lang.String])Branch[java.lang.String]">Branch</a>(<a href="#39750" title="(a: java.lang.String)Leaf[java.lang.String]">Leaf</a>(<span title="java.lang.String(&quot;one&quot;)" class="string">&quot;one&quot;</span>), <a href="#39845" title="(left: Tree[java.lang.String],right: Tree[java.lang.String])Branch[java.lang.String]">Branch</a>(<a href="#39750" title="(a: java.lang.String)Leaf[java.lang.String]">Leaf</a>(<span title="java.lang.String(&quot;two&quot;)" class="string">&quot;two&quot;</span>), <a href="#39750" title="(a: java.lang.String)Leaf[java.lang.String]">Leaf</a>(<span title="java.lang.String(&quot;three&quot;)" class="string">&quot;three&quot;</span>)))
+    <a href="#39740" title="Branch[java.lang.String]">tree</a>.<a href="#39742" title="(seed: Int)(Tree[(java.lang.String, Int)], Int)">number</a>(<span title="Int(1)" class="int">1</span>).<a href="../Identity.scala.html#27747" title="(b: Branch[(java.lang.String, Int)])(implicit e: scalaz.Equal[Tree[(java.lang.String, Int)]],implicit s: scalaz.Show[Tree[(java.lang.String, Int)]],implicit ev: &lt;:&lt;[Branch[(java.lang.String, Int)],Tree[(java.lang.String, Int)]])Unit">_1</a> <a href="#39739" title="scalaz.Equal[Tree[_]]">assert_≟</a> <a href="#39845" title="(left: Tree[(java.lang.String, Int)],right: Tree[(java.lang.String, Int)])Branch[(java.lang.String, Int)]">Branch</a>(<a href="#39750" title="(a: (java.lang.String, Int))Leaf[(java.lang.String, Int)]">Leaf</a>(<span title="(_1: java.lang.String,_2: Int)(java.lang.String, Int)">(</span><span title="java.lang.String(&quot;one&quot;)" class="string">&quot;one&quot;</span>, <span title="Int(1)" class="int">1</span>)), <a href="#39845" title="(left: Tree[(java.lang.String, Int)],right: Tree[(java.lang.String, Int)])Branch[(java.lang.String, Int)]">Branch</a>(<a href="#39750" title="(a: (java.lang.String, Int))Leaf[(java.lang.String, Int)]">Leaf</a>(<span title="(_1: java.lang.String,_2: Int)(java.lang.String, Int)">(</span><span title="java.lang.String(&quot;two&quot;)" class="string">&quot;two&quot;</span>, <span title="Int(2)" class="int">2</span>)), <a href="#39750" title="(a: (java.lang.String, Int))Leaf[(java.lang.String, Int)]">Leaf</a>(<span title="(_1: java.lang.String,_2: Int)(java.lang.String, Int)">(</span><span title="java.lang.String(&quot;three&quot;)" class="string">&quot;three&quot;</span>, <span title="Int(3)" class="int">3</span>))))
+    <a href="#39740" title="Branch[java.lang.String]">tree</a>.<a href="../State.scala.html#25961" title="(s: Int)Tree[(java.lang.String, Int)]">numberSM</a> <a href="../Identity.scala.html#27747" title="(b: Tree[(java.lang.String, Int)])(implicit e: scalaz.Equal[Tree[(java.lang.String, Int)]],implicit s: scalaz.Show[Tree[(java.lang.String, Int)]],implicit ev: &lt;:&lt;[Tree[(java.lang.String, Int)],Tree[(java.lang.String, Int)]])Unit">!</a> <span title="Int(1)" class="int">1</span> <a href="#39739" title="scalaz.Equal[Tree[_]]">assert_≟</a> <a href="#39740" title="Branch[java.lang.String]">tree</a>.<a href="#39742" title="(seed: Int)(Tree[(java.lang.String, Int)], Int)">number</a>(<span title="Int(1)" class="int">1</span>).<span title="=&gt; Tree[(java.lang.String, Int)]">_1</span>
+    <a href="#39740" title="Branch[java.lang.String]">tree</a>.<a href="../State.scala.html#25961" title="(s: Int)Tree[(java.lang.String, Int)]">numberSA</a> <a href="../Identity.scala.html#27747" title="(b: Tree[(java.lang.String, Int)])(implicit e: scalaz.Equal[Tree[(java.lang.String, Int)]],implicit s: scalaz.Show[Tree[(java.lang.String, Int)]],implicit ev: &lt;:&lt;[Tree[(java.lang.String, Int)],Tree[(java.lang.String, Int)]])Unit">!</a> <span title="Int(1)" class="int">1</span> <a href="#39739" title="scalaz.Equal[Tree[_]]">assert_≟</a> <a href="#39740" title="Branch[java.lang.String]">tree</a>.<a href="#39742" title="(seed: Int)(Tree[(java.lang.String, Int)], Int)">number</a>(<span title="Int(1)" class="int">1</span>).<span title="=&gt; Tree[(java.lang.String, Int)]">_1</span>
+  }
+}
+        </pre>
+    </body>
+</html>

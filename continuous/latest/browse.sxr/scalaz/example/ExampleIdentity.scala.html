@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/example/ExampleIdentity.scala</title>
+        <script type="text/javascript" src="../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz.example
+
+<span class="keyword">import</span> scalaz._
+
+<span class="keyword">import</span> java.lang.String
+
+<span class="keyword">object</span> <a title="object scalaz.example.ExampleIdentity" id="13937">ExampleIdentity</a> <a title="ScalaObject" id="543">{</a>
+  <span class="keyword">def</span> <a title="(args: Array[java.lang.String])Unit" id="23302">main</a>(<a title="Array[java.lang.String]" id="162964">args</a>: <a title="Array[java.lang.String]" id="1323">Array</a>[String]) = <a href="#23304" title="=&gt; Unit">run</a>
+
+  <span class="keyword">import</span> Scalaz._
+
+  <span class="keyword">def</span> <a title="=&gt; Unit" id="23304">run</a> {
+    // Any value can be converted to Identity
+    <a href="../Identity.scala.html#24056" title="(x: Int)scalaz.Identity[Int]" class="int">1</a>: <a href="../Identity.scala.html#10876" title="scalaz.Identity[Int]">Identity</a>[Int]
+
+    // Wrap a value in NonEmptyList
+    <a href="../Identity.scala.html#24056" title="(x: Int)scalaz.Identity[Int]" class="int">1</a>.<a href="../Identity.scala.html#27747" title="(b: scalaz.NonEmptyList[Int])(implicit e: scalaz.Equal[scalaz.NonEmptyList[Int]],implicit s: scalaz.Show[scalaz.NonEmptyList[Int]],implicit ev: &lt;:&lt;[scalaz.NonEmptyList[Int],scalaz.NonEmptyList[Int]])Unit">wrapNel</a> <a href="../Equal.scala.html#38156" title="(implicit evidence$2: scalaz.Equal[Int])scalaz.Equal[scalaz.NonEmptyList[Int]]">assert_≟</a> <a href="../NonEmptyList.scala.html#84828" title="(h: Int,t: Int*)scalaz.NonEmptyList[Int]">NonEmptyList</a>(<span title="Int(1)" class="int">1</span>)
+
+    // Unfold a value into a Tree, by recursively applying a function to generate the child nodes
+    // from their parent.
+    <span class="keyword">val</span> <a title="scalaz.Tree[java.lang.String]" id="162967">tree</a>: <a href="../Tree.scala.html#13105" title="scalaz.Tree[java.lang.String]">Tree</a>[String] = <a href="../Identity.scala.html#24056" title="(x: Int)scalaz.Identity[Int]" class="int">1</a>.<a href="../Identity.scala.html#27797" title="[B](f: (Int) =&gt; (B, () =&gt; Stream[Int]))scalaz.Tree[B]">unfoldTree</a><span title="(f: (Int) =&gt; (java.lang.String, () =&gt; Stream[Int]))scalaz.Tree[java.lang.String]">[</span><span title="java.lang.String">String</span>] {
+      (a: <span title="Int">Int</span>) =&gt; <a title="(_1: java.lang.String,_2: () =&gt; Stream[Int])(java.lang.String, () =&gt; Stream[Int])" id="856">(</a><a href="#163325" title="Int">a</a>.<a title="()java.lang.String" id="5117">toString</a>, () =&gt; (<span title="(xs: Int*)List[Int]">List</span>(<span title="Int(1)" class="int">1</span>, <span title="Int(2)" class="int">2</span>).<a title="(f: (Int) =&gt; Int)(implicit bf: scala.collection.generic.CanBuildFrom[List[Int],Int,List[Int]])List[Int]" id="27031">map</a><a title="scala.collection.generic.CanBuildFrom[scala.collection.immutable.List.Coll,Int,List[Int]]" id="21629">(</a><a href="#163348" title="(x$1: Int)Int">_</a> + <a href="#163325" title="Int">a</a>).<a title="=&gt; scala.collection.immutable.Stream[Int]" id="21614">toStream</a>.<a title="(p: (Int) =&gt; Boolean)scala.collection.immutable.Stream[Int]" id="26353">filter</a>(<a href="#163542" title="(x$1: Int)Boolean" id="4452">_</a> &lt; <span title="Int(4)" class="int">4</span>): <span title="Stream[Int]">Stream</span>[Int]))
+    }
+    <a href="../Identity.scala.html#27747" title="(b: scalaz.Tree[java.lang.String])(implicit e: scalaz.Equal[scalaz.Tree[java.lang.String]],implicit s: scalaz.Show[scalaz.Tree[java.lang.String]],implicit ev: &lt;:&lt;[scalaz.Tree[java.lang.String],scalaz.Tree[java.lang.String]])Unit">tree</a> <a href="../Equal.scala.html#38262" title="(implicit evidence$44: scalaz.Equal[java.lang.String])scalaz.Equal[scalaz.Tree[java.lang.String]]">assert_≟</a> <a href="../Tree.scala.html#24254" title="(root: java.lang.String,forest: Stream[scalaz.Tree[java.lang.String]])scalaz.Tree[java.lang.String]">node</a>(<span title="java.lang.String(&quot;1&quot;)" class="string">&quot;1&quot;</span>, <span title="(xs: scalaz.Tree[java.lang.String]*)scala.collection.immutable.Stream[scalaz.Tree[java.lang.String]]">Stream</span>(<a href="../Tree.scala.html#24254" title="(root: java.lang.String,forest: Stream[scalaz.Tree[java.lang.String]])scalaz.Tree[java.lang.String]">node</a>(<span title="java.lang.String(&quot;2&quot;)" class="string">&quot;2&quot;</span>, <span title="(xs: scalaz.Tree[java.lang.String]*)scala.collection.immutable.Stream[scalaz.Tree[java.lang.String]]">Stream</span>(<a href="../Tree.scala.html#24257" title="(root: java.lang.String)scalaz.Tree[java.lang.String]">leaf</a>(<span title="java.lang.String(&quot;3&quot;)" class="string">&quot;3&quot;</span>))), <a href="../Tree.scala.html#24257" title="(root: java.lang.String)scalaz.Tree[java.lang.String]">leaf</a>(<span title="java.lang.String(&quot;3&quot;)" class="string">&quot;3&quot;</span>)))
+
+    // Starting with the initial value `n`, iterate a function (Int =&gt; Int) through the Stream Pure and Stream Monoid
+    // to generate the Collatz sequence. In homage to http://xkcd.com/710/
+    <span class="keyword">def</span> <a title="(n: Int)scala.collection.immutable.Stream[Int]" id="162968">collatz</a>(<a title="Int" id="163870">n</a>: <span title="Int">Int</span>) = <a href="../Identity.scala.html#24056" title="(x: Int)scalaz.Identity[Int]">n</a>.<a href="../Identity.scala.html#27793" title="[M[_]](f: (Int) =&gt; Int)(implicit p: scalaz.Pure[M],implicit m: scalaz.Monoid[M[Int]])M[Int]">iterate</a><span title="(f: (Int) =&gt; Int)(implicit p: scalaz.Pure[Stream],implicit m: scalaz.Monoid[Stream[Int]])Stream[Int]">[</span><span title="Stream">Stream</span>]<a href="../PureCollections.scala.html#51170" title="scalaz.Pure[scala.collection.immutable.Stream]">(</a><a title="Int" id="163921">a</a> =&gt; <a href="../BooleanW.scala.html#28080" title="(t: =&gt; Int)java.lang.Object with scalaz.BooleanW#Conditional[Int]">(</a><a href="#163921" title="(x$1: Int)Int" id="4468">a</a> <a title="(x$1: Int)Boolean" id="4448">%</a> <span title="Int(2)" class="int">2</span> <a href="../BooleanW.scala.html#23902" title="implicit scalaz.Booleans.BooleanTo : (b: Boolean)scalaz.BooleanW">==</a> <span title="Int(0)" class="int">0</span>) <a href="../BooleanW.scala.html#163944" title="(f: =&gt; Int)Int">?</a> (<a href="#163921" title="(x$1: Int)Int" id="4466">a</a>/<span title="Int(2)" class="int">2</span>) | <a title="(x$1: Int)Int" id="4464" class="int">3</a><span title="(x$1: Int)Int">*</span><a href="#163921" title="Int">a</a> + <span title="Int(1)" class="int">1</span>).<a title="(p: (Int) =&gt; Boolean)scala.collection.immutable.Stream[Int]" id="26416">takeWhile</a>(<a href="#164193" title="(x$1: Int)Boolean" id="4456">_</a> &gt; <span title="Int(1)" class="int">1</span>)
+    <a href="#162968" title="(n: Int)scala.collection.immutable.Stream[Int]">collatz</a>(<span title="Int(7)" class="int">7</span>).<a href="../Identity.scala.html#27747" title="(b: List[Int])(implicit e: scalaz.Equal[List[Int]],implicit s: scalaz.Show[List[Int]],implicit ev: &lt;:&lt;[List[Int],List[Int]])Unit" id="27210">toList</a> <a href="../Equal.scala.html#38275" title="(implicit evidence$48: scalaz.Equal[Int])scalaz.Equal[List[Int]]">assert_≟</a> <span title="(xs: Int*)List[Int]">List</span>(<span title="Int(7)" class="int">7</span>, <span title="Int(22)" class="int">22</span>, <span title="Int(11)" class="int">11</span>, <span title="Int(34)" class="int">34</span>, <span title="Int(17)" class="int">17</span>, <span title="Int(52)" class="int">52</span>, <span title="Int(26)" class="int">26</span>, <span title="Int(13)" class="int">13</span>, <span title="Int(40)" class="int">40</span>, <span title="Int(20)" class="int">20</span>, <span title="Int(10)" class="int">10</span>, <span title="Int(5)" class="int">5</span>, <span title="Int(16)" class="int">16</span>, <span title="Int(8)" class="int">8</span>, <span title="Int(4)" class="int">4</span>, <span title="Int(2)" class="int">2</span>)
+
+    // Elvis operator
+    <a href="../Identity.scala.html#27746" title="(d: =&gt; java.lang.String)(implicit ev: &lt;:&lt;[Null,java.lang.String])java.lang.String">(</a><span title="Null(null)" class="keyword">null</span>: <span title="java.lang.String">String</span>) <a href="../Identity.scala.html#27747" title="(b: java.lang.String)(implicit e: scalaz.Equal[java.lang.String],implicit s: scalaz.Show[java.lang.String],implicit ev: &lt;:&lt;[java.lang.String,java.lang.String])Unit">??</a> <span title="java.lang.String(&quot;default&quot;)" class="string">&quot;default&quot;</span> <a href="../Equal.scala.html#38130" title="=&gt; scalaz.Equal[String]">assert_≟</a> <span title="java.lang.String(&quot;default&quot;)" class="string">&quot;default&quot;</span>
+  }
+}
+
+        </pre>
+    </body>
+</html>

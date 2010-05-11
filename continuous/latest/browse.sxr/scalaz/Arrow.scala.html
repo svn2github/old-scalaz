@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Arrow.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait Arrow[A[_,_]] extends java.lang.Object" id="8596">Arrow</a>[<a title="[_, _]&gt;: Nothing &lt;: Any" id="17279">A</a>[<a title="&gt;: Nothing &lt;: Any" id="46321">_</a>, <a title="&gt;: Nothing &lt;: Any" id="46322">_</a>]] <a title="java.lang.Object" id="2093">{</a>
+  <span class="keyword">val</span> <a title="=&gt; scalaz.Category[A]" id="46301">category</a>: <a href="Category.scala.html#9103" title="scalaz.Category[A]">Category</a>[A]
+  
+  <span class="keyword">def</span> <a title="[B, C](f: (B) =&gt; C)A[B,C]" id="46302">arrow</a>[<a title="&gt;: Nothing &lt;: Any" id="46305">B</a>, <a title="&gt;: Nothing &lt;: Any" id="46306">C</a>](<a title="(B) =&gt; C" id="82111">f</a>: B =&gt; C): <a href="#17279" title="A[B,C]">A</a>[B, C]
+
+  <span class="keyword">def</span> <a title="[B, C, D](a: A[B,C])A[(B, D),(C, D)]" id="46307">first</a>[<a title="&gt;: Nothing &lt;: Any" id="46311">B</a>, <a title="&gt;: Nothing &lt;: Any" id="46312">C</a>, <a title="&gt;: Nothing &lt;: Any" id="46313">D</a>](<a title="A[B,C]" id="82059">a</a>: <a href="#17279" title="A[B,C]">A</a>[B, C]): <a href="#17279" title="A[(B, D),(C, D)]">A</a>[(B, D), (C, D)]
+
+  <span class="keyword">def</span> <a title="[B, C, D](a: A[B,C])A[(D, B),(D, C)]" id="46314">second</a>[<a title="&gt;: Nothing &lt;: Any" id="46318">B</a>, <a title="&gt;: Nothing &lt;: Any" id="46319">C</a>, <a title="&gt;: Nothing &lt;: Any" id="46320">D</a>](<a title="A[B,C]" id="82070">a</a>: <a href="#17279" title="A[B,C]">A</a>[B, C]): <a href="#17279" title="A[(D, B),(D, C)]">A</a>[(D, B), (D, C)]
+}
+
+<span class="keyword">object</span> <a title="object scalaz.Arrow" id="8597">Arrow</a> <a title="ScalaObject" id="543">{</a>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+  
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Arrow[Function1]" id="46325">Function1Arrow</a>: <a href="#8596" title="scalaz.Arrow[Function1]">Arrow</a>[Function1] = <a href="#300896" title="java.lang.Object with scalaz.Arrow[Function1]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Arrow[Function1]" id="300896">Arrow</a>[Function1] {
+    <span class="keyword">val</span> <a title="scalaz.Category[Function1]" id="300900">category</a> = <a href="Category.scala.html#9104" title="object scalaz.Category">Category</a>.<a href="Category.scala.html#37212" title="=&gt; scalaz.Category[Function1]">Function1Category</a>
+    
+    <span class="keyword">def</span> <a title="[B, C](f: (B) =&gt; C)(B) =&gt; C" id="300902">arrow</a>[<a title="&gt;: Nothing &lt;: Any" id="300905">B</a>, <a title="&gt;: Nothing &lt;: Any" id="300906">C</a>](<a title="(B) =&gt; C" id="300921">f</a>: B =&gt; C) = <a href="#300921" title="(B) =&gt; C">f</a>
+
+    <span class="keyword">def</span> <a title="[B, C, D](a: (B) =&gt; C)((B, D)) =&gt; (C, D)" id="300907">first</a>[<a title="&gt;: Nothing &lt;: Any" id="300911">B</a>, <a title="&gt;: Nothing &lt;: Any" id="300912">C</a>, <a title="&gt;: Nothing &lt;: Any" id="300913">D</a>](<a title="(B) =&gt; C" id="300931">a</a>: B =&gt; C) =
+      (bd: <span title="(B, D)">(</span>B, D)) =&gt; <span title="(_1: C,_2: D)(C, D)">(</span><a href="#300931" title="(v1: B)C">a</a>(<a href="#300941" title="(B, D)">bd</a>.<span title="=&gt; B">_1</span>), <a href="#300941" title="(B, D)">bd</a>.<span title="=&gt; D">_2</span>)
+
+    <span class="keyword">def</span> <a title="[B, C, D](a: (B) =&gt; C)((D, B)) =&gt; (D, C)" id="300914">second</a>[<a title="&gt;: Nothing &lt;: Any" id="300918">B</a>, <a title="&gt;: Nothing &lt;: Any" id="300919">C</a>, <a title="&gt;: Nothing &lt;: Any" id="300920">D</a>](<a title="(B) =&gt; C" id="300953">a</a>: B =&gt; C) =
+      (db: <span title="(D, B)">(</span>D, B)) =&gt; <span title="(_1: D,_2: C)(D, C)">(</span><a href="#300963" title="(D, B)">db</a>.<span title="=&gt; D">_1</span>, <a href="#300953" title="(v1: B)C">a</a>(<a href="#300963" title="(D, B)">db</a>.<span title="=&gt; B">_2</span>))
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[M[_]](implicit evidence$1: scalaz.Monad[M])scalaz.Arrow[[A,B]scalaz.Kleisli[M,A,B]]" id="46344">KleisliArrow</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="46328">M</a>[<a title="&gt;: Nothing &lt;: Any" id="46345">_</a>]: Monad]: <a href="#8596" title="scalaz.Arrow[[A,B]scalaz.Kleisli[M,A,B]]">Arrow</a>[PartialApplyK[Kleisli, M]#Apply] = <a href="#300984" title="java.lang.Object with scalaz.Arrow[[A,B]scalaz.Kleisli[M,A,B]]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Arrow[[A,B]scalaz.Kleisli[M,A,B]]" id="300984">Arrow</a>[PartialApplyK[Kleisli, M]#Apply] {
+    <span class="keyword">val</span> <a title="scalaz.Category[[A,B]scalaz.Kleisli[M,A,B]]" id="300990">category</a> = <a href="Category.scala.html#9104" title="object scalaz.Category">Category</a>.<a href="Category.scala.html#37213" title="(implicit evidence$1: scalaz.Monad[M])scalaz.Category[[A,B]scalaz.Kleisli[M,A,B]]">KleisliCategory</a>
+
+    <span class="keyword">def</span> <a title="[B, C](f: (B) =&gt; C)scalaz.Kleisli[M,B,C]" id="300992">arrow</a>[<a title="&gt;: Nothing &lt;: Any" id="300995">B</a>, <a title="&gt;: Nothing &lt;: Any" id="300996">C</a>](<a title="(B) =&gt; C" id="301022">f</a>: B =&gt; C) = <a href="Kleisli.scala.html#24041" title="(f: (B) =&gt; M[C])scalaz.Kleisli[M,B,C]">☆</a>(<a href="#301022" title="(v1: B)C">f</a><a href="Identity.scala.html#24056" title="(x: C)scalaz.Identity[C]">(</a><a href="#301038" title="B">_</a>) <a href="Identity.scala.html#27732" title="(implicit p: scalaz.Pure[M])M[C]">η</a>)
+
+    <span class="keyword">def</span> <a title="[B, C, D](a: scalaz.Kleisli[M,B,C])scalaz.Kleisli[M,(B, D),(C, D)]" id="300997">first</a>[<a title="&gt;: Nothing &lt;: Any" id="301001">B</a>, <a title="&gt;: Nothing &lt;: Any" id="301002">C</a>, <a title="&gt;: Nothing &lt;: Any" id="301003">D</a>](<a title="scalaz.Kleisli[M,B,C]" id="301128">a</a>: <a href="Kleisli.scala.html#11050" title="scalaz.Kleisli[M,B,C]">Kleisli</a>[M, B, C]) = <a href="Kleisli.scala.html#24041" title="(f: ((B, D)) =&gt; M[(C, D)])scalaz.Kleisli[M,(B, D),(C, D)]">☆</a> <a href="#301145" title="M[(C, D)]">{</a>
+      <span title="M[(C, D)]" class="keyword">case</span> (<a title="B" id="301148">b</a>, <a title="D" id="301149">d</a>) =&gt; <a href="Kleisli.scala.html#24590" title="(a: B)M[C]">a</a><a href="MA.scala.html#24637" title="(f: (C) =&gt; (C, D))(implicit t: scalaz.Functor[M])M[(C, D)]">(</a><a href="#301148" title="B">b</a>) <a href="#46344" title="scalaz.Monad[M]">∘</a> (<span title="(_1: C,_2: D)(C, D)">(</span><a href="#301301" title="C">_</a>, <a href="#301149" title="D">d</a>))
+    }
+
+    <span class="keyword">def</span> <a title="[B, C, D](a: scalaz.Kleisli[M,B,C])scalaz.Kleisli[M,(D, B),(D, C)]" id="301004">second</a>[<a title="&gt;: Nothing &lt;: Any" id="301008">B</a>, <a title="&gt;: Nothing &lt;: Any" id="301009">C</a>, <a title="&gt;: Nothing &lt;: Any" id="301010">D</a>](<a title="scalaz.Kleisli[M,B,C]" id="301318">a</a>: <a href="Kleisli.scala.html#11050" title="scalaz.Kleisli[M,B,C]">Kleisli</a>[M, B, C]) = <a href="Kleisli.scala.html#24041" title="(f: ((D, B)) =&gt; M[(D, C)])scalaz.Kleisli[M,(D, B),(D, C)]">☆</a> <a href="#301335" title="M[(D, C)]">{</a>
+      <span title="M[(D, C)]" class="keyword">case</span> (<a title="D" id="301338">d</a>, <a title="B" id="301339">b</a>) =&gt; <a href="Kleisli.scala.html#24590" title="(a: B)M[C]">a</a><a href="MA.scala.html#24637" title="(f: (C) =&gt; (D, C))(implicit t: scalaz.Functor[M])M[(D, C)]">(</a><a href="#301339" title="B">b</a>) <a href="#46344" title="scalaz.Monad[M]">∘</a> (<span title="(_1: D,_2: C)(D, C)">(</span><a href="#301338" title="D">d</a>, <a href="#301491" title="C">_</a>))
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[M[_]](implicit evidence$2: scalaz.Comonad[M])scalaz.Arrow[[A,B]scalaz.Cokleisli[M,A,B]]" id="46333">CokleisliArrow</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="46331">M</a>[<a title="&gt;: Nothing &lt;: Any" id="46334">_</a>]: Comonad]: <a href="#8596" title="scalaz.Arrow[[A,B]scalaz.Cokleisli[M,A,B]]">Arrow</a>[PartialApplyK[Cokleisli, M]#Apply] = <a href="#301519" title="java.lang.Object with scalaz.Arrow[[A,B]scalaz.Cokleisli[M,A,B]]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Arrow[[A,B]scalaz.Cokleisli[M,A,B]]" id="301519">Arrow</a>[PartialApplyK[Cokleisli, M]#Apply] {
+    <span class="keyword">val</span> <a title="scalaz.Category[[A,B]scalaz.Cokleisli[M,A,B]]" id="301525">category</a> = <a href="Category.scala.html#9104" title="object scalaz.Category">Category</a>.<a href="Category.scala.html#37216" title="(implicit evidence$2: scalaz.Comonad[M])scalaz.Category[[A,B]scalaz.Cokleisli[M,A,B]]">CokleisliCategory</a>
+
+    <span class="keyword">def</span> <a title="[B, C](f: (B) =&gt; C)scalaz.Cokleisli[M,B,C]" id="301527">arrow</a>[<a title="&gt;: Nothing &lt;: Any" id="301530">B</a>, <a title="&gt;: Nothing &lt;: Any" id="301531">C</a>](<a title="(B) =&gt; C" id="301554">f</a>: B =&gt; C) = <a href="Cokleisli.scala.html#23926" title="(f: (M[B]) =&gt; C)scalaz.Cokleisli[M,B,C]">★</a>(<a title="M[B]" id="301570">r</a> =&gt; <a href="#301554" title="(v1: B)C">f</a>(<a href="MA.scala.html#23622" title="(a: M[B])scalaz.MA[M,B]">r</a> <a href="MA.scala.html#24831" title="(implicit p: scalaz.Copure[M])B">ε</a>))
+
+    <span class="keyword">def</span> <a title="[B, C, D](a: scalaz.Cokleisli[M,B,C])scalaz.Cokleisli[M,(B, D),(C, D)]" id="301532">first</a>[<a title="&gt;: Nothing &lt;: Any" id="301536">B</a>, <a title="&gt;: Nothing &lt;: Any" id="301537">C</a>, <a title="&gt;: Nothing &lt;: Any" id="301538">D</a>](<a title="scalaz.Cokleisli[M,B,C]" id="301714">a</a>: <a href="Cokleisli.scala.html#9286" title="scalaz.Cokleisli[M,B,C]">Cokleisli</a>[M, B, C]) = <a href="Cokleisli.scala.html#23926" title="(f: (M[(B, D)]) =&gt; (C, D))scalaz.Cokleisli[M,(B, D),(C, D)]">★</a>(<a href="MAB.scala.html#24527" title="(k: scalaz.Cokleisli[M,D,D])(implicit a: scalaz.Arrow[[A,B]scalaz.Cokleisli[M,A,B]])scalaz.Cokleisli[M,(B, D),(C, D)]">a</a> <a href="Cokleisli.scala.html#24565" title="(a: M[(B, D)])(C, D)">***</a> <a href="#301527" title="(f: (D) =&gt; D)scalaz.Cokleisli[M,D,D]">arrow</a>(<span title="(x: D)D">identity</span>(<a href="#301814" title="D">_</a>: <a href="#301538" title="D">D</a>)) apply (<a href="#301731" title="M[(B, D)]">_</a>: <a href="#46331" title="M[(B, D)]">M</a>[(B, D)]))
+
+    <span class="keyword">def</span> <a title="[B, C, D](a: scalaz.Cokleisli[M,B,C])scalaz.Cokleisli[M,(D, B),(D, C)]" id="301539">second</a>[<a title="&gt;: Nothing &lt;: Any" id="301543">B</a>, <a title="&gt;: Nothing &lt;: Any" id="301544">C</a>, <a title="&gt;: Nothing &lt;: Any" id="301545">D</a>](<a title="scalaz.Cokleisli[M,B,C]" id="301857">a</a>: <a href="Cokleisli.scala.html#9286" title="scalaz.Cokleisli[M,B,C]">Cokleisli</a>[M, B, C]) = <a href="Cokleisli.scala.html#23926" title="(f: (M[(D, B)]) =&gt; (D, C))scalaz.Cokleisli[M,(D, B),(D, C)]">★</a>(<a href="#301527" title="(f: (D) =&gt; D)scalaz.Cokleisli[M,D,D]">arrow</a><a href="MAB.scala.html#24527" title="(k: scalaz.Cokleisli[M,B,C])(implicit a: scalaz.Arrow[[A,B]scalaz.Cokleisli[M,A,B]])scalaz.Cokleisli[M,(D, B),(D, C)]">(</a><span title="(x: D)D">identity</span>(<a href="#301880" title="D">_</a>: <a href="#301545" title="D">D</a>)) <a href="Cokleisli.scala.html#24565" title="(a: M[(D, B)])(D, C)">***</a> <a href="#301857" title="scalaz.Cokleisli[M,B,C]">a</a> apply (<a href="#301874" title="M[(D, B)]">_</a>: <a href="#46331" title="M[(D, B)]">M</a>[(D, B)]))
+  }
+}
+
+        </pre>
+    </body>
+</html>
