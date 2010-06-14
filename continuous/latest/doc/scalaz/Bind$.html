@@ -23,7 +23,7 @@
       <h4 class="signature" id="signature">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Bind</span><span class="result"> extends <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a></span>
+        <span class="name">Bind</span><span class="result"> extends AnyRef</span>
       </span>
       </h4>
       <div class="fullcomment" id="comment"><div class="block">
@@ -36,7 +36,7 @@
           <div id="ancestors">
                 <span class="filtertype">Inherited</span>
                 <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
-                <ol id="linearization"><li class="in" name="scalaz.BindCollections">BindCollections</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+                <ol id="linearization"><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
               </div>
           <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -75,7 +75,7 @@
       
             <p class="shortcomment cmt"><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -141,7 +141,7 @@
       
             <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -162,7 +162,7 @@
       
             <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -329,169 +329,17 @@
           attributes: implicit 
         </div></div>
           
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableIndexedSeqBind">
+    </li><li visbl="pub" name="scalaz.Bind#IterateeBind">
       <h4 class="signature">
       <span class="kind">implicit def</span>
       <span class="symbol">
-        <span class="name">ImmutableIndexedSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.IndexedSeq">IndexedSeq</span>[A][A]]</span>
+        <span class="name">IterateeBind</span><span class="tparams">[<span name="E">E</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<a href="Iteratee.html" class="extype" name="scalaz.Iteratee">Iteratee</a>[E, B][B]]</span>
       </span>
       </h4>
       
             
             <div class="fullcomment"><div class="block">
           attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableIterableBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableIterableBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.Iterable">Iterable</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableLinearSeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableLinearSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.LinearSeq">LinearSeq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableListBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableListBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.List">List</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableQueueBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableQueueBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.Queue">Queue</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableSeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.Seq">Seq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableSetBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableSetBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableStreamBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableStreamBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.Stream">Stream</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#ImmutableVectorBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">ImmutableVectorBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.immutable.Vector">Vector</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#IndexedSeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">IndexedSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.IndexedSeq">IndexedSeq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#IterableBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">IterableBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.Iterable">Iterable</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Bind#JavaArrayBlockingQueueBind">
@@ -637,21 +485,6 @@
           attributes: implicit 
         </div></div>
           
-    </li><li visbl="pub" name="scalaz.BindCollections#LinearSeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">LinearSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.LinearSeq">LinearSeq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
     </li><li visbl="pub" name="scalaz.Bind#MapEntryBind">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -663,216 +496,6 @@
             
             <div class="fullcomment"><div class="block">
           attributes: implicit 
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableArrayBufferBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableArrayBufferBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.ArrayBuffer">ArrayBuffer</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableArraySeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableArraySeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.ArraySeq">ArraySeq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableBufferBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableBufferBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.Buffer">Buffer</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableDoubleLinkedListBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableDoubleLinkedListBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.DoubleLinkedList">DoubleLinkedList</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableHashSetBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableHashSetBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.HashSet">HashSet</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableIndexedSeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableIndexedSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.IndexedSeq">IndexedSeq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableIterableBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableIterableBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.Iterable">Iterable</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableLinearSeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableLinearSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.LinearSeq">LinearSeq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableLinkedHashSetBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableLinkedHashSetBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.LinkedHashSet">LinkedHashSet</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableLinkedListBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableLinkedListBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.LinkedList">LinkedList</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableListBufferBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableListBufferBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.ListBuffer">ListBuffer</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableSeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableSeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.Seq">Seq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableSetBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableSetBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.Set">Set</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#MutableTraversableBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">MutableTraversableBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.mutable.Traversable">Traversable</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Bind#NonEmptyListBind">
@@ -927,36 +550,6 @@
           attributes: implicit 
         </div></div>
           
-    </li><li visbl="pub" name="scalaz.BindCollections#SeqBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">SeqBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.Seq">Seq</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="scalaz.BindCollections#SetBind">
-      <h4 class="signature">
-      <span class="kind">implicit def</span>
-      <span class="symbol">
-        <span class="name">SetBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.Set">Set</span>[A][A]]</span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
-        </div></div>
-          
     </li><li visbl="pub" name="scalaz.Bind#StateBind">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -970,19 +563,17 @@
           attributes: implicit 
         </div></div>
           
-    </li><li visbl="pub" name="scalaz.BindCollections#TraversableBind">
+    </li><li visbl="pub" name="scalaz.Bind#TraversableBind">
       <h4 class="signature">
       <span class="kind">implicit def</span>
       <span class="symbol">
-        <span class="name">TraversableBind</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[<span class="extype" name="scala.collection.Traversable">Traversable</span>[A][A]]</span>
+        <span class="name">TraversableBind</span><span class="tparams">[<span name="CC">CC</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="CanBuildAnySelf.html" class="extype" name="scalaz.CanBuildAnySelf">CanBuildAnySelf</a>[CC[X][X]]</span>)</span><span class="result">: <a href="Bind.html" class="extype" name="scalaz.Bind">Bind</a>[CC[X][X]]</span>
       </span>
       </h4>
       
             
             <div class="fullcomment"><div class="block">
           attributes: implicit 
-        </div><div class="block">
-          definition classes: <a href="BindCollections.html" class="extype" name="scalaz.BindCollections">BindCollections</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Bind#TreeBind">
@@ -1126,7 +717,7 @@
             <p class="shortcomment cmt">This method is used to cast the receiver object to be of type <code>T0</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p>This method is used to cast the receiver object to be of type <code>T0</code>.</p><p>Note that the success of a cast at runtime is modulo Scala's erasure semantics.  Therefore the expression<code>1.asInstanceOf[String]</code> will throw a <code>ClassCastException</code> at runtime, while the expression<code>List(1).asInstanceOf[List[String]]</code> will not.  In the latter example, because the type argument is erased as
 part of compilation it is not possible to check whether the contents of the list are of the requested typed.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object .</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -1145,9 +736,9 @@ part of compilation it is not possible to check whether the contents of the list
       </span>
       </h4>
       
-            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object .</p><p>The default implementation of the <code>clone</code> method is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object.</p><p>The default implementation of the <code>clone</code> method is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object.</p></dd></dl><div class="block">
           attributes: protected 
         </div><div class="block">
           definition classes: AnyRef
@@ -1181,7 +772,7 @@ non-null instances of <code>AnyRef</code>:
  * <code>null.eq(null)</code> returns <code>true</code>.</p><p>When overriding the <code>equals</code> or <code>hashCode</code> methods, it is important to ensure that their behavior is
 consistent with reference equality.  Therefore, if two objects are references to each other (<code>o1 eq o2</code>), they
 should be equal to each other (<code>o1 == o2</code>) and they should hash to the same value (<code>o1.hashCode == o2.hashCode</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -1209,10 +800,10 @@ relation]:
  * It is transitive: for any instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.equals(y)</code> returns <code>true</code> and
    <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</p><p>If you override this method, you should verify that your implementation remains an equivalence relation.
 Additionally, when overriding this method it is often necessary to override <code>hashCode</code> to ensure that objects
-that are "equal" (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
+that are &quot;equal&quot; (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
 scala.Int
 (<code>o1.hashCode.equals(o2.hashCode)</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -1230,9 +821,9 @@ scala.Int
       </h4>
       
             <p class="shortcomment cmt">This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object .</p>
+there are no more references to the object.</p>
             <div class="fullcomment"><div class="comment cmt"><p>This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object .</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
+there are no more references to the object.</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
           attributes: protected 
         </div><div class="block">
           definition classes: AnyRef
@@ -1251,9 +842,9 @@ there are no more references to the object .</p><p>The details of when and if th
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object .</p><p>The nature of the representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object.</p><p>The nature of the representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -1272,13 +863,13 @@ there are no more references to the object .</p><p>The details of when and if th
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a hash code value for the object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object .</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
+            <p class="shortcomment cmt">Returns a hash code value for the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object.</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
 not be equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A degenerate implementation could always return <code>0</code>.
 However, it is required that if two objects are equal (<code>o1.equals(o2)</code> returns <code>true</code>) that they have
 identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when overriding this method, be sure
 to verify that the behavior is consistent with the <code>equals</code> method.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object .</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -1320,7 +911,7 @@ possible to check whether the contents of the list are of the requested typed.
       
             <p class="shortcomment cmt"><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -1339,8 +930,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor .</p></div><div class="block">
+            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor.</p></div><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -1359,8 +950,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor .</p></div><div class="block">
+            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor.</p></div><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -1394,9 +985,9 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a string representation of the object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object .</p><p>The default representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">Returns a string representation of the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object.</p><p>The default representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             

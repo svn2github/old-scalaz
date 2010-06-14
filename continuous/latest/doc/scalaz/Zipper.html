@@ -27,7 +27,7 @@
       </span>
       </h4>
       <div class="fullcomment" id="comment"><div class="comment cmt"><p>Provides a pointed stream, which is a non-empty zipper-like stream structure that tracks an index (focus)
-position in a stream .  Focus can be moved forward and backwards through the stream, elements can be inserted
+position in a stream. Focus can be moved forward and backwards through the stream, elements can be inserted
 before or after the focused position, and the focused item can be deleted.</p><p>Based on the pointedlist library by Jeff Wheeler.
 </p></div><div class="block">
           attributes: sealed 
@@ -83,7 +83,7 @@ before or after the focused position, and the focused item can be deleted.</p><p
       
             <p class="shortcomment cmt"><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -149,7 +149,7 @@ before or after the focused position, and the focused item can be deleted.</p><p
       
             <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -170,7 +170,7 @@ before or after the focused position, and the focused item can be deleted.</p><p
       
             <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -192,7 +192,7 @@ before or after the focused position, and the focused item can be deleted.</p><p
             <p class="shortcomment cmt">This method is used to cast the receiver object to be of type <code>T0</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p>This method is used to cast the receiver object to be of type <code>T0</code>.</p><p>Note that the success of a cast at runtime is modulo Scala's erasure semantics.  Therefore the expression<code>1.asInstanceOf[String]</code> will throw a <code>ClassCastException</code> at runtime, while the expression<code>List(1).asInstanceOf[List[String]]</code> will not.  In the latter example, because the type argument is erased as
 part of compilation it is not possible to check whether the contents of the list are of the requested typed.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object .</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -211,8 +211,8 @@ part of compilation it is not possible to check whether the contents of the list
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Whether the focus is on the last element in the zipper .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Whether the focus is on the last element in the zipper . 
+            <p class="shortcomment cmt">Whether the focus is on the last element in the zipper.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Whether the focus is on the last element in the zipper.
 </p></div>
             
             
@@ -228,8 +228,8 @@ part of compilation it is not possible to check whether the contents of the list
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Whether the focus is on the first element in the zipper .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Whether the focus is on the first element in the zipper . 
+            <p class="shortcomment cmt">Whether the focus is on the first element in the zipper.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Whether the focus is on the first element in the zipper.
 </p></div>
             
             
@@ -245,9 +245,9 @@ part of compilation it is not possible to check whether the contents of the list
       </span>
       </h4>
       
-            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object .</p><p>The default implementation of the <code>clone</code> method is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object.</p><p>The default implementation of the <code>clone</code> method is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object.</p></dd></dl><div class="block">
           attributes: protected 
         </div><div class="block">
           definition classes: AnyRef
@@ -302,8 +302,8 @@ part of compilation it is not possible to check whether the contents of the list
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Deletes the element at focus and moves the focus to the left .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Deletes the element at focus and moves the focus to the left .  If there is no element on the left,
+            <p class="shortcomment cmt">Deletes the element at focus and moves the focus to the left.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Deletes the element at focus and moves the focus to the left. If there is no element on the left,
 focus is moved to the right.
 </p></div>
             
@@ -320,8 +320,8 @@ focus is moved to the right.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Deletes the focused element and moves focus to the left .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Deletes the focused element and moves focus to the left .  If the focus was on the first element,
+            <p class="shortcomment cmt">Deletes the focused element and moves focus to the left.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Deletes the focused element and moves focus to the left. If the focus was on the first element,
 focus is moved to the last element.
 </p></div>
             
@@ -338,8 +338,8 @@ focus is moved to the last element.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Deletes all elements except the focused element .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Deletes all elements except the focused element . 
+            <p class="shortcomment cmt">Deletes all elements except the focused element.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Deletes all elements except the focused element.
 </p></div>
             
             
@@ -355,8 +355,8 @@ focus is moved to the last element.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Deletes the element at focus and moves the focus to the right .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Deletes the element at focus and moves the focus to the right .  If there is no element on the right,
+            <p class="shortcomment cmt">Deletes the element at focus and moves the focus to the right.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Deletes the element at focus and moves the focus to the right. If there is no element on the right,
 focus is moved to the left.
 </p></div>
             
@@ -373,8 +373,8 @@ focus is moved to the left.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Deletes the focused element and moves focus to the right .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Deletes the focused element and moves focus to the right .  If the focus was on the last element,
+            <p class="shortcomment cmt">Deletes the focused element and moves focus to the right.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Deletes the focused element and moves focus to the right. If the focus was on the last element,
 focus is moved to the first element.
 </p></div>
             
@@ -406,7 +406,7 @@ non-null instances of <code>AnyRef</code>:
  * <code>null.eq(null)</code> returns <code>true</code>.</p><p>When overriding the <code>equals</code> or <code>hashCode</code> methods, it is important to ensure that their behavior is
 consistent with reference equality.  Therefore, if two objects are references to each other (<code>o1 eq o2</code>), they
 should be equal to each other (<code>o1 == o2</code>) and they should hash to the same value (<code>o1.hashCode == o2.hashCode</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -434,10 +434,10 @@ relation]:
  * It is transitive: for any instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.equals(y)</code> returns <code>true</code> and
    <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</p><p>If you override this method, you should verify that your implementation remains an equivalence relation.
 Additionally, when overriding this method it is often necessary to override <code>hashCode</code> to ensure that objects
-that are "equal" (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
+that are &quot;equal&quot; (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
 scala.Int
 (<code>o1.hashCode.equals(o2.hashCode)</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -455,9 +455,9 @@ scala.Int
       </h4>
       
             <p class="shortcomment cmt">This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object .</p>
+there are no more references to the object.</p>
             <div class="fullcomment"><div class="comment cmt"><p>This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object .</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
+there are no more references to the object.</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
           attributes: protected 
         </div><div class="block">
           definition classes: AnyRef
@@ -476,8 +476,8 @@ there are no more references to the object .</p><p>The details of when and if th
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Given a traversal function, find the first element along the traversal that matches a given predicate .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Given a traversal function, find the first element along the traversal that matches a given predicate . 
+            <p class="shortcomment cmt">Given a traversal function, find the first element along the traversal that matches a given predicate.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Given a traversal function, find the first element along the traversal that matches a given predicate.
 </p></div>
             
             
@@ -494,9 +494,9 @@ there are no more references to the object .</p><p>The details of when and if th
       </h4>
       
             <p class="shortcomment cmt">Moves focus to the nearest element on the right that matches the given predicate,
-or None if there is no such element .</p>
+or None if there is no such element.</p>
             <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the nearest element on the right that matches the given predicate,
-or None if there is no such element . 
+or None if there is no such element.
 </p></div>
             
             
@@ -513,9 +513,9 @@ or None if there is no such element .
       </h4>
       
             <p class="shortcomment cmt">Moves focus to the previous element on the left that matches the given predicate,
-or None if there is no such element .</p>
+or None if there is no such element.</p>
             <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the previous element on the left that matches the given predicate,
-or None if there is no such element . 
+or None if there is no such element.
 </p></div>
             
             
@@ -532,9 +532,9 @@ or None if there is no such element .
       </h4>
       
             <p class="shortcomment cmt">Moves focus to the nearest element matching the given predicate, preferring the left,
-or None if no element matches .</p>
+or None if no element matches.</p>
             <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the nearest element matching the given predicate, preferring the left,
-or None if no element matches . 
+or None if no element matches.
 </p></div>
             
             
@@ -563,9 +563,9 @@ or None if no element matches .
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object .</p><p>The nature of the representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object.</p><p>The nature of the representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -584,13 +584,13 @@ or None if no element matches .
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a hash code value for the object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object .</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
+            <p class="shortcomment cmt">Returns a hash code value for the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object.</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
 not be equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A degenerate implementation could always return <code>0</code>.
 However, it is required that if two objects are equal (<code>o1.equals(o2)</code> returns <code>true</code>) that they have
 identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when overriding this method, be sure
 to verify that the behavior is consistent with the <code>equals</code> method.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object .</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -607,8 +607,8 @@ to verify that the behavior is consistent with the <code>equals</code> method.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">The index of the focus .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>The index of the focus . 
+            <p class="shortcomment cmt">The index of the focus.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>The index of the focus.
 </p></div>
             
             
@@ -642,8 +642,8 @@ to verify that the behavior is consistent with the <code>equals</code> method.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Inserts an element to the left of focus and focuses on the new element .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Inserts an element to the left of focus and focuses on the new element . 
+            <p class="shortcomment cmt">Inserts an element to the left of focus and focuses on the new element.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Inserts an element to the left of focus and focuses on the new element.
 </p></div>
             
             
@@ -659,8 +659,8 @@ to verify that the behavior is consistent with the <code>equals</code> method.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Inserts an element to the right of focus and focuses on the new element .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Inserts an element to the right of focus and focuses on the new element . 
+            <p class="shortcomment cmt">Inserts an element to the right of focus and focuses on the new element.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Inserts an element to the right of focus and focuses on the new element.
 </p></div>
             
             
@@ -720,8 +720,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Moves focus to the nth element of the zipper, or None if there is no such element .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the nth element of the zipper, or None if there is no such element . 
+            <p class="shortcomment cmt">Moves focus to the nth element of the zipper, or None if there is no such element.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the nth element of the zipper, or None if there is no such element.
 </p></div>
             
             
@@ -739,7 +739,7 @@ possible to check whether the contents of the list are of the requested typed.
       
             <p class="shortcomment cmt"><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -758,8 +758,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Possibly moves to next element to the right of focus .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Possibly moves to next element to the right of focus . 
+            <p class="shortcomment cmt">Possibly moves to next element to the right of focus.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Possibly moves to next element to the right of focus.
 </p></div>
             
             
@@ -775,8 +775,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Moves focus to the next element .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the next element .  If the last element is currently focused, loop to the first element.
+            <p class="shortcomment cmt">Moves focus to the next element.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the next element. If the last element is currently focused, loop to the first element.
 </p></div>
             
             
@@ -792,8 +792,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor .</p></div><div class="block">
+            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor.</p></div><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -812,8 +812,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor .</p></div><div class="block">
+            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor.</p></div><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -832,8 +832,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">A zipper of all positions of the zipper, with focus on the current position .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>A zipper of all positions of the zipper, with focus on the current position . 
+            <p class="shortcomment cmt">A zipper of all positions of the zipper, with focus on the current position.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>A zipper of all positions of the zipper, with focus on the current position.
 </p></div>
             
             
@@ -849,8 +849,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Possibly moves to the previous element to the left of focus .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Possibly moves to the previous element to the left of focus . 
+            <p class="shortcomment cmt">Possibly moves to the previous element to the left of focus.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Possibly moves to the previous element to the left of focus.
 </p></div>
             
             
@@ -866,8 +866,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Moves focus to the previous element .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the previous element .  If the first element is currently focused, loop to the last element.
+            <p class="shortcomment cmt">Moves focus to the previous element.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Moves focus to the previous element. If the first element is currently focused, loop to the last element.
 </p></div>
             
             
@@ -911,9 +911,9 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a string representation of the object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object .</p><p>The default representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">Returns a string representation of the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object.</p><p>The default representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -930,8 +930,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Moves to the next element to the right of focus, or error if there is no element on the right .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Moves to the next element to the right of focus, or error if there is no element on the right . 
+            <p class="shortcomment cmt">Moves to the next element to the right of focus, or error if there is no element on the right.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Moves to the next element to the right of focus, or error if there is no element on the right.
 </p></div>
             
             
@@ -947,8 +947,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Moves to the previous element to the left of focus, or error if there is no element on the left .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Moves to the previous element to the left of focus, or error if there is no element on the left . 
+            <p class="shortcomment cmt">Moves to the previous element to the left of focus, or error if there is no element on the left.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Moves to the previous element to the left of focus, or error if there is no element on the left.
 </p></div>
             
             
@@ -1009,8 +1009,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Pairs each element with a boolean indicating whether that element has focus .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Pairs each element with a boolean indicating whether that element has focus . 
+            <p class="shortcomment cmt">Pairs each element with a boolean indicating whether that element has focus.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Pairs each element with a boolean indicating whether that element has focus.
 </p></div>
             
             

@@ -86,8 +86,7 @@
         <span class="name">Applicative</span><span class="tparams">[<span name="Z">Z</span>]</span><span class="result"> extends Pointed[Z[_][_]] with Apply[Z[_][_]]</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Defines an applicative functor as described by McBride and Paterson in
-<a href="http://www .</p>
+      <p class="comment cmt">Defines an applicative functor as described by McBride and Paterson in<a href="http://www.soi.city.ac.uk/~ross/papers/Applicative.html">Applicative Programming with Effects</a>.</p>
     </li><li visbl="pub" name="scalaz.ApplicativeBuilder">
       <h4 class="signature"><a href="ApplicativeBuilder.html">
       <span class="kind">class</span>
@@ -95,7 +94,7 @@
         <span class="name">ApplicativeBuilder</span><span class="tparams">[<span name="M">M</span>, <span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Not intended for direct use .</p>
+      <p class="comment cmt">Not intended for direct use.</p>
     </li><li visbl="pub" name="scalaz.Apply">
       <h4 class="signature"><a href="Apply.html">
       <span class="kind">trait</span>
@@ -183,6 +182,14 @@
       </span>
       </a></h4>
       <p class="comment cmt">A constrained transformation natural in both sides of a bifunctor *</p>
+    </li><li visbl="pub" name="scalaz.Biff">
+      <h4 class="signature"><a href="Biff.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Biff</span><span class="tparams">[<span name="P">P</span>, <span name="F">F</span>, <span name="G">G</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      
     </li><li visbl="pub" name="scalaz.Bifunctor">
       <h4 class="signature"><a href="Bifunctor.html">
       <span class="kind">trait</span>
@@ -190,7 +197,7 @@
         <span class="name">Bifunctor</span><span class="tparams">[<span name="F">F</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Binary covariant functor .</p>
+      <p class="comment cmt">Binary covariant functor.</p>
     </li><li visbl="pub" name="scalaz.BigIntMultiplication">
       <h4 class="signature"><a href="BigIntMultiplication.html">
       <span class="kind">trait</span>
@@ -264,14 +271,6 @@
       <span class="kind">trait</span>
       <span class="symbol">
         <span class="name">Bind</span><span class="tparams">[<span name="Z">Z</span>]</span><span class="result"> extends AnyRef</span>
-      </span>
-      </a></h4>
-      
-    </li><li visbl="pub" name="scalaz.BindCollections">
-      <h4 class="signature"><a href="BindCollections.html">
-      <span class="kind">trait</span>
-      <span class="symbol">
-        <span class="name">BindCollections</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -359,6 +358,14 @@
       </span>
       </a></h4>
       
+    </li><li visbl="pub" name="scalaz.CanBuildAnySelf">
+      <h4 class="signature"><a href="CanBuildAnySelf.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">CanBuildAnySelf</span><span class="tparams">[<span name="CC">CC</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      
     </li><li visbl="pub" name="scalaz.Category">
       <h4 class="signature"><a href="Category.html">
       <span class="kind">trait</span>
@@ -366,7 +373,7 @@
         <span class="name">Category</span><span class="tparams">[<span name="C">C</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      
+      <p class="comment cmt">Defines a category.</p>
     </li><li visbl="pub" name="scalaz.CharMultiplication">
       <h4 class="signature"><a href="CharMultiplication.html">
       <span class="kind">trait</span>
@@ -429,7 +436,7 @@
         <span class="name">Cofunctor</span><span class="tparams">[<span name="F">F</span>]</span><span class="result"> extends InvariantFunctor[F[_][_]]</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Contra-variant function application in an environment .</p>
+      <p class="comment cmt">Contra-variant function application in an environment.</p>
     </li><li visbl="pub" name="scalaz.Cojoin">
       <h4 class="signature"><a href="Cojoin.html">
       <span class="kind">trait</span>
@@ -585,7 +592,7 @@
       </span>
       </a></h4>
       <p class="comment cmt">Given a type A that has an instance of the Semigroup type class, the type Dual[A] has a Semigroup instance
-that reverses the arguments to {@link scalaz .</p>
+that reverses the arguments to {@link scalaz.</p>
     </li><li visbl="pub" name="scalaz.Duals">
       <h4 class="signature"><a href="Duals.html">
       <span class="kind">trait</span>
@@ -606,15 +613,7 @@ that reverses the arguments to {@link scalaz .</p>
       <h4 class="signature"><a href="Empty.html">
       <span class="kind">trait</span>
       <span class="symbol">
-        <span class="name">Empty</span><span class="tparams">[<span name="E">+E</span>]</span><span class="result"> extends AnyRef</span>
-      </span>
-      </a></h4>
-      
-    </li><li visbl="pub" name="scalaz.EmptyCollections">
-      <h4 class="signature"><a href="EmptyCollections.html">
-      <span class="kind">trait</span>
-      <span class="symbol">
-        <span class="name">EmptyCollections</span><span class="result"> extends AnyRef</span>
+        <span class="name">Empty</span><span class="tparams">[<span name="E">E</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -668,6 +667,14 @@ that reverses the arguments to {@link scalaz .</p>
       </span>
       </a></h4>
       
+    </li><li visbl="pub" name="scalaz.Enumerator">
+      <h4 class="signature"><a href="Enumerator.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Enumerator</span><span class="tparams">[<span name="F">F</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">An Enumerator[F] feeds data from an F to an iteratee *</p>
     </li><li visbl="pub" name="scalaz.Equal">
       <h4 class="signature"><a href="Equal.html">
       <span class="kind">trait</span>
@@ -675,7 +682,7 @@ that reverses the arguments to {@link scalaz .</p>
         <span class="name">Equal</span><span class="tparams">[<span name="A">-A</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">A type safe alternative to   { @scala .</p>
+      <p class="comment cmt">A type safe alternative to   { @scala.</p>
     </li><li visbl="pub" name="scalaz.Equals">
       <h4 class="signature"><a href="Equals.html">
       <span class="kind">trait</span>
@@ -722,7 +729,7 @@ that reverses the arguments to {@link scalaz .</p>
       <h4 class="signature"><a href="Finger.html">
       <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">Finger</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
+        <span class="name">Finger</span><span class="tparams">[<span name="V">V</span>, <span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -744,14 +751,6 @@ that reverses the arguments to {@link scalaz .</p>
           attributes: sealed abstract 
         </div></div>
           
-    </li><li visbl="pub" name="scalaz.FingerTrees">
-      <h4 class="signature"><a href="FingerTrees.html">
-      <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">FingerTrees</span><span class="tparams">[<span name="V">V</span>]</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="vm">vm: Monoid[V]</span>)</span><span class="result"> extends Product</span>
-      </span>
-      </a></h4>
-      
     </li><li visbl="pub" name="scalaz.FirstOption">
       <h4 class="signature"><a href="FirstOption.html">
       <span class="kind">trait</span>
@@ -775,12 +774,12 @@ that reverses the arguments to {@link scalaz .</p>
         <span class="name">Foldable</span><span class="tparams">[<span name="F">F</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Data structures that can be folded .</p>
-    </li><li visbl="pub" name="scalaz.FoldableCollections">
-      <h4 class="signature"><a href="FoldableCollections.html">
+      <p class="comment cmt">Data structures that can be folded.</p>
+    </li><li visbl="pub" name="scalaz.FoldableLow">
+      <h4 class="signature"><a href="FoldableLow.html">
       <span class="kind">trait</span>
       <span class="symbol">
-        <span class="name">FoldableCollections</span><span class="result"> extends AnyRef</span>
+        <span class="name">FoldableLow</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -788,7 +787,7 @@ that reverses the arguments to {@link scalaz .</p>
       <h4 class="signature"><a href="Four.html">
       <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">Four</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="a1">a1: A</span>, <span name="a2">a2: A</span>, <span name="a3">a3: A</span>, <span name="a4">a4: A</span>)</span><span class="result"> extends Finger[A] with Product</span>
+        <span class="name">Four</span><span class="tparams">[<span name="V">V</span>, <span name="A">A</span>]</span><span class="params">(<span name="v">v: V</span>, <span name="a1">a1: A</span>, <span name="a2">a2: A</span>, <span name="a3">a3: A</span>, <span name="a4">a4: A</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="r">r: Reducer[A, V]</span>)</span><span class="result"> extends Finger[V, A] with Product</span>
       </span>
       </a></h4>
       
@@ -862,15 +861,15 @@ that reverses the arguments to {@link scalaz .</p>
         <span class="name">Functor</span><span class="tparams">[<span name="F">F</span>]</span><span class="result"> extends InvariantFunctor[F[_][_]]</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Covariant function application in an environment .</p>
-    </li><li visbl="pub" name="scalaz.FunctorCollections">
-      <h4 class="signature"><a href="FunctorCollections.html">
-      <span class="kind">trait</span>
+      <p class="comment cmt">Covariant function application in an environment.</p>
+    </li><li visbl="pub" name="scalaz.Generator">
+      <h4 class="signature"><a href="Generator.html">
+      <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">FunctorCollections</span><span class="result"> extends AnyRef</span>
+        <span class="name">Generator</span><span class="tparams">[<span name="C">C</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      
+      <p class="comment cmt">A Generator[C] is a container of elements, and which knows how to efficiently apply a Reducer to extract an answer by combining elements.</p>
     </li><li visbl="pub" name="scalaz.Identity">
       <h4 class="signature"><a href="Identity.html">
       <span class="kind">trait</span>
@@ -900,6 +899,14 @@ that reverses the arguments to {@link scalaz .</p>
       </span>
       </a></h4>
       
+    </li><li visbl="pub" name="scalaz.Input">
+      <h4 class="signature"><a href="Input.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Input</span><span class="tparams">[<span name="E">E</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">The input to an iteratee.</p>
     </li><li visbl="pub" name="scalaz.InputStreamW">
       <h4 class="signature"><a href="InputStreamW.html">
       <span class="kind">trait</span>
@@ -971,6 +978,14 @@ that reverses the arguments to {@link scalaz .</p>
       </span>
       </a></h4>
       
+    </li><li visbl="pub" name="scalaz.Iteratee">
+      <h4 class="signature"><a href="Iteratee.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">Iteratee</span><span class="tparams">[<span name="E">E</span>, <span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      <p class="comment cmt">A pure iteratee computation which is either done or needs more input *</p>
     </li><li visbl="pub" name="scalaz.Kleisli">
       <h4 class="signature"><a href="Kleisli.html">
       <span class="kind">trait</span>
@@ -1171,19 +1186,6 @@ that reverses the arguments to {@link scalaz .</p>
       </span>
       </a></h4>
       
-    </li><li visbl="pub" name="scalaz.Measured">
-      <h4 class="signature"><a href="Measured.html">
-      <span class="kind">class</span>
-      <span class="symbol">
-        <span class="name">Measured</span><span class="tparams">[<span name="V">V</span>, <span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
-      </span>
-      </a></h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: abstract 
-        </div></div>
-          
     </li><li visbl="pub" name="scalaz.Memo">
       <h4 class="signature"><a href="Memo.html">
       <span class="kind">trait</span>
@@ -1212,9 +1214,7 @@ that reverses the arguments to {@link scalaz .</p>
         <span class="name">MetricSpace</span><span class="tparams">[<span name="A">-A</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">(distance(a, b) == 0) == (a == b)
-Commutativity: distance(a, b) == distance(b, a)
-Triangle Equality: distance(a, b) + distance(b, c) >= distance(a, c)</p>
+      <p class="comment cmt">no summary matey</p>
     </li><li visbl="pub" name="scalaz.MetricSpaces">
       <h4 class="signature"><a href="MetricSpaces.html">
       <span class="kind">trait</span>
@@ -1230,7 +1230,7 @@ Triangle Equality: distance(a, b) + distance(b, c) >= distance(a, c)</p>
         <span class="name">Monad</span><span class="tparams">[<span name="M">M</span>]</span><span class="result"> extends Applicative[M[_][_]] with Bind[M[_][_]] with Pointed[M[_][_]]</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Abstract a model that sequences computation through an environment .</p>
+      <p class="comment cmt">Abstract a model that sequences computation through an environment.</p>
     </li><li visbl="pub" name="scalaz.Monoid">
       <h4 class="signature"><a href="Monoid.html">
       <span class="kind">trait</span>
@@ -1238,7 +1238,7 @@ Triangle Equality: distance(a, b) + distance(b, c) >= distance(a, c)</p>
         <span class="name">Monoid</span><span class="tparams">[<span name="M">M</span>]</span><span class="result"> extends Zero[M] with Semigroup[M]</span>
       </span>
       </a></h4>
-      <p class="comment cmt">A categorical monoid .</p>
+      <p class="comment cmt">A categorical monoid.</p>
     </li><li visbl="pub" name="scalaz.MonoidLow">
       <h4 class="signature"><a href="MonoidLow.html">
       <span class="kind">class</span>
@@ -1303,11 +1303,19 @@ used in type class instances.</p>
       </span>
       </a></h4>
       
+    </li><li visbl="pub" name="scalaz.On">
+      <h4 class="signature"><a href="On.html">
+      <span class="kind">trait</span>
+      <span class="symbol">
+        <span class="name">On</span><span class="tparams">[<span name="P">P</span>, <span name="F">F</span>]</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      
     </li><li visbl="pub" name="scalaz.One">
       <h4 class="signature"><a href="One.html">
       <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">One</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="a1">a1: A</span>)</span><span class="result"> extends Finger[A] with Product</span>
+        <span class="name">One</span><span class="tparams">[<span name="V">V</span>, <span name="A">A</span>]</span><span class="params">(<span name="v">v: V</span>, <span name="a1">a1: A</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="r">r: Reducer[A, V]</span>)</span><span class="result"> extends Finger[V, A] with Product</span>
       </span>
       </a></h4>
       
@@ -1448,7 +1456,7 @@ used in type class instances.</p>
         <span class="name">PartialType2</span><span class="tparams">[<span name="T">T</span>, <span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">Applies one type argument of two where one of the type arguments has a kind * -> * .</p>
+      <p class="comment cmt">Applies one type argument of two where one of the type arguments has a kind * -&gt; *.</p>
     </li><li visbl="pub" name="scalaz.PimpedType">
       <h4 class="signature"><a href="PimpedType.html">
       <span class="kind">trait</span>
@@ -1466,11 +1474,11 @@ used in type class instances.</p>
       </span>
       </a></h4>
       
-    </li><li visbl="pub" name="scalaz.PlusCollections">
-      <h4 class="signature"><a href="PlusCollections.html">
+    </li><li visbl="pub" name="scalaz.PlusLow">
+      <h4 class="signature"><a href="PlusLow.html">
       <span class="kind">trait</span>
       <span class="symbol">
-        <span class="name">PlusCollections</span><span class="result"> extends AnyRef</span>
+        <span class="name">PlusLow</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -1487,14 +1495,6 @@ used in type class instances.</p>
       <span class="kind">trait</span>
       <span class="symbol">
         <span class="name">Pure</span><span class="tparams">[<span name="P">P</span>]</span><span class="result"> extends AnyRef</span>
-      </span>
-      </a></h4>
-      
-    </li><li visbl="pub" name="scalaz.PureCollections">
-      <h4 class="signature"><a href="PureCollections.html">
-      <span class="kind">trait</span>
-      <span class="symbol">
-        <span class="name">PureCollections</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -1536,11 +1536,11 @@ values of type C through <code>unit</code> to values of type M.</p>
       </span>
       </a></h4>
       <p class="comment cmt">A Semigroup in type S must satisfy two laws:</p>
-    </li><li visbl="pub" name="scalaz.SemigroupCollections">
-      <h4 class="signature"><a href="SemigroupCollections.html">
+    </li><li visbl="pub" name="scalaz.SemigroupLow">
+      <h4 class="signature"><a href="SemigroupLow.html">
       <span class="kind">trait</span>
       <span class="symbol">
-        <span class="name">SemigroupCollections</span><span class="result"> extends AnyRef</span>
+        <span class="name">SemigroupLow</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -1590,7 +1590,7 @@ values of type C through <code>unit</code> to values of type M.</p>
       <h4 class="signature"><a href="Show.html">
       <span class="kind">trait</span>
       <span class="symbol">
-        <span class="name">Show</span><span class="tparams">[<span name="A">-A</span>]</span><span class="result"> extends AnyRef</span>
+        <span class="name">Show</span><span class="tparams">[<span name="A">A</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -1682,7 +1682,7 @@ values of type C through <code>unit</code> to values of type M.</p>
       <h4 class="signature"><a href="Three.html">
       <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">Three</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="a1">a1: A</span>, <span name="a2">a2: A</span>, <span name="a3">a3: A</span>)</span><span class="result"> extends Finger[A] with Product</span>
+        <span class="name">Three</span><span class="tparams">[<span name="V">V</span>, <span name="A">A</span>]</span><span class="params">(<span name="v">v: V</span>, <span name="a1">a1: A</span>, <span name="a2">a2: A</span>, <span name="a3">a3: A</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="r">r: Reducer[A, V]</span>)</span><span class="result"> extends Finger[V, A] with Product</span>
       </span>
       </a></h4>
       
@@ -1701,7 +1701,7 @@ values of type C through <code>unit</code> to values of type M.</p>
         <span class="name">Tree</span><span class="tparams">[<span name="A">+A</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">A multi-way tree, also known as a rose tree .</p>
+      <p class="comment cmt">A multi-way tree, also known as a rose tree.</p>
     </li><li visbl="pub" name="scalaz.TreeLoc">
       <h4 class="signature"><a href="TreeLoc.html">
       <span class="kind">trait</span>
@@ -1735,7 +1735,7 @@ values of type C through <code>unit</code> to values of type M.</p>
       <h4 class="signature"><a href="Two.html">
       <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">Two</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span name="a1">a1: A</span>, <span name="a2">a2: A</span>)</span><span class="result"> extends Finger[A] with Product</span>
+        <span class="name">Two</span><span class="tparams">[<span name="V">V</span>, <span name="A">A</span>]</span><span class="params">(<span name="v">v: V</span>, <span name="a1">a1: A</span>, <span name="a2">a2: A</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="r">r: Reducer[A, V]</span>)</span><span class="result"> extends Finger[V, A] with Product</span>
       </span>
       </a></h4>
       
@@ -1793,15 +1793,7 @@ values of type C through <code>unit</code> to values of type M.</p>
         <span class="name">Zero</span><span class="tparams">[<span name="Z">Z</span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
-      <p class="comment cmt">A Zero in type Z provides the identity element for the operation  { @link scalaz .</p>
-    </li><li visbl="pub" name="scalaz.ZeroCollections">
-      <h4 class="signature"><a href="ZeroCollections.html">
-      <span class="kind">trait</span>
-      <span class="symbol">
-        <span class="name">ZeroCollections</span><span class="result"> extends AnyRef</span>
-      </span>
-      </a></h4>
-      
+      <p class="comment cmt">A Zero in type Z provides the identity element for the operation  { @link scalaz.</p>
     </li><li visbl="pub" name="scalaz.Zeros">
       <h4 class="signature"><a href="Zeros.html">
       <span class="kind">trait</span>
@@ -1834,7 +1826,7 @@ values of type C through <code>unit</code> to values of type M.</p>
       </span>
       </a></h4>
       <p class="comment cmt">Provides a pointed stream, which is a non-empty zipper-like stream structure that tracks an index (focus)
-position in a stream .</p>
+position in a stream.</p>
     </li><li visbl="pub" name="scalaz.Zippers">
       <h4 class="signature"><a href="Zippers.html">
       <span class="kind">trait</span>
@@ -1900,7 +1892,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Bind$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Bind</span><span class="result"> extends BindCollections</span>
+        <span class="name">Bind</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -1909,6 +1901,14 @@ position in a stream .</p>
       <span class="kind">object</span>
       <span class="symbol">
         <span class="name">C</span><span class="result"> extends Alpha with Product</span>
+      </span>
+      </a></h4>
+      
+    </li><li visbl="pub" name="scalaz.CanBuildAnySelf">
+      <h4 class="signature"><a href="CanBuildAnySelf$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">CanBuildAnySelf</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -1996,7 +1996,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Empty$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Empty</span><span class="result"> extends EmptyCollections</span>
+        <span class="name">Empty</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -2028,7 +2028,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Foldable$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Foldable</span><span class="result"> extends FoldableCollections</span>
+        <span class="name">Foldable</span><span class="result"> extends FoldableLow</span>
       </span>
       </a></h4>
       
@@ -2036,7 +2036,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Functor$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Functor</span><span class="result"> extends FunctorCollections</span>
+        <span class="name">Functor</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -2053,6 +2053,14 @@ position in a stream .</p>
       <span class="kind">object</span>
       <span class="symbol">
         <span class="name">GT</span><span class="result"> extends Ordering with Product</span>
+      </span>
+      </a></h4>
+      
+    </li><li visbl="pub" name="scalaz.Generator">
+      <h4 class="signature"><a href="Generator$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Generator</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -2085,6 +2093,14 @@ position in a stream .</p>
       <span class="kind">object</span>
       <span class="symbol">
         <span class="name">InvariantFunctor</span><span class="result"> extends AnyRef</span>
+      </span>
+      </a></h4>
+      
+    </li><li visbl="pub" name="scalaz.Iteratee">
+      <h4 class="signature"><a href="Iteratee$.html">
+      <span class="kind">object</span>
+      <span class="symbol">
+        <span class="name">Iteratee</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -2228,7 +2244,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Plus$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Plus</span><span class="result"> extends PlusCollections</span>
+        <span class="name">Plus</span><span class="result"> extends PlusLow</span>
       </span>
       </a></h4>
       
@@ -2244,7 +2260,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Pure$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Pure</span><span class="result"> extends PureCollections</span>
+        <span class="name">Pure</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       
@@ -2284,7 +2300,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Semigroup$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Semigroup</span><span class="result"> extends SemigroupCollections</span>
+        <span class="name">Semigroup</span><span class="result"> extends SemigroupLow</span>
       </span>
       </a></h4>
       
@@ -2364,7 +2380,7 @@ position in a stream .</p>
       <h4 class="signature"><a href="Zero$.html">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Zero</span><span class="result"> extends ZeroCollections</span>
+        <span class="name">Zero</span><span class="result"> extends AnyRef</span>
       </span>
       </a></h4>
       

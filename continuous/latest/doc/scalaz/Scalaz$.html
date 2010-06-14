@@ -117,6 +117,14 @@
       </span>
       </h4>
       
+    </li><li visbl="pub" name="scalaz.Scalaz#⊥">
+      <h4 class="signature">
+      <span class="kind">type</span>
+      <span class="symbol">
+        <span class="name">⊥</span><span class="result"> = <span class="extype" name="scala.Nothing">Nothing</span></span>
+      </span>
+      </h4>
+      
     </li></ol>
             </div>
         
@@ -147,7 +155,7 @@
       
             <p class="shortcomment cmt"><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o != arg0</code> is the same as <code>!(o == (arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the receiver object is equivalent to the argument; <code>true</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -226,7 +234,7 @@
       
             <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>if (o eq null) arg0 eq null else o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -247,7 +255,7 @@
       
             <p class="shortcomment cmt"><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o == arg0</code> is the same as <code>o.equals(arg0)</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -273,6 +281,19 @@
           definition classes: <a href="concurrent/Actors.html" class="extype" name="scalaz.concurrent.Actors">Actors</a>
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#AllReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">AllReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Boolean">Boolean</span>, <a href="BooleanConjunction.html" class="extype" name="scalaz.BooleanConjunction">BooleanConjunction</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.Alphas#AlphaChar">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -286,6 +307,19 @@
           attributes: implicit 
         </div><div class="block">
           definition classes: <a href="Alphas.html" class="extype" name="scalaz.Alphas">Alphas</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#AnyReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">AnyReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Boolean">Boolean</span>, <span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.ArrayBytes#ArrayByteTo">
@@ -311,6 +345,19 @@
       </span>
       </h4>
       
+    </li><li visbl="pub" name="scalaz.Reducers#BigIntProductReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">BigIntProductReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.math.BigInt">BigInt</span>, <a href="BigIntMultiplication.html" class="extype" name="scalaz.BigIntMultiplication">BigIntMultiplication</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.BigInts#BigIntTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -324,6 +371,19 @@
           attributes: implicit 
         </div><div class="block">
           definition classes: <a href="BigInts.html" class="extype" name="scalaz.BigInts">BigInts</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#BigIntegerProductReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">BigIntegerProductReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="java.math.BigInteger">BigInteger</span>, <a href="BigIntegerMultiplication.html" class="extype" name="scalaz.BigIntegerMultiplication">BigIntegerMultiplication</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.BigIntegers#BigIntegerTo">
@@ -371,6 +431,19 @@
           definition classes: <a href="Booleans.html" class="extype" name="scalaz.Booleans">Booleans</a>
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#ByteProductReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ByteProductReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Byte">Byte</span>, <a href="ByteMultiplication.html" class="extype" name="scalaz.ByteMultiplication">ByteMultiplication</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.Bytes#ByteTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -384,6 +457,19 @@
           attributes: implicit 
         </div><div class="block">
           definition classes: <a href="Bytes.html" class="extype" name="scalaz.Bytes">Bytes</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#CharProductReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">CharProductReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Char">Char</span>, <a href="CharMultiplication.html" class="extype" name="scalaz.CharMultiplication">CharMultiplication</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.CharSets#CharSetFrom">
@@ -470,6 +556,19 @@
           definition classes: <a href="Digits.html" class="extype" name="scalaz.Digits">Digits</a>
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#DualReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">DualReducer</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[A]</span>)</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[A, <a href="Dual.html" class="extype" name="scalaz.Dual">Dual</a>[A]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.Duals#DualTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -526,6 +625,19 @@
           definition classes: <a href="Endos.html" class="extype" name="scalaz.Endos">Endos</a>
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#EndoReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">EndoReducer</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[(A) ⇒ A, <a href="Endo.html" class="extype" name="scalaz.Endo">Endo</a>[A]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.Endos#EndoTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -556,6 +668,19 @@
           definition classes: <a href="Enumerations.html" class="extype" name="scalaz.Enumerations">Enumerations</a>
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#FirstOptionReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">FirstOptionReducer</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Option">Option</span>[A], <a href="FirstOption.html" class="extype" name="scalaz.FirstOption">FirstOption</a>[A]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.FirstOptions#FirstOptionTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -569,6 +694,19 @@
           attributes: implicit 
         </div><div class="block">
           definition classes: <a href="FirstOptions.html" class="extype" name="scalaz.FirstOptions">FirstOptions</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#FirstReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">FirstReducer</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[A, <a href="FirstOption.html" class="extype" name="scalaz.FirstOption">FirstOption</a>[A]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Function0s#Function0From">
@@ -808,6 +946,19 @@
           definition classes: <a href="InputStreams.html" class="extype" name="scalaz.InputStreams">InputStreams</a>
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#IntProductReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">IntProductReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Int">Int</span>, <a href="IntMultiplication.html" class="extype" name="scalaz.IntMultiplication">IntMultiplication</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.Ints#IntTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -821,6 +972,19 @@
           attributes: implicit 
         </div><div class="block">
           definition classes: <a href="Ints.html" class="extype" name="scalaz.Ints">Ints</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Scalaz#IterateeMA">
+      <h4 class="signature">
+      <span class="kind">implicit def</span>
+      <span class="symbol">
+        <span class="name">IterateeMA</span><span class="tparams">[<span name="A">A</span>, <span name="E">E</span>]</span><span class="params">(<span name="v">v: <a href="Iteratee.html" class="extype" name="scalaz.Iteratee">Iteratee</a>[E, A]</span>)</span><span class="result">: <a href="MA.html" class="extype" name="scalaz.MA">MA</a>[<a href="Iteratee.html" class="extype" name="scalaz.Iteratee">Iteratee</a>[E, B][B], A]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: implicit 
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Iterables#JavaIterableFrom">
@@ -879,6 +1043,19 @@
           attributes: implicit 
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#LastOptionReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">LastOptionReducer</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Option">Option</span>[A], <a href="LastOption.html" class="extype" name="scalaz.LastOption">LastOption</a>[A]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.LastOptions#LastOptionTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -892,6 +1069,32 @@
           attributes: implicit 
         </div><div class="block">
           definition classes: <a href="LastOptions.html" class="extype" name="scalaz.LastOptions">LastOptions</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#LastReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">LastReducer</span><span class="tparams">[<span name="A">A</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[A, <a href="LastOption.html" class="extype" name="scalaz.LastOption">LastOption</a>[A]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#ListReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ListReducer</span><span class="tparams">[<span name="C">C</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, <span class="extype" name="scala.collection.immutable.List">List</span>[C]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Lists#ListTo">
@@ -922,6 +1125,19 @@
           attributes: implicit 
         </div><div class="block">
           definition classes: <a href="Digits.html" class="extype" name="scalaz.Digits">Digits</a>
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#LongProductReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">LongProductReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Long">Long</span>, <a href="LongMultiplication.html" class="extype" name="scalaz.LongMultiplication">LongMultiplication</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Longs#LongTo">
@@ -967,11 +1183,11 @@
           definition classes: <a href="Options.html" class="extype" name="scalaz.Options">Options</a>
         </div></div>
           
-    </li><li visbl="pub" name="scalaz.Reducers#ReducerMonoid">
+    </li><li visbl="pub" name="scalaz.Reducers#Reducer">
       <h4 class="signature">
       <span class="kind">implicit def</span>
       <span class="symbol">
-        <span class="name">ReducerMonoid</span><span class="tparams">[<span name="C">C</span>, <span name="M">M</span>]</span><span class="params">(<span name="r">r: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, M]</span>)</span><span class="result">: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M]</span>
+        <span class="name">Reducer</span><span class="tparams">[<span name="M">M</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M]</span>)</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[M, M]</span>
       </span>
       </h4>
       
@@ -982,11 +1198,29 @@
           definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
-    </li><li visbl="pub" name="scalaz.Reducers#ReducerTuple2">
+    </li><li visbl="pub" name="scalaz.Reducers#Reducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Reducer</span><span class="tparams">[<span name="C">C</span>, <span name="M">M</span>]</span><span class="params">(<span name="unit">unit: (C) ⇒ M</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M]</span>)</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, M]</span>
+      </span>
+      </h4>
+      
+            <p class="shortcomment cmt">Construct a Reducer with the given unit function and monoid *</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Construct a Reducer with the given unit function and monoid *</p></div><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div>
+            
+            
+            
+            
+          </div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#ReducerMonoid">
       <h4 class="signature">
       <span class="kind">implicit def</span>
       <span class="symbol">
-        <span class="name">ReducerTuple2</span><span class="tparams">[<span name="C">C</span>, <span name="M">M</span>, <span name="N">N</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="m">m: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, M]</span>, <span name="n">n: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, N]</span>)</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, (M, N)]</span>
+        <span class="name">ReducerMonoid</span><span class="tparams">[<span name="C">C</span>, <span name="M">M</span>]</span><span class="params">(<span name="r">r: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, M]</span>)</span><span class="result">: <a href="Monoid.html" class="extype" name="scalaz.Monoid">Monoid</a>[M]</span>
       </span>
       </h4>
       
@@ -1023,6 +1257,19 @@
           attributes: implicit 
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#ShortProductReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">ShortProductReducer</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[<span class="extype" name="scala.Short">Short</span>, <a href="ShortMultiplication.html" class="extype" name="scalaz.ShortMultiplication">ShortMultiplication</a>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.Shorts#ShortTo">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -1049,6 +1296,19 @@
             
             <div class="fullcomment"><div class="block">
           attributes: implicit 
+        </div></div>
+          
+    </li><li visbl="pub" name="scalaz.Reducers#StreamReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">StreamReducer</span><span class="tparams">[<span name="C">C</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, <span class="extype" name="scala.collection.immutable.Stream">Stream</span>[C]]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
         </div></div>
           
     </li><li visbl="pub" name="scalaz.Streams#StreamTo">
@@ -1224,6 +1484,19 @@
           definition classes: <a href="CharSets.html" class="extype" name="scalaz.CharSets">CharSets</a>
         </div></div>
           
+    </li><li visbl="pub" name="scalaz.Reducers#UnitReducer">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">UnitReducer</span><span class="tparams">[<span name="C">C</span>]</span><span class="result">: <a href="Reducer.html" class="extype" name="scalaz.Reducer">Reducer</a>[C, <span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="Reducers.html" class="extype" name="scalaz.Reducers">Reducers</a>
+        </div></div>
+          
     </li><li visbl="pub" name="scalaz.Scalaz#ValidationFailureMA">
       <h4 class="signature">
       <span class="kind">implicit def</span>
@@ -1328,7 +1601,7 @@
             <p class="shortcomment cmt">This method is used to cast the receiver object to be of type <code>T0</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p>This method is used to cast the receiver object to be of type <code>T0</code>.</p><p>Note that the success of a cast at runtime is modulo Scala's erasure semantics.  Therefore the expression<code>1.asInstanceOf[String]</code> will throw a <code>ClassCastException</code> at runtime, while the expression<code>List(1).asInstanceOf[List[String]]</code> will not.  In the latter example, because the type argument is erased as
 part of compilation it is not possible to check whether the contents of the list are of the requested typed.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object .</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the receiver object.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: Any
@@ -1360,9 +1633,9 @@ part of compilation it is not possible to check whether the contents of the list
       </span>
       </h4>
       
-            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object .</p><p>The default implementation of the <code>clone</code> method is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">This method creates and returns a copy of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>This method creates and returns a copy of the receiver object.</p><p>The default implementation of the <code>clone</code> method is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a copy of the receiver object.</p></dd></dl><div class="block">
           attributes: protected 
         </div><div class="block">
           definition classes: AnyRef
@@ -1513,7 +1786,7 @@ non-null instances of <code>AnyRef</code>:
  * <code>null.eq(null)</code> returns <code>true</code>.</p><p>When overriding the <code>equals</code> or <code>hashCode</code> methods, it is important to ensure that their behavior is
 consistent with reference equality.  Therefore, if two objects are references to each other (<code>o1 eq o2</code>), they
 should be equal to each other (<code>o1 == o2</code>) and they should hash to the same value (<code>o1.hashCode == o2.hashCode</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the argument is a reference to the receiver object; <code>false</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -1567,10 +1840,10 @@ relation]:
  * It is transitive: for any instances <code>x</code>, <code>y</code>, and <code>z</code> of type <code>AnyRef</code> if <code>x.equals(y)</code> returns <code>true</code> and
    <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</p><p>If you override this method, you should verify that your implementation remains an equivalence relation.
 Additionally, when overriding this method it is often necessary to override <code>hashCode</code> to ensure that objects
-that are "equal" (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
+that are &quot;equal&quot; (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
 scala.Int
 (<code>o1.hashCode.equals(o2.hashCode)</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -1601,9 +1874,9 @@ scala.Int
       </h4>
       
             <p class="shortcomment cmt">This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object .</p>
+there are no more references to the object.</p>
             <div class="fullcomment"><div class="comment cmt"><p>This method is called by the garbage collector on the receiver object when garbage collection determines that
-there are no more references to the object .</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
+there are no more references to the object.</p><p>The details of when and if the <code>finalize</code> method are invoked, as well as the interaction between <code>finalize</code>and non-local returns and exceptions, are all platform dependent.</p></div><div class="block">
           attributes: protected 
         </div><div class="block">
           definition classes: AnyRef
@@ -1635,9 +1908,9 @@ there are no more references to the object .</p><p>The details of when and if th
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object .</p><p>The nature of the representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">Returns a representation that corresponds to the dynamic class of the receiver object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a representation that corresponds to the dynamic class of the receiver object.</p><p>The nature of the representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a representation that corresponds to the dynamic class of the receiver object.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -1656,13 +1929,13 @@ there are no more references to the object .</p><p>The details of when and if th
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a hash code value for the object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object .</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
+            <p class="shortcomment cmt">Returns a hash code value for the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a hash code value for the object.</p><p>The default hashing algorithm is platform dependent.</p><p>Note that it is allowed for two objects to have identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>) yet
 not be equal (<code>o1.equals(o2)</code> returns <code>false</code>).  A degenerate implementation could always return <code>0</code>.
 However, it is required that if two objects are equal (<code>o1.equals(o2)</code> returns <code>true</code>) that they have
 identical hash codes (<code>o1.hashCode.equals(o2.hashCode)</code>).  Therefore, when overriding this method, be sure
 to verify that the behavior is consistent with the <code>equals</code> method.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object .</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the hash code value for the object.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -2102,8 +2375,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Alias for  { @link scalaz .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Alias for  { @link scalaz . Zeros # ∅ }
+            <p class="shortcomment cmt">Alias for  { @link scalaz.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Alias for  { @link scalaz.Zeros # ∅ }
 </p></div><div class="block">
           definition classes: <a href="Zeros.html" class="extype" name="scalaz.Zeros">Zeros</a>
         </div>
@@ -2123,7 +2396,7 @@ possible to check whether the contents of the list are of the requested typed.
       
             <p class="shortcomment cmt"><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.</p>
             <div class="fullcomment"><div class="comment cmt"><p><code>o.ne(arg0)</code> is the same as <code>!(o.eq(arg0))</code>.
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality .</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
+</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for reference dis-equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>false</code> if the argument is not a reference to the receiver object; <code>true</code> otherwise.</p></dd></dl><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -2220,8 +2493,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor .</p></div><div class="block">
+            <p class="shortcomment cmt">Wakes up a single thread that is waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up a single thread that is waiting on the receiver object's monitor.</p></div><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -2240,8 +2513,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor .</p></div><div class="block">
+            <p class="shortcomment cmt">Wakes up all threads that are waiting on the receiver object's monitor.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Wakes up all threads that are waiting on the receiver object's monitor.</p></div><div class="block">
           attributes: final 
         </div><div class="block">
           definition classes: AnyRef
@@ -2392,9 +2665,9 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns a string representation of the object .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object .</p><p>The default representation is platform dependent.
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object .</p></dd></dl><div class="block">
+            <p class="shortcomment cmt">Returns a string representation of the object.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object.</p><p>The default representation is platform dependent.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
             
@@ -2553,8 +2826,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">[use case]  Returns the Zero element of type Z .</p>
-            <div class="fullcomment">[use case] <div class="comment cmt"><p>Returns the Zero element of type Z .</p><p>For example:</p><p>  (∅[Int], ∅: List[Int]) == (0, List.empty[Int])</p></div><div class="block">
+            <p class="shortcomment cmt">[use case] Returns the Zero element of type Z.</p>
+            <div class="fullcomment">[use case] <div class="comment cmt"><p>Returns the Zero element of type Z.</p><p>For example:<pre>  (∅[Int], ∅: List[Int]) == (0, List.empty[Int])</pre></p></div><div class="block">
           attributes: abstract 
         </div>
             
@@ -2571,8 +2844,8 @@ possible to check whether the contents of the list are of the requested typed.
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Returns the Zero element of type Z .</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Returns the Zero element of type Z .</p><p>For example:</p><p>  (∅[Int], ∅: List[Int]) == (0, List.empty[Int])</p></div><div class="block">
+            <p class="shortcomment cmt">Returns the Zero element of type Z.</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Returns the Zero element of type Z.</p><p>For example:<pre>  (∅[Int], ∅: List[Int]) == (0, List.empty[Int])</pre></p></div><div class="block">
           definition classes: <a href="Zeros.html" class="extype" name="scalaz.Zeros">Zeros</a>
         </div>
             
