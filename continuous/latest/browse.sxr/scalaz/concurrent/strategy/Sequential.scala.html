@@ -17,11 +17,11 @@
 /**
  * A strategy that evaluates its argument in the current thread.
  */
-<span class="keyword">object</span> <a title="object scalaz.concurrent.strategy.Sequential" id="13523">Sequential</a> <a title="ScalaObject" id="543">{</a>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.concurrent.Strategy[A]" id="48651">strategy</a>[<a title="&gt;: Nothing &lt;: Any" id="48653">A</a><a id="1">]</a>: <a href="../Strategy.scala.html#13466" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#48658" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="48658">Strategy</a>[A] {
-    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="48662">apply</a>(<a title="() =&gt; A" id="48663">a</a>: () =&gt; A) = {
-      <span class="keyword">val</span> <a title="A" id="48667">v</a> = <a href="#48663" title="()A" id="22297">a</a>()
-      () =&gt; <a href="#48667" title="A">v</a>
+<span class="keyword">object</span> <a title="object scalaz.concurrent.strategy.Sequential" id="13765">Sequential</a> <a title="ScalaObject" id="1445">{</a>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.concurrent.Strategy[A]" id="46686">strategy</a>[<a title="&gt;: Nothing &lt;: Any" id="46688">A</a><a id="1">]</a>: <a href="../Strategy.scala.html#13708" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#46693" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="46693">Strategy</a>[A] {
+    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="46697">apply</a>(<a title="() =&gt; A" id="46698">a</a>: () =&gt; A) = {
+      <span class="keyword">val</span> <a title="A" id="46702">v</a> = <a href="#46698" title="()A" id="22619">a</a>()
+      () =&gt; <a href="#46702" title="A">v</a>
     }
   }
 }

@@ -12,17 +12,17 @@
         <pre>
 <span class="keyword">package</span> scalaz
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ShortW extends java.lang.Object with scalaz.PimpedType[Short] with ScalaObject" id="12697">ShortW</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#11890" title="scalaz.PimpedType[Short]">PimpedType</a>[Short] {
-  <span class="keyword">val</span> <a title="=&gt; Short" id="96234">value</a>: <span title="Short">Short</span>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ShortW extends java.lang.Object with scalaz.PimpedType[Short] with ScalaObject" id="12933">ShortW</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#12315" title="scalaz.PimpedType[Short]">PimpedType</a>[Short] {
+  <span class="keyword">val</span> <a title="=&gt; Short" id="95917">value</a>: <span title="Short">Short</span>
 
-  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
-  <span class="keyword">def</span> <a title="=&gt; scalaz.ShortMultiplication" id="96236">∏</a> : <a href="Multiplications.scala.html#12688" title="scalaz.ShortMultiplication">ShortMultiplication</a> = <a href="Multiplications.scala.html#24179" title="(n: Short)scalaz.ShortMultiplication">multiplication</a>(<a href="#96234" title="=&gt; Short">value</a>)
+  <span class="keyword">def</span> <a title="=&gt; scalaz.ShortMultiplication" id="95919">∏</a> : <a href="Multiplications.scala.html#12924" title="scalaz.ShortMultiplication">ShortMultiplication</a> = <a href="Multiplications.scala.html#24513" title="(n: Short)scalaz.ShortMultiplication">multiplication</a>(<a href="#95917" title="=&gt; Short">value</a>)
 }
 
-<span class="keyword">trait</span> <a title="trait Shorts extends java.lang.Object with ScalaObject" id="12694">Shorts</a> <span title="ScalaObject">{</span>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Shorts.ShortTo : (n: Short)scalaz.ShortW" id="24224">ShortTo</a>(<a title="Short" id="27336">n</a>: <span title="Short">Short</span>): <a href="#12697" title="scalaz.ShortW">ShortW</a> = <a href="#317682" title="java.lang.Object with scalaz.ShortW{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ShortW" id="317682">ShortW</a> {
-    <span class="keyword">val</span> <a title="Short" id="317686">value</a> = <a href="#27336" title="Short">n</a>
+<span class="keyword">trait</span> <a title="trait Shorts extends java.lang.Object with ScalaObject" id="12930">Shorts</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Shorts.ShortTo : (n: Short)scalaz.ShortW" id="24596">ShortTo</a>(<a title="Short" id="28211">n</a>: <span title="Short">Short</span>): <a href="#12933" title="scalaz.ShortW">ShortW</a> = <a href="#330510" title="java.lang.Object with scalaz.ShortW{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ShortW" id="330510">ShortW</a> {
+    <span class="keyword">val</span> <a title="Short" id="330514">value</a> = <a href="#28211" title="Short">n</a>
   }
 }
 

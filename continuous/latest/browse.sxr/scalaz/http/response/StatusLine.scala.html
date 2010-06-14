@@ -14,7 +14,7 @@
 <span class="keyword">package</span> http
 <span class="keyword">package</span> response
 
-<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
 /**
  * HTTP response status line.
@@ -22,26 +22,26 @@
  *
  * @author &lt;a href=&quot;mailto:code@tmorris.net&quot;&gt;Tony Morris&lt;/a&gt;
  */
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait StatusLine extends java.lang.Object" id="15064">StatusLine</a> <a title="java.lang.Object" id="2093">{</a>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait StatusLine extends java.lang.Object" id="15336">StatusLine</a> <a title="java.lang.Object" id="2746">{</a>
   /**
    * The HTTP version in the status line. This is typically HTTP 1.0 or 1.1.
    */
-  <span class="keyword">val</span> <a title="=&gt; scalaz.http.Version" id="98755">version</a>: <a href="../Version.scala.html#14599" title="scalaz.http.Version">Version</a>
+  <span class="keyword">val</span> <a title="=&gt; scalaz.http.Version" id="98508">version</a>: <a href="../Version.scala.html#14871" title="scalaz.http.Version">Version</a>
 
   /**
    * The response status code.
    */
-  <span class="keyword">val</span> <a title="=&gt; scalaz.http.response.Status" id="98756">status</a>: <a href="Status.scala.html#15052" title="scalaz.http.response.Status">Status</a>
+  <span class="keyword">val</span> <a title="=&gt; scalaz.http.response.Status" id="98509">status</a>: <a href="Status.scala.html#15324" title="scalaz.http.response.Status">Status</a>
 
   /**
    * The reason phrase for the status code.
    */
-  <span class="keyword">val</span> <a title="=&gt; List[Char]" id="98757">reasonPhrase</a>: <span title="List[Char]">List</span>[Char]
+  <span class="keyword">val</span> <a title="=&gt; List[Char]" id="98510">reasonPhrase</a>: <span title="List[Char]">List</span>[Char]
 }
 
 <span class="keyword">import</span> request.Request
-<span class="keyword">import</span> <a href="../Version.scala.html#14600" title="object scalaz.http.Version">Version</a>.version
-<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+<span class="keyword">import</span> <a href="../Version.scala.html#14872" title="object scalaz.http.Version">Version</a>.version
+<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
 /**
  * HTTP response status line.
@@ -49,42 +49,42 @@
  *
  * @author &lt;a href=&quot;mailto:code@tmorris.net&quot;&gt;Tony Morris&lt;/a&gt;
  */
-<span class="keyword">object</span> <a title="object scalaz.http.response.StatusLine" id="15065">StatusLine</a> <a title="ScalaObject" id="543">{</a>
+<span class="keyword">object</span> <a title="object scalaz.http.response.StatusLine" id="15337">StatusLine</a> <a title="ScalaObject" id="1445">{</a>
   /**
    * Create a status line with the given version, status and reason phrase.
    */
-  <span class="keyword">def</span> <a title="(v: scalaz.http.Version,s: scalaz.http.response.Status,r: List[Char])java.lang.Object with scalaz.http.response.StatusLine" id="99153">statusLine</a>(<a title="scalaz.http.Version" id="99283">v</a>: <a href="../Version.scala.html#14599" title="scalaz.http.Version">Version</a>, <a title="scalaz.http.response.Status" id="99284">s</a>: <a href="Status.scala.html#15052" title="scalaz.http.response.Status">Status</a>, <a title="List[Char]" id="99285">r</a>: <span title="List[Char]">List</span>[Char]) = <a href="#99288" title="java.lang.Object with scalaz.http.response.StatusLine{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.http.response.StatusLine" id="99288">StatusLine</a> {
-    <span class="keyword">val</span> <a title="scalaz.http.Version" id="99290">version</a> = <a href="#99283" title="scalaz.http.Version">v</a>
-    <span class="keyword">val</span> <a title="scalaz.http.response.Status" id="99292">status</a> = <a href="#99284" title="scalaz.http.response.Status">s</a>
-    <span class="keyword">val</span> <a title="List[Char]" id="99294">reasonPhrase</a> = <a href="#99285" title="List[Char]">r</a>
+  <span class="keyword">def</span> <a title="(v: scalaz.http.Version,s: scalaz.http.response.Status,r: List[Char])java.lang.Object with scalaz.http.response.StatusLine" id="98818">statusLine</a>(<a title="scalaz.http.Version" id="98987">v</a>: <a href="../Version.scala.html#14871" title="scalaz.http.Version">Version</a>, <a title="scalaz.http.response.Status" id="98988">s</a>: <a href="Status.scala.html#15324" title="scalaz.http.response.Status">Status</a>, <a title="List[Char]" id="98989">r</a>: <span title="List[Char]">List</span>[Char]) = <a href="#98992" title="java.lang.Object with scalaz.http.response.StatusLine{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.http.response.StatusLine" id="98992">StatusLine</a> {
+    <span class="keyword">val</span> <a title="scalaz.http.Version" id="98994">version</a> = <a href="#98987" title="scalaz.http.Version">v</a>
+    <span class="keyword">val</span> <a title="scalaz.http.response.Status" id="98996">status</a> = <a href="#98988" title="scalaz.http.response.Status">s</a>
+    <span class="keyword">val</span> <a title="List[Char]" id="98998">reasonPhrase</a> = <a href="#98989" title="List[Char]">r</a>
   }
 
   /**
    * Create a status line with the given version, status and a reason phrase derived from the status if it has one
    * associated. &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1.1&quot;&gt;RFC 2616 Section 6.1.1 Status Code and Reason Phrase&lt;/a&gt;.
    */
-  <span class="keyword">def</span> <a title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine" id="99154">statusLine</a>(<a title="scalaz.http.Version" id="99280">version</a>: <a href="../Version.scala.html#14599" title="scalaz.http.Version">Version</a>, <a title="scalaz.http.response.Status" id="99281">status</a>: <a href="Status.scala.html#15052" title="scalaz.http.response.Status">Status</a>): <a href="#15064" title="scalaz.http.response.StatusLine">StatusLine</a> = <a href="#99153" title="(v: scalaz.http.Version,s: scalaz.http.response.Status,r: List[Char])java.lang.Object with scalaz.http.response.StatusLine">statusLine</a>(<a href="#99280" title="scalaz.http.Version">version</a>, <a href="#99281" title="scalaz.http.response.Status">status</a>, <a href="#99281" title="scalaz.http.response.Status">status</a>.<a href="../../OptionW.scala.html#27526" title="(a: =&gt; List[Char])List[Char]">reasonPhrase</a> | <a title="object Nil" id="20991">Nil</a>)
+  <span class="keyword">def</span> <a title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine" id="98819">statusLine</a>(<a title="scalaz.http.Version" id="98984">version</a>: <a href="../Version.scala.html#14871" title="scalaz.http.Version">Version</a>, <a title="scalaz.http.response.Status" id="98985">status</a>: <a href="Status.scala.html#15324" title="scalaz.http.response.Status">Status</a>): <a href="#15336" title="scalaz.http.response.StatusLine">StatusLine</a> = <a href="#98818" title="(v: scalaz.http.Version,s: scalaz.http.response.Status,r: List[Char])java.lang.Object with scalaz.http.response.StatusLine">statusLine</a>(<a href="#98984" title="scalaz.http.Version">version</a>, <a href="#98985" title="scalaz.http.response.Status">status</a>, <a href="#98985" title="scalaz.http.response.Status">status</a>.<a href="../../OptionW.scala.html#28356" title="(a: =&gt; List[Char])List[Char]">reasonPhrase</a> | <a title="object Nil" id="21310">Nil</a>)
 
   /**
    * Create a status line with the given status, a version derived from the given request and a reason phrase
    * derived from the status if it has one associated.
    * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1.1&quot;&gt;RFC 2616 Section 6.1.1 Status Code and Reason Phrase&lt;/a&gt;.
    */
-  <span class="keyword">def</span> <a title="[IN[_]](status: scalaz.http.response.Status)(implicit req: scalaz.http.request.Request[IN])scalaz.http.response.StatusLine" id="99155">statusLine</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="99157">IN</a>[<a title="&gt;: Nothing &lt;: Any" id="99263">_</a>]](<a title="scalaz.http.response.Status" id="99260">status</a>: <a href="Status.scala.html#15052" title="scalaz.http.response.Status">Status</a>)(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[IN]" id="99261">req</a>: <a href="../request/Request.scala.html#15925" title="scalaz.http.request.Request[IN]">Request</a>[IN]): <a href="#15064" title="scalaz.http.response.StatusLine">StatusLine</a> = <a href="#99154" title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine">statusLine</a>(<a href="#99261" title="scalaz.http.request.Request[IN]">req</a>.<a href="../request/Request.scala.html#99765" title="=&gt; scalaz.http.request.Line">line</a>.<a href="../request/Line.scala.html#106669" title="=&gt; scalaz.http.Version">version</a>, <a href="#99260" title="scalaz.http.response.Status">status</a>)
+  <span class="keyword">def</span> <a title="[IN[_]](status: scalaz.http.response.Status)(implicit req: scalaz.http.request.Request[IN])scalaz.http.response.StatusLine" id="98820">statusLine</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="98822">IN</a>[<a title="&gt;: Nothing &lt;: Any" id="98967">_</a>]](<a title="scalaz.http.response.Status" id="98964">status</a>: <a href="Status.scala.html#15324" title="scalaz.http.response.Status">Status</a>)(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[IN]" id="98965">req</a>: <a href="../request/Request.scala.html#16197" title="scalaz.http.request.Request[IN]">Request</a>[IN]): <a href="#15336" title="scalaz.http.response.StatusLine">StatusLine</a> = <a href="#98819" title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine">statusLine</a>(<a href="#98965" title="scalaz.http.request.Request[IN]">req</a>.<a href="../request/Request.scala.html#99625" title="=&gt; scalaz.http.request.Line">line</a>.<a href="../request/Line.scala.html#107465" title="=&gt; scalaz.http.Version">version</a>, <a href="#98964" title="scalaz.http.response.Status">status</a>)
 
   /**
    * Create a status line with the given status, a HTTP/1.0 version and a reason phrase derived from the status
    * if it has one associated.
    * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1.1&quot;&gt;RFC 2616 Section 6.1.1 Status Code and Reason Phrase&lt;/a&gt;.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.response.StatusLine.statusLine10 : (status: scalaz.http.response.Status)scalaz.http.response.StatusLine" id="99158">statusLine10</a>(<a title="scalaz.http.response.Status" id="99873">status</a>: <a href="Status.scala.html#15052" title="scalaz.http.response.Status">Status</a>) = <a href="#99154" title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine">statusLine</a>(<a href="../Version.scala.html#99866" title="(maj: scalaz.Digit,min: scalaz.Digit)scalaz.http.Version">version</a>(<a href="../../Digit.scala.html#8372" title="object scalaz._1">_1</a>, <a href="../../Digit.scala.html#8366" title="object scalaz._0">_0</a>), <a href="#99873" title="scalaz.http.response.Status">status</a>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.response.StatusLine.statusLine10 : (status: scalaz.http.response.Status)scalaz.http.response.StatusLine" id="98823">statusLine10</a>(<a title="scalaz.http.response.Status" id="99733">status</a>: <a href="Status.scala.html#15324" title="scalaz.http.response.Status">Status</a>) = <a href="#98819" title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine">statusLine</a>(<a href="../Version.scala.html#99726" title="(maj: scalaz.Digit,min: scalaz.Digit)scalaz.http.Version">version</a>(<a href="../../Digit.scala.html#9079" title="object scalaz._1">_1</a>, <a href="../../Digit.scala.html#9073" title="object scalaz._0">_0</a>), <a href="#99733" title="scalaz.http.response.Status">status</a>)
 
   /**
    * Create a status line with the given status, a HTTP/1.1 version and a reason phrase derived from the status
    * if it has one associated.
    * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.1.1&quot;&gt;RFC 2616 Section 6.1.1 Status Code and Reason Phrase&lt;/a&gt;.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.response.StatusLine.statusLine11 : (status: scalaz.http.response.Status)scalaz.http.response.StatusLine" id="99159">statusLine11</a>(<a title="scalaz.http.response.Status" id="99848">status</a>: <a href="Status.scala.html#15052" title="scalaz.http.response.Status">Status</a>) = <a href="#99154" title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine">statusLine</a>(<a href="../Version.scala.html#99866" title="(maj: scalaz.Digit,min: scalaz.Digit)scalaz.http.Version">version</a>(<a href="../../Digit.scala.html#8372" title="object scalaz._1">_1</a>, <a href="../../Digit.scala.html#8372" title="object scalaz._1">_1</a>), <a href="#99848" title="scalaz.http.response.Status">status</a>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.response.StatusLine.statusLine11 : (status: scalaz.http.response.Status)scalaz.http.response.StatusLine" id="98824">statusLine11</a>(<a title="scalaz.http.response.Status" id="99708">status</a>: <a href="Status.scala.html#15324" title="scalaz.http.response.Status">Status</a>) = <a href="#98819" title="(version: scalaz.http.Version,status: scalaz.http.response.Status)scalaz.http.response.StatusLine">statusLine</a>(<a href="../Version.scala.html#99726" title="(maj: scalaz.Digit,min: scalaz.Digit)scalaz.http.Version">version</a>(<a href="../../Digit.scala.html#9079" title="object scalaz._1">_1</a>, <a href="../../Digit.scala.html#9079" title="object scalaz._1">_1</a>), <a href="#99708" title="scalaz.http.response.Status">status</a>)
 }
 
         </pre>

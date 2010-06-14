@@ -12,15 +12,15 @@
         <pre>
 <span class="keyword">package</span> scalaz
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait BigIntW extends java.lang.Object with scalaz.PimpedType[BigInt] with ScalaObject" id="8647">BigIntW</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#11890" title="scalaz.PimpedType[BigInt]">PimpedType</a>[BigInt] {
-  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait BigIntW extends java.lang.Object with scalaz.PimpedType[BigInt] with ScalaObject" id="9357">BigIntW</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#12315" title="scalaz.PimpedType[BigInt]">PimpedType</a>[BigInt] {
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
   
-  <span class="keyword">def</span> <a title="=&gt; scalaz.BigIntMultiplication" id="96248">∏</a> : <a href="Multiplications.scala.html#8638" title="scalaz.BigIntMultiplication">BigIntMultiplication</a> = <a href="Multiplications.scala.html#24174" title="(n: BigInt)scalaz.BigIntMultiplication">multiplication</a>(<a href="PimpedType.scala.html#24501" title="=&gt; BigInt">value</a>)
+  <span class="keyword">def</span> <a title="=&gt; scalaz.BigIntMultiplication" id="95931">∏</a> : <a href="Multiplications.scala.html#9348" title="scalaz.BigIntMultiplication">BigIntMultiplication</a> = <a href="Multiplications.scala.html#24508" title="(n: BigInt)scalaz.BigIntMultiplication">multiplication</a>(<a href="PimpedType.scala.html#25335" title="=&gt; BigInt">value</a>)
 }
 
-<span class="keyword">trait</span> <a title="trait BigInts extends java.lang.Object with ScalaObject" id="8644">BigInts</a> <span title="ScalaObject">{</span>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.BigInts.BigIntTo : (n: BigInt)scalaz.BigIntW" id="23896">BigIntTo</a>(<a title="BigInt" id="28109">n</a>: <a title="BigInt" id="28189">BigInt</a>): <a href="#8647" title="scalaz.BigIntW">BigIntW</a> = <a href="#193572" title="java.lang.Object with scalaz.BigIntW{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.BigIntW" id="193572">BigIntW</a> {
-    <span class="keyword">val</span> <a title="BigInt" id="193576">value</a> = <a href="#28109" title="BigInt">n</a>
+<span class="keyword">trait</span> <a title="trait BigInts extends java.lang.Object with ScalaObject" id="9354">BigInts</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.BigInts.BigIntTo : (n: BigInt)scalaz.BigIntW" id="24230">BigIntTo</a>(<a title="BigInt" id="28909">n</a>: <a title="BigInt" id="28989">BigInt</a>): <a href="#9357" title="scalaz.BigIntW">BigIntW</a> = <a href="#193845" title="java.lang.Object with scalaz.BigIntW{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.BigIntW" id="193845">BigIntW</a> {
+    <span class="keyword">val</span> <a title="BigInt" id="193849">value</a> = <a href="#28909" title="BigInt">n</a>
   }
 }
 

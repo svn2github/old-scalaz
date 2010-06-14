@@ -19,13 +19,13 @@
 /**
  * A strategy that evaluates its arguments using an implicit java.util.concurrent.ExecutorService.
  */
-<span class="keyword">object</span> <a title="object scalaz.concurrent.strategy.Executor" id="13484">Executor</a> <a title="ScalaObject" id="543">{</a>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](implicit s: java.util.concurrent.ExecutorService)scalaz.concurrent.Strategy[A]" id="116797">strategy</a>[<a title="&gt;: Nothing &lt;: Any" id="116799">A</a><a id="1">]</a>(<span class="keyword">implicit</span> <a title="java.util.concurrent.ExecutorService" id="116800">s</a>: <a title="java.util.concurrent.ExecutorService" id="20551">ExecutorService</a>): <a href="../Strategy.scala.html#13466" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#136341" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="136341">Strategy</a>[A] {
-    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="136345">apply</a>(<a title="() =&gt; A" id="136346">a</a>: () =&gt; A) = {
-      <span class="keyword">val</span> <a title="java.util.concurrent.Future[A]" id="136350">fut</a> = <a href="#116800" title="java.util.concurrent.ExecutorService">s</a>.<a title="(x$1: java.util.concurrent.Callable[A])java.util.concurrent.Future[A]" id="116743">submit</a>(<a href="#136360" title="java.lang.Object with java.util.concurrent.Callable[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with java.util.concurrent.Callable[A]" id="136360">Callable</a>[A] {
-        <span class="keyword">def</span> <a title="()A" id="136362">call</a> = <a href="#136346" title="()A" id="22297">a</a>()
+<span class="keyword">object</span> <a title="object scalaz.concurrent.strategy.Executor" id="13726">Executor</a> <a title="ScalaObject" id="1445">{</a>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](implicit s: java.util.concurrent.ExecutorService)scalaz.concurrent.Strategy[A]" id="100293">strategy</a>[<a title="&gt;: Nothing &lt;: Any" id="100295">A</a><a id="1">]</a>(<span class="keyword">implicit</span> <a title="java.util.concurrent.ExecutorService" id="100296">s</a>: <a title="java.util.concurrent.ExecutorService" id="20870">ExecutorService</a>): <a href="../Strategy.scala.html#13708" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#133282" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="133282">Strategy</a>[A] {
+    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="133286">apply</a>(<a title="() =&gt; A" id="133287">a</a>: () =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.Future[A]" id="133291">fut</a> = <a href="#100296" title="java.util.concurrent.ExecutorService">s</a>.<a title="(x$1: java.util.concurrent.Callable[A])java.util.concurrent.Future[A]" id="100239">submit</a>(<a href="#133301" title="java.lang.Object with java.util.concurrent.Callable[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with java.util.concurrent.Callable[A]" id="133301">Callable</a>[A] {
+        <span class="keyword">def</span> <a title="()A" id="133303">call</a> = <a href="#133287" title="()A" id="22619">a</a>()
       })
-      () =&gt; <a href="#136350" title="java.util.concurrent.Future[A]">fut</a>.<a title="()A" id="23039">get</a>
+      () =&gt; <a href="#133291" title="java.util.concurrent.Future[A]">fut</a>.<a title="()A" id="23367">get</a>
     }
   }
 }

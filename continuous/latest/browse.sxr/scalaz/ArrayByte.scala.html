@@ -12,13 +12,13 @@
         <pre>
 <span class="keyword">package</span> scalaz
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ArrayByte extends java.lang.Object with scalaz.PimpedType[Array[Byte]] with ScalaObject" id="8539">ArrayByte</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#11890" title="scalaz.PimpedType[Array[Byte]]">PimpedType</a>[Array[Byte]] {
-  <span class="keyword">def</span> <a title="(implicit c: scalaz.CharSet)String" id="48984">decode</a>(<span class="keyword">implicit</span> <a title="scalaz.CharSet" id="364079">c</a>: <a href="CharSet.scala.html#9115" title="scalaz.CharSet">CharSet</a>): <a title="String" id="2065">String</a> = <a title="(x$1: Array[Byte],x$2: java.lang.String)java.lang.String" id="6713" class="keyword">new</a> <a title="java.lang.String" id="601">String</a>(<a href="PimpedType.scala.html#24501" title="=&gt; Array[Byte]">value</a>, <a href="#364079" title="scalaz.CharSet">c</a>.<a href="CharSet.scala.html#27987" title="=&gt; String">value</a>)
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ArrayByte extends java.lang.Object with scalaz.PimpedType[Array[Byte]] with ScalaObject" id="9246">ArrayByte</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#12315" title="scalaz.PimpedType[Array[Byte]]">PimpedType</a>[Array[Byte]] {
+  <span class="keyword">def</span> <a title="(implicit c: scalaz.CharSet)String" id="47018">decode</a>(<span class="keyword">implicit</span> <a title="scalaz.CharSet" id="380425">c</a>: <a href="CharSet.scala.html#9774" title="scalaz.CharSet">CharSet</a>): <a title="String" id="2718">String</a> = <a title="(x$1: Array[Byte],x$2: java.lang.String)java.lang.String" id="7390" class="keyword">new</a> <a title="java.lang.String" id="1488">String</a>(<a href="PimpedType.scala.html#25335" title="=&gt; Array[Byte]">value</a>, <a href="#380425" title="scalaz.CharSet">c</a>.<a href="CharSet.scala.html#28787" title="=&gt; String">value</a>)
 }
 
-<span class="keyword">trait</span> <a title="trait ArrayBytes extends java.lang.Object with ScalaObject" id="8545">ArrayBytes</a> <span title="ScalaObject">{</span>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.ArrayBytes.ArrayByteTo : (bs: Array[Byte])scalaz.ArrayByte" id="23892">ArrayByteTo</a>(<a title="Array[Byte]" id="28837">bs</a>: <a title="Array[Byte]" id="1323">Array</a>[Byte]): <a href="#8539" title="scalaz.ArrayByte">ArrayByte</a> = <a href="#364474" title="java.lang.Object with scalaz.ArrayByte{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ArrayByte" id="364474">ArrayByte</a> {
-    <span class="keyword">val</span> <a title="Array[Byte]" id="364478">value</a> = <a href="#28837" title="Array[Byte]">bs</a>
+<span class="keyword">trait</span> <a title="trait ArrayBytes extends java.lang.Object with ScalaObject" id="9252">ArrayBytes</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.ArrayBytes.ArrayByteTo : (bs: Array[Byte])scalaz.ArrayByte" id="24226">ArrayByteTo</a>(<a title="Array[Byte]" id="29637">bs</a>: <a title="Array[Byte]" id="2027">Array</a>[Byte]): <a href="#9246" title="scalaz.ArrayByte">ArrayByte</a> = <a href="#380812" title="java.lang.Object with scalaz.ArrayByte{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ArrayByte" id="380812">ArrayByte</a> {
+    <span class="keyword">val</span> <a title="Array[Byte]" id="380816">value</a> = <a href="#29637" title="Array[Byte]">bs</a>
   }
 }
 

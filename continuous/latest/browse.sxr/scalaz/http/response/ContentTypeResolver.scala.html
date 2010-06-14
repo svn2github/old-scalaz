@@ -14,42 +14,42 @@
 <span class="keyword">package</span> http
 <span class="keyword">package</span> response
 
-<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
 /**
  * A function to resolve a content-type given a file extension.
  *
  * @author &lt;a href=&quot;mailto:code@tmorris.net&quot;&gt;Tony Morris&lt;/a&gt;
  */
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ContentTypeResolver extends java.lang.Object with ScalaObject" id="14731">ContentTypeResolver</a> <span title="ScalaObject">{</span>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ContentTypeResolver extends java.lang.Object with ScalaObject" id="15003">ContentTypeResolver</a> <span title="ScalaObject">{</span>
   /**
    * Returns the content-type given the extension.
    */
-  <span class="keyword">def</span> <a title="(s: String)Option[scalaz.NonEmptyList[Char]]" id="101103">apply</a>(<a title="String" id="101110">s</a>: <span title="String">String</span>): <a title="Option[scalaz.NonEmptyList[Char]]" id="276">Option</a>[NonEmptyList[Char]]
+  <span class="keyword">def</span> <a title="(s: String)Option[scalaz.NonEmptyList[Char]]" id="101891">apply</a>(<a title="String" id="101898">s</a>: <span title="String">String</span>): <a title="Option[scalaz.NonEmptyList[Char]]" id="1262">Option</a>[NonEmptyList[Char]]
 
-  <span class="keyword">import</span> <a href="#14732" title="object scalaz.http.response.ContentTypeResolver">ContentTypeResolver</a>.contentTypeResolver
+  <span class="keyword">import</span> <a href="#15004" title="object scalaz.http.response.ContentTypeResolver">ContentTypeResolver</a>.contentTypeResolver
 
   /**
    * Tries this content-type resolver and if it produces no value, then try the given content-type resolver.
    */
-  <span class="keyword">def</span> <a title="(r: =&gt; scalaz.http.response.ContentTypeResolver)java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101105">&lt;+&gt;</a>(<a title="=&gt; scalaz.http.response.ContentTypeResolver" id="114277">r</a>: =&gt; ContentTypeResolver) = <a href="#101090" title="(f: (String) =&gt; Option[scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver">contentTypeResolver</a>(<a title="String" id="114281">s</a> =&gt; <a href="#101103" title="(s: String)Option[scalaz.NonEmptyList[Char]]">apply</a><a title="(alternative: =&gt; Option[scalaz.NonEmptyList[Char]])Option[scalaz.NonEmptyList[Char]]" id="27495">(</a><a href="#114281" title="String">s</a>) orElse <a href="#101103" title="(s: String)Option[scalaz.NonEmptyList[Char]]">r</a>(<a href="#114281" title="String">s</a>))
+  <span class="keyword">def</span> <a title="(r: =&gt; scalaz.http.response.ContentTypeResolver)java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101893">&lt;+&gt;</a>(<a title="=&gt; scalaz.http.response.ContentTypeResolver" id="111367">r</a>: =&gt; ContentTypeResolver) = <a href="#101878" title="(f: (String) =&gt; Option[scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver">contentTypeResolver</a>(<a title="String" id="111371">s</a> =&gt; <a href="#101891" title="(s: String)Option[scalaz.NonEmptyList[Char]]">apply</a><a title="(alternative: =&gt; Option[scalaz.NonEmptyList[Char]])Option[scalaz.NonEmptyList[Char]]" id="28325">(</a><a href="#111371" title="String">s</a>) orElse <a href="#101891" title="(s: String)Option[scalaz.NonEmptyList[Char]]">r</a>(<a href="#111371" title="String">s</a>))
 }
 
 /**
  * A function to resolve a content-type given a file extension.
  */
-<span class="keyword">object</span> <a title="object scalaz.http.response.ContentTypeResolver" id="14732">ContentTypeResolver</a> <span title="ScalaObject">{</span>
+<span class="keyword">object</span> <a title="object scalaz.http.response.ContentTypeResolver" id="15004">ContentTypeResolver</a> <span title="ScalaObject">{</span>
   /**
    * Construct a content-type resolver using the given function.
    */
-  <span class="keyword">def</span> <a title="(f: (String) =&gt; Option[scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101090">contentTypeResolver</a>(<a title="(String) =&gt; Option[scalaz.NonEmptyList[Char]]" id="101098">f</a>: String =&gt; Option[NonEmptyList[Char]]) = <a href="#101101" title="java.lang.Object with scalaz.http.response.ContentTypeResolver" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101101">ContentTypeResolver</a> {
-    <span class="keyword">def</span> <a title="(s: String)Option[scalaz.NonEmptyList[Char]]" id="101107">apply</a>(<a title="String" id="101108">s</a>: <span title="String">String</span>) = <a href="#101098" title="(v1: String)Option[scalaz.NonEmptyList[Char]]" id="26086">f</a>(<a href="#101108" title="String">s</a>)
+  <span class="keyword">def</span> <a title="(f: (String) =&gt; Option[scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101878">contentTypeResolver</a>(<a title="(String) =&gt; Option[scalaz.NonEmptyList[Char]]" id="101886">f</a>: String =&gt; Option[NonEmptyList[Char]]) = <a href="#101889" title="java.lang.Object with scalaz.http.response.ContentTypeResolver" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101889">ContentTypeResolver</a> {
+    <span class="keyword">def</span> <a title="(s: String)Option[scalaz.NonEmptyList[Char]]" id="101895">apply</a>(<a title="String" id="101896">s</a>: <span title="String">String</span>) = <a href="#101886" title="(v1: String)Option[scalaz.NonEmptyList[Char]]" id="25302">f</a>(<a href="#101896" title="String">s</a>)
   }
 
   /**
    * Construct a content-type resover using the given map.
    */
-  <span class="keyword">def</span> <a title="(m: Map[String,scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101091">contentTypeResolverMap</a>(<a title="Map[String,scalaz.NonEmptyList[Char]]" id="101095">m</a>: <a title="Map[String,scalaz.NonEmptyList[Char]]" id="20960">Map</a>[String, NonEmptyList[Char]]) = <a href="#101090" title="(f: (String) =&gt; Option[scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver">contentTypeResolver</a>(<a href="#101095" title="Map[String,scalaz.NonEmptyList[Char]]">m</a>.<a title="(key: String)Option[scalaz.NonEmptyList[Char]]" id="83729">get</a>(<a href="#101128" title="String">_</a>))
+  <span class="keyword">def</span> <a title="(m: Map[String,scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101879">contentTypeResolverMap</a>(<a title="Map[String,scalaz.NonEmptyList[Char]]" id="101883">m</a>: <a title="Map[String,scalaz.NonEmptyList[Char]]" id="21279">Map</a>[String, NonEmptyList[Char]]) = <a href="#101878" title="(f: (String) =&gt; Option[scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver">contentTypeResolver</a>(<a href="#101883" title="Map[String,scalaz.NonEmptyList[Char]]">m</a>.<a title="(key: String)Option[scalaz.NonEmptyList[Char]]" id="86439">get</a>(<a href="#101916" title="String">_</a>))
 
   <span class="keyword">import</span> collection.immutable.TreeHashMap
 
@@ -57,7 +57,7 @@
    * A content-type resolver using the table on the W3C Schools website at
    * http://www.w3schools.com/media/media_mimeref.asp. 
    */
-  <span class="keyword">val</span> <a title="&lt;refinement&gt; extends java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101093">w3cMimeReference</a> = <a href="#101091" title="(m: Map[String,scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver">contentTypeResolverMap</a>(<a title="(elems: (java.lang.String, java.lang.String)*)scala.collection.immutable.Map[java.lang.String,java.lang.String]" id="8051">Map</a><a title="(f: (java.lang.String, java.lang.String) =&gt; scalaz.NonEmptyList[Char])(implicit bf: scala.collection.generic.CanBuildFrom[scala.collection.immutable.Map[java.lang.String,java.lang.String],(java.lang.String, scalaz.NonEmptyList[Char]),Map[String,scalaz.NonEmptyList[Char]]])Map[String,scalaz.NonEmptyList[Char]]" id="83838">(</a>
+  <span class="keyword">val</span> <a title="&lt;refinement&gt; extends java.lang.Object with scalaz.http.response.ContentTypeResolver" id="101881">w3cMimeReference</a> = <a href="#101879" title="(m: Map[String,scalaz.NonEmptyList[Char]])java.lang.Object with scalaz.http.response.ContentTypeResolver">contentTypeResolverMap</a>(<a title="(elems: (java.lang.String, java.lang.String)*)scala.collection.immutable.Map[java.lang.String,java.lang.String]" id="8758">Map</a><a title="(f: (java.lang.String, java.lang.String) =&gt; scalaz.NonEmptyList[Char])(implicit bf: scala.collection.generic.CanBuildFrom[scala.collection.immutable.Map[java.lang.String,java.lang.String],(java.lang.String, scalaz.NonEmptyList[Char]),Map[String,scalaz.NonEmptyList[Char]]])Map[String,scalaz.NonEmptyList[Char]]" id="86550">(</a>
     <span title="(y: java.lang.String)(java.lang.String, java.lang.String)" class="string">&quot;323&quot;</span> -&gt; <span title="java.lang.String(&quot;text/h323&quot;)" class="string">&quot;text/h323&quot;</span>,
     <span title="(y: java.lang.String)(java.lang.String, java.lang.String)" class="string">&quot;acx&quot;</span> -&gt; <span title="java.lang.String(&quot;application/internet-property-stream&quot;)" class="string">&quot;application/internet-property-stream&quot;</span>,
     <span title="(y: java.lang.String)(java.lang.String, java.lang.String)" class="string">&quot;ai&quot;</span> -&gt; <span title="java.lang.String(&quot;application/postscript&quot;)" class="string">&quot;application/postscript&quot;</span>,
@@ -245,7 +245,7 @@
     <span title="(y: java.lang.String)(java.lang.String, java.lang.String)" class="string">&quot;xwd&quot;</span> -&gt; <span title="java.lang.String(&quot;image/x-xwindowdump&quot;)" class="string">&quot;image/x-xwindowdump&quot;</span>,
     <span title="(y: java.lang.String)(java.lang.String, java.lang.String)" class="string">&quot;z&quot;</span> -&gt; <span title="java.lang.String(&quot;application/x-compress&quot;)" class="string">&quot;application/x-compress&quot;</span>,
     <span title="(y: java.lang.String)(java.lang.String, java.lang.String)" class="string">&quot;zip&quot;</span> -&gt; <span title="java.lang.String(&quot;application/zip&quot;)" class="string">&quot;application/zip&quot;</span>
-    ) <a title="scala.collection.generic.CanBuildFrom[scala.collection.immutable.Map.Coll,(String, scalaz.NonEmptyList[Char]),scala.collection.immutable.Map[String,scalaz.NonEmptyList[Char]]]" id="20961">transform</a> <a href="#106576" title="scalaz.NonEmptyList[Char]" id="856">{</a> <span title="scalaz.NonEmptyList[Char]" class="keyword">case</span> <a id="1">(</a>_, <a title="java.lang.String" id="106587">v</a>) =&gt; <a href="../../StringW.scala.html#24252" title="implicit scalaz.Strings.StringTo : (ss: String)scalaz.StringW">v</a>.<a href="../../StringW.scala.html#37078" title="=&gt; scalaz.NonEmptyList[Char]">unsafeCharsNel</a> })
+    ) <a title="scala.collection.generic.CanBuildFrom[scala.collection.immutable.Map.Coll,(String, scalaz.NonEmptyList[Char]),scala.collection.immutable.Map[String,scalaz.NonEmptyList[Char]]]" id="21280">transform</a> <a href="#107365" title="scalaz.NonEmptyList[Char]" id="633">{</a> <span title="scalaz.NonEmptyList[Char]" class="keyword">case</span> <a id="1">(</a>_, <a title="java.lang.String" id="107376">v</a>) =&gt; <a href="../../StringW.scala.html#24624" title="implicit scalaz.Strings.StringTo : (ss: String)scalaz.StringW">v</a>.<a href="../../StringW.scala.html#31568" title="=&gt; scalaz.NonEmptyList[Char]">unsafeCharsNel</a> })
 }
 
         </pre>

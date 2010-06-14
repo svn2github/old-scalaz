@@ -12,22 +12,22 @@
         <pre>
 <span class="keyword">package</span> scalaz
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Endo[A] extends java.lang.Object with ScalaObject" id="9658">Endo</a>[<a title="&gt;: Nothing &lt;: Any" id="17456">A</a>] <span title="ScalaObject">{</span>
-  <span class="keyword">def</span> <a title="(a: A)A" id="27964">apply</a>(<a title="A" id="73255">a</a>: <a href="#17456" title="A">A</a>): <a href="#17456" title="A">A</a>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Endo[A] extends java.lang.Object with ScalaObject" id="10230">Endo</a>[<a title="&gt;: Nothing &lt;: Any" id="17772">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(a: A)A" id="28763">apply</a>(<a title="A" id="75098">a</a>: <a href="#17772" title="A">A</a>): <a href="#17772" title="A">A</a>
 
-  <span class="keyword">def</span> <a title="=&gt; A" id="27965">fix</a>: <a href="#17456" title="A">A</a> = <a href="#27964" title="(a: A)A">apply</a>(<a href="#27965" title="=&gt; A">fix</a>)
+  <span class="keyword">def</span> <a title="=&gt; A" id="28764">fix</a>: <a href="#17772" title="A">A</a> = <a href="#28763" title="(a: A)A">apply</a>(<a href="#28764" title="=&gt; A">fix</a>)
 }
 
-<span class="keyword">trait</span> <a title="trait Endos extends java.lang.Object with ScalaObject" id="9673">Endos</a> <span title="ScalaObject">{</span>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](f: (A) =&gt; A)scalaz.Endo[A]" id="23968">EndoTo</a>[<a title="&gt;: Nothing &lt;: Any" id="23970">A</a>](<a title="(A) =&gt; A" id="27966">f</a>: A =&gt; A): <a href="#9658" title="scalaz.Endo[A]">Endo</a>[A] = <a href="#364045" title="java.lang.Object with scalaz.Endo[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Endo[A]" id="364045">Endo</a>[A] {
-    <span class="keyword">def</span> <a title="(a: A)A" id="364049">apply</a>(<a title="A" id="364050">a</a>: <a href="#23970" title="A">A</a>) = <a href="#27966" title="(v1: A)A" id="26086">f</a>(<a href="#364050" title="A">a</a>)
+<span class="keyword">trait</span> <a title="trait Endos extends java.lang.Object with ScalaObject" id="10245">Endos</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](f: (A) =&gt; A)scalaz.Endo[A]" id="24302">EndoTo</a>[<a title="&gt;: Nothing &lt;: Any" id="24304">A</a>](<a title="(A) =&gt; A" id="28765">f</a>: A =&gt; A): <a href="#10230" title="scalaz.Endo[A]">Endo</a>[A] = <a href="#380391" title="java.lang.Object with scalaz.Endo[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Endo[A]" id="380391">Endo</a>[A] {
+    <span class="keyword">def</span> <a title="(a: A)A" id="380395">apply</a>(<a title="A" id="380396">a</a>: <a href="#24304" title="A">A</a>) = <a href="#28765" title="(v1: A)A" id="25302">f</a>(<a href="#380396" title="A">a</a>)
   }
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](e: scalaz.Endo[A])(A) =&gt; A" id="23971">EndoFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="23973">A</a>](<a title="scalaz.Endo[A]" id="27959">e</a>: <a href="#9658" title="scalaz.Endo[A]">Endo</a>[A]): A =&gt; A = <a href="#27959" title="scalaz.Endo[A]">e</a>.<a href="#27964" title="(a: A)A">apply</a>(<a href="#364061" title="A">_</a>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](e: scalaz.Endo[A])(A) =&gt; A" id="24305">EndoFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="24307">A</a>](<a title="scalaz.Endo[A]" id="28759">e</a>: <a href="#10230" title="scalaz.Endo[A]">Endo</a>[A]): A =&gt; A = <a href="#28759" title="scalaz.Endo[A]">e</a>.<a href="#28763" title="(a: A)A">apply</a>(<a href="#380407" title="A">_</a>)
 
-  <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Endo[A]" id="23974">constantEndo</a>[<a title="&gt;: Nothing &lt;: Any" id="23976">A</a>](<a title="=&gt; A" id="350836">a</a>: =&gt; A): <a href="#9658" title="scalaz.Endo[A]">Endo</a>[A] = <a href="#23968" title="[A](f: (A) =&gt; A)scalaz.Endo[A]">EndoTo</a><span title="(f: (A) =&gt; A)scalaz.Endo[A]">[</span><a href="#23976" title="A">A</a>](<a title="A" id="364066">_</a> =&gt; <a href="#350836" title="=&gt; A">a</a>)
+  <span class="keyword">def</span> <a title="[A](a: =&gt; A)scalaz.Endo[A]" id="24308">constantEndo</a>[<a title="&gt;: Nothing &lt;: Any" id="24310">A</a>](<a title="=&gt; A" id="368787">a</a>: =&gt; A): <a href="#10230" title="scalaz.Endo[A]">Endo</a>[A] = <a href="#24302" title="[A](f: (A) =&gt; A)scalaz.Endo[A]">EndoTo</a><span title="(f: (A) =&gt; A)scalaz.Endo[A]">[</span><a href="#24310" title="A">A</a>](<a title="A" id="380412">_</a> =&gt; <a href="#368787" title="=&gt; A">a</a>)
 
-  <span class="keyword">def</span> <a title="[A]scalaz.Endo[A]" id="23977">idEndo</a>[<a title="&gt;: Nothing &lt;: Any" id="23979">A</a>]: <a href="#9658" title="scalaz.Endo[A]">Endo</a>[A] = <a href="#23968" title="[A](f: (A) =&gt; A)scalaz.Endo[A]">EndoTo</a><span title="(f: (A) =&gt; A)scalaz.Endo[A]">[</span><a href="#23979" title="A">A</a>](<a title="A" id="364072">a</a> =&gt; <a href="#364072" title="A">a</a>)
+  <span class="keyword">def</span> <a title="[A]scalaz.Endo[A]" id="24311">idEndo</a>[<a title="&gt;: Nothing &lt;: Any" id="24313">A</a>]: <a href="#10230" title="scalaz.Endo[A]">Endo</a>[A] = <a href="#24302" title="[A](f: (A) =&gt; A)scalaz.Endo[A]">EndoTo</a><span title="(f: (A) =&gt; A)scalaz.Endo[A]">[</span><a href="#24313" title="A">A</a>](<a title="A" id="380418">a</a> =&gt; <a href="#380418" title="A">a</a>)
 }
 
         </pre>

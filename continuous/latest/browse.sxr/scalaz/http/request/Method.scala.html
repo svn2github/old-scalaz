@@ -14,8 +14,8 @@
 <span class="keyword">package</span> http
 <span class="keyword">package</span> request
 
-<span class="keyword">import</span> <a href="../Util.scala.html#14591" title="object scalaz.http.Util">Util</a>.<a href="../Util.scala.html#82779" title="object scalaz.http.Util.Nel">Nel</a>._
-<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+<span class="keyword">import</span> <a href="../Util.scala.html#14863" title="object scalaz.http.Util">Util</a>.<a href="../Util.scala.html#85488" title="object scalaz.http.Util.Nel">Nel</a>._
+<span class="keyword">import</span> <a href="../../Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
 /**
  * HTTP request method.
@@ -23,21 +23,21 @@
  *
  * @author &lt;a href=&quot;mailto:code@tmorris.net&quot;&gt;Tony Morris&lt;/a&gt;
  */
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Method extends java.lang.Object with ScalaObject" id="15766">Method</a> <span title="ScalaObject">{</span>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Method extends java.lang.Object with ScalaObject" id="16038">Method</a> <span title="ScalaObject">{</span>
   /**
    * A string representation of this request method.
    */
-  <span class="keyword">val</span> <a title="=&gt; String" id="107220">asString</a>: <span title="String">String</span>
+  <span class="keyword">val</span> <a title="=&gt; String" id="108025">asString</a>: <span title="String">String</span>
 
   /**
    * A non-empty string representation of this request method.
    */
-  <span class="keyword">lazy</span> <span class="keyword">val</span> <a title="scalaz.NonEmptyList[Char]" id="107222">asNonEmptyList</a>: <a href="../../NonEmptyList.scala.html#11635" title="scalaz.NonEmptyList[Char]">NonEmptyList</a>[Char] = <a href="../../StringW.scala.html#24252" title="implicit scalaz.Strings.StringTo : (ss: String)scalaz.StringW">asString</a>.<a href="../../StringW.scala.html#37075" title="=&gt; Option[scalaz.NonEmptyList[Char]]">charsNel</a>.<span title="=&gt; scalaz.NonEmptyList[Char]">get</span>
+  <span class="keyword">lazy</span> <span class="keyword">val</span> <a title="scalaz.NonEmptyList[Char]" id="108027">asNonEmptyList</a>: <a href="../../NonEmptyList.scala.html#12057" title="scalaz.NonEmptyList[Char]">NonEmptyList</a>[Char] = <a href="../../StringW.scala.html#24624" title="implicit scalaz.Strings.StringTo : (ss: String)scalaz.StringW">asString</a>.<a href="../../StringW.scala.html#31565" title="=&gt; Option[scalaz.NonEmptyList[Char]]">charsNel</a>.<span title="=&gt; scalaz.NonEmptyList[Char]">get</span>
 
   /**
    * Returns &lt;code&gt;true&lt;/code&gt; if this method is an extension method, &lt;code&gt;false&lt;/code&gt; otherwise.
    */
-  <span class="keyword">lazy</span> <span class="keyword">val</span> <a title="Boolean" id="107224">isExtension</a> = <a href="#15766" title="scalaz.http.request.Method" class="keyword">this</a> <span title="Boolean" class="keyword">match</span> {
+  <span class="keyword">lazy</span> <span class="keyword">val</span> <a title="Boolean" id="108029">isExtension</a> = <a href="#16038" title="scalaz.http.request.Method" class="keyword">this</a> <span title="Boolean" class="keyword">match</span> {
     <span title="Boolean(true)" class="keyword">case</span> ExtensionMethod(_) =&gt; <span title="Boolean(true)" class="keyword">true</span>
     <span title="Boolean(false)" class="keyword">case</span> _ =&gt; <span title="Boolean(false)" class="keyword">false</span>
   }
@@ -46,91 +46,91 @@
    * Returns the result of the given function to this method if it is an extension method, otherwise returns the given
    * value.
    */
-  <span class="keyword">def</span> <a title="[X](f: (scalaz.NonEmptyList[Char]) =&gt; X,x: =&gt; X)X" id="107225">extension</a>[<a title="&gt;: Nothing &lt;: Any" id="107227">X</a>](<a title="(scalaz.NonEmptyList[Char]) =&gt; X" id="217196">f</a>: NonEmptyList[Char] =&gt; X, <a title="=&gt; X" id="217197">x</a>: =&gt; X) = <a href="#15766" title="scalaz.http.request.Method" class="keyword">this</a> <span title="X" class="keyword">match</span> {
-    <span title="X" class="keyword">case</span> ExtensionMethod(<a title="scalaz.NonEmptyList[Char]" id="217200">m</a>) =&gt; <a href="#217196" title="(v1: scalaz.NonEmptyList[Char])X" id="26086">f</a>(<a href="#217200" title="scalaz.NonEmptyList[Char]">m</a>)
-    <span title="X" class="keyword">case</span> _ =&gt; <a href="#217197" title="=&gt; X">x</a>
+  <span class="keyword">def</span> <a title="[X](f: (scalaz.NonEmptyList[Char]) =&gt; X,x: =&gt; X)X" id="108030">extension</a>[<a title="&gt;: Nothing &lt;: Any" id="108032">X</a>](<a title="(scalaz.NonEmptyList[Char]) =&gt; X" id="220741">f</a>: NonEmptyList[Char] =&gt; X, <a title="=&gt; X" id="220742">x</a>: =&gt; X) = <a href="#16038" title="scalaz.http.request.Method" class="keyword">this</a> <span title="X" class="keyword">match</span> {
+    <span title="X" class="keyword">case</span> ExtensionMethod(<a title="scalaz.NonEmptyList[Char]" id="220745">m</a>) =&gt; <a href="#220741" title="(v1: scalaz.NonEmptyList[Char])X" id="25302">f</a>(<a href="#220745" title="scalaz.NonEmptyList[Char]">m</a>)
+    <span title="X" class="keyword">case</span> _ =&gt; <a href="#220742" title="=&gt; X">x</a>
   }
 }
 
 /**
  * A HTTP method whose name comes from toString().
  */
-<span class="keyword">trait</span> <a title="trait CaseMethod extends java.lang.Object with scalaz.http.request.Method with ScalaObject" id="15625">CaseMethod</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15766" title="scalaz.http.request.Method">Method</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="java.lang.String" id="217207">asString</a> = <a href="#15625" title="CaseMethod.this.type" class="keyword">this</a>.<a title="()java.lang.String" id="5132">toString</a>
+<span class="keyword">trait</span> <a title="trait CaseMethod extends java.lang.Object with scalaz.http.request.Method with ScalaObject" id="15897">CaseMethod</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#16038" title="scalaz.http.request.Method">Method</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="java.lang.String" id="220752">asString</a> = <a href="#15897" title="CaseMethod.this.type" class="keyword">this</a>.<a title="()java.lang.String" id="5809">toString</a>
 }
 
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.2&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217219" title="object scalaz.http.request.OPTIONS" id="217227">OPTIONS</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220764" title="object scalaz.http.request.OPTIONS" id="220772">OPTIONS</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217235" title="object scalaz.http.request.GET" id="217243">GET</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220780" title="object scalaz.http.request.GET" id="220788">GET</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.4&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217251" title="object scalaz.http.request.HEAD" id="217259">HEAD</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220796" title="object scalaz.http.request.HEAD" id="220804">HEAD</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217267" title="object scalaz.http.request.POST" id="217275">POST</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220812" title="object scalaz.http.request.POST" id="220820">POST</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.6&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217283" title="object scalaz.http.request.PUT" id="217291">PUT</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220828" title="object scalaz.http.request.PUT" id="220836">PUT</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.7&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217299" title="object scalaz.http.request.DELETE" id="217307">DELETE</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220844" title="object scalaz.http.request.DELETE" id="220852">DELETE</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.8&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217315" title="object scalaz.http.request.TRACE" id="217323">TRACE</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220860" title="object scalaz.http.request.TRACE" id="220868">TRACE</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 /**
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.9&quot;&gt;§&lt;/a&gt;
  */
-case <span class="keyword">object</span> <a href="#217331" title="object scalaz.http.request.CONNECT" id="217339">CONNECT</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15625" title="scalaz.http.request.CaseMethod">CaseMethod</a>
+case <span class="keyword">object</span> <a href="#220876" title="object scalaz.http.request.CONNECT" id="220884">CONNECT</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15897" title="scalaz.http.request.CaseMethod">CaseMethod</a>
 
-<span class="keyword">private</span> <span class="keyword">final</span> case <span class="keyword">class</span> <a title="class ExtensionMethod extends java.lang.Object with scalaz.http.request.Method with ScalaObject with Product" id="217139">ExtensionMethod</a><span title="ScalaObject">(</span><a title="=&gt; scalaz.NonEmptyList[Char]" id="217492">m</a>: <a href="../../NonEmptyList.scala.html#11635" title="scalaz.NonEmptyList[Char]">NonEmptyList</a>[Char]) <span class="keyword">extends</span> <a href="#15766" title="scalaz.http.request.Method">Method</a> {
-  <span class="keyword">val</span> <a title="String" id="217144">asString</a> = <a href="../Util.scala.html#82787" title="(xs: scalaz.NonEmptyList[Char])List[Char]">m</a>.<span title="=&gt; String">mkString</span>
+<span class="keyword">private</span> <span class="keyword">final</span> case <span class="keyword">class</span> <a title="class ExtensionMethod extends java.lang.Object with scalaz.http.request.Method with ScalaObject with Product" id="220684">ExtensionMethod</a><span title="ScalaObject">(</span><a title="=&gt; scalaz.NonEmptyList[Char]" id="221037">m</a>: <a href="../../NonEmptyList.scala.html#12057" title="scalaz.NonEmptyList[Char]">NonEmptyList</a>[Char]) <span class="keyword">extends</span> <a href="#16038" title="scalaz.http.request.Method">Method</a> {
+  <span class="keyword">val</span> <a title="String" id="220689">asString</a> = <a href="../Util.scala.html#85496" title="(xs: scalaz.NonEmptyList[Char])List[Char]">m</a>.<span title="=&gt; String">mkString</span>
 }
 
-<span class="keyword">trait</span> <a title="trait Methods extends java.lang.Object with ScalaObject" id="15775">Methods</a> <span title="ScalaObject">{</span>
+<span class="keyword">trait</span> <a title="trait Methods extends java.lang.Object with ScalaObject" id="16047">Methods</a> <span title="ScalaObject">{</span>
   /**
    * Converts the given non-empty string representation into a request method. If it is a known request method then that
    * is used, otherwise an extension method is returned.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.request.Methods.NonEmptyListMethod : (s: scalaz.NonEmptyList[Char])scalaz.http.request.Method" id="114247">NonEmptyListMethod</a>(<a title="scalaz.NonEmptyList[Char]" id="118272">s</a>: <a href="../../NonEmptyList.scala.html#11635" title="scalaz.NonEmptyList[Char]">NonEmptyList</a>[Char]): <a href="#15766" title="scalaz.http.request.Method">Method</a> = <a href="#114250" title="implicit scalaz.http.request.Methods.StringMethod : (s: String)Option[scalaz.http.request.Method]">StringMethod</a>(<a href="../Util.scala.html#82787" title="(xs: scalaz.NonEmptyList[Char])List[Char]">s</a>.<span title="=&gt; String">mkString</span>).<span title="=&gt; scalaz.http.request.Method">get</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.request.Methods.NonEmptyListMethod : (s: scalaz.NonEmptyList[Char])scalaz.http.request.Method" id="111337">NonEmptyListMethod</a>(<a title="scalaz.NonEmptyList[Char]" id="114929">s</a>: <a href="../../NonEmptyList.scala.html#12057" title="scalaz.NonEmptyList[Char]">NonEmptyList</a>[Char]): <a href="#16038" title="scalaz.http.request.Method">Method</a> = <a href="#111340" title="implicit scalaz.http.request.Methods.StringMethod : (s: String)Option[scalaz.http.request.Method]">StringMethod</a>(<a href="../Util.scala.html#85496" title="(xs: scalaz.NonEmptyList[Char])List[Char]">s</a>.<span title="=&gt; String">mkString</span>).<span title="=&gt; scalaz.http.request.Method">get</span>
 
   /**
    * Converts the given string representation into a request method. If it is a known request method then that
    * is used, otherwise an extension method is returned.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; (List[Char]) =&gt; Option[scalaz.http.request.Method]" id="114248">ListMethod</a> : (List[Char] =&gt; Option[Method]) = <a href="#114250" title="implicit scalaz.http.request.Methods.StringMethod : (s: String)Option[scalaz.http.request.Method]">StringMethod</a> <a title="(g: (List[Char]) =&gt; String)(List[Char]) =&gt; Option[scalaz.http.request.Method]" id="26091">_</a> compose (<a href="#217471" title="List[Char]">_</a>.<span title="=&gt; String">mkString</span>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; (List[Char]) =&gt; Option[scalaz.http.request.Method]" id="111338">ListMethod</a> : (List[Char] =&gt; Option[Method]) = <a href="#111340" title="implicit scalaz.http.request.Methods.StringMethod : (s: String)Option[scalaz.http.request.Method]">StringMethod</a> <a title="(g: (List[Char]) =&gt; String)(List[Char]) =&gt; Option[scalaz.http.request.Method]" id="25307">_</a> compose (<a href="#221016" title="List[Char]">_</a>.<span title="=&gt; String">mkString</span>)
 
   /**
    * Returns a string representation of the given request method.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.request.Methods.MethodString : (m: scalaz.http.request.Method)String" id="114249">MethodString</a>(<a title="scalaz.http.request.Method" id="118265">m</a>: <a href="#15766" title="scalaz.http.request.Method">Method</a>) = <a href="#118265" title="scalaz.http.request.Method">m</a>.<a href="#107220" title="=&gt; String">asString</a>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.request.Methods.MethodString : (m: scalaz.http.request.Method)String" id="111339">MethodString</a>(<a title="scalaz.http.request.Method" id="114922">m</a>: <a href="#16038" title="scalaz.http.request.Method">Method</a>) = <a href="#114922" title="scalaz.http.request.Method">m</a>.<a href="#108025" title="=&gt; String">asString</a>
 
   /**
    * Converts the given non-empty string representation into a request method. If it is a known request method then that
    * is used, otherwise an extension method is returned.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.request.Methods.StringMethod : (s: String)Option[scalaz.http.request.Method]" id="114250">StringMethod</a>(<a title="String" id="118263">s</a>: <span title="String">String</span>): <a title="Option[scalaz.http.request.Method]" id="276">Option</a>[Method] = <span title="Option[scalaz.http.request.Method]" class="keyword">if</span>(<a href="#118263" title="String">s</a>.<a title="(x$1: Int)Boolean" id="6733">length</a> == <span title="Int(0)" class="int">0</span>) <span title="object None">None</span> <span class="keyword">else</span> <span title="(x: scalaz.http.request.Method)Some[scalaz.http.request.Method]">Some</span>(<a href="#118263" title="String">s</a>.<a title="()java.lang.String" id="6865">toLowerCase</a> <span title="scalaz.http.request.Method" class="keyword">match</span> {
-    <span title="scalaz.http.request.OPTIONS.type" class="keyword">case</span> <span title="java.lang.String(&quot;options&quot;)" class="string">&quot;options&quot;</span> =&gt; <a href="#217227" title="object scalaz.http.request.OPTIONS">OPTIONS</a>
-    <span title="scalaz.http.request.GET.type" class="keyword">case</span> <span title="java.lang.String(&quot;get&quot;)" class="string">&quot;get&quot;</span> =&gt; <a href="#217243" title="object scalaz.http.request.GET">GET</a>
-    <span title="scalaz.http.request.HEAD.type" class="keyword">case</span> <span title="java.lang.String(&quot;head&quot;)" class="string">&quot;head&quot;</span> =&gt; <a href="#217259" title="object scalaz.http.request.HEAD">HEAD</a>
-    <span title="scalaz.http.request.POST.type" class="keyword">case</span> <span title="java.lang.String(&quot;post&quot;)" class="string">&quot;post&quot;</span> =&gt; <a href="#217275" title="object scalaz.http.request.POST">POST</a>
-    <span title="scalaz.http.request.PUT.type" class="keyword">case</span> <span title="java.lang.String(&quot;put&quot;)" class="string">&quot;put&quot;</span> =&gt; <a href="#217291" title="object scalaz.http.request.PUT">PUT</a>
-    <span title="scalaz.http.request.DELETE.type" class="keyword">case</span> <span title="java.lang.String(&quot;delete&quot;)" class="string">&quot;delete&quot;</span> =&gt; <a href="#217307" title="object scalaz.http.request.DELETE">DELETE</a>
-    <span title="scalaz.http.request.TRACE.type" class="keyword">case</span> <span title="java.lang.String(&quot;trace&quot;)" class="string">&quot;trace&quot;</span> =&gt; <a href="#217323" title="object scalaz.http.request.TRACE">TRACE</a>
-    <span title="scalaz.http.request.CONNECT.type" class="keyword">case</span> <span title="java.lang.String(&quot;connect&quot;)" class="string">&quot;connect&quot;</span> =&gt; <a href="#217339" title="object scalaz.http.request.CONNECT">CONNECT</a>
-    <span title="scalaz.http.request.ExtensionMethod" class="keyword">case</span> <a title="java.lang.String" id="217488">m</a> =&gt; {
-      <span class="keyword">val</span> <a title="List[Char]" id="217489">t</a> : <a title="List[Char]" id="20825">List</a>[Char] = (<a href="#118263" title="implicit scala.Predef.augmentString : (x: String)scala.collection.immutable.StringOps" id="601">s</a> : scala.collection.immutable.<a title="scala.collection.immutable.StringOps" id="21479">StringOps</a>).<a title="=&gt; List[Char]" id="27210">toList</a>
-      <a href="#217139" title="(m: scalaz.NonEmptyList[Char])scalaz.http.request.ExtensionMethod">ExtensionMethod</a>(<a href="../../NonEmptyList.scala.html#24181" title="(h: Char,t: List[Char])scalaz.NonEmptyList[Char]">nel</a>(<a href="#217489" title="List[Char]">t</a>.<a title="=&gt; Char" id="26943">head</a>, <a href="#217489" title="List[Char]">t</a>.<a title="=&gt; List[Char]" id="27075">tail</a>))
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.request.Methods.StringMethod : (s: String)Option[scalaz.http.request.Method]" id="111340">StringMethod</a>(<a title="String" id="114920">s</a>: <span title="String">String</span>): <a title="Option[scalaz.http.request.Method]" id="1262">Option</a>[Method] = <span title="Option[scalaz.http.request.Method]" class="keyword">if</span>(<a href="#114920" title="String">s</a>.<a title="(x$1: Int)Boolean" id="7410">length</a> == <span title="Int(0)" class="int">0</span>) <span title="object None">None</span> <span class="keyword">else</span> <span title="(x: scalaz.http.request.Method)Some[scalaz.http.request.Method]">Some</span>(<a href="#114920" title="String">s</a>.<a title="()java.lang.String" id="7542">toLowerCase</a> <span title="scalaz.http.request.Method" class="keyword">match</span> {
+    <span title="scalaz.http.request.OPTIONS.type" class="keyword">case</span> <span title="java.lang.String(&quot;options&quot;)" class="string">&quot;options&quot;</span> =&gt; <a href="#220772" title="object scalaz.http.request.OPTIONS">OPTIONS</a>
+    <span title="scalaz.http.request.GET.type" class="keyword">case</span> <span title="java.lang.String(&quot;get&quot;)" class="string">&quot;get&quot;</span> =&gt; <a href="#220788" title="object scalaz.http.request.GET">GET</a>
+    <span title="scalaz.http.request.HEAD.type" class="keyword">case</span> <span title="java.lang.String(&quot;head&quot;)" class="string">&quot;head&quot;</span> =&gt; <a href="#220804" title="object scalaz.http.request.HEAD">HEAD</a>
+    <span title="scalaz.http.request.POST.type" class="keyword">case</span> <span title="java.lang.String(&quot;post&quot;)" class="string">&quot;post&quot;</span> =&gt; <a href="#220820" title="object scalaz.http.request.POST">POST</a>
+    <span title="scalaz.http.request.PUT.type" class="keyword">case</span> <span title="java.lang.String(&quot;put&quot;)" class="string">&quot;put&quot;</span> =&gt; <a href="#220836" title="object scalaz.http.request.PUT">PUT</a>
+    <span title="scalaz.http.request.DELETE.type" class="keyword">case</span> <span title="java.lang.String(&quot;delete&quot;)" class="string">&quot;delete&quot;</span> =&gt; <a href="#220852" title="object scalaz.http.request.DELETE">DELETE</a>
+    <span title="scalaz.http.request.TRACE.type" class="keyword">case</span> <span title="java.lang.String(&quot;trace&quot;)" class="string">&quot;trace&quot;</span> =&gt; <a href="#220868" title="object scalaz.http.request.TRACE">TRACE</a>
+    <span title="scalaz.http.request.CONNECT.type" class="keyword">case</span> <span title="java.lang.String(&quot;connect&quot;)" class="string">&quot;connect&quot;</span> =&gt; <a href="#220884" title="object scalaz.http.request.CONNECT">CONNECT</a>
+    <span title="scalaz.http.request.ExtensionMethod" class="keyword">case</span> <a title="java.lang.String" id="221033">m</a> =&gt; {
+      <span class="keyword">val</span> <a title="List[Char]" id="221034">t</a> : <a title="List[Char]" id="21144">List</a>[Char] = (<a href="#114920" title="implicit scala.Predef.augmentString : (x: String)scala.collection.immutable.StringOps" id="1488">s</a> : scala.collection.immutable.<a title="scala.collection.immutable.StringOps" id="21798">StringOps</a>).<a title="=&gt; List[Char]" id="28067">toList</a>
+      <a href="#220684" title="(m: scalaz.NonEmptyList[Char])scalaz.http.request.ExtensionMethod">ExtensionMethod</a>(<a href="../../NonEmptyList.scala.html#24515" title="(h: Char,t: List[Char])scalaz.NonEmptyList[Char]">nel</a>(<a href="#221034" title="List[Char]">t</a>.<a title="=&gt; Char" id="27781">head</a>, <a href="#221034" title="List[Char]">t</a>.<a title="=&gt; List[Char]" id="27913">tail</a>))
     }
   })
 }
@@ -139,16 +139,16 @@ case <span class="keyword">object</span> <a href="#217331" title="object scalaz.
  * HTTP request method.
  * &lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9&quot;&gt;RFC 2616 Section 9 Method Definitions&lt;/a&gt;.
  */
-<span class="keyword">object</span> <a title="object scalaz.http.request.Method" id="15767">Method</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#15775" title="scalaz.http.request.Methods">Methods</a> {
+<span class="keyword">object</span> <a title="object scalaz.http.request.Method" id="16039">Method</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#16047" title="scalaz.http.request.Methods">Methods</a> {
   /**
    * A list of known methods.
    */
-  <span class="keyword">val</span> <a title="List[Product with scalaz.http.request.CaseMethod]" id="118259">methods</a> = <a title="(xs: Product with scalaz.http.request.CaseMethod*)List[Product with scalaz.http.request.CaseMethod]" id="20826">List</a>(<a href="#217227" title="object scalaz.http.request.OPTIONS">OPTIONS</a>,<a href="#217243" title="object scalaz.http.request.GET">GET</a>,<a href="#217259" title="object scalaz.http.request.HEAD">HEAD</a>,<a href="#217275" title="object scalaz.http.request.POST">POST</a>,<a href="#217291" title="object scalaz.http.request.PUT">PUT</a>,<a href="#217307" title="object scalaz.http.request.DELETE">DELETE</a>,<a href="#217323" title="object scalaz.http.request.TRACE">TRACE</a>,<a href="#217339" title="object scalaz.http.request.CONNECT">CONNECT</a>)
+  <span class="keyword">val</span> <a title="List[Product with scalaz.http.request.CaseMethod]" id="114916">methods</a> = <a title="(xs: Product with scalaz.http.request.CaseMethod*)List[Product with scalaz.http.request.CaseMethod]" id="21145">List</a>(<a href="#220772" title="object scalaz.http.request.OPTIONS">OPTIONS</a>,<a href="#220788" title="object scalaz.http.request.GET">GET</a>,<a href="#220804" title="object scalaz.http.request.HEAD">HEAD</a>,<a href="#220820" title="object scalaz.http.request.POST">POST</a>,<a href="#220836" title="object scalaz.http.request.PUT">PUT</a>,<a href="#220852" title="object scalaz.http.request.DELETE">DELETE</a>,<a href="#220868" title="object scalaz.http.request.TRACE">TRACE</a>,<a href="#220884" title="object scalaz.http.request.CONNECT">CONNECT</a>)
 
   /**
    * An extractor that always matches with a non-empty string representation of this request method.
    */
-  <span class="keyword">def</span> <a title="(m: scalaz.http.request.Method)Some[scalaz.NonEmptyList[Char]]" id="118261">unapply</a>(<a title="scalaz.http.request.Method" id="217525">m</a>: <a href="#15766" title="scalaz.http.request.Method">Method</a>) = <span title="(x: scalaz.NonEmptyList[Char])Some[scalaz.NonEmptyList[Char]]">Some</span>(<a href="#217525" title="scalaz.http.request.Method">m</a>.<a href="#107221" title="=&gt; scalaz.NonEmptyList[Char]">asNonEmptyList</a>)
+  <span class="keyword">def</span> <a title="(m: scalaz.http.request.Method)Some[scalaz.NonEmptyList[Char]]" id="114918">unapply</a>(<a title="scalaz.http.request.Method" id="221070">m</a>: <a href="#16038" title="scalaz.http.request.Method">Method</a>) = <span title="(x: scalaz.NonEmptyList[Char])Some[scalaz.NonEmptyList[Char]]">Some</span>(<a href="#221070" title="scalaz.http.request.Method">m</a>.<a href="#108026" title="=&gt; scalaz.NonEmptyList[Char]">asNonEmptyList</a>)
 }
 
         </pre>

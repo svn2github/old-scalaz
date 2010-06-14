@@ -13,25 +13,25 @@
 <span class="keyword">package</span> scalaz
 <span class="keyword">package</span> geo
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Azimuth extends java.lang.Object" id="15180">Azimuth</a> <a title="java.lang.Object" id="2093">{</a>
-  <span class="keyword">val</span> <a title="=&gt; Double" id="196805">value</a>: <span title="Double">Double</span>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Azimuth extends java.lang.Object" id="15452">Azimuth</a> <a title="java.lang.Object" id="2746">{</a>
+  <span class="keyword">val</span> <a title="=&gt; Double" id="197924">value</a>: <span title="Double">Double</span>
 }
 
-<span class="keyword">trait</span> <a title="trait Azimuths extends java.lang.Object with ScalaObject" id="15186">Azimuths</a> <span title="ScalaObject">{</span>
-  <span class="keyword">def</span> <a title="(d: Double)java.lang.Object with scalaz.geo.Azimuth" id="46053">azimuth</a>(<a title="Double" id="196818">d</a>: <span title="Double">Double</span>) = <a href="#196821" title="java.lang.Object with scalaz.geo.Azimuth{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.Azimuth" id="196821">Azimuth</a> {
-    <span class="keyword">val</span> <a title="Double" id="196823">value</a> = <a href="#196818" title="(x$1: Int)Double" id="5018">d</a> % <span title="Int(360)" class="int">360</span>
+<span class="keyword">trait</span> <a title="trait Azimuths extends java.lang.Object with ScalaObject" id="15458">Azimuths</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(d: Double)java.lang.Object with scalaz.geo.Azimuth" id="44163">azimuth</a>(<a title="Double" id="197937">d</a>: <span title="Double">Double</span>) = <a href="#197940" title="java.lang.Object with scalaz.geo.Azimuth{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.Azimuth" id="197940">Azimuth</a> {
+    <span class="keyword">val</span> <a title="Double" id="197942">value</a> = <a href="#197937" title="(x$1: Int)Double" id="5695">d</a> % <span title="Int(360)" class="int">360</span>
   }
 }
 
-<span class="keyword">object</span> <a title="object scalaz.geo.Azimuth" id="15181">Azimuth</a> <span title="ScalaObject">{</span>
+<span class="keyword">object</span> <a title="object scalaz.geo.Azimuth" id="15453">Azimuth</a> <span title="ScalaObject">{</span>
   <span class="keyword">import</span> Predef.{implicitly =&gt; i}
-  <span class="keyword">import</span> <a href="../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+  <span class="keyword">import</span> <a href="../Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Show[scalaz.geo.Azimuth]" id="317821">AzimuthShow</a>: <a href="../Show.scala.html#12784" title="scalaz.Show[scalaz.geo.Azimuth]">Show</a>[Azimuth] = <a href="../Show.scala.html#24229" title="(f: (scalaz.geo.Azimuth) =&gt; String)scalaz.Show[scalaz.geo.Azimuth]">shows</a>(<a href="#360550" title="scalaz.geo.Azimuth">_</a>.<a href="../Identity.scala.html#24056" title="(x: Double)scalaz.Identity[Double]">value</a>.<a href="../Identity.scala.html#27766" title="(x$1: Any)java.lang.String" id="5154">shows</a> + <span title="java.lang.String(&quot;°&quot;)" class="string">&quot;°&quot;</span>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Show[scalaz.geo.Azimuth]" id="330651">AzimuthShow</a>: <a href="../Show.scala.html#13035" title="scalaz.Show[scalaz.geo.Azimuth]">Show</a>[Azimuth] = <a href="../Show.scala.html#24601" title="(f: (scalaz.geo.Azimuth) =&gt; String)scalaz.Show[scalaz.geo.Azimuth]">shows</a>(<a href="#376737" title="scalaz.geo.Azimuth">_</a>.<a href="../Identity.scala.html#24390" title="(x: Double)scalaz.Identity[Double]">value</a>.<a href="../Identity.scala.html#28593" title="(x$1: Any)java.lang.String" id="5831">shows</a> + <span title="java.lang.String(&quot;°&quot;)" class="string">&quot;°&quot;</span>)
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Equal[scalaz.geo.Azimuth]" id="317822">AzimuthEqual</a>: <a href="../Equal.scala.html#9781" title="scalaz.Equal[scalaz.geo.Azimuth]">Equal</a>[Azimuth] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26108" title="(f: (scalaz.geo.Azimuth) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Equal])scalaz.Equal[scalaz.geo.Azimuth]">[</a><a href="../Equal.scala.html#9781" title="scalaz.Equal[Double]">Equal</a>[Double]] <a href="../Cofunctor.scala.html#46377" title="=&gt; scalaz.Cofunctor[scalaz.Equal]">∙</a> (<a href="#360737" title="scalaz.geo.Azimuth">_</a>.<a href="#196805" title="=&gt; Double">value</a>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Equal[scalaz.geo.Azimuth]" id="330652">AzimuthEqual</a>: <a href="../Equal.scala.html#10356" title="scalaz.Equal[scalaz.geo.Azimuth]">Equal</a>[Azimuth] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26946" title="(f: (scalaz.geo.Azimuth) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Equal])scalaz.Equal[scalaz.geo.Azimuth]">[</a><a href="../Equal.scala.html#10356" title="scalaz.Equal[Double]">Equal</a>[Double]] <a href="../Cofunctor.scala.html#44491" title="=&gt; scalaz.Cofunctor[scalaz.Equal]">∙</a> (<a href="#376926" title="scalaz.geo.Azimuth">_</a>.<a href="#197924" title="=&gt; Double">value</a>)
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Order[scalaz.geo.Azimuth]" id="317823">AzimuthOrder</a>: <a href="../Order.scala.html#11806" title="scalaz.Order[scalaz.geo.Azimuth]">Order</a>[Azimuth] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26108" title="(f: (scalaz.geo.Azimuth) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Order])scalaz.Order[scalaz.geo.Azimuth]">[</a><a href="../Order.scala.html#11806" title="scalaz.Order[Double]">Order</a>[Double]] <a href="../Cofunctor.scala.html#46378" title="=&gt; scalaz.Cofunctor[scalaz.Order]">∙</a> (<a href="#360836" title="scalaz.geo.Azimuth">_</a>.<a href="#196805" title="=&gt; Double">value</a>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Order[scalaz.geo.Azimuth]" id="330653">AzimuthOrder</a>: <a href="../Order.scala.html#12231" title="scalaz.Order[scalaz.geo.Azimuth]">Order</a>[Azimuth] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26946" title="(f: (scalaz.geo.Azimuth) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Order])scalaz.Order[scalaz.geo.Azimuth]">[</a><a href="../Order.scala.html#12231" title="scalaz.Order[Double]">Order</a>[Double]] <a href="../Cofunctor.scala.html#44492" title="=&gt; scalaz.Cofunctor[scalaz.Order]">∙</a> (<a href="#377025" title="scalaz.geo.Azimuth">_</a>.<a href="#197924" title="=&gt; Double">value</a>)
 
 }
         </pre>

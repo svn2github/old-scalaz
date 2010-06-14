@@ -13,13 +13,13 @@
 <span class="keyword">package</span> scalaz
 <span class="keyword">package</span> geo
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait GeoIdentity[A] extends java.lang.Object with scalaz.PimpedType[A] with ScalaObject" id="15381">GeoIdentity</a>[<a title="&gt;: Nothing &lt;: Any" id="17247">A</a>] <span title="ScalaObject" class="keyword">extends</span> <a href="../PimpedType.scala.html#11890" title="scalaz.PimpedType[A]">PimpedType</a>[A] {
-  <span class="keyword">def</span> <a title="(implicit r: scalaz.geo.Radians[A])Double" id="196386">toRadians</a>(<span class="keyword">implicit</span> <a title="scalaz.geo.Radians[A]" id="297605">r</a>: <a href="Radians.scala.html#15492" title="scalaz.geo.Radians[A]">Radians</a>[A]): <a title="Double" id="3715">Double</a> = <a href="#297605" title="scalaz.geo.Radians[A]">r</a>.<a href="Radians.scala.html#260561" title="(v1: A)Double" id="26086">toRadians</a>(<a href="../PimpedType.scala.html#24501" title="=&gt; A">value</a>)
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait GeoIdentity[A] extends java.lang.Object with scalaz.PimpedType[A] with ScalaObject" id="15653">GeoIdentity</a>[<a title="&gt;: Nothing &lt;: Any" id="17567">A</a>] <span title="ScalaObject" class="keyword">extends</span> <a href="../PimpedType.scala.html#12315" title="scalaz.PimpedType[A]">PimpedType</a>[A] {
+  <span class="keyword">def</span> <a title="(implicit r: scalaz.geo.Radians[A])Double" id="197503">toRadians</a>(<span class="keyword">implicit</span> <a title="scalaz.geo.Radians[A]" id="309301">r</a>: <a href="Radians.scala.html#15764" title="scalaz.geo.Radians[A]">Radians</a>[A]): <a title="Double" id="4392">Double</a> = <a href="#309301" title="scalaz.geo.Radians[A]">r</a>.<a href="Radians.scala.html#268438" title="(v1: A)Double" id="25302">toRadians</a>(<a href="../PimpedType.scala.html#25335" title="=&gt; A">value</a>)
 }
 
-<span class="keyword">trait</span> <a title="trait GeoIdentitys extends java.lang.Object with ScalaObject" id="15387">GeoIdentitys</a> <span title="ScalaObject">{</span>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](x: A)java.lang.Object with scalaz.geo.GeoIdentity[A]" id="46106">GeoIdentityTo</a>[<a title="&gt;: Nothing &lt;: Any" id="46108">A</a>](<a title="A" id="196381">x</a>: <a href="#46108" title="A">A</a>) = <a href="#196384" title="java.lang.Object with scalaz.geo.GeoIdentity[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.GeoIdentity[A]" id="196384">GeoIdentity</a>[A] {
-    <span class="keyword">val</span> <a title="A" id="196388">value</a> = <a href="#196381" title="A">x</a>
+<span class="keyword">trait</span> <a title="trait GeoIdentitys extends java.lang.Object with ScalaObject" id="15659">GeoIdentitys</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](x: A)java.lang.Object with scalaz.geo.GeoIdentity[A]" id="44216">GeoIdentityTo</a>[<a title="&gt;: Nothing &lt;: Any" id="44218">A</a>](<a title="A" id="197498">x</a>: <a href="#44218" title="A">A</a>) = <a href="#197501" title="java.lang.Object with scalaz.geo.GeoIdentity[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.GeoIdentity[A]" id="197501">GeoIdentity</a>[A] {
+    <span class="keyword">val</span> <a title="A" id="197505">value</a> = <a href="#197498" title="A">x</a>
   }
 }
         </pre>

@@ -14,16 +14,16 @@
 
 <span class="keyword">import</span> java.util.Enumeration
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait EnumerationW[A] extends java.lang.Object with scalaz.PimpedType[java.util.Enumeration[A]] with ScalaObject" id="9685">EnumerationW</a>[<a title="&gt;: Nothing &lt;: Any" id="17039">A</a>] <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#11890" title="scalaz.PimpedType[java.util.Enumeration[A]]">PimpedType</a>[Enumeration[A]] {
-  <span class="keyword">def</span> <a title="=&gt; &lt;refinement&gt; extends java.lang.Object with Iterator[A]" id="27956">elements</a> = <a href="#117704" title="java.lang.Object with Iterator[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with Iterator[A]" id="117704">Iterator</a>[A] {
-    <span class="keyword">def</span> <a title="=&gt; Boolean" id="117706">hasNext</a> = <a href="PimpedType.scala.html#24501" title="=&gt; java.util.Enumeration[A]">value</a>.<a title="()Boolean" id="27953">hasMoreElements</a>
-    <span class="keyword">def</span> <a title="()A" id="117707">next</a> = <a href="PimpedType.scala.html#24501" title="=&gt; java.util.Enumeration[A]">value</a>.<a title="()A" id="27954">nextElement</a>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait EnumerationW[A] extends java.lang.Object with scalaz.PimpedType[java.util.Enumeration[A]] with ScalaObject" id="10257">EnumerationW</a>[<a title="&gt;: Nothing &lt;: Any" id="17334">A</a>] <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#12315" title="scalaz.PimpedType[java.util.Enumeration[A]]">PimpedType</a>[Enumeration[A]] {
+  <span class="keyword">def</span> <a title="=&gt; &lt;refinement&gt; extends java.lang.Object with Iterator[A]" id="28757">elements</a> = <a href="#114314" title="java.lang.Object with Iterator[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with Iterator[A]" id="114314">Iterator</a>[A] {
+    <span class="keyword">def</span> <a title="=&gt; Boolean" id="114316">hasNext</a> = <a href="PimpedType.scala.html#25335" title="=&gt; java.util.Enumeration[A]">value</a>.<a title="()Boolean" id="28754">hasMoreElements</a>
+    <span class="keyword">def</span> <a title="()A" id="114317">next</a> = <a href="PimpedType.scala.html#25335" title="=&gt; java.util.Enumeration[A]">value</a>.<a title="()A" id="28755">nextElement</a>
   }
 }
 
-<span class="keyword">trait</span> <a title="trait Enumerations extends java.lang.Object with ScalaObject" id="9679">Enumerations</a> <span title="ScalaObject">{</span>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](v: java.util.Enumeration[A])scalaz.EnumerationW[A]" id="23981">EnumerationTo</a>[<a title="&gt;: Nothing &lt;: Any" id="23983">A</a>](<a title="java.util.Enumeration[A]" id="27950">v</a>: <a title="java.util.Enumeration[A]" id="5917">Enumeration</a>[A]): <a href="#9685" title="scalaz.EnumerationW[A]">EnumerationW</a>[A] = <a href="#217542" title="java.lang.Object with scalaz.EnumerationW[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.EnumerationW[A]" id="217542">EnumerationW</a>[A] {
-    <span class="keyword">val</span> <a title="java.util.Enumeration[A]" id="217546">value</a> = <a href="#27950" title="java.util.Enumeration[A]">v</a>
+<span class="keyword">trait</span> <a title="trait Enumerations extends java.lang.Object with ScalaObject" id="10251">Enumerations</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](v: java.util.Enumeration[A])scalaz.EnumerationW[A]" id="24315">EnumerationTo</a>[<a title="&gt;: Nothing &lt;: Any" id="24317">A</a>](<a title="java.util.Enumeration[A]" id="28751">v</a>: <a title="java.util.Enumeration[A]" id="6594">Enumeration</a>[A]): <a href="#10257" title="scalaz.EnumerationW[A]">EnumerationW</a>[A] = <a href="#221087" title="java.lang.Object with scalaz.EnumerationW[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.EnumerationW[A]" id="221087">EnumerationW</a>[A] {
+    <span class="keyword">val</span> <a title="java.util.Enumeration[A]" id="221091">value</a> = <a href="#28751" title="java.util.Enumeration[A]">v</a>
   }
 }
 

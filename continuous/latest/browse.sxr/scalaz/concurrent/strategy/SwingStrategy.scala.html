@@ -18,31 +18,31 @@
 <span class="keyword">import</span> SwingUtilities.invokeLater
 <span class="keyword">import</span> java.util.concurrent.{Callable, FutureTask}
 
-<span class="keyword">object</span> <a title="object scalaz.concurrent.strategy.SwingStrategy" id="13547">SwingStrategy</a> <a title="ScalaObject" id="543">{</a>
+<span class="keyword">object</span> <a title="object scalaz.concurrent.strategy.SwingStrategy" id="13789">SwingStrategy</a> <a title="ScalaObject" id="1445">{</a>
 
   /**
    * A strategy that evaluates its arguments using the pool of Swing worker threads.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.concurrent.Strategy[A]" id="20778">workerStrategy</a>[<a title="&gt;: Nothing &lt;: Any" id="20780">A</a>]: <a href="../Strategy.scala.html#13466" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#22288" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="22288">Strategy</a>[A] {
-    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="22292">apply</a>(<a title="() =&gt; A" id="22293">a</a>: () =&gt; A) = {
-      <span class="keyword">val</span> <a title="javax.swing.SwingWorker[A,Unit]" id="22302">worker</a> = <a href="#22303" title="javax.swing.SwingWorker[A,Unit]" class="keyword">new</a> <a title="anonymous class $anon extends javax.swing.SwingWorker[A,Unit]" id="22303">SwingWorker</a>[A, Unit] {
-        <span class="keyword">def</span> <a title="()A" id="23030">doInBackground</a> = <a href="#22293" title="()A">a</a>()
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.concurrent.Strategy[A]" id="21097">workerStrategy</a>[<a title="&gt;: Nothing &lt;: Any" id="21099">A</a>]: <a href="../Strategy.scala.html#13708" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#22610" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="22610">Strategy</a>[A] {
+    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="22614">apply</a>(<a title="() =&gt; A" id="22615">a</a>: () =&gt; A) = {
+      <span class="keyword">val</span> <a title="javax.swing.SwingWorker[A,Unit]" id="22624">worker</a> = <a href="#22625" title="javax.swing.SwingWorker[A,Unit]" class="keyword">new</a> <a title="anonymous class $anon extends javax.swing.SwingWorker[A,Unit]" id="22625">SwingWorker</a>[A, Unit] {
+        <span class="keyword">def</span> <a title="()A" id="23358">doInBackground</a> = <a href="#22615" title="()A">a</a>()
       }
-      <a href="#22302" title="javax.swing.SwingWorker[A,Unit]">worker</a>.<a title="()Unit" id="22330">execute</a>
-      () =&gt; <a href="#22302" title="javax.swing.SwingWorker[A,Unit]">worker</a>.<a title="()A" id="22335">get</a>
+      <a href="#22624" title="javax.swing.SwingWorker[A,Unit]">worker</a>.<a title="()Unit" id="22652">execute</a>
+      () =&gt; <a href="#22624" title="javax.swing.SwingWorker[A,Unit]">worker</a>.<a title="()A" id="22657">get</a>
     }
   }
 
   /**
    * A strategy that evaluates its arguments on the Swing Event Dispatching thread.
    */
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.concurrent.Strategy[A]" id="20781">eventDispatchingThreadStrategy</a>[<a title="&gt;: Nothing &lt;: Any" id="20783">A</a>]: <a href="../Strategy.scala.html#13466" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#23140" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="23140">Strategy</a>[A] {
-    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="23144">apply</a>(<a title="() =&gt; A" id="23145">a</a>: () =&gt; A) = {
-      <span class="keyword">val</span> <a title="java.util.concurrent.FutureTask[A]" id="23149">task</a> = <span title="java.util.concurrent.FutureTask[A]" class="keyword">new</span> <a title="java.util.concurrent.FutureTask[A]" id="20647">FutureTask</a>[A](<a href="#23187" title="java.lang.Object with java.util.concurrent.Callable[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with java.util.concurrent.Callable[A]" id="23187">Callable</a>[A] {
-        <span class="keyword">def</span> <a title="()A" id="23191">call</a> = <a href="#23145" title="()A">a</a>()
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A]scalaz.concurrent.Strategy[A]" id="21100">eventDispatchingThreadStrategy</a>[<a title="&gt;: Nothing &lt;: Any" id="21102">A</a>]: <a href="../Strategy.scala.html#13708" title="scalaz.concurrent.Strategy[A]">Strategy</a>[A] = <a href="#23468" title="java.lang.Object with scalaz.concurrent.Strategy[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Strategy[A]" id="23468">Strategy</a>[A] {
+    <span class="keyword">def</span> <a title="(a: () =&gt; A)() =&gt; A" id="23472">apply</a>(<a title="() =&gt; A" id="23473">a</a>: () =&gt; A) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.FutureTask[A]" id="23477">task</a> = <span title="java.util.concurrent.FutureTask[A]" class="keyword">new</span> <a title="java.util.concurrent.FutureTask[A]" id="20966">FutureTask</a>[A](<a href="#23515" title="java.lang.Object with java.util.concurrent.Callable[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with java.util.concurrent.Callable[A]" id="23515">Callable</a>[A] {
+        <span class="keyword">def</span> <a title="()A" id="23519">call</a> = <a href="#23473" title="()A">a</a>()
       })
-      <a title="(x$1: java.lang.Runnable)Unit" id="18854">invokeLater</a>(<a href="#23149" title="java.util.concurrent.FutureTask[A]">task</a>)
-      () =&gt; <a href="#23149" title="java.util.concurrent.FutureTask[A]">task</a>.<a title="()A" id="23166">get</a>
+      <a title="(x$1: java.lang.Runnable)Unit" id="19173">invokeLater</a>(<a href="#23477" title="java.util.concurrent.FutureTask[A]">task</a>)
+      () =&gt; <a href="#23477" title="java.util.concurrent.FutureTask[A]">task</a>.<a title="()A" id="23494">get</a>
     }
   }
 }

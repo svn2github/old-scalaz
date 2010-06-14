@@ -14,17 +14,17 @@
 
 <span class="keyword">import</span> scalaz._
 
-<span class="keyword">object</span> <a title="object scalaz.example.ExampleCofunctor" id="13802">ExampleCofunctor</a> <a title="ScalaObject" id="543">{</a>
-  <span class="keyword">def</span> <a title="(args: Array[String])Unit" id="23260">main</a>(<a title="Array[String]" id="135632">args</a>: <a title="Array[String]" id="1323">Array</a>[String]) = <a href="#23262" title="=&gt; Unit">run</a>
+<span class="keyword">object</span> <a title="object scalaz.example.ExampleCofunctor" id="14044">ExampleCofunctor</a> <a title="ScalaObject" id="1445">{</a>
+  <span class="keyword">def</span> <a title="(args: Array[String])Unit" id="23588">main</a>(<a title="Array[String]" id="132525">args</a>: <a title="Array[String]" id="2027">Array</a>[String]) = <a href="#23590" title="=&gt; Unit">run</a>
 
   <span class="keyword">import</span> Scalaz._
 
-  <span class="keyword">def</span> <a title="=&gt; Unit" id="23262">run</a> {
+  <span class="keyword">def</span> <a title="=&gt; Unit" id="23590">run</a> {
     // Contravariant functor map
     {
-      <span class="keyword">val</span> <a title="(Int) =&gt; Int" id="135635">plus3</a> = (<a title="(x$1: Int)Int" id="4460" class="int">3</a> + (<a href="#135638" title="Int">_</a>: <span title="Int">Int</span>))
-      <span class="keyword">val</span> <a title="(Int) =&gt; Int" id="135636">div2</a> = <a title="(x$1: Int)Int" id="4466">(</a><a href="#135645" title="Int">_</a>: <span title="Int">Int</span>) / <span title="Int(2)" class="int">2</span>
-      <a href="../Identity.scala.html#27747" title="(b: List[Int])(implicit e: scalaz.Equal[List[Int]],implicit s: scalaz.Show[List[Int]],implicit ev: &lt;:&lt;[List[Int],List[Int]])Unit">(</a><span title="(xs: Int*)List[Int]">List</span><a href="../MA.scala.html#24637" title="(f: (Int) =&gt; Int)(implicit t: scalaz.Functor[List])List[Int]">(</a><span title="Int(1)" class="int">1</span>, <span title="Int(2)" class="int">2</span>, <span title="Int(3)" class="int">3</span>, <span title="Int(4)" class="int">4</span>, <span title="Int(5)" class="int">5</span>) <a href="../Identity.scala.html#24056" title="(x: List[Int])scalaz.Identity[List[Int]]">∘</a> (<a href="../MA.scala.html#26108" title="(f: (Int) =&gt; Int)(implicit t: scalaz.Cofunctor[[B](B) =&gt; Int])(Int) =&gt; Int">plus3</a> <a href="../Cofunctor.scala.html#46374" title="scalaz.Cofunctor[[B](B) =&gt; Int]">∙</a> <a href="#135636" title="(Int) =&gt; Int">div2</a>)) <a href="../Equal.scala.html#38275" title="(implicit evidence$48: scalaz.Equal[Int])scalaz.Equal[List[Int]]" id="601">assert_≟</a> <span title="(xs: Int*)List[Int]">List</span>(<span title="Int(3)" class="int">3</span>, <span title="Int(4)" class="int">4</span>, <span title="Int(4)" class="int">4</span>, <span title="Int(5)" class="int">5</span>, <span title="Int(5)" class="int">5</span>)
+      <span class="keyword">val</span> <a title="(Int) =&gt; Int" id="132528">plus3</a> = (<a title="(x$1: Int)Int" id="5137" class="int">3</a> + (<a href="#132531" title="Int">_</a>: <span title="Int">Int</span>))
+      <span class="keyword">val</span> <a title="(Int) =&gt; Int" id="132529">div2</a> = <a title="(x$1: Int)Int" id="5143">(</a><a href="#132538" title="Int">_</a>: <span title="Int">Int</span>) / <span title="Int(2)" class="int">2</span>
+      <a href="../Identity.scala.html#28574" title="(b: List[Int])(implicit e: scalaz.Equal[List[Int]],implicit s: scalaz.Show[List[Int]],implicit ev: &lt;:&lt;[List[Int],List[Int]])Unit">(</a><span title="(xs: Int*)List[Int]">List</span><a href="../MA.scala.html#25471" title="(f: (Int) =&gt; Int)(implicit t: scalaz.Functor[List])List[Int]">(</a><span title="Int(1)" class="int">1</span>, <span title="Int(2)" class="int">2</span>, <span title="Int(3)" class="int">3</span>, <span title="Int(4)" class="int">4</span>, <span title="Int(5)" class="int">5</span>) <a href="../Identity.scala.html#24390" title="(x: List[Int])scalaz.Identity[List[Int]]" id="21948">∘</a> (<a href="../MA.scala.html#26946" title="(f: (Int) =&gt; Int)(implicit t: scalaz.Cofunctor[[B](B) =&gt; Int])(Int) =&gt; Int">plus3</a> <a href="../Cofunctor.scala.html#44488" title="scalaz.Cofunctor[[B](B) =&gt; Int]">∙</a> <a href="#132529" title="(Int) =&gt; Int">div2</a>)) <a href="../Equal.scala.html#33223" title="(implicit evidence$48: scalaz.Equal[Int])scalaz.Equal[List[Int]]" id="1488">assert_≟</a> <span title="(xs: Int*)List[Int]">List</span>(<span title="Int(3)" class="int">3</span>, <span title="Int(4)" class="int">4</span>, <span title="Int(4)" class="int">4</span>, <span title="Int(5)" class="int">5</span>, <span title="Int(5)" class="int">5</span>)
     }
   }
 }

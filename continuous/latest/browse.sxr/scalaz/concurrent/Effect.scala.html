@@ -13,22 +13,22 @@
 <span class="keyword">package</span> scalaz
 <span class="keyword">package</span> concurrent
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Effect[-A] extends java.lang.Object with ScalaObject" id="13415">Effect</a>[-<a title="&gt;: Nothing &lt;: Any" id="17267">A</a>] <span title="ScalaObject">{</span>
-  <span class="keyword">val</span> <a title="=&gt; (A) =&gt; () =&gt; Unit" id="36914">e</a>: A =&gt; () =&gt; Unit
-  <span class="keyword">val</span> <a title="=&gt; scalaz.concurrent.Strategy[Unit]" id="36915">strategy</a>: <a href="Strategy.scala.html#13466" title="scalaz.concurrent.Strategy[Unit]">Strategy</a>[Unit]
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Effect[-A] extends java.lang.Object with ScalaObject" id="13657">Effect</a>[-<a title="&gt;: Nothing &lt;: Any" id="17587">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">val</span> <a title="=&gt; (A) =&gt; () =&gt; Unit" id="31405">e</a>: A =&gt; () =&gt; Unit
+  <span class="keyword">val</span> <a title="=&gt; scalaz.concurrent.Strategy[Unit]" id="31406">strategy</a>: <a href="Strategy.scala.html#13708" title="scalaz.concurrent.Strategy[Unit]">Strategy</a>[Unit]
 
-  <span class="keyword">def</span> <a title="(a: A)() =&gt; Unit" id="36916">!</a>(<a title="A" id="36923">a</a>: <a href="#17267" title="A">A</a>) = <a href="Strategy.scala.html#22287" title="(a: () =&gt; Unit)() =&gt; Unit">strategy</a>(<a href="#36914" title="(v1: A)() =&gt; Unit">e</a>(<a href="#36923" title="A">a</a>))
+  <span class="keyword">def</span> <a title="(a: A)() =&gt; Unit" id="31407">!</a>(<a title="A" id="31416">a</a>: <a href="#17587" title="A">A</a>) = <a href="Strategy.scala.html#22609" title="(a: () =&gt; Unit)() =&gt; Unit">strategy</a>(<a href="#31405" title="(v1: A)() =&gt; Unit">e</a>(<a href="#31416" title="A">a</a>))
 }
 
-<span class="keyword">trait</span> <a title="trait Effects extends java.lang.Object with ScalaObject" id="13427">Effects</a> <span title="ScalaObject">{</span>
-  <span class="keyword">def</span> <a title="[A](c: (A) =&gt; Unit)(implicit s: scalaz.concurrent.Strategy[Unit])scalaz.concurrent.Effect[A]" id="23958">effect</a>[<a title="&gt;: Nothing &lt;: Any" id="23960">A</a>](<a title="(A) =&gt; Unit" id="36933">c</a>: A =&gt; Unit)(<span class="keyword">implicit</span> <a title="scalaz.concurrent.Strategy[Unit]" id="36934">s</a>: <a href="Strategy.scala.html#13466" title="scalaz.concurrent.Strategy[Unit]">Strategy</a>[Unit]): <a href="#13415" title="scalaz.concurrent.Effect[A]">Effect</a>[A] = <a href="#300095" title="java.lang.Object with scalaz.concurrent.Effect[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Effect[A]" id="300095">Effect</a>[A] {
-    <span class="keyword">val</span> <a title="(A) =&gt; () =&gt; Unit" id="300099">e</a> = (a: <a href="#23960" title="A">A</a>) =&gt; () =&gt; <a href="#36933" title="(v1: A)Unit">c</a>(<a href="#300104" title="A">a</a>)
-    <span class="keyword">val</span> <a title="scalaz.concurrent.Strategy[Unit]" id="300101">strategy</a> = <a href="#36934" title="scalaz.concurrent.Strategy[Unit]">s</a>
+<span class="keyword">trait</span> <a title="trait Effects extends java.lang.Object with ScalaObject" id="13669">Effects</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="[A](c: (A) =&gt; Unit)(implicit s: scalaz.concurrent.Strategy[Unit])scalaz.concurrent.Effect[A]" id="24292">effect</a>[<a title="&gt;: Nothing &lt;: Any" id="24294">A</a>](<a title="(A) =&gt; Unit" id="31426">c</a>: A =&gt; Unit)(<span class="keyword">implicit</span> <a title="scalaz.concurrent.Strategy[Unit]" id="31427">s</a>: <a href="Strategy.scala.html#13708" title="scalaz.concurrent.Strategy[Unit]">Strategy</a>[Unit]): <a href="#13657" title="scalaz.concurrent.Effect[A]">Effect</a>[A] = <a href="#311797" title="java.lang.Object with scalaz.concurrent.Effect[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.concurrent.Effect[A]" id="311797">Effect</a>[A] {
+    <span class="keyword">val</span> <a title="(A) =&gt; () =&gt; Unit" id="311801">e</a> = (a: <a href="#24294" title="A">A</a>) =&gt; () =&gt; <a href="#31426" title="(v1: A)Unit">c</a>(<a href="#311806" title="A">a</a>)
+    <span class="keyword">val</span> <a title="scalaz.concurrent.Strategy[Unit]" id="311803">strategy</a> = <a href="#31427" title="scalaz.concurrent.Strategy[Unit]">s</a>
   }
 }
 
-<span class="keyword">object</span> <a title="object scalaz.concurrent.Effect" id="13416">Effect</a> <span title="ScalaObject">{</span>
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](e: scalaz.concurrent.Effect[A])(A) =&gt; Unit" id="42441">EffectFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="42443">A</a>](<a title="scalaz.concurrent.Effect[A]" id="42444">e</a>: <a href="#13415" title="scalaz.concurrent.Effect[A]">Effect</a>[A]): A =&gt; Unit = <a href="#36916" title="(a: A)() =&gt; Unit">e</a> <span title="Unit">!</span> <a href="#300115" title="A">_</a>
+<span class="keyword">object</span> <a title="object scalaz.concurrent.Effect" id="13658">Effect</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](e: scalaz.concurrent.Effect[A])(A) =&gt; Unit" id="82298">EffectFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="82300">A</a>](<a title="scalaz.concurrent.Effect[A]" id="82301">e</a>: <a href="#13657" title="scalaz.concurrent.Effect[A]">Effect</a>[A]): A =&gt; Unit = <a href="#31407" title="(a: A)() =&gt; Unit">e</a> <span title="Unit">!</span> <a href="#311817" title="A">_</a>
 }
 
         </pre>

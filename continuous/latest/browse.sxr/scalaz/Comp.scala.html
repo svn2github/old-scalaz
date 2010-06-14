@@ -12,12 +12,12 @@
         <pre>
 <span class="keyword">package</span> scalaz
 
-<span class="keyword">trait</span> <a title="trait Comp[M[_], N[_]] extends java.lang.Object" id="9304">Comp</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="17356">M</a>[<a title="&gt;: Nothing &lt;: Any" id="138298">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17357">N</a>[<a title="&gt;: Nothing &lt;: Any" id="138299">_</a>]] <span title="java.lang.Object">{</span>
-  <span class="keyword">type</span> <a title="[A]M[N[A]]" id="138296">Apply</a>[<a title="&gt;: Nothing &lt;: Any" id="138297">A</a>] = <a href="#17356" title="M[N[A]]">M</a>[N[A]]
+<span class="keyword">trait</span> <a title="trait Comp[M[_], N[_]] extends java.lang.Object" id="9963">Comp</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="17676">M</a>[<a title="&gt;: Nothing &lt;: Any" id="135467">_</a>], <a title="[_]&gt;: Nothing &lt;: Any" id="17677">N</a>[<a title="&gt;: Nothing &lt;: Any" id="135468">_</a>]] <span title="java.lang.Object">{</span>
+  <span class="keyword">type</span> <a title="[A]M[N[A]]" id="135465">Apply</a>[<a title="&gt;: Nothing &lt;: Any" id="135466">A</a>] = <a href="#17676" title="M[N[A]]">M</a>[N[A]]
 }
 
-<span class="keyword">trait</span> <a title="trait Comps extends java.lang.Object" id="9307">Comps</a> <span title="java.lang.Object">{</span>
-  <span class="keyword">import</span> <a href="Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+<span class="keyword">trait</span> <a title="trait Comps extends java.lang.Object" id="9966">Comps</a> <span title="java.lang.Object">{</span>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
   // todo at least #2741 prevents the code below from working.
 //  implicit def CompFunctor[M[_] : Functor, N[_] : Functor] = new Functor[Comp[M, N]#Apply] {

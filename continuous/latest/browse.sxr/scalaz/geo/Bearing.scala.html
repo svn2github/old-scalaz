@@ -13,25 +13,25 @@
 <span class="keyword">package</span> scalaz
 <span class="keyword">package</span> geo
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Bearing extends java.lang.Object" id="15201">Bearing</a> <a title="java.lang.Object" id="2093">{</a>
-  <span class="keyword">val</span> <a title="=&gt; Double" id="173914">value</a>: <span title="Double">Double</span>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Bearing extends java.lang.Object" id="15473">Bearing</a> <a title="java.lang.Object" id="2746">{</a>
+  <span class="keyword">val</span> <a title="=&gt; Double" id="173392">value</a>: <span title="Double">Double</span>
 }
 
-<span class="keyword">trait</span> <a title="trait Bearings extends java.lang.Object with ScalaObject" id="15207">Bearings</a> <span title="ScalaObject">{</span>
-  <span class="keyword">def</span> <a title="(d: Double)java.lang.Object with scalaz.geo.Bearing" id="46056">bearing</a>(<a title="Double" id="173918">d</a>: <span title="Double">Double</span>) = <a href="#173921" title="java.lang.Object with scalaz.geo.Bearing{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.Bearing" id="173921">Bearing</a> {
-    <span class="keyword">val</span> <a title="Double" id="173923">value</a> = <a href="#173918" title="(x$1: Int)Double" id="5018">d</a> % <span title="Int(360)" class="int">360</span>
+<span class="keyword">trait</span> <a title="trait Bearings extends java.lang.Object with ScalaObject" id="15479">Bearings</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(d: Double)java.lang.Object with scalaz.geo.Bearing" id="44166">bearing</a>(<a title="Double" id="173396">d</a>: <span title="Double">Double</span>) = <a href="#173399" title="java.lang.Object with scalaz.geo.Bearing{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.geo.Bearing" id="173399">Bearing</a> {
+    <span class="keyword">val</span> <a title="Double" id="173401">value</a> = <a href="#173396" title="(x$1: Int)Double" id="5695">d</a> % <span title="Int(360)" class="int">360</span>
   }
 }
 
-<span class="keyword">object</span> <a title="object scalaz.geo.Bearing" id="15202">Bearing</a> <span title="ScalaObject">{</span>
+<span class="keyword">object</span> <a title="object scalaz.geo.Bearing" id="15474">Bearing</a> <span title="ScalaObject">{</span>
   <span class="keyword">import</span> Predef.{implicitly =&gt; i}
-  <span class="keyword">import</span> <a href="../Scalaz.scala.html#12368" title="object scalaz.Scalaz">Scalaz</a>._
+  <span class="keyword">import</span> <a href="../Scalaz.scala.html#12688" title="object scalaz.Scalaz">Scalaz</a>._
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Show[scalaz.geo.Bearing]" id="173943">BearingShow</a>: <a href="../Show.scala.html#12784" title="scalaz.Show[scalaz.geo.Bearing]">Show</a>[Bearing] = <a href="../Show.scala.html#24229" title="(f: (scalaz.geo.Bearing) =&gt; String)scalaz.Show[scalaz.geo.Bearing]">shows</a>(<a href="#173953" title="scalaz.geo.Bearing">_</a>.<a href="../Identity.scala.html#24056" title="(x: Double)scalaz.Identity[Double]">value</a>.<a href="../Identity.scala.html#27766" title="(x$1: Any)java.lang.String" id="5154">shows</a> + <span title="java.lang.String(&quot;°&quot;)" class="string">&quot;°&quot;</span>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Show[scalaz.geo.Bearing]" id="173421">BearingShow</a>: <a href="../Show.scala.html#13035" title="scalaz.Show[scalaz.geo.Bearing]">Show</a>[Bearing] = <a href="../Show.scala.html#24601" title="(f: (scalaz.geo.Bearing) =&gt; String)scalaz.Show[scalaz.geo.Bearing]">shows</a>(<a href="#173431" title="scalaz.geo.Bearing">_</a>.<a href="../Identity.scala.html#24390" title="(x: Double)scalaz.Identity[Double]">value</a>.<a href="../Identity.scala.html#28593" title="(x$1: Any)java.lang.String" id="5831">shows</a> + <span title="java.lang.String(&quot;°&quot;)" class="string">&quot;°&quot;</span>)
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Equal[scalaz.geo.Bearing]" id="173944">BearingEqual</a>: <a href="../Equal.scala.html#9781" title="scalaz.Equal[scalaz.geo.Bearing]">Equal</a>[Bearing] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26108" title="(f: (scalaz.geo.Bearing) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Equal])scalaz.Equal[scalaz.geo.Bearing]">[</a><a href="../Equal.scala.html#9781" title="scalaz.Equal[Double]">Equal</a>[Double]] <a href="../Cofunctor.scala.html#46377" title="=&gt; scalaz.Cofunctor[scalaz.Equal]">∙</a> (<a href="#174144" title="scalaz.geo.Bearing">_</a>.<a href="#173914" title="=&gt; Double">value</a>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Equal[scalaz.geo.Bearing]" id="173422">BearingEqual</a>: <a href="../Equal.scala.html#10356" title="scalaz.Equal[scalaz.geo.Bearing]">Equal</a>[Bearing] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26946" title="(f: (scalaz.geo.Bearing) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Equal])scalaz.Equal[scalaz.geo.Bearing]">[</a><a href="../Equal.scala.html#10356" title="scalaz.Equal[Double]">Equal</a>[Double]] <a href="../Cofunctor.scala.html#44491" title="=&gt; scalaz.Cofunctor[scalaz.Equal]">∙</a> (<a href="#173624" title="scalaz.geo.Bearing">_</a>.<a href="#173392" title="=&gt; Double">value</a>)
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Order[scalaz.geo.Bearing]" id="173945">BearingOrder</a>: <a href="../Order.scala.html#11806" title="scalaz.Order[scalaz.geo.Bearing]">Order</a>[Bearing] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26108" title="(f: (scalaz.geo.Bearing) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Order])scalaz.Order[scalaz.geo.Bearing]">[</a><a href="../Order.scala.html#11806" title="scalaz.Order[Double]">Order</a>[Double]] <a href="../Cofunctor.scala.html#46378" title="=&gt; scalaz.Cofunctor[scalaz.Order]">∙</a> (<a href="#174243" title="scalaz.geo.Bearing">_</a>.<a href="#173914" title="=&gt; Double">value</a>)
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Order[scalaz.geo.Bearing]" id="173423">BearingOrder</a>: <a href="../Order.scala.html#12231" title="scalaz.Order[scalaz.geo.Bearing]">Order</a>[Bearing] = <span title="[T](implicit e: T)T">i</span><a href="../MA.scala.html#26946" title="(f: (scalaz.geo.Bearing) =&gt; Double)(implicit t: scalaz.Cofunctor[scalaz.Order])scalaz.Order[scalaz.geo.Bearing]">[</a><a href="../Order.scala.html#12231" title="scalaz.Order[Double]">Order</a>[Double]] <a href="../Cofunctor.scala.html#44492" title="=&gt; scalaz.Cofunctor[scalaz.Order]">∙</a> (<a href="#173723" title="scalaz.geo.Bearing">_</a>.<a href="#173392" title="=&gt; Double">value</a>)
 }
         </pre>
     </body>

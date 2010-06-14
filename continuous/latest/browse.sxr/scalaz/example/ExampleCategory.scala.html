@@ -14,20 +14,20 @@
 
 <span class="keyword">import</span> scalaz._
 
-<span class="keyword">object</span> <a title="object scalaz.example.ExampleCategory" id="13790">ExampleCategory</a> <a title="ScalaObject" id="543">{</a>
-  <span class="keyword">def</span> <a title="(args: Array[String])Unit" id="23254">main</a>(<a title="Array[String]" id="37038">args</a>: <a title="Array[String]" id="1323">Array</a>[String]) = <a href="#23256" title="=&gt; Unit">run</a>
+<span class="keyword">object</span> <a title="object scalaz.example.ExampleCategory" id="14032">ExampleCategory</a> <a title="ScalaObject" id="1445">{</a>
+  <span class="keyword">def</span> <a title="(args: Array[String])Unit" id="23582">main</a>(<a title="Array[String]" id="31528">args</a>: <a title="Array[String]" id="2027">Array</a>[String]) = <a href="#23584" title="=&gt; Unit">run</a>
 
   <span class="keyword">import</span> Scalaz._
 
-  <span class="keyword">def</span> <a title="=&gt; Unit" id="23256">run</a> {
-    <span class="keyword">val</span> <a title="(Int) =&gt; java.lang.String" id="37041">f</a> = (x: <a title="Int" id="3688">Int</a>) =&gt; (<a href="#37044" title="(x$1: Int)Int" id="4464">x</a> * <span title="Int(7)" class="int">7</span>).<a title="()java.lang.String" id="5117">toString</a>
-    <span class="keyword">val</span> <a title="(String) =&gt; Int" id="37042">g</a> = (s: <a title="String" id="2065">String</a>) =&gt; <a href="#37052" title="implicit scala.Predef.augmentString : (x: String)scala.collection.immutable.StringOps">s</a>.<a title="implicit scala.Predef.augmentString : (x: String)scala.collection.immutable.StringOps" id="29360">reverse</a>.<a title="=&gt; Int" id="29254">toInt</a>
+  <span class="keyword">def</span> <a title="=&gt; Unit" id="23584">run</a> {
+    <span class="keyword">val</span> <a title="(Int) =&gt; java.lang.String" id="31531">f</a> = (x: <a title="Int" id="4365">Int</a>) =&gt; (<a href="#31534" title="(x$1: Int)Int" id="5141">x</a> * <span title="Int(7)" class="int">7</span>).<a title="()java.lang.String" id="5794">toString</a>
+    <span class="keyword">val</span> <a title="(String) =&gt; Int" id="31532">g</a> = (s: <a title="String" id="2718">String</a>) =&gt; <a href="#31542" title="implicit scala.Predef.augmentString : (x: String)scala.collection.immutable.StringOps">s</a>.<a title="implicit scala.Predef.augmentString : (x: String)scala.collection.immutable.StringOps" id="30162">reverse</a>.<a title="=&gt; Int" id="30056">toInt</a>
 
     // Right composition of the Function1 category
-    <a href="../Identity.scala.html#27747" title="(b: Int)(implicit e: scalaz.Equal[Int],implicit s: scalaz.Show[Int],implicit ev: &lt;:&lt;[Int,Int])Unit">(</a><a href="../MAB.scala.html#24512" title="(k: (java.lang.String) =&gt; Int)(implicit c: scalaz.Category[Function1])(Int) =&gt; Int">f</a> <a href="../Category.scala.html#37212" title="(v1: Int)Int">⋙</a> <a href="#37042" title="(String) =&gt; Int">g</a> <a href="../Identity.scala.html#24056" title="(x: Int)scalaz.Identity[Int]">apply</a> <span title="Int(33)" class="int">33</span>) <a href="../Equal.scala.html#38137" title="=&gt; scalaz.Equal[Int]">assert_≟</a> <span title="Int(132)" class="int">132</span>
+    <a href="../Identity.scala.html#28574" title="(b: Int)(implicit e: scalaz.Equal[Int],implicit s: scalaz.Show[Int],implicit ev: &lt;:&lt;[Int,Int])Unit">(</a><a href="../MAB.scala.html#25346" title="(k: (java.lang.String) =&gt; Int)(implicit c: scalaz.Category[Function1])(Int) =&gt; Int">f</a> <a href="../Category.scala.html#31703" title="(v1: Int)Int">⋙</a> <a href="#31532" title="(String) =&gt; Int">g</a> <a href="../Identity.scala.html#24390" title="(x: Int)scalaz.Identity[Int]">apply</a> <span title="Int(33)" class="int">33</span>) <a href="../Equal.scala.html#33085" title="=&gt; scalaz.Equal[Int]">assert_≟</a> <span title="Int(132)" class="int">132</span>
 
     // Left composition of the Function1 category
-    <a href="../Identity.scala.html#27747" title="(b: Int)(implicit e: scalaz.Equal[Int],implicit s: scalaz.Show[Int],implicit ev: &lt;:&lt;[Int,Int])Unit">(</a><a href="../MAB.scala.html#24518" title="(k: (Int) =&gt; String)(implicit c: scalaz.Category[Function1])(Int) =&gt; Int">g</a> <a href="../Category.scala.html#37212" title="(v1: Int)Int">⋘</a> <a href="#37041" title="(Int) =&gt; java.lang.String">f</a> <a href="../Identity.scala.html#24056" title="(x: Int)scalaz.Identity[Int]">apply</a> <span title="Int(33)" class="int">33</span>) <a href="../Equal.scala.html#38137" title="=&gt; scalaz.Equal[Int]">assert_≟</a> <span title="Int(132)" class="int">132</span>
+    <a href="../Identity.scala.html#28574" title="(b: Int)(implicit e: scalaz.Equal[Int],implicit s: scalaz.Show[Int],implicit ev: &lt;:&lt;[Int,Int])Unit">(</a><a href="../MAB.scala.html#25352" title="(k: (Int) =&gt; String)(implicit c: scalaz.Category[Function1])(Int) =&gt; Int">g</a> <a href="../Category.scala.html#31703" title="(v1: Int)Int">⋘</a> <a href="#31531" title="(Int) =&gt; java.lang.String">f</a> <a href="../Identity.scala.html#24390" title="(x: Int)scalaz.Identity[Int]">apply</a> <span title="Int(33)" class="int">33</span>) <a href="../Equal.scala.html#33085" title="=&gt; scalaz.Equal[Int]">assert_≟</a> <span title="Int(132)" class="int">132</span>
   }
 }
         </pre>

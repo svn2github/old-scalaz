@@ -13,66 +13,66 @@
 <span class="keyword">package</span> scalaz
 
 
-<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Digit extends java.lang.Object with ScalaObject" id="9382">Digit</a> <span title="ScalaObject">{</span>
-  <span class="keyword">val</span> <a title="=&gt; Int" id="27979">toInt</a>: <span title="Int">Int</span>
-  <span class="keyword">def</span> <a title="=&gt; Long" id="27980">toLong</a> : <span title="Long">Long</span> = <a href="#27979" title="=&gt; Int">toInt</a>.<a title="=&gt; Long" id="4344">toLong</a>
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait Digit extends java.lang.Object with ScalaObject" id="10041">Digit</a> <span title="ScalaObject">{</span>
+  <span class="keyword">val</span> <a title="=&gt; Int" id="28779">toInt</a>: <span title="Int">Int</span>
+  <span class="keyword">def</span> <a title="=&gt; Long" id="28780">toLong</a> : <span title="Long">Long</span> = <a href="#28779" title="=&gt; Int">toInt</a>.<a title="=&gt; Long" id="5021">toLong</a>
 
-  <span class="keyword">def</span> <a title="=&gt; Char" id="27981">toChar</a> : <a title="Char" id="3681">Char</a> = (<a href="#27980" title="(x$1: Int)Long" id="4668">toLong</a> + <span title="Int(48)" class="int">48</span>).<a title="=&gt; Char" id="4550">toChar</a>
+  <span class="keyword">def</span> <a title="=&gt; Char" id="28781">toChar</a> : <a title="Char" id="4358">Char</a> = (<a href="#28780" title="(x$1: Int)Long" id="5345">toLong</a> + <span title="Int(48)" class="int">48</span>).<a title="=&gt; Char" id="5227">toChar</a>
 
-  <span class="keyword">override</span> <span class="keyword">def</span> <a title="(o: Any)Boolean" id="27982">equals</a>(<a title="Any" id="59380">o</a>: <a title="Any" id="32">Any</a>): <a title="Boolean" id="3132">Boolean</a> = <a href="#59380" title="(x$1: Any)Boolean" id="5112">o</a> <span title="(x$1: Boolean)Boolean">!=</span> <span title="Null(null)" class="keyword">null</span> <span title="(x$1: Boolean)Boolean">&amp;&amp;</span> <a href="#59380" title="Any">o</a>.<a title="[T0]Boolean" id="5119">isInstanceOf</a><span title="Boolean">[</span><a href="#9382" title="scalaz.Digit">Digit</a>] &amp;&amp; <a href="#59380" title="Any">o</a>.<a title="[T0]T0" id="5122">asInstanceOf</a><span title="scalaz.Digit">[</span><a href="#9382" title="scalaz.Digit">Digit</a>].<a href="#27979" title="(x$1: Int)Boolean" id="4448">toInt</a> == <a href="#27979" title="=&gt; Int">toInt</a>
+  <span class="keyword">override</span> <span class="keyword">def</span> <a title="(o: Any)Boolean" id="28782">equals</a>(<a title="Any" id="58450">o</a>: <a title="Any" id="34">Any</a>): <a title="Boolean" id="3785">Boolean</a> = <a href="#58450" title="(x$1: Any)Boolean" id="5789">o</a> <span title="(x$1: Boolean)Boolean">!=</span> <span title="Null(null)" class="keyword">null</span> <span title="(x$1: Boolean)Boolean">&amp;&amp;</span> <a href="#58450" title="Any">o</a>.<a title="[T0]Boolean" id="5796">isInstanceOf</a><span title="Boolean">[</span><a href="#10041" title="scalaz.Digit">Digit</a>] &amp;&amp; <a href="#58450" title="Any">o</a>.<a title="[T0]T0" id="5799">asInstanceOf</a><span title="scalaz.Digit">[</span><a href="#10041" title="scalaz.Digit">Digit</a>].<a href="#28779" title="(x$1: Int)Boolean" id="5125">toInt</a> == <a href="#28779" title="=&gt; Int">toInt</a>
 
-  <span class="keyword">override</span> <span class="keyword">def</span> <a title="()Int" id="27983">hashCode</a>: <span title="Int">Int</span> = <a href="#27979" title="=&gt; Int">toInt</a>.<a title="()Int" id="5116">hashCode</a>
+  <span class="keyword">override</span> <span class="keyword">def</span> <a title="()Int" id="28783">hashCode</a>: <span title="Int">Int</span> = <a href="#28779" title="=&gt; Int">toInt</a>.<a title="()Int" id="5793">hashCode</a>
 
-  <span class="keyword">override</span> <span class="keyword">def</span> <a title="()String" id="27984">toString</a>: <a title="String" id="2065">String</a> = <a href="#27979" title="=&gt; Int">toInt</a>.<span title="()java.lang.String">toString</span>
+  <span class="keyword">override</span> <span class="keyword">def</span> <a title="()String" id="28784">toString</a>: <a title="String" id="2718">String</a> = <a href="#28779" title="=&gt; Int">toInt</a>.<span title="()java.lang.String">toString</span>
 }
-case <span class="keyword">object</span> <a href="#377389" title="object scalaz._0" id="377397">_0</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="99887">toInt</a> = <span title="Int(0)" class="int">0</span>
+case <span class="keyword">object</span> <a href="#394251" title="object scalaz._0" id="394259">_0</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="99747">toInt</a> = <span title="Int(0)" class="int">0</span>
 }
-case <span class="keyword">object</span> <a href="#377403" title="object scalaz._1" id="377411">_1</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="59367">toInt</a> = <span title="Int(1)" class="int">1</span>
+case <span class="keyword">object</span> <a href="#394265" title="object scalaz._1" id="394273">_1</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="58437">toInt</a> = <span title="Int(1)" class="int">1</span>
 }
-case <span class="keyword">object</span> <a href="#377417" title="object scalaz._2" id="377425">_2</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="59370">toInt</a> = <span title="Int(2)" class="int">2</span>
+case <span class="keyword">object</span> <a href="#394279" title="object scalaz._2" id="394287">_2</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="58440">toInt</a> = <span title="Int(2)" class="int">2</span>
 }
-case <span class="keyword">object</span> <a href="#377431" title="object scalaz._3" id="377439">_3</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="59373">toInt</a> = <span title="Int(3)" class="int">3</span>
+case <span class="keyword">object</span> <a href="#394293" title="object scalaz._3" id="394301">_3</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="58443">toInt</a> = <span title="Int(3)" class="int">3</span>
 }
-case <span class="keyword">object</span> <a href="#377448" title="object scalaz._4" id="377456">_4</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="377441">toInt</a> = <span title="Int(4)" class="int">4</span>
+case <span class="keyword">object</span> <a href="#394310" title="object scalaz._4" id="394318">_4</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="394303">toInt</a> = <span title="Int(4)" class="int">4</span>
 }
-case <span class="keyword">object</span> <a href="#377465" title="object scalaz._5" id="377473">_5</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="377458">toInt</a> = <span title="Int(5)" class="int">5</span>
+case <span class="keyword">object</span> <a href="#394327" title="object scalaz._5" id="394335">_5</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="394320">toInt</a> = <span title="Int(5)" class="int">5</span>
 }
-case <span class="keyword">object</span> <a href="#377482" title="object scalaz._6" id="377490">_6</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="377475">toInt</a> = <span title="Int(6)" class="int">6</span>
+case <span class="keyword">object</span> <a href="#394344" title="object scalaz._6" id="394352">_6</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="394337">toInt</a> = <span title="Int(6)" class="int">6</span>
 }
-case <span class="keyword">object</span> <a href="#377499" title="object scalaz._7" id="377507">_7</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="377492">toInt</a> = <span title="Int(7)" class="int">7</span>
+case <span class="keyword">object</span> <a href="#394361" title="object scalaz._7" id="394369">_7</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="394354">toInt</a> = <span title="Int(7)" class="int">7</span>
 }
-case <span class="keyword">object</span> <a href="#377516" title="object scalaz._8" id="377524">_8</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="377509">toInt</a> = <span title="Int(8)" class="int">8</span>
+case <span class="keyword">object</span> <a href="#394378" title="object scalaz._8" id="394386">_8</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="394371">toInt</a> = <span title="Int(8)" class="int">8</span>
 }
-case <span class="keyword">object</span> <a href="#377533" title="object scalaz._9" id="377541">_9</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9382" title="scalaz.Digit">Digit</a> {
-  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="377526">toInt</a> = <span title="Int(9)" class="int">9</span>
+case <span class="keyword">object</span> <a href="#394395" title="object scalaz._9" id="394403">_9</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#10041" title="scalaz.Digit">Digit</a> {
+  <span class="keyword">override</span> <span class="keyword">val</span> <a title="Int" id="394388">toInt</a> = <span title="Int(9)" class="int">9</span>
 }
 
-<span class="keyword">trait</span> <a title="trait Digits extends java.lang.Object with ScalaObject" id="9385">Digits</a> <span title="ScalaObject">{</span>
-  <span class="keyword">val</span> <a title="List[scalaz.Digit]" id="23942">digits</a>: <a title="List[scalaz.Digit]" id="20825">List</a>[Digit] = <a title="(xs: Product with scalaz.Digit*)List[Product with scalaz.Digit]" id="20826">List</a>(<a href="#377397" title="object scalaz._0">_0</a>, <a href="#377411" title="object scalaz._1">_1</a>, <a href="#377425" title="object scalaz._2">_2</a>, <a href="#377439" title="object scalaz._3">_3</a>, <a href="#377456" title="object scalaz._4">_4</a>, <a href="#377473" title="object scalaz._5">_5</a>, <a href="#377490" title="object scalaz._6">_6</a>, <a href="#377507" title="object scalaz._7">_7</a>, <a href="#377524" title="object scalaz._8">_8</a>, <a href="#377541" title="object scalaz._9">_9</a>)
+<span class="keyword">trait</span> <a title="trait Digits extends java.lang.Object with ScalaObject" id="10044">Digits</a> <span title="ScalaObject">{</span>
+  <span class="keyword">val</span> <a title="List[scalaz.Digit]" id="24276">digits</a>: <a title="List[scalaz.Digit]" id="21144">List</a>[Digit] = <a title="(xs: Product with scalaz.Digit*)List[Product with scalaz.Digit]" id="21145">List</a>(<a href="#394259" title="object scalaz._0">_0</a>, <a href="#394273" title="object scalaz._1">_1</a>, <a href="#394287" title="object scalaz._2">_2</a>, <a href="#394301" title="object scalaz._3">_3</a>, <a href="#394318" title="object scalaz._4">_4</a>, <a href="#394335" title="object scalaz._5">_5</a>, <a href="#394352" title="object scalaz._6">_6</a>, <a href="#394369" title="object scalaz._7">_7</a>, <a href="#394386" title="object scalaz._8">_8</a>, <a href="#394403" title="object scalaz._9">_9</a>)
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Digits.DigitLong : (d: scalaz.Digit)Long" id="23944">DigitLong</a>(<a title="scalaz.Digit" id="27976">d</a>: <a href="#9382" title="scalaz.Digit">Digit</a>): <span title="Long">Long</span> = <a href="#27976" title="scalaz.Digit">d</a>.<a href="#27980" title="=&gt; Long">toLong</a>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Digits.DigitLong : (d: scalaz.Digit)Long" id="24278">DigitLong</a>(<a title="scalaz.Digit" id="28776">d</a>: <a href="#10041" title="scalaz.Digit">Digit</a>): <span title="Long">Long</span> = <a href="#28776" title="scalaz.Digit">d</a>.<a href="#28780" title="=&gt; Long">toLong</a>
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Digits.LongDigit : (n: Long)scalaz.Digit" id="23945">LongDigit</a>(<a title="Long" id="27974">n</a>: <span title="Long">Long</span>): <a href="#9382" title="scalaz.Digit">Digit</a> = <a href="#27974" title="Long">n</a> <span title="scalaz.Digit" class="keyword">match</span> {
-    <span title="scalaz._0.type" class="keyword">case</span> <span title="Long(0L)" class="long">0L</span> =&gt; <a href="#377397" title="object scalaz._0">_0</a>
-    <span title="scalaz._1.type" class="keyword">case</span> <span title="Long(1L)" class="long">1L</span> =&gt; <a href="#377411" title="object scalaz._1">_1</a>
-    <span title="scalaz._2.type" class="keyword">case</span> <span title="Long(2L)" class="long">2L</span> =&gt; <a href="#377425" title="object scalaz._2">_2</a>
-    <span title="scalaz._3.type" class="keyword">case</span> <span title="Long(3L)" class="long">3L</span> =&gt; <a href="#377439" title="object scalaz._3">_3</a>
-    <span title="scalaz._4.type" class="keyword">case</span> <span title="Long(4L)" class="long">4L</span> =&gt; <a href="#377456" title="object scalaz._4">_4</a>
-    <span title="scalaz._5.type" class="keyword">case</span> <span title="Long(5L)" class="long">5L</span> =&gt; <a href="#377473" title="object scalaz._5">_5</a>
-    <span title="scalaz._6.type" class="keyword">case</span> <span title="Long(6L)" class="long">6L</span> =&gt; <a href="#377490" title="object scalaz._6">_6</a>
-    <span title="scalaz._7.type" class="keyword">case</span> <span title="Long(7L)" class="long">7L</span> =&gt; <a href="#377507" title="object scalaz._7">_7</a>
-    <span title="scalaz._8.type" class="keyword">case</span> <span title="Long(8L)" class="long">8L</span> =&gt; <a href="#377524" title="object scalaz._8">_8</a>
-    <span title="scalaz._9.type" class="keyword">case</span> <span title="Long(9L)" class="long">9L</span> =&gt; <a href="#377541" title="object scalaz._9">_9</a>
-    <span title="scalaz.Digit" class="keyword">case</span> _ =&gt; scala.math.<a title="(x: Long)Long" id="28187">abs</a><a title="(x$1: Long)Long" id="4704">(</a><a href="#27974" title="Long">n</a>) <a href="#23945" title="implicit scalaz.Digits.LongDigit : (n: Long)scalaz.Digit">%</a> <span title="Long(10L)" class="long">10L</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Digits.LongDigit : (n: Long)scalaz.Digit" id="24279">LongDigit</a>(<a title="Long" id="28774">n</a>: <span title="Long">Long</span>): <a href="#10041" title="scalaz.Digit">Digit</a> = <a href="#28774" title="Long">n</a> <span title="scalaz.Digit" class="keyword">match</span> {
+    <span title="scalaz._0.type" class="keyword">case</span> <span title="Long(0L)" class="long">0L</span> =&gt; <a href="#394259" title="object scalaz._0">_0</a>
+    <span title="scalaz._1.type" class="keyword">case</span> <span title="Long(1L)" class="long">1L</span> =&gt; <a href="#394273" title="object scalaz._1">_1</a>
+    <span title="scalaz._2.type" class="keyword">case</span> <span title="Long(2L)" class="long">2L</span> =&gt; <a href="#394287" title="object scalaz._2">_2</a>
+    <span title="scalaz._3.type" class="keyword">case</span> <span title="Long(3L)" class="long">3L</span> =&gt; <a href="#394301" title="object scalaz._3">_3</a>
+    <span title="scalaz._4.type" class="keyword">case</span> <span title="Long(4L)" class="long">4L</span> =&gt; <a href="#394318" title="object scalaz._4">_4</a>
+    <span title="scalaz._5.type" class="keyword">case</span> <span title="Long(5L)" class="long">5L</span> =&gt; <a href="#394335" title="object scalaz._5">_5</a>
+    <span title="scalaz._6.type" class="keyword">case</span> <span title="Long(6L)" class="long">6L</span> =&gt; <a href="#394352" title="object scalaz._6">_6</a>
+    <span title="scalaz._7.type" class="keyword">case</span> <span title="Long(7L)" class="long">7L</span> =&gt; <a href="#394369" title="object scalaz._7">_7</a>
+    <span title="scalaz._8.type" class="keyword">case</span> <span title="Long(8L)" class="long">8L</span> =&gt; <a href="#394386" title="object scalaz._8">_8</a>
+    <span title="scalaz._9.type" class="keyword">case</span> <span title="Long(9L)" class="long">9L</span> =&gt; <a href="#394403" title="object scalaz._9">_9</a>
+    <span title="scalaz.Digit" class="keyword">case</span> _ =&gt; scala.math.<a title="(x: Long)Long" id="28987">abs</a><a title="(x$1: Long)Long" id="5381">(</a><a href="#28774" title="Long">n</a>) <a href="#24279" title="implicit scalaz.Digits.LongDigit : (n: Long)scalaz.Digit">%</a> <span title="Long(10L)" class="long">10L</span>
   }
 }
 

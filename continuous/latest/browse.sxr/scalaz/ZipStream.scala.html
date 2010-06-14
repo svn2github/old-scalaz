@@ -12,18 +12,18 @@
         <pre>
 <span class="keyword">package</span> scalaz
 
-<span class="keyword">trait</span> <a title="trait ZipStream[+A] extends java.lang.Object" id="13366">ZipStream</a>[+<a title="&gt;: Nothing &lt;: Any" id="17059">A</a>] <a title="java.lang.Object" id="2093">{</a>
-  <span class="keyword">val</span> <a title="=&gt; Stream[A]" id="26549">value</a>: <span title="Stream[A]">Stream</span>[A]
+<span class="keyword">trait</span> <a title="trait ZipStream[+A] extends java.lang.Object" id="13605">ZipStream</a>[+<a title="&gt;: Nothing &lt;: Any" id="17362">A</a>] <a title="java.lang.Object" id="2746">{</a>
+  <span class="keyword">val</span> <a title="=&gt; Stream[A]" id="27387">value</a>: <span title="Stream[A]">Stream</span>[A]
 }
 
-<span class="keyword">trait</span> <a title="trait ZipStreams extends java.lang.Object with ScalaObject" id="13372">ZipStreams</a> <a title="ScalaObject" id="543">{</a>
-  <span class="keyword">def</span> <a title="[A](s: Stream[A])scalaz.ZipStream[A]" id="24301">zip</a>[<a title="&gt;: Nothing &lt;: Any" id="24303">A</a>](<a title="Stream[A]" id="218129">s</a>: <span title="Stream[A]">Stream</span>[A]): <a href="#13366" title="scalaz.ZipStream[A]">ZipStream</a>[A] = <a href="#218132" title="java.lang.Object with scalaz.ZipStream[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ZipStream[A]" id="218132">ZipStream</a>[A] {
-    <span class="keyword">val</span> <a title="Stream[A]" id="218136">value</a> = <a href="#218129" title="Stream[A]">s</a>
+<span class="keyword">trait</span> <a title="trait ZipStreams extends java.lang.Object with ScalaObject" id="13611">ZipStreams</a> <a title="ScalaObject" id="1445">{</a>
+  <span class="keyword">def</span> <a title="[A](s: Stream[A])scalaz.ZipStream[A]" id="24673">zip</a>[<a title="&gt;: Nothing &lt;: Any" id="24675">A</a>](<a title="Stream[A]" id="222507">s</a>: <span title="Stream[A]">Stream</span>[A]): <a href="#13605" title="scalaz.ZipStream[A]">ZipStream</a>[A] = <a href="#222510" title="java.lang.Object with scalaz.ZipStream[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ZipStream[A]" id="222510">ZipStream</a>[A] {
+    <span class="keyword">val</span> <a title="Stream[A]" id="222514">value</a> = <a href="#222507" title="Stream[A]">s</a>
   }
 
-  <span class="keyword">def</span> <a title="=&gt; scalaz.ZipStream[Nothing]" id="24304">emptyZipStream</a> : <a href="#13366" title="scalaz.ZipStream[Nothing]">ZipStream</a>[Nothing] = <a href="#24301" title="(s: Stream[Nothing])scalaz.ZipStream[Nothing]">zip</a>(<a title="=&gt; collection.immutable.Stream.type" id="889">Stream</a>.<a title="object Stream.Empty" id="26445">Empty</a>)
+  <span class="keyword">def</span> <a title="=&gt; scalaz.ZipStream[Nothing]" id="24676">emptyZipStream</a> : <a href="#13605" title="scalaz.ZipStream[Nothing]">ZipStream</a>[Nothing] = <a href="#24673" title="(s: Stream[Nothing])scalaz.ZipStream[Nothing]">zip</a>(<a title="=&gt; collection.immutable.Stream.type" id="1671">Stream</a>.<a title="object Stream.Empty" id="27283">Empty</a>)
 
-  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](z: scalaz.ZipStream[A])Stream[A]" id="24305">ZipStreamFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="24307">A</a>](<a title="scalaz.ZipStream[A]" id="26308">z</a>: <a href="#13366" title="scalaz.ZipStream[A]">ZipStream</a>[A]): <span title="Stream[A]">Stream</span>[A] = <a href="#26308" title="scalaz.ZipStream[A]">z</a>.<a href="#26549" title="=&gt; Stream[A]">value</a>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](z: scalaz.ZipStream[A])Stream[A]" id="24677">ZipStreamFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="24679">A</a>](<a title="scalaz.ZipStream[A]" id="27146">z</a>: <a href="#13605" title="scalaz.ZipStream[A]">ZipStream</a>[A]): <span title="Stream[A]">Stream</span>[A] = <a href="#27146" title="scalaz.ZipStream[A]">z</a>.<a href="#27387" title="=&gt; Stream[A]">value</a>
 }
 
         </pre>

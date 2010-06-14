@@ -15,61 +15,61 @@
 <span class="keyword">package</span> servlet
 
 <span class="keyword">import</span> javax.servlet.{ServletRequest, ServletResponse, Filter, FilterChain, FilterConfig}
-<span class="keyword">import</span> <a href="HttpServletRequest.scala.html#16280" title="object scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a>._
+<span class="keyword">import</span> <a href="HttpServletRequest.scala.html#16576" title="object scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a>._
 
 /**
  * A filter that will keep a session variable until the next request where its value is placed in a request attribute.
  *
  * @author &lt;a href=&quot;mailto:code@tmorris.net&quot;&gt;Tony Morris&lt;/a&gt;
  */
-<span class="keyword">final</span> <span class="keyword">class</span> <a title="class FlashFilter extends java.lang.Object with javax.servlet.Filter with ScalaObject" id="16207">FlashFilter</a> <span title="ScalaObject" class="keyword">extends</span> <a title="javax.servlet.Filter" id="117363">Filter</a> {
+<span class="keyword">final</span> <span class="keyword">class</span> <a title="class FlashFilter extends java.lang.Object with javax.servlet.Filter with ScalaObject" id="16503">FlashFilter</a> <span title="ScalaObject" class="keyword">extends</span> <a title="javax.servlet.Filter" id="113973">Filter</a> {
   /**
    * No-op.
    */
-  <span class="keyword">override</span> <span class="keyword">def</span> <a title="(config: javax.servlet.FilterConfig)Unit" id="222647">init</a>(<a title="javax.servlet.FilterConfig" id="222653">config</a> : <a title="javax.servlet.FilterConfig" id="117378">FilterConfig</a>) = <span title="Unit">{</span>}
+  <span class="keyword">override</span> <span class="keyword">def</span> <a title="(config: javax.servlet.FilterConfig)Unit" id="227145">init</a>(<a title="javax.servlet.FilterConfig" id="227151">config</a> : <a title="javax.servlet.FilterConfig" id="113988">FilterConfig</a>) = <span title="Unit">{</span>}
 
   /**
    * No-op.
    */
-  <span class="keyword">override</span> <span class="keyword">def</span> <a title="()Unit" id="222648">destroy</a> = <span title="Unit">{</span>}
+  <span class="keyword">override</span> <span class="keyword">def</span> <a title="()Unit" id="227146">destroy</a> = <span title="Unit">{</span>}
 
-  <span class="keyword">import</span> <a href="#16208" title="object scalaz.http.servlet.FlashFilter">FlashFilter</a>.flashParameter
+  <span class="keyword">import</span> <a href="#16504" title="object scalaz.http.servlet.FlashFilter">FlashFilter</a>.flashParameter
 
   /**
    * If there is a session parameter set then unset it and put its value in a request attribute.
    */
-  <span class="keyword">override</span> <span class="keyword">def</span> <a title="(request: javax.servlet.ServletRequest,response: javax.servlet.ServletResponse,chain: javax.servlet.FilterChain)Unit" id="222650">doFilter</a>(<a title="javax.servlet.ServletRequest" id="222674">request</a> : <a title="javax.servlet.ServletRequest" id="117420">ServletRequest</a>, <a title="javax.servlet.ServletResponse" id="222675">response</a> : <a title="javax.servlet.ServletResponse" id="117411">ServletResponse</a>, <a title="javax.servlet.FilterChain" id="222676">chain</a> : <a title="javax.servlet.FilterChain" id="117405">FilterChain</a>) {
-    <span class="keyword">val</span> <a title="javax.servlet.http.HttpServletRequest" id="222681">r</a> = <a href="#222674" title="javax.servlet.ServletRequest">request</a>.<span title="[T0]T0">asInstanceOf</span><span title="javax.servlet.http.HttpServletRequest">[</span>javax.servlet.http.<a title="javax.servlet.http.HttpServletRequest" id="117445">HttpServletRequest</a>]
+  <span class="keyword">override</span> <span class="keyword">def</span> <a title="(request: javax.servlet.ServletRequest,response: javax.servlet.ServletResponse,chain: javax.servlet.FilterChain)Unit" id="227148">doFilter</a>(<a title="javax.servlet.ServletRequest" id="227172">request</a> : <a title="javax.servlet.ServletRequest" id="114030">ServletRequest</a>, <a title="javax.servlet.ServletResponse" id="227173">response</a> : <a title="javax.servlet.ServletResponse" id="114021">ServletResponse</a>, <a title="javax.servlet.FilterChain" id="227174">chain</a> : <a title="javax.servlet.FilterChain" id="114015">FilterChain</a>) {
+    <span class="keyword">val</span> <a title="javax.servlet.http.HttpServletRequest" id="227179">r</a> = <a href="#227172" title="javax.servlet.ServletRequest">request</a>.<span title="[T0]T0">asInstanceOf</span><span title="javax.servlet.http.HttpServletRequest">[</span>javax.servlet.http.<a title="javax.servlet.http.HttpServletRequest" id="114055">HttpServletRequest</a>]
 
-    <a href="HttpServletRequest.scala.html#114265" title="implicit scalaz.http.servlet.HttpServletRequests.HttpServletRequestRequest : (r: javax.servlet.http.HttpServletRequest)scalaz.http.servlet.HttpServletRequest">r</a>.<a href="HttpSession.scala.html#117671" title="(attr: String)Option[java.lang.Object]">session</a><a title="(f: (java.lang.Object) =&gt; Unit)Unit" id="27489">(</a><a href="#222666" title="=&gt; java.lang.String">flashParameter</a>) foreach (<a title="java.lang.Object" id="222711">flash</a> =&gt; {
-      <a href="HttpServletRequest.scala.html#117341" title="(attr: String,value: java.lang.Object)Unit">r</a>(<a href="#222666" title="=&gt; java.lang.String">flashParameter</a>) = <a href="#222711" title="java.lang.Object">flash</a>
-      <a href="HttpServletRequest.scala.html#114265" title="implicit scalaz.http.servlet.HttpServletRequests.HttpServletRequestRequest : (r: javax.servlet.http.HttpServletRequest)scalaz.http.servlet.HttpServletRequest">r</a>.<a href="HttpSession.scala.html#117675" title="(attr: String)Unit">session</a> -= (<a href="#222666" title="=&gt; java.lang.String">flashParameter</a>)
+    <a href="HttpServletRequest.scala.html#111355" title="implicit scalaz.http.servlet.HttpServletRequests.HttpServletRequestRequest : (r: javax.servlet.http.HttpServletRequest)scalaz.http.servlet.HttpServletRequest">r</a>.<a href="HttpSession.scala.html#114281" title="(attr: String)Option[java.lang.Object]">session</a><a title="(f: (java.lang.Object) =&gt; Unit)Unit" id="28319">(</a><a href="#227164" title="=&gt; java.lang.String">flashParameter</a>) foreach (<a title="java.lang.Object" id="227209">flash</a> =&gt; {
+      <a href="HttpServletRequest.scala.html#113951" title="(attr: String,value: java.lang.Object)Unit">r</a>(<a href="#227164" title="=&gt; java.lang.String">flashParameter</a>) = <a href="#227209" title="java.lang.Object">flash</a>
+      <a href="HttpServletRequest.scala.html#111355" title="implicit scalaz.http.servlet.HttpServletRequests.HttpServletRequestRequest : (r: javax.servlet.http.HttpServletRequest)scalaz.http.servlet.HttpServletRequest">r</a>.<a href="HttpSession.scala.html#114285" title="(attr: String)Unit">session</a> -= (<a href="#227164" title="=&gt; java.lang.String">flashParameter</a>)
     })
 
-    <a href="#222676" title="javax.servlet.FilterChain">chain</a>.<a title="(x$1: javax.servlet.ServletRequest,x$2: javax.servlet.ServletResponse)Unit" id="222678">doFilter</a>(<a href="#222674" title="javax.servlet.ServletRequest">request</a>, <a href="#222675" title="javax.servlet.ServletResponse">response</a>)
+    <a href="#227174" title="javax.servlet.FilterChain">chain</a>.<a title="(x$1: javax.servlet.ServletRequest,x$2: javax.servlet.ServletResponse)Unit" id="227176">doFilter</a>(<a href="#227172" title="javax.servlet.ServletRequest">request</a>, <a href="#227173" title="javax.servlet.ServletResponse">response</a>)
   }
 }
 
 /**
  * A filter that will keep a session variable until the next request where its value is placed in a request attribute.
  */
-<span class="keyword">object</span> <a title="object scalaz.http.servlet.FlashFilter" id="16208">FlashFilter</a> <span title="ScalaObject">{</span>
+<span class="keyword">object</span> <a title="object scalaz.http.servlet.FlashFilter" id="16504">FlashFilter</a> <span title="ScalaObject">{</span>
   /**
    * The session and request attribute used for associating a value.
    */
-  <span class="keyword">val</span> <a title="java.lang.String" id="222666">flashParameter</a> = <span title="java.lang.String(&quot;scalaz.http.servlet.FlashFilter.flashParameter&quot;)" class="string">&quot;scalaz.http.servlet.FlashFilter.flashParameter&quot;</span>
+  <span class="keyword">val</span> <a title="java.lang.String" id="227164">flashParameter</a> = <span title="java.lang.String(&quot;scalaz.http.servlet.FlashFilter.flashParameter&quot;)" class="string">&quot;scalaz.http.servlet.FlashFilter.flashParameter&quot;</span>
 
   /**
    * Sets the value to be used in the next request using the session.
    */
-  <span class="keyword">def</span> <a title="[A](v: A)(implicit r: scalaz.http.servlet.HttpServletRequest)Unit" id="222668">flashSet</a>[<a title="&gt;: Nothing &lt;: Any" id="222670">A</a>](<a title="A" id="222748">v</a>: <a href="#222670" title="A">A</a>)(<span class="keyword">implicit</span> <a title="scalaz.http.servlet.HttpServletRequest" id="222749">r</a>: <a href="HttpServletRequest.scala.html#16279" title="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a>) {
-    <a href="#222749" title="scalaz.http.servlet.HttpServletRequest">r</a>.<a href="HttpSession.scala.html#117676" title="(attr: String,value: A)Unit">session</a>(<a href="#222666" title="=&gt; java.lang.String">flashParameter</a>) = <a href="#222748" title="A">v</a> 
+  <span class="keyword">def</span> <a title="[A](v: A)(implicit r: scalaz.http.servlet.HttpServletRequest)Unit" id="227166">flashSet</a>[<a title="&gt;: Nothing &lt;: Any" id="227168">A</a>](<a title="A" id="227246">v</a>: <a href="#227168" title="A">A</a>)(<span class="keyword">implicit</span> <a title="scalaz.http.servlet.HttpServletRequest" id="227247">r</a>: <a href="HttpServletRequest.scala.html#16575" title="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a>) {
+    <a href="#227247" title="scalaz.http.servlet.HttpServletRequest">r</a>.<a href="HttpSession.scala.html#114286" title="(attr: String,value: A)Unit">session</a>(<a href="#227164" title="=&gt; java.lang.String">flashParameter</a>) = <a href="#227246" title="A">v</a> 
   }
 
   /**
    * Gets the value from the request that was previously set if there is one. 
    */
-  <span class="keyword">def</span> <a title="[A](implicit r: scalaz.http.servlet.HttpServletRequest)Option[A]" id="222671">flashGet</a>[<a title="&gt;: Nothing &lt;: Any" id="222673">A</a>](<span class="keyword">implicit</span> <a title="scalaz.http.servlet.HttpServletRequest" id="222767">r</a>: <a href="HttpServletRequest.scala.html#16279" title="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a>) = <a href="HttpServletRequest.scala.html#117344" title="(attr: String)Option[java.lang.Object]">r</a> <a title="(f: (java.lang.Object) =&gt; A)Option[A]" id="27462">attr</a> <a href="#222666" title="=&gt; java.lang.String">flashParameter</a> map (<a href="#222775" title="java.lang.Object">_</a>.<span title="[T0]T0">asInstanceOf</span><span title="A">[</span><a href="#222673" title="A">A</a>])
+  <span class="keyword">def</span> <a title="[A](implicit r: scalaz.http.servlet.HttpServletRequest)Option[A]" id="227169">flashGet</a>[<a title="&gt;: Nothing &lt;: Any" id="227171">A</a>](<span class="keyword">implicit</span> <a title="scalaz.http.servlet.HttpServletRequest" id="227265">r</a>: <a href="HttpServletRequest.scala.html#16575" title="scalaz.http.servlet.HttpServletRequest">HttpServletRequest</a>) = <a href="HttpServletRequest.scala.html#113954" title="(attr: String)Option[java.lang.Object]">r</a> <a title="(f: (java.lang.Object) =&gt; A)Option[A]" id="28292">attr</a> <a href="#227164" title="=&gt; java.lang.String">flashParameter</a> map (<a href="#227273" title="java.lang.Object">_</a>.<span title="[T0]T0">asInstanceOf</span><span title="A">[</span><a href="#227171" title="A">A</a>])
 }
 
         </pre>
