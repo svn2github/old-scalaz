@@ -30,6 +30,7 @@ Haskell-like syntax
       * http://www.haskell.org/haskellwiki/MonadPlus_reform_proposal
     * Semigroup <- Monoid
     * others?
+  * Special construct for disambiguating type-class selection defined at the instance.
   * Parallel libraries
   * Support nested block comments {- boo {- bar -} baz -}
   * Strictness annotations available in many places e.g. function arguments, data type constructor arguments
