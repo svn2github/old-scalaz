@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Multiplications.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">import</span> java.math.BigInteger
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait BigIntegerMultiplication extends java.lang.Object with scalaz.NewType[java.math.BigInteger]" id="9335">BigIntegerMultiplication</a> <span class="keyword">extends</span> <a href="NewType.scala.html#14504" title="scalaz.NewType[java.math.BigInteger]">NewType</a>[BigInteger]
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait BigIntMultiplication extends java.lang.Object with scalaz.NewType[BigInt]" id="9347">BigIntMultiplication</a> <span class="keyword">extends</span> <a href="NewType.scala.html#14504" title="scalaz.NewType[BigInt]">NewType</a>[BigInt]
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ByteMultiplication extends java.lang.Object with scalaz.NewType[Byte]" id="9689">ByteMultiplication</a> <span class="keyword">extends</span> <a href="NewType.scala.html#14504" title="scalaz.NewType[Byte]">NewType</a>[Byte]
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait CharMultiplication extends java.lang.Object with scalaz.NewType[Char]" id="9767">CharMultiplication</a> <span class="keyword">extends</span> <a href="NewType.scala.html#14504" title="scalaz.NewType[Char]">NewType</a>[Char]
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait IntMultiplication extends java.lang.Object with scalaz.NewType[Int]" id="13628">IntMultiplication</a> <span class="keyword">extends</span> <a href="NewType.scala.html#14504" title="scalaz.NewType[Int]">NewType</a>[Int]
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait LongMultiplication extends java.lang.Object with scalaz.NewType[Long]" id="14138">LongMultiplication</a> <span class="keyword">extends</span> <a href="NewType.scala.html#14504" title="scalaz.NewType[Long]">NewType</a>[Long]
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait ShortMultiplication extends java.lang.Object with scalaz.NewType[Short]" id="15491">ShortMultiplication</a> <span class="keyword">extends</span> <a href="NewType.scala.html#14504" title="scalaz.NewType[Short]">NewType</a>[Short]
+
+<span class="keyword">trait</span> <a title="trait Multiplications extends java.lang.Object with ScalaObject" id="14492">Multiplications</a> <a title="ScalaObject" id="1443">{</a>
+  <span class="keyword">def</span> <a title="(n: java.math.BigInteger)scalaz.BigIntegerMultiplication" id="25748">multiplication</a>(<a title="java.math.BigInteger" id="80688">n</a>: <a title="java.math.BigInteger" id="39608">BigInteger</a>): <a href="#9335" title="scalaz.BigIntegerMultiplication">BigIntegerMultiplication</a> = <a href="#515829" title="java.lang.Object with scalaz.BigIntegerMultiplication{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.BigIntegerMultiplication" id="515829">BigIntegerMultiplication</a> {
+    <span class="keyword">val</span> <a title="java.math.BigInteger" id="515833">value</a> = <a href="#80688" title="java.math.BigInteger">n</a>
+  }
+
+  <span class="keyword">def</span> <a title="(n: BigInt)scalaz.BigIntMultiplication" id="25749">multiplication</a>(<a title="BigInt" id="80686">n</a>: <a title="BigInt" id="39115">BigInt</a>): <a href="#9347" title="scalaz.BigIntMultiplication">BigIntMultiplication</a> = <a href="#515839" title="java.lang.Object with scalaz.BigIntMultiplication{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.BigIntMultiplication" id="515839">BigIntMultiplication</a> {
+    <span class="keyword">val</span> <a title="BigInt" id="515843">value</a> = <a href="#80686" title="BigInt">n</a>
+  }
+
+  <span class="keyword">def</span> <a title="(n: Byte)scalaz.ByteMultiplication" id="25750">multiplication</a>(<a title="Byte" id="80684">n</a>: <a title="Byte" id="4340">Byte</a>): <a href="#9689" title="scalaz.ByteMultiplication">ByteMultiplication</a> = <a href="#515849" title="java.lang.Object with scalaz.ByteMultiplication{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ByteMultiplication" id="515849">ByteMultiplication</a> {
+    <span class="keyword">val</span> <a title="Byte" id="515853">value</a> = <a href="#80684" title="Byte">n</a>
+  }
+
+  <span class="keyword">def</span> <a title="(n: Char)scalaz.CharMultiplication" id="25751">multiplication</a>(<a title="Char" id="80682">n</a>: <a title="Char" id="4354">Char</a>): <a href="#9767" title="scalaz.CharMultiplication">CharMultiplication</a> = <a href="#515859" title="java.lang.Object with scalaz.CharMultiplication{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.CharMultiplication" id="515859">CharMultiplication</a> {
+    <span class="keyword">val</span> <a title="Char" id="515863">value</a> = <a href="#80682" title="Char">n</a>
+  }
+  
+  <span class="keyword">def</span> <a title="(n: Int)scalaz.IntMultiplication" id="25752">multiplication</a>(<a title="Int" id="80680">n</a>: <a title="Int" id="4361">Int</a>): <a href="#13628" title="scalaz.IntMultiplication">IntMultiplication</a> = <a href="#515869" title="java.lang.Object with scalaz.IntMultiplication{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.IntMultiplication" id="515869">IntMultiplication</a> {
+    <span class="keyword">val</span> <a title="Int" id="515873">value</a> = <a href="#80680" title="Int">n</a>
+  }
+
+  <span class="keyword">def</span> <a title="(n: Long)scalaz.LongMultiplication" id="25753">multiplication</a>(<a title="Long" id="80678">n</a>: <a title="Long" id="4368">Long</a>): <a href="#14138" title="scalaz.LongMultiplication">LongMultiplication</a> = <a href="#515879" title="java.lang.Object with scalaz.LongMultiplication{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.LongMultiplication" id="515879">LongMultiplication</a> {
+    <span class="keyword">val</span> <a title="Long" id="515883">value</a> = <a href="#80678" title="Long">n</a>
+  }
+
+  <span class="keyword">def</span> <a title="(n: Short)scalaz.ShortMultiplication" id="25754">multiplication</a>(<a title="Short" id="80676">n</a>: <a title="Short" id="4347">Short</a>): <a href="#15491" title="scalaz.ShortMultiplication">ShortMultiplication</a> = <a href="#515889" title="java.lang.Object with scalaz.ShortMultiplication{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ShortMultiplication" id="515889">ShortMultiplication</a> {
+    <span class="keyword">val</span> <a title="Short" id="515893">value</a> = <a href="#80676" title="Short">n</a>
+  }
+}
+
+
+
+
+        </pre>
+    </body>
+</html>

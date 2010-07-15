@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/ZipStream.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait ZipStream[+A] extends java.lang.Object" id="18026">ZipStream</a>[+<a title="&gt;: Nothing &lt;: Any" id="21975">A</a>] <a title="java.lang.Object" id="2744">{</a>
+  <span class="keyword">val</span> <a title="=&gt; Stream[A]" id="29372">value</a>: <span title="Stream[A]">Stream</span>[A]
+}
+
+<span class="keyword">trait</span> <a title="trait ZipStreams extends java.lang.Object with ScalaObject" id="18032">ZipStreams</a> <a title="ScalaObject" id="1443">{</a>
+  <span class="keyword">def</span> <a title="[A](s: Stream[A])scalaz.ZipStream[A]" id="26487">zip</a>[<a title="&gt;: Nothing &lt;: Any" id="26489">A</a>](<a title="Stream[A]" id="317777">s</a>: <span title="Stream[A]">Stream</span>[A]): <a href="#18026" title="scalaz.ZipStream[A]">ZipStream</a>[A] = <a href="#317780" title="java.lang.Object with scalaz.ZipStream[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.ZipStream[A]" id="317780">ZipStream</a>[A] {
+    <span class="keyword">val</span> <a title="Stream[A]" id="317784">value</a> = <a href="#317777" title="Stream[A]">s</a>
+  }
+
+  <span class="keyword">def</span> <a title="=&gt; scalaz.ZipStream[Nothing]" id="26490">emptyZipStream</a> : <a href="#18026" title="scalaz.ZipStream[Nothing]">ZipStream</a>[Nothing] = <a href="#26487" title="(s: Stream[Nothing])scalaz.ZipStream[Nothing]">zip</a>(<a title="=&gt; collection.immutable.Stream.type" id="1669">Stream</a>.<a title="object Stream.Empty" id="29268">Empty</a>)
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](z: scalaz.ZipStream[A])Stream[A]" id="26491">ZipStreamFrom</a>[<a title="&gt;: Nothing &lt;: Any" id="26493">A</a>](<a title="scalaz.ZipStream[A]" id="29131">z</a>: <a href="#18026" title="scalaz.ZipStream[A]">ZipStream</a>[A]): <span title="Stream[A]">Stream</span>[A] = <a href="#29131" title="scalaz.ZipStream[A]">z</a>.<a href="#29372" title="=&gt; Stream[A]">value</a>
+}
+
+        </pre>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/EnumerationW.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">import</span> java.util.Enumeration
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait EnumerationW[A] extends java.lang.Object with scalaz.PimpedType[java.util.Enumeration[A]] with ScalaObject" id="10259">EnumerationW</a>[<a title="&gt;: Nothing &lt;: Any" id="21941">A</a>] <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#14849" title="scalaz.PimpedType[java.util.Enumeration[A]]">PimpedType</a>[Enumeration[A]] {
+  <span class="keyword">def</span> <a title="=&gt; &lt;refinement&gt; extends java.lang.Object with Iterator[A]" id="38883">elements</a> = <a href="#140165" title="java.lang.Object with Iterator[A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with Iterator[A]" id="140165">Iterator</a>[A] {
+    <span class="keyword">def</span> <a title="=&gt; Boolean" id="140167">hasNext</a> = <a href="PimpedType.scala.html#27204" title="=&gt; java.util.Enumeration[A]">value</a>.<a title="()Boolean" id="38880">hasMoreElements</a>
+    <span class="keyword">def</span> <a title="()A" id="140168">next</a> = <a href="PimpedType.scala.html#27204" title="=&gt; java.util.Enumeration[A]">value</a>.<a title="()A" id="38881">nextElement</a>
+  }
+}
+
+<span class="keyword">trait</span> <a title="trait Enumerations extends java.lang.Object with ScalaObject" id="10253">Enumerations</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A](v: java.util.Enumeration[A])scalaz.EnumerationW[A]" id="25555">EnumerationTo</a>[<a title="&gt;: Nothing &lt;: Any" id="25557">A</a>](<a title="java.util.Enumeration[A]" id="38877">v</a>: <a title="java.util.Enumeration[A]" id="6590">Enumeration</a>[A]): <a href="#10259" title="scalaz.EnumerationW[A]">EnumerationW</a>[A] = <a href="#316072" title="java.lang.Object with scalaz.EnumerationW[A]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.EnumerationW[A]" id="316072">EnumerationW</a>[A] {
+    <span class="keyword">val</span> <a title="java.util.Enumeration[A]" id="316076">value</a> = <a href="#38877" title="java.util.Enumeration[A]">v</a>
+  }
+}
+
+        </pre>
+    </body>
+</html>

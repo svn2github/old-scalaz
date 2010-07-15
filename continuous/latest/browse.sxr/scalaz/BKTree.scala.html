@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/BKTree.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">import</span> collection.immutable.IntMap
+<span class="keyword">import</span> annotation.tailrec
+
+// http://hackage.haskell.org/packages/archive/bktrees/0.2.1/doc/html/src/Data-Set-BKTree.html
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait BKTree[+A] extends java.lang.Object with ScalaObject" id="9623">BKTree</a>[+<a title="&gt;: Nothing &lt;: Any" id="20717">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#15252" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">def</span> <a title="=&gt; Boolean" id="118535">isEmpty</a> : <span title="Boolean">Boolean</span> = <a href="#9623" title="(x$1: AnyRef)Boolean" class="keyword">this</a> == <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a>
+
+  <span class="keyword">def</span> <a title="=&gt; Int" id="118536">size</a> : <span title="Int">Int</span> = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="Int" class="keyword">match</span> {
+    <span title="Int(0)" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <span title="Int(0)" class="int">0</span>
+    <span title="Int" class="keyword">case</span> BKTreeNode(_, <a title="Int" id="118647">s</a>, _) =&gt; <a href="#118647" title="Int">s</a>
+  }
+
+  <span class="keyword">def</span> <a title="[AA &gt;: A](a: AA)(implicit evidence$1: scalaz.MetricSpace[AA])scalaz.BKTree[AA]" id="118650">+</a>[<a title="&gt;: A &lt;: Any" id="118539">AA</a> &gt;: A : MetricSpace](<a title="AA" id="118649">a</a>: <a href="#118539" title="AA">AA</a>): <a href="#9623" title="scalaz.BKTree[AA]">BKTree</a>[AA] = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="scalaz.BKTree[AA]" class="keyword">match</span> {
+    <span title="scalaz.BKTreeNode[AA]" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <a href="#118578" title="(value: AA,sz: Int,children: Map[Int,scalaz.BKTree[AA]])scalaz.BKTreeNode[AA]">BKTreeNode</a>(<a href="#118649" title="AA">a</a>, <span title="Int(1)" class="int">1</span>, <span title="object scala.collection.immutable.IntMap">IntMap</span>.<span title="scala.collection.immutable.IntMap[Nothing]">empty</span>)
+    <span title="scalaz.BKTreeNode[AA]" class="keyword">case</span> BKTreeNode(<a title="A" id="118889">v</a>, <a title="Int" id="118890">s</a>, <a title="Map[Int,scalaz.BKTree[A]]" id="118891">c</a>) =&gt; {
+      <span class="keyword">val</span> <a title="Int" id="118893">d</a> = <a href="Identity.scala.html#38722" title="(a: AA)(implicit m: scalaz.MetricSpace[AA])Int">(</a><a href="#118889" title="A">v</a>: <a href="#118539" title="AA">AA</a>) <a href="#118650" title="scalaz.MetricSpace[AA]">&lt;===&gt;</a> <a href="#118649" title="AA">a</a>
+      <a href="#118578" title="(value: AA,sz: Int,children: Map[Int,scalaz.BKTree[AA]])scalaz.BKTreeNode[AA]">BKTreeNode</a>(<a href="#118889" title="A">v</a>, <a href="#118890" title="(x$1: Int)Int">s</a> + <span title="Int(1)" class="int">1</span>, <a href="#118891" title="(kv: (Int, scalaz.BKTree[AA]))scala.collection.immutable.Map[Int,scalaz.BKTree[AA]]">c</a> + (<span title="(_1: Int,_2: scalaz.BKTree[AA])(Int, scalaz.BKTree[AA])">(</span><a href="#118893" title="Int">d</a>, <a href="#118891" title="(key: Int)Option[scalaz.BKTree[A]]">c</a> get <a href="#118893" title="Int">d</a> <span title="scalaz.BKTree[AA]" class="keyword">match</span> {
+        <span title="scalaz.BKTreeNode[AA]" class="keyword">case</span> <span title="object None">None</span> =&gt; <a href="#118578" title="(value: AA,sz: Int,children: Map[Int,scalaz.BKTree[AA]])scalaz.BKTreeNode[AA]">BKTreeNode</a>(<a href="#118649" title="AA">a</a>, <span title="Int(1)" class="int">1</span>, <span title="object scala.collection.immutable.IntMap">IntMap</span>.<span title="scala.collection.immutable.IntMap[Nothing]">empty</span>)
+        <span title="scalaz.BKTree[AA]" class="keyword">case</span> Some(<a title="scalaz.BKTree[A]" id="119111">w</a>) =&gt; <a href="#118650" title="(a: AA)(implicit evidence$1: scalaz.MetricSpace[AA])scalaz.BKTree[AA]">w</a> <a href="#118650" title="scalaz.MetricSpace[AA]">+</a> <a href="#118649" title="AA">a</a>
+      })))
+    }
+  }
+
+  <span class="keyword">def</span> <a title="[AA &gt;: A](t: scalaz.BKTree[AA])(implicit evidence$2: scalaz.MetricSpace[AA])scalaz.BKTree[AA]" id="119145">++</a>[<a title="&gt;: A &lt;: Any" id="118542">AA</a> &gt;: A: MetricSpace](<a title="scalaz.BKTree[AA]" id="119144">t</a>: <a href="#9623" title="scalaz.BKTree[AA]">BKTree</a>[AA]): <a href="#9623" title="scalaz.BKTree[AA]">BKTree</a>[AA] = {
+    <span class="keyword">var</span> <a title="scalaz.BKTree[AA]" id="119149">k</a>: <a href="#9623" title="scalaz.BKTree[AA]">BKTree</a>[AA] = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a>
+    <span class="keyword">for</span>(<a title="AA" id="119173">v</a> &lt;- <a href="#119144" title="scalaz.BKTree[AA]">t</a>.<a href="#118543" title="(f: (AA) =&gt; Unit)Unit" id="37586">values</a>)
+      <a href="#119149" title="scalaz.BKTree[AA]">k</a> = <a href="#118650" title="(a: AA)(implicit evidence$1: scalaz.MetricSpace[AA])scalaz.BKTree[AA]">k</a> <a href="#119145" title="scalaz.MetricSpace[AA]">+</a> <a href="#119173" title="AA">v</a>
+    <a href="#119149" title="scalaz.BKTree[AA]">k</a>
+  }
+
+  <span class="keyword">def</span> <a title="=&gt; List[A]" id="118543">values</a>: <span title="List[A]">List</span>[A] = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="List[A]" class="keyword">match</span> {
+    <span title="scala.collection.immutable.Nil.type" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <span title="object Nil">Nil</span>
+    <span title="List[A]" class="keyword">case</span> BKTreeNode(<a title="A" id="119191">v</a>, _, <a title="Map[Int,scalaz.BKTree[A]]" id="119192">c</a>) =&gt; <a href="#119191" title="A">v</a> <a href="#119194" title="A">::</a> <a href="#119192" title="Map[Int,scalaz.BKTree[A]]">c</a>.<span title="=&gt; Iterator[scalaz.BKTree[A]]">valuesIterator</span>.<span title="=&gt; List[scalaz.BKTree[A]]">toList</span>.<span title="(f: (scalaz.BKTree[A]) =&gt; Traversable[A])(implicit bf: scala.collection.generic.CanBuildFrom[List[scalaz.BKTree[A]],A,List[A]])List[A]">flatMap</span><span title="(x: A)List[A]">(</span><a href="#119214" title="scalaz.BKTree[A]">_</a>.<a href="#118543" title="=&gt; List[A]">values</a>)
+  }
+
+  @tailrec
+  <span class="keyword">final</span> <span class="keyword">def</span> <a title="[AA &gt;: A](a: AA)(implicit evidence$3: scalaz.MetricSpace[AA])Boolean" id="119463">-?-</a>[<a title="&gt;: A &lt;: Any" id="118546">AA</a> &gt;: A: MetricSpace](<a title="AA" id="119462">a</a>: <a href="#118546" title="AA">AA</a>): <span title="Boolean">Boolean</span> = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="Boolean" class="keyword">match</span> {
+    <span title="Boolean(false)" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <span title="Boolean(false)" class="keyword">false</span>
+    <span title="Boolean" class="keyword">case</span> BKTreeNode(<a title="A" id="119472">v</a>, _, <a title="Map[Int,scalaz.BKTree[A]]" id="119473">c</a>) =&gt; {
+      <span class="keyword">val</span> <a title="Int" id="119475">d</a> = <a href="Identity.scala.html#38722" title="(a: AA)(implicit m: scalaz.MetricSpace[AA])Int">(</a><a href="#119472" title="A">v</a>: <a href="#118546" title="AA">AA</a>) <a href="#119463" title="scalaz.MetricSpace[AA]">&lt;===&gt;</a> <a href="#119462" title="AA">a</a>
+      <a href="#119475" title="(x$1: Int)Boolean">d</a> <span title="(x$1: Boolean)Boolean">==</span> <span title="Int(0)" class="int">0</span> || (<a href="#119473" title="(key: Int)Option[scalaz.BKTree[A]]">c</a> get <a href="#119475" title="Int">d</a> <span title="Boolean" class="keyword">match</span> {
+        <span title="Boolean(false)" class="keyword">case</span> <span title="object None">None</span> =&gt; <span title="Boolean(false)" class="keyword">false</span>
+        <span title="Boolean" class="keyword">case</span> Some(<a title="scalaz.BKTree[A]" id="119592">w</a>) =&gt; <a href="#119463" title="(a: AA)(implicit evidence$3: scalaz.MetricSpace[AA])Boolean">w</a> <a href="#119463" title="scalaz.MetricSpace[AA]">-?-</a> <a href="#119462" title="AA">a</a>
+      })
+    }
+  }
+
+  <span class="keyword">def</span> <a title="[AA &gt;: A](a: AA,n: Int)(implicit evidence$4: scalaz.MetricSpace[AA])Boolean" id="119606">=?=</a>[<a title="&gt;: A &lt;: Any" id="118549">AA</a> &gt;: A: MetricSpace](<a title="AA" id="119604">a</a>: <a href="#118549" title="AA">AA</a>, <a title="Int" id="119605">n</a>: <span title="Int">Int</span>): <span title="Boolean">Boolean</span> = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="Boolean" class="keyword">match</span> {
+    <span title="Boolean(false)" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <span title="Boolean(false)" class="keyword">false</span>
+    <span title="Boolean" class="keyword">case</span> BKTreeNode(<a title="A" id="119614">v</a>, _, <a title="Map[Int,scalaz.BKTree[A]]" id="119615">c</a>) =&gt; {
+      <span class="keyword">val</span> <a title="Int" id="119617">d</a> = <a href="Identity.scala.html#38722" title="(a: AA)(implicit m: scalaz.MetricSpace[AA])Int">(</a><a href="#119614" title="A">v</a>: <a href="#118549" title="AA">AA</a>) <a href="#119606" title="scalaz.MetricSpace[AA]">&lt;===&gt;</a> <a href="#119604" title="AA">a</a>
+      <a href="#119617" title="(x$1: Int)Boolean">d</a> <span title="(x$1: Boolean)Boolean">&lt;=</span> <a href="#119605" title="Int">n</a> || (<a href="#118553" title="(d: Int,n: Int)Map[Int,scalaz.BKTree[A]]">subChildren</a><a title="(p: ((Int, scalaz.BKTree[A])) =&gt; Boolean)Boolean" id="37893">(</a><a href="#119617" title="Int">d</a>, <a href="#119605" title="Int">n</a>) exists (<a href="#119855" title="(Int, scalaz.BKTree[A])">_</a>.<a href="#119606" title="(a: AA,n: Int)(implicit evidence$4: scalaz.MetricSpace[AA])Boolean">_2</a> <a href="#119606" title="scalaz.MetricSpace[AA]">=?=</a> (<a href="#119604" title="AA">a</a>, <a href="#119605" title="Int">n</a>)))
+    }
+  }
+
+  <span class="keyword">def</span> <a title="[AA &gt;: A](a: AA,n: Int)(implicit evidence$5: scalaz.MetricSpace[AA])List[AA]" id="119871">|=|</a>[<a title="&gt;: A &lt;: Any" id="118552">AA</a> &gt;: A: MetricSpace](<a title="AA" id="119869">a</a>: <a href="#118552" title="AA">AA</a>, <a title="Int" id="119870">n</a>: <span title="Int">Int</span>): <span title="List[AA]">List</span>[AA] = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="List[AA]" class="keyword">match</span> {
+    <span title="scala.collection.immutable.Nil.type" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <span title="object Nil">Nil</span>
+    <span title="List[AA]" class="keyword">case</span> BKTreeNode(<a title="A" id="119879">v</a>, _, <a title="Map[Int,scalaz.BKTree[A]]" id="119880">c</a>) =&gt; {
+      <span class="keyword">val</span> <a title="Int" id="119882">d</a> = <a href="Identity.scala.html#38722" title="(a: AA)(implicit m: scalaz.MetricSpace[AA])Int">(</a><a href="#119879" title="A">v</a>: <a href="#118552" title="AA">AA</a>) <a href="#119871" title="scalaz.MetricSpace[AA]">&lt;===&gt;</a> <a href="#119869" title="AA">a</a>
+      <span class="keyword">val</span> <a title="List[AA]" id="119883">k</a> = <a href="#118553" title="(d: Int,n: Int)Map[Int,scalaz.BKTree[A]]">subChildren</a>(<a href="#119882" title="Int">d</a>, <a href="#119870" title="Int">n</a>).<span title="=&gt; Iterator[scalaz.BKTree[A]]">valuesIterator</span>.<span title="(f: (scalaz.BKTree[A]) =&gt; Traversable[AA])(implicit bf: scala.collection.generic.CanBuildFrom[List[scalaz.BKTree[A]],AA,List[AA]])List[AA]">toList</span> <span title="scala.collection.generic.CanBuildFrom[scala.collection.immutable.List.Coll,AA,List[AA]]">flatMap</span> (<a href="#119871" title="(a: AA,n: Int)(implicit evidence$5: scalaz.MetricSpace[AA])List[AA]">_</a> <a href="#119871" title="scalaz.MetricSpace[AA]">|=|</a> (<a href="#119869" title="AA">a</a>, <a href="#119870" title="Int">n</a>))
+      <span title="List[AA]" class="keyword">if</span>(<a href="#119882" title="(x$1: Int)Boolean">d</a> &lt;= <a href="#119870" title="Int">n</a>)
+        <a href="#119879" title="A">v</a> <a href="#120208" title="A">::</a> <a href="#119883" title="(x: AA)List[AA]">k</a>
+      <span class="keyword">else</span>
+        <a href="#119883" title="List[AA]">k</a>
+    }
+  }
+
+  <span class="keyword">private</span> <span class="keyword">def</span> <a title="[AA &gt;: A](d: Int,n: Int)Map[Int,scalaz.BKTree[A]]" id="118553">subChildren</a>[<a title="&gt;: A &lt;: Any" id="118555">AA</a> &gt;: A](<a title="Int" id="119731">d</a>: <span title="Int">Int</span>, <a title="Int" id="119732">n</a>: <span title="Int">Int</span>) = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="Map[Int,scalaz.BKTree[A]]" class="keyword">match</span> {
+    <span title="scala.collection.immutable.IntMap[Nothing]" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <span title="object scala.collection.immutable.IntMap">IntMap</span>.<span title="scala.collection.immutable.IntMap[Nothing]">empty</span>
+    <span title="Map[Int,scalaz.BKTree[A]]" class="keyword">case</span> BKTreeNode(_, _, <a title="Map[Int,scalaz.BKTree[A]]" id="119747">c</a>) =&gt; <a href="#118556" title="(m: Map[Int,scalaz.BKTree[A]],d: Int,n: Int)Map[Int,scalaz.BKTree[A]]">subMap</a>(<a href="#119747" title="Map[Int,scalaz.BKTree[A]]">c</a>, <a href="#119731" title="Int">d</a>, <a href="#119732" title="Int">n</a>)
+  }
+
+  <span class="keyword">private</span> <span class="keyword">def</span> <a title="[AA &gt;: A](m: Map[Int,scalaz.BKTree[AA]],d: Int,n: Int)Map[Int,scalaz.BKTree[AA]]" id="118556">subMap</a>[<a title="&gt;: A &lt;: Any" id="118558">AA</a> &gt;: A](<a title="Map[Int,scalaz.BKTree[AA]]" id="119749">m</a>: <span title="Map[Int,scalaz.BKTree[AA]]">Map</span>[Int, BKTree[AA]], <a title="Int" id="119750">d</a>: <span title="Int">Int</span>, <a title="Int" id="119751">n</a>: <span title="Int">Int</span>) = <a href="#118562" title="(m: Map[Int,scalaz.BKTree[AA]],k: Int)(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])">splitMap</a>(<a href="#118562" title="(m: Map[Int,scalaz.BKTree[AA]],k: Int)(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])">splitMap</a>(<a href="#119749" title="Map[Int,scalaz.BKTree[AA]]">m</a>, <a href="#119750" title="(x$1: Int)Int">d</a> <span title="(x$1: Int)Int">-</span> <a href="#119751" title="Int">n</a> - <span title="Int(1)" class="int">1</span>).<span title="=&gt; Map[Int,scalaz.BKTree[AA]]">_2</span>, <a href="#119750" title="(x$1: Int)Int">d</a> <span title="(x$1: Int)Int">+</span> <a href="#119751" title="Int">n</a> + <span title="Int(1)" class="int">1</span>).<a title="=&gt; Map[Int,scalaz.BKTree[AA]]" id="28671">_1</a>
+
+  <span class="keyword">private</span> <span class="keyword">def</span> <a title="[AA &gt;: A](k: Int)(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])" id="118559">splitChildren</a>[<a title="&gt;: A &lt;: Any" id="118561">AA</a> &gt;: A](<a title="Int" id="120215">k</a>: <span title="Int">Int</span>): <span title="(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])">(</span>Map[Int, BKTree[AA]], Map[Int, BKTree[AA]]) = <a href="#9623" title="scalaz.BKTree[A]" class="keyword">this</a> <span title="(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])" class="keyword">match</span> {
+    <span title="(scala.collection.immutable.IntMap[Nothing], scala.collection.immutable.IntMap[Nothing])" class="keyword">case</span> <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a> =&gt; <span title="(_1: scala.collection.immutable.IntMap[Nothing],_2: scala.collection.immutable.IntMap[Nothing])(scala.collection.immutable.IntMap[Nothing], scala.collection.immutable.IntMap[Nothing])">(</span><span title="object scala.collection.immutable.IntMap">IntMap</span>.<span title="scala.collection.immutable.IntMap[Nothing]">empty</span>, <span title="object scala.collection.immutable.IntMap">IntMap</span>.<span title="scala.collection.immutable.IntMap[Nothing]">empty</span>)
+    <span title="(Map[Int,scalaz.BKTree[A]], Map[Int,scalaz.BKTree[A]])" class="keyword">case</span> BKTreeNode(_, _, <a title="Map[Int,scalaz.BKTree[A]]" id="120252">c</a>) =&gt; <a href="#118562" title="(m: Map[Int,scalaz.BKTree[A]],k: Int)(Map[Int,scalaz.BKTree[A]], Map[Int,scalaz.BKTree[A]])">splitMap</a>(<a href="#120252" title="Map[Int,scalaz.BKTree[A]]">c</a>, <a href="#120215" title="Int">k</a>)
+  }
+
+  <span class="keyword">private</span> <span class="keyword">def</span> <a title="[AA &gt;: A](m: Map[Int,scalaz.BKTree[AA]],k: Int)(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])" id="118562">splitMap</a>[<a title="&gt;: A &lt;: Any" id="118564">AA</a> &gt;: A](<a title="Map[Int,scalaz.BKTree[AA]]" id="119754">m</a>: <span title="Map[Int,scalaz.BKTree[AA]]">Map</span>[Int, BKTree[AA]], <a title="Int" id="119755">k</a>: <span title="Int">Int</span>): <span title="(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])">(</span>Map[Int, BKTree[AA]], Map[Int, BKTree[AA]]) = {
+    <span class="keyword">var</span> <a title="Map[Int,scalaz.BKTree[AA]]" id="120267">m1</a>: <span title="Map[Int,scalaz.BKTree[AA]]">Map</span>[Int, BKTree[AA]] = <span title="object scala.collection.immutable.IntMap">IntMap</span>.<span title="scala.collection.immutable.IntMap[Nothing]">empty</span>
+    <span class="keyword">var</span> <a title="Map[Int,scalaz.BKTree[AA]]" id="120268">m2</a>: <span title="Map[Int,scalaz.BKTree[AA]]">Map</span>[Int, BKTree[AA]] = <span title="object scala.collection.immutable.IntMap">IntMap</span>.<span title="scala.collection.immutable.IntMap[Nothing]">empty</span>
+    <span class="keyword">for</span>((<a title="Int" id="120316">i</a>, <a title="scalaz.BKTree[AA]" id="120317">v</a>) &lt;- <a href="#119754" title="Map[Int,scalaz.BKTree[AA]]">m</a>.<a href="#120296" title="(f: ((Int, scalaz.BKTree[AA])) =&gt; Unit)Unit" id="37961">elements</a>) {
+      <span title="Unit" class="keyword">if</span>(<a href="#120316" title="(x$1: Int)Boolean" id="5125">i</a> &lt; <a href="#119755" title="Int">k</a>)
+        <a href="#120267" title="Map[Int,scalaz.BKTree[AA]]">m1</a> = <a href="#120267" title="(kv: (Int, scalaz.BKTree[AA]))scala.collection.immutable.Map[Int,scalaz.BKTree[AA]]">m1</a> + (<span title="(_1: Int,_2: scalaz.BKTree[AA])(Int, scalaz.BKTree[AA])">(</span><a href="#120316" title="Int">i</a>, <a href="#120317" title="scalaz.BKTree[AA]">v</a>))
+      <span class="keyword">else</span> <span title="Unit" class="keyword">if</span>(<a href="#120316" title="(x$1: Int)Boolean" id="5129">i</a> &gt; <a href="#119755" title="Int">k</a>)
+        <a href="#120268" title="Map[Int,scalaz.BKTree[AA]]">m2</a> = <a href="#120268" title="(kv: (Int, scalaz.BKTree[AA]))scala.collection.immutable.Map[Int,scalaz.BKTree[AA]]">m2</a> + (<span title="(_1: Int,_2: scalaz.BKTree[AA])(Int, scalaz.BKTree[AA])">(</span><a href="#120316" title="Int">i</a>, <a href="#120317" title="scalaz.BKTree[AA]">v</a>))
+    }
+    <span title="(_1: Map[Int,scalaz.BKTree[AA]],_2: Map[Int,scalaz.BKTree[AA]])(Map[Int,scalaz.BKTree[AA]], Map[Int,scalaz.BKTree[AA]])">(</span><a href="#120267" title="Map[Int,scalaz.BKTree[AA]]">m1</a>, <a href="#120268" title="Map[Int,scalaz.BKTree[AA]]">m2</a>)
+  }
+}
+<span class="keyword">private</span> <span class="keyword">final</span> case <span class="keyword">class</span> <a title="class BKTreeNode[+A] extends java.lang.Object with scalaz.BKTree[A] with ScalaObject with Product" id="118578">BKTreeNode</a>[+<a title="&gt;: Nothing &lt;: Any" id="118580">A</a>]<span title="ScalaObject">(</span><a title="[A]A" id="118654">value</a>: <a href="#118580" title="A">A</a>, <a title="[A]Int" id="118655">sz</a>: <span title="Int">Int</span>, <a title="[A]Map[Int,scalaz.BKTree[A]]" id="118656">children</a>: <span title="Map[Int,scalaz.BKTree[A]]">Map</span>[Int, BKTree[A]]) <span class="keyword">extends</span> <a href="#9623" title="scalaz.BKTree[A]">BKTree</a>[A]
+<span class="keyword">private</span> case <span class="keyword">object</span> <a href="#120564" title="object scalaz.BKTreeEmpty" id="120572">BKTreeEmpty</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#9623" title="scalaz.BKTree[Nothing]">BKTree</a>[Nothing]
+
+<span class="keyword">trait</span> <a title="trait BKTrees extends java.lang.Object with ScalaObject" id="9638">BKTrees</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="[A]scalaz.BKTree[A]" id="25472">emptyBKTree</a>[<a title="&gt;: Nothing &lt;: Any" id="25474">A</a>]: <a href="#9623" title="scalaz.BKTree[A]">BKTree</a>[A] = <a href="#120572" title="object scalaz.BKTreeEmpty">BKTreeEmpty</a>
+}
+
+        </pre>
+    </body>
+</html>
