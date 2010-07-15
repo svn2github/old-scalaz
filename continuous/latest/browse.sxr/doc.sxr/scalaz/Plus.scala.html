@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Plus.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">trait</span> <a title="trait Plus[P[_]] extends java.lang.Object" id="14912">Plus</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="22210">P</a>[<a title="&gt;: Nothing &lt;: Any" id="133538">_</a>]] <a title="java.lang.Object" id="2744">{</a>
+  <span class="keyword">def</span> <a title="[A](a1: P[A],a2: =&gt; P[A])P[A]" id="133535">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="133537">A</a>](<a title="P[A]" id="166518">a1</a>: <a href="#22210" title="P[A]">P</a>[A], <a title="=&gt; P[A]" id="166519">a2</a>: =&gt; P[A]): <a href="#22210" title="P[A]">P</a>[A]
+}
+
+<span class="keyword">trait</span> <a title="trait PlusLow extends java.lang.Object with ScalaObject" id="14918">PlusLow</a> <span title="ScalaObject">{</span>  
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[CC[Y] &lt;: scala.collection.TraversableLike[Y,CC[Y]]](implicit evidence$1: scalaz.CanBuildAnySelf[CC])scalaz.Plus[CC]" id="133644">TraversablePlus</a>[<a title="[Y]&gt;: Nothing &lt;: scala.collection.TraversableLike[Y,CC[Y]]" id="133542">CC</a>[<a title="&gt;: Nothing &lt;: Any" id="133645">Y</a>] &lt;: collection.TraversableLike[Y, CC[Y]] : CanBuildAnySelf]: <a href="#14912" title="scalaz.Plus[CC]">Plus</a>[CC] = <a href="#429040" title="java.lang.Object with scalaz.Plus[CC]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[CC]" id="429040">Plus</a>[CC] {
+    <span class="keyword">def</span> <a title="[X](s1: CC[X],s2: =&gt; CC[X])CC[X]" id="429044">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429046">X</a>](<a title="CC[X]" id="429047">s1</a>: <a href="#133542" title="CC[X]">CC</a>[X], <a title="=&gt; CC[X]" id="429048">s2</a>: =&gt; CC[X]): <a href="#133542" title="CC[X]">CC</a>[X] = {
+      <span class="keyword">implicit</span> <span class="keyword">val</span> <a title="scalaz.CanBuildAnySelf.CanBuildSelf[CC,X,X]" id="429065">cbf</a> = <a title="[T](implicit e: T)T" id="1486">implicitly</a><a href="#133644" title="(implicit e: scalaz.CanBuildAnySelf[CC])scalaz.CanBuildAnySelf[CC]">[</a><a href="CanBuildAnySelf.scala.html#9713" title="scalaz.CanBuildAnySelf[CC]">CanBuildAnySelf</a>[CC]].<a href="CanBuildAnySelf.scala.html#48632" title="[A, B]scalaz.CanBuildAnySelf.CanBuildSelf[CC,A,B]">builder</a><span title="scalaz.CanBuildAnySelf.CanBuildSelf[CC,X,X]">[</span><a href="#429046" title="X">X</a>, <a href="#429046" title="X">X</a>]
+      <a href="#429047" title="(that: scala.collection.TraversableOnce[X])(implicit bf: scala.collection.generic.CanBuildFrom[CC[X],X,CC[X]])CC[X]" id="37990">s1</a> <a href="#429065" title="scalaz.CanBuildAnySelf.CanBuildSelf[CC,X,X]">++</a> <a href="#429048" title="=&gt; CC[X]">s2</a>
+    }
+  }
+}
+
+<span class="keyword">object</span> <a title="object scalaz.Plus" id="14913">Plus</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#14918" title="scalaz.PlusLow">PlusLow</a> {
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#15252" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[scalaz.NonEmptyList]" id="133545">NonEmptyListPlus</a>: <a href="#14912" title="scalaz.Plus[scalaz.NonEmptyList]">Plus</a>[NonEmptyList] = <a href="#429092" title="java.lang.Object with scalaz.Plus[scalaz.NonEmptyList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[scalaz.NonEmptyList]" id="429092">Plus</a>[NonEmptyList] {
+    <span class="keyword">def</span> <a title="[A](a1: scalaz.NonEmptyList[A],a2: =&gt; scalaz.NonEmptyList[A])scalaz.NonEmptyList[A]" id="429096">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429098">A</a>](<a title="scalaz.NonEmptyList[A]" id="429099">a1</a>: <a href="NonEmptyList.scala.html#14576" title="scalaz.NonEmptyList[A]">NonEmptyList</a>[A], <a title="=&gt; scalaz.NonEmptyList[A]" id="429100">a2</a>: =&gt; NonEmptyList[A]) = <a href="#429099" title="scalaz.NonEmptyList[A]">a1</a>.<a href="NonEmptyList.scala.html#43989" title="=&gt; List[A]">list</a> <a href="#429115" title="List[A]">&lt;:::</a> <a href="NonEmptyList.scala.html#43977" title="(bs: List[A])scalaz.NonEmptyList[A]">a2</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[scalaz.ZipStream]" id="133546">ZipStreamPlus</a>: <a href="#14912" title="scalaz.Plus[scalaz.ZipStream]">Plus</a>[ZipStream] = <a href="#429137" title="java.lang.Object with scalaz.Plus[scalaz.ZipStream]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[scalaz.ZipStream]" id="429137">Plus</a>[ZipStream] {
+    <span class="keyword">def</span> <a title="[A](a1: scalaz.ZipStream[A],a2: =&gt; scalaz.ZipStream[A])scalaz.ZipStream[A]" id="429141">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429143">A</a>](<a title="scalaz.ZipStream[A]" id="429144">a1</a>: <a href="ZipStream.scala.html#18026" title="scalaz.ZipStream[A]">ZipStream</a>[A], <a title="=&gt; scalaz.ZipStream[A]" id="429145">a2</a>: =&gt; ZipStream[A]) = <a href="#429144" title="scalaz.ZipStream[A]">a1</a>.<a href="ZipStream.scala.html#29372" title="(rest: =&gt; Traversable[A])scala.collection.immutable.Stream[A]">value</a> <a href="StreamW.scala.html#25888" title="(as: Stream[A])scalaz.StreamW[A]">append</a> <a href="#429145" title="=&gt; scalaz.ZipStream[A]">a2</a>.<a href="ZipStream.scala.html#29372" title="=&gt; Stream[A]">value</a> <a href="StreamW.scala.html#37519" title="=&gt; scalaz.ZipStream[A]">ʐ</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[Stream]" id="133547">StreamPlus</a>: <a href="#14912" title="scalaz.Plus[Stream]">Plus</a>[Stream] = <a href="#429212" title="java.lang.Object with scalaz.Plus[Stream]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[Stream]" id="429212">Plus</a>[Stream] {
+    <span class="keyword">def</span> <a title="[A](a1: Stream[A],a2: =&gt; Stream[A])scala.collection.immutable.Stream[A]" id="429216">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429218">A</a>](<a title="Stream[A]" id="429219">a1</a>: <a title="Stream[A]" id="23186">Stream</a>[A], <a title="=&gt; Stream[A]" id="429220">a2</a>: =&gt; Stream[A]) = <a href="#429219" title="(rest: =&gt; Traversable[A])scala.collection.immutable.Stream[A]">a1</a> append <a href="#429220" title="=&gt; Stream[A]">a2</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[Option]" id="133548">OptionPlus</a>: <a href="#14912" title="scalaz.Plus[Option]">Plus</a>[Option] = <a href="#429253" title="java.lang.Object with scalaz.Plus[Option]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[Option]" id="429253">Plus</a>[Option] {
+    <span class="keyword">def</span> <a title="[A](a1: Option[A],a2: =&gt; Option[A])Option[A]" id="429257">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429259">A</a>](<a title="Option[A]" id="429260">a1</a>: <a title="Option[A]" id="1260">Option</a>[A], <a title="=&gt; Option[A]" id="429261">a2</a>: =&gt; Option[A]) = <a href="#429260" title="(alternative: =&gt; Option[A])Option[A]" id="38448">a1</a> orElse <a href="#429261" title="=&gt; Option[A]">a2</a>
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Plus[[B]Either.LeftProjection[B,X]]" id="133549">EitherLeftPlus</a>[<a title="&gt;: Nothing &lt;: Any" id="133551">X</a>]: <a href="#14912" title="scalaz.Plus[[B]Either.LeftProjection[B,X]]">Plus</a>[PartialApply1Of2[Either.LeftProjection, X]#Flip] = <a href="#429296" title="java.lang.Object with scalaz.Plus[[B]Either.LeftProjection[B,X]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[[B]Either.LeftProjection[B,X]]" id="429296">Plus</a>[PartialApply1Of2[Either.LeftProjection, X]#Flip] {
+    <span class="keyword">def</span> <a title="[A](a1: Either.LeftProjection[A,X],a2: =&gt; Either.LeftProjection[A,X])Either.LeftProjection[A,X]" id="429302">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429304">A</a>](<a title="Either.LeftProjection[A,X]" id="429305">a1</a>: Either.<a title="Either.LeftProjection[A,X]" id="28962">LeftProjection</a>[A, X], <a title="=&gt; Either.LeftProjection[A,X]" id="429306">a2</a>: =&gt; Either.LeftProjection[A, X]) = <a href="#429305" title="Either.LeftProjection[A,X]">a1</a>.<span title="=&gt; Either[A,X]">e</span> <span title="Either.LeftProjection[A,X]" class="keyword">match</span> {
+      <span title="Either.LeftProjection[A,X]" class="keyword">case</span> Left(_) =&gt; <a href="#429305" title="Either.LeftProjection[A,X]">a1</a>
+      <span title="Either.LeftProjection[A,X]" class="keyword">case</span> Right(_) =&gt; <a href="#429306" title="=&gt; Either.LeftProjection[A,X]">a2</a>.<span title="=&gt; Either[A,X]">e</span> <span title="Either.LeftProjection[A,X]" class="keyword">match</span> {
+        <span title="Either.LeftProjection[A,X]" class="keyword">case</span> Left(_) =&gt; <a href="#429306" title="=&gt; Either.LeftProjection[A,X]">a2</a>
+        <span title="Either.LeftProjection[A,X]" class="keyword">case</span> Right(_) =&gt; <a href="#429305" title="Either.LeftProjection[A,X]">a1</a>
+      }
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Plus[[B]Either.RightProjection[X,B]]" id="133552">EitherRightPlus</a>[<a title="&gt;: Nothing &lt;: Any" id="133554">X</a>]: <a href="#14912" title="scalaz.Plus[[B]Either.RightProjection[X,B]]">Plus</a>[PartialApply1Of2[Either.RightProjection, X]#Apply] = <a href="#429345" title="java.lang.Object with scalaz.Plus[[B]Either.RightProjection[X,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[[B]Either.RightProjection[X,B]]" id="429345">Plus</a>[PartialApply1Of2[Either.RightProjection, X]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a1: Either.RightProjection[X,A],a2: =&gt; Either.RightProjection[X,A])Either.RightProjection[X,A]" id="429351">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429353">A</a>](<a title="Either.RightProjection[X,A]" id="429354">a1</a>: Either.<a title="Either.RightProjection[X,A]" id="29020">RightProjection</a>[X, A], <a title="=&gt; Either.RightProjection[X,A]" id="429355">a2</a>: =&gt; Either.RightProjection[X, A]) = <a href="#429355" title="=&gt; Either.RightProjection[X,A]">a2</a>.<span title="=&gt; Either[X,A]">e</span> <span title="Either.RightProjection[X,A]" class="keyword">match</span> {
+      <span title="Either.RightProjection[X,A]" class="keyword">case</span> Right(_) =&gt; <a href="#429354" title="Either.RightProjection[X,A]">a1</a>
+      <span title="Either.RightProjection[X,A]" class="keyword">case</span> Left(_) =&gt; <a href="#429355" title="=&gt; Either.RightProjection[X,A]">a2</a>.<span title="=&gt; Either[X,A]">e</span> <span title="Either.RightProjection[X,A]" class="keyword">match</span> {
+        <span title="Either.RightProjection[X,A]" class="keyword">case</span> Right(_) =&gt; <a href="#429355" title="=&gt; Either.RightProjection[X,A]">a2</a>
+        <span title="Either.RightProjection[X,A]" class="keyword">case</span> Left(_) =&gt; <a href="#429354" title="Either.RightProjection[X,A]">a1</a>
+      }
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Plus[[B]scalaz.Validation[X,B]]" id="133555">ValidationPlus</a>[<a title="&gt;: Nothing &lt;: Any" id="133557">X</a>]: <a href="#14912" title="scalaz.Plus[[B]scalaz.Validation[X,B]]">Plus</a>[PartialApply1Of2[Validation, X]#Apply] = <a href="#429394" title="java.lang.Object with scalaz.Plus[[B]scalaz.Validation[X,B]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[[B]scalaz.Validation[X,B]]" id="429394">Plus</a>[PartialApply1Of2[Validation, X]#Apply] {
+    <span class="keyword">def</span> <a title="[A](a1: scalaz.Validation[X,A],a2: =&gt; scalaz.Validation[X,A])scalaz.Validation[X,A]" id="429400">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429402">A</a>](<a title="scalaz.Validation[X,A]" id="429403">a1</a>: <a href="Validation.scala.html#17846" title="scalaz.Validation[X,A]">Validation</a>[X, A], <a title="=&gt; scalaz.Validation[X,A]" id="429404">a2</a>: =&gt; Validation[X, A]) = <a href="#429403" title="scalaz.Validation[X,A]">a1</a> <span title="scalaz.Validation[X,A]" class="keyword">match</span> {
+      <span title="scalaz.Validation[X,A]" class="keyword">case</span> Success(_) =&gt; <a href="#429403" title="scalaz.Validation[X,A]">a1</a>
+      <span title="scalaz.Validation[X,A]" class="keyword">case</span> Failure(_) =&gt; <a href="#429404" title="=&gt; scalaz.Validation[X,A]">a2</a> <span title="scalaz.Validation[X,A]" class="keyword">match</span> {
+        <span title="scalaz.Validation[X,A]" class="keyword">case</span> Success(_) =&gt; <a href="#429404" title="=&gt; scalaz.Validation[X,A]">a2</a>
+        <span title="scalaz.Validation[X,A]" class="keyword">case</span> Failure(_) =&gt; <a href="#429403" title="scalaz.Validation[X,A]">a1</a>
+      }
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[X]scalaz.Plus[[B]scalaz.FailProjection[B,X]]" id="133558">ValidationFailurePlus</a>[<a title="&gt;: Nothing &lt;: Any" id="133560">X</a>]: <a href="#14912" title="scalaz.Plus[[B]scalaz.FailProjection[B,X]]">Plus</a>[PartialApply1Of2[FailProjection, X]#Flip] = <a href="#429443" title="java.lang.Object with scalaz.Plus[[B]scalaz.FailProjection[B,X]]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[[B]scalaz.FailProjection[B,X]]" id="429443">Plus</a>[PartialApply1Of2[FailProjection, X]#Flip] {
+    <span class="keyword">def</span> <a title="[A](a1: scalaz.FailProjection[A,X],a2: =&gt; scalaz.FailProjection[A,X])scalaz.FailProjection[A,X]" id="429449">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429451">A</a>](<a title="scalaz.FailProjection[A,X]" id="429452">a1</a>: <a href="Validation.scala.html#10385" title="scalaz.FailProjection[A,X]">FailProjection</a>[A, X], <a title="=&gt; scalaz.FailProjection[A,X]" id="429453">a2</a>: =&gt; FailProjection[A, X]) = <a href="#429452" title="scalaz.FailProjection[A,X]">a1</a>.<a href="Validation.scala.html#27917" title="=&gt; scalaz.Validation[A,X]">validation</a> <span title="scalaz.FailProjection[A,X]" class="keyword">match</span> {
+      <span title="scalaz.FailProjection[A,X]" class="keyword">case</span> Success(_) =&gt; <a href="#429453" title="=&gt; scalaz.FailProjection[A,X]">a2</a>.<a href="Validation.scala.html#27917" title="=&gt; scalaz.Validation[A,X]">validation</a> <span title="scalaz.FailProjection[A,X]" class="keyword">match</span> {
+        <span title="scalaz.FailProjection[A,X]" class="keyword">case</span> Failure(_) =&gt; <a href="#429453" title="=&gt; scalaz.FailProjection[A,X]">a2</a>
+        <span title="scalaz.FailProjection[A,X]" class="keyword">case</span> Success(_) =&gt; <a href="#429452" title="scalaz.FailProjection[A,X]">a1</a>
+      }
+      <span title="scalaz.FailProjection[A,X]" class="keyword">case</span> Failure(_) =&gt; <a href="#429452" title="scalaz.FailProjection[A,X]">a1</a>
+    }
+  }
+
+  <span class="keyword">import</span> java.util._
+  <span class="keyword">import</span> java.util.concurrent._
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.ArrayList]" id="133563">ArrayListPlus</a>: <a href="#14912" title="scalaz.Plus[java.util.ArrayList]">Plus</a>[ArrayList] = <a href="#429490" title="java.lang.Object with scalaz.Plus[java.util.ArrayList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.ArrayList]" id="429490">Plus</a>[ArrayList] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.ArrayList[A],a2: =&gt; java.util.ArrayList[A])java.util.ArrayList[A]" id="429494">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429496">A</a>](<a title="java.util.ArrayList[A]" id="429497">a1</a>: <span title="java.util.ArrayList[A]">ArrayList</span>[A], <a title="=&gt; java.util.ArrayList[A]" id="429498">a2</a>: =&gt; ArrayList[A]) = {
+      <span class="keyword">val</span> <a title="java.util.ArrayList[A]" id="429513">k</a> = <a href="#429497" title="java.util.ArrayList[A]">a1</a>.<a title="()java.lang.Object" id="47319">clone</a>.<span title="[T0]T0">asInstanceOf</span><span title="java.util.ArrayList[A]">[</span><span title="java.util.ArrayList[A]">ArrayList</span>[A]]
+      <a href="#429513" title="(x$1: java.util.Collection[_ &lt;: A])Boolean" id="47349">k</a> addAll <a href="#429498" title="=&gt; java.util.ArrayList[A]">a2</a>
+      <a href="#429513" title="java.util.ArrayList[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.LinkedList]" id="133564">LinkedListPlus</a>: <a href="#14912" title="scalaz.Plus[java.util.LinkedList]">Plus</a>[LinkedList] = <a href="#429563" title="java.lang.Object with scalaz.Plus[java.util.LinkedList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.LinkedList]" id="429563">Plus</a>[LinkedList] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.LinkedList[A],a2: =&gt; java.util.LinkedList[A])java.util.LinkedList[A]" id="429567">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429569">A</a>](<a title="java.util.LinkedList[A]" id="429570">a1</a>: <span title="java.util.LinkedList[A]">LinkedList</span>[A], <a title="=&gt; java.util.LinkedList[A]" id="429571">a2</a>: =&gt; LinkedList[A]) = {
+      <span class="keyword">val</span> <a title="java.util.LinkedList[A]" id="429586">k</a> = <a href="#429570" title="java.util.LinkedList[A]">a1</a>.<a title="()java.lang.Object" id="47198">clone</a>.<span title="[T0]T0">asInstanceOf</span><span title="java.util.LinkedList[A]">[</span><span title="java.util.LinkedList[A]">LinkedList</span>[A]]
+      <a href="#429586" title="(x$1: java.util.Collection[_ &lt;: A])Boolean" id="47136">k</a> addAll <a href="#429571" title="=&gt; java.util.LinkedList[A]">a2</a>
+      <a href="#429586" title="java.util.LinkedList[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.PriorityQueue]" id="133565">PriorityQueuePlus</a>: <a href="#14912" title="scalaz.Plus[java.util.PriorityQueue]">Plus</a>[PriorityQueue] = <a href="#429641" title="java.lang.Object with scalaz.Plus[java.util.PriorityQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.PriorityQueue]" id="429641">Plus</a>[PriorityQueue] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.PriorityQueue[A],a2: =&gt; java.util.PriorityQueue[A])java.util.PriorityQueue[A]" id="429645">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429647">A</a>](<a title="java.util.PriorityQueue[A]" id="429648">a1</a>: <span title="java.util.PriorityQueue[A]">PriorityQueue</span>[A], <a title="=&gt; java.util.PriorityQueue[A]" id="429649">a2</a>: =&gt; PriorityQueue[A]) = {
+      <span class="keyword">val</span> <a title="java.util.PriorityQueue[A]" id="429664">k</a> = <a title="(x$1: java.util.PriorityQueue[_ &lt;: A])java.util.PriorityQueue[A]" id="47050" class="keyword">new</a> <span title="java.util.PriorityQueue[A]">PriorityQueue</span>[A](<a href="#429648" title="java.util.PriorityQueue[A]">a1</a>)
+      <a href="#429664" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#429649" title="=&gt; java.util.PriorityQueue[A]">a2</a>
+      <a href="#429664" title="java.util.PriorityQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.Stack]" id="133566">StackPlus</a>: <a href="#14912" title="scalaz.Plus[java.util.Stack]">Plus</a>[Stack] = <a href="#429728" title="java.lang.Object with scalaz.Plus[java.util.Stack]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.Stack]" id="429728">Plus</a>[Stack] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.Stack[A],a2: =&gt; java.util.Stack[A])java.util.Stack[A]" id="429732">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429734">A</a>](<a title="java.util.Stack[A]" id="429735">a1</a>: <span title="java.util.Stack[A]">Stack</span>[A], <a title="=&gt; java.util.Stack[A]" id="429736">a2</a>: =&gt; Stack[A]) = {
+      <span class="keyword">val</span> <a title="java.util.Stack[A]" id="429751">k</a> = <a href="#429735" title="java.util.Stack[A]">a1</a>.<span title="()java.lang.Object">clone</span>.<span title="[T0]T0">asInstanceOf</span><span title="java.util.Stack[A]">[</span><span title="java.util.Stack[A]">Stack</span>[A]]
+      <a href="#429751" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#429736" title="=&gt; java.util.Stack[A]">a2</a>
+      <a href="#429751" title="java.util.Stack[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.Vector]" id="133567">VectorPlus</a>: <a href="#14912" title="scalaz.Plus[java.util.Vector]">Plus</a>[Vector] = <a href="#429801" title="java.lang.Object with scalaz.Plus[java.util.Vector]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.Vector]" id="429801">Plus</a>[Vector] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.Vector[A],a2: =&gt; java.util.Vector[A])java.util.Vector[A]" id="429805">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429807">A</a>](<a title="java.util.Vector[A]" id="429808">a1</a>: <span title="java.util.Vector[A]">Vector</span>[A], <a title="=&gt; java.util.Vector[A]" id="429809">a2</a>: =&gt; Vector[A]) = {
+      <span class="keyword">val</span> <a title="java.util.Vector[A]" id="429824">k</a> = <a href="#429808" title="java.util.Vector[A]">a1</a>.<span title="()java.lang.Object">clone</span>.<span title="[T0]T0">asInstanceOf</span><span title="java.util.Vector[A]">[</span><span title="java.util.Vector[A]">Vector</span>[A]]
+      <a href="#429824" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#429809" title="=&gt; java.util.Vector[A]">a2</a>
+      <a href="#429824" title="java.util.Vector[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.concurrent.ArrayBlockingQueue]" id="133568">ArrayBlockingQueuePlus</a>: <a href="#14912" title="scalaz.Plus[java.util.concurrent.ArrayBlockingQueue]">Plus</a>[ArrayBlockingQueue] = <a href="#429874" title="java.lang.Object with scalaz.Plus[java.util.concurrent.ArrayBlockingQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.concurrent.ArrayBlockingQueue]" id="429874">Plus</a>[ArrayBlockingQueue] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.concurrent.ArrayBlockingQueue[A],a2: =&gt; java.util.concurrent.ArrayBlockingQueue[A])java.util.concurrent.ArrayBlockingQueue[A]" id="429878">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429880">A</a>](<a title="java.util.concurrent.ArrayBlockingQueue[A]" id="429881">a1</a>: <span title="java.util.concurrent.ArrayBlockingQueue[A]">ArrayBlockingQueue</span>[A], <a title="=&gt; java.util.concurrent.ArrayBlockingQueue[A]" id="429882">a2</a>: =&gt; ArrayBlockingQueue[A]) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.ArrayBlockingQueue[A]" id="429897">k</a> = <span title="java.util.concurrent.ArrayBlockingQueue[A]" class="keyword">new</span> <span title="java.util.concurrent.ArrayBlockingQueue[A]">ArrayBlockingQueue</span>[A](<a href="#429881" title="java.util.concurrent.ArrayBlockingQueue[A]">a1</a>.<a title="(x$1: Int)Int" id="5133">remainingCapacity</a> + <a href="#429882" title="=&gt; java.util.concurrent.ArrayBlockingQueue[A]">a2</a>.<span title="()Int">remainingCapacity</span>)
+      <a href="#429897" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#429881" title="java.util.concurrent.ArrayBlockingQueue[A]">a1</a>
+      <a href="#429897" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#429882" title="=&gt; java.util.concurrent.ArrayBlockingQueue[A]">a2</a>
+      <a href="#429897" title="java.util.concurrent.ArrayBlockingQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.concurrent.ConcurrentLinkedQueue]" id="133569">ConcurrentLinkedQueuePlus</a>: <a href="#14912" title="scalaz.Plus[java.util.concurrent.ConcurrentLinkedQueue]">Plus</a>[ConcurrentLinkedQueue] = <a href="#429943" title="java.lang.Object with scalaz.Plus[java.util.concurrent.ConcurrentLinkedQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.concurrent.ConcurrentLinkedQueue]" id="429943">Plus</a>[ConcurrentLinkedQueue] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.concurrent.ConcurrentLinkedQueue[A],a2: =&gt; java.util.concurrent.ConcurrentLinkedQueue[A])java.util.concurrent.ConcurrentLinkedQueue[A]" id="429947">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="429949">A</a>](<a title="java.util.concurrent.ConcurrentLinkedQueue[A]" id="429950">a1</a>: <span title="java.util.concurrent.ConcurrentLinkedQueue[A]">ConcurrentLinkedQueue</span>[A], <a title="=&gt; java.util.concurrent.ConcurrentLinkedQueue[A]" id="429951">a2</a>: =&gt; ConcurrentLinkedQueue[A]) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.ConcurrentLinkedQueue[A]" id="429966">k</a> = <a title="(x$1: java.util.Collection[_ &lt;: A])java.util.concurrent.ConcurrentLinkedQueue[A]" id="26524" class="keyword">new</a> <span title="java.util.concurrent.ConcurrentLinkedQueue[A]">ConcurrentLinkedQueue</span>[A](<a href="#429950" title="java.util.concurrent.ConcurrentLinkedQueue[A]">a1</a>)
+      <a href="#429966" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#429951" title="=&gt; java.util.concurrent.ConcurrentLinkedQueue[A]">a2</a>
+      <a href="#429966" title="java.util.concurrent.ConcurrentLinkedQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.concurrent.CopyOnWriteArrayList]" id="133570">CopyOnWriteArrayListPlus</a>: <a href="#14912" title="scalaz.Plus[java.util.concurrent.CopyOnWriteArrayList]">Plus</a>[CopyOnWriteArrayList] = <a href="#430002" title="java.lang.Object with scalaz.Plus[java.util.concurrent.CopyOnWriteArrayList]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.concurrent.CopyOnWriteArrayList]" id="430002">Plus</a>[CopyOnWriteArrayList] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.concurrent.CopyOnWriteArrayList[A],a2: =&gt; java.util.concurrent.CopyOnWriteArrayList[A])java.util.concurrent.CopyOnWriteArrayList[A]" id="430006">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="430008">A</a>](<a title="java.util.concurrent.CopyOnWriteArrayList[A]" id="430009">a1</a>: <span title="java.util.concurrent.CopyOnWriteArrayList[A]">CopyOnWriteArrayList</span>[A], <a title="=&gt; java.util.concurrent.CopyOnWriteArrayList[A]" id="430010">a2</a>: =&gt; CopyOnWriteArrayList[A]) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.CopyOnWriteArrayList[A]" id="430025">k</a> = <a href="#430009" title="java.util.concurrent.CopyOnWriteArrayList[A]">a1</a>.<a title="()java.lang.Object" id="46564">clone</a>.<span title="[T0]T0">asInstanceOf</span><span title="java.util.concurrent.CopyOnWriteArrayList[A]">[</span><span title="java.util.concurrent.CopyOnWriteArrayList[A]">CopyOnWriteArrayList</span>[A]]
+      <a href="#430025" title="(x$1: java.util.Collection[_ &lt;: A])Boolean" id="46617">k</a> addAll <a href="#430010" title="=&gt; java.util.concurrent.CopyOnWriteArrayList[A]">a2</a>
+      <a href="#430025" title="java.util.concurrent.CopyOnWriteArrayList[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.concurrent.LinkedBlockingQueue]" id="133571">LinkedBlockingQueuePlus</a>: <a href="#14912" title="scalaz.Plus[java.util.concurrent.LinkedBlockingQueue]">Plus</a>[LinkedBlockingQueue] = <a href="#430066" title="java.lang.Object with scalaz.Plus[java.util.concurrent.LinkedBlockingQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.concurrent.LinkedBlockingQueue]" id="430066">Plus</a>[LinkedBlockingQueue] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.concurrent.LinkedBlockingQueue[A],a2: =&gt; java.util.concurrent.LinkedBlockingQueue[A])java.util.concurrent.LinkedBlockingQueue[A]" id="430070">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="430072">A</a>](<a title="java.util.concurrent.LinkedBlockingQueue[A]" id="430073">a1</a>: <span title="java.util.concurrent.LinkedBlockingQueue[A]">LinkedBlockingQueue</span>[A], <a title="=&gt; java.util.concurrent.LinkedBlockingQueue[A]" id="430074">a2</a>: =&gt; LinkedBlockingQueue[A]) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.LinkedBlockingQueue[A]" id="430089">k</a> = <a title="(x$1: java.util.Collection[_ &lt;: A])java.util.concurrent.LinkedBlockingQueue[A]" id="46390" class="keyword">new</a> <span title="java.util.concurrent.LinkedBlockingQueue[A]">LinkedBlockingQueue</span>[A](<a href="#430073" title="java.util.concurrent.LinkedBlockingQueue[A]">a1</a>)
+      <a href="#430089" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#430074" title="=&gt; java.util.concurrent.LinkedBlockingQueue[A]">a2</a>
+      <a href="#430089" title="java.util.concurrent.LinkedBlockingQueue[A]">k</a>
+    }
+  }
+
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="=&gt; scalaz.Plus[java.util.concurrent.SynchronousQueue]" id="133572">SynchronousQueuePlus</a>: <a href="#14912" title="scalaz.Plus[java.util.concurrent.SynchronousQueue]">Plus</a>[SynchronousQueue] = <a href="#430128" title="java.lang.Object with scalaz.Plus[java.util.concurrent.SynchronousQueue]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Plus[java.util.concurrent.SynchronousQueue]" id="430128">Plus</a>[SynchronousQueue] {
+    <span class="keyword">def</span> <a title="[A](a1: java.util.concurrent.SynchronousQueue[A],a2: =&gt; java.util.concurrent.SynchronousQueue[A])java.util.concurrent.SynchronousQueue[A]" id="430132">plus</a>[<a title="&gt;: Nothing &lt;: Any" id="430134">A</a>](<a title="java.util.concurrent.SynchronousQueue[A]" id="430135">a1</a>: <span title="java.util.concurrent.SynchronousQueue[A]">SynchronousQueue</span>[A], <a title="=&gt; java.util.concurrent.SynchronousQueue[A]" id="430136">a2</a>: =&gt; SynchronousQueue[A]) = {
+      <span class="keyword">val</span> <a title="java.util.concurrent.SynchronousQueue[A]" id="430151">k</a> = <span title="java.util.concurrent.SynchronousQueue[A]" class="keyword">new</span> <span title="java.util.concurrent.SynchronousQueue[A]">SynchronousQueue</span>[A]
+      <a href="#430151" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#430135" title="java.util.concurrent.SynchronousQueue[A]">a1</a>
+      <a href="#430151" title="(x$1: java.util.Collection[_ &lt;: A])Boolean">k</a> addAll <a href="#430136" title="=&gt; java.util.concurrent.SynchronousQueue[A]">a2</a>
+      <a href="#430151" title="java.util.concurrent.SynchronousQueue[A]">k</a>
+    }
+  }
+}
+
+        </pre>
+    </body>
+</html>

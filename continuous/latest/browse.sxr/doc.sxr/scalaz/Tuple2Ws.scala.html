@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/Tuple2Ws.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+
+<span class="keyword">trait</span> <a title="trait Tuple2W[A, B] extends java.lang.Object with scalaz.PimpedType[(A, B)] with ScalaObject" id="17453">Tuple2W</a>[<a title="&gt;: Nothing &lt;: Any" id="22037">A</a>, <a title="&gt;: Nothing &lt;: Any" id="22038">B</a>] <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#14849" title="scalaz.PimpedType[(A, B)]">PimpedType</a>[Tuple2[A, B]] {
+  <span class="keyword">def</span> <a title="[Z](f: =&gt; (A, B) =&gt; Z)Z" id="37496">fold</a>[<a title="&gt;: Nothing &lt;: Any" id="37498">Z</a>](<a title="=&gt; (A, B) =&gt; Z" id="328365">f</a>: =&gt; (A, B) =&gt; Z): <a href="#37498" title="Z">Z</a> = {<span class="keyword">import</span> value._; <a href="#328365" title="(v1: A,v2: B)Z" id="28903">f</a>(<a href="PimpedType.scala.html#27204" title="=&gt; A">_1</a>, <a href="PimpedType.scala.html#27204" title="=&gt; B">_2</a>)}
+  <span class="keyword">def</span> <a title="[Z](implicit ev: &lt;:&lt;[Tuple2W.this.value.type,(Z, Z)])IndexedSeq[Z]" id="37499">toIndexedSeq</a>[<a title="&gt;: Nothing &lt;: Any" id="37501">Z</a>](<span class="keyword">implicit</span> <a title="&lt;:&lt;[Tuple2W.this.value.type,(Z, Z)]" id="328372">ev</a>: value.<span class="keyword">type</span> <a title="&lt;:&lt;[Tuple2W.this.value.type,(Z, Z)]" id="9026">&lt;:&lt;</a> Tuple2[Z, Z]): <a title="IndexedSeq[Z]" id="7732">IndexedSeq</a>[Z] = {<span class="keyword">val</span> <a title="(Z, Z)" id="328375">zs</a> = <a href="#328372" title="(v1: Tuple2W.this.value.type)(Z, Z)">ev</a>(<a href="PimpedType.scala.html#27204" title="=&gt; (A, B)">value</a>); <span class="keyword">import</span> <a href="#328375" title="(Z, Z)">zs</a>._; <a title="(elems: Z*)IndexedSeq[Z]" id="1669">IndexedSeq</a>(<a href="#328375" title="=&gt; Z">_1</a>, <a href="#328375" title="=&gt; Z">_2</a>)}
+  <span class="keyword">def</span> <a title="[AA, BB](_1: (A) =&gt; AA,_2: (B) =&gt; BB)(AA, BB)" id="37502">mapAll</a>[<a title="&gt;: Nothing &lt;: Any" id="37505">AA</a>, <a title="&gt;: Nothing &lt;: Any" id="37506">BB</a>](<a title="[AA, BB](A) =&gt; A" id="328383">_1</a>: (A =&gt; AA) = <span title="[A](x: A)A">identity</span><a href="#328460" title="(x: A)A">[</a><a href="#22037" title="A">A</a>] _, <a title="[AA, BB](B) =&gt; B" id="328384">_2</a>: (B =&gt; BB) = <span title="[A](x: A)A">identity</span><a href="#328452" title="(x: B)B">[</a><a href="#22038" title="B">B</a>] _): <span title="(AA, BB)">(</span>AA, BB) = <span title="(_1: AA,_2: BB)(AA, BB)">(</span><a href="#328383" title="(v1: A)AA">_1</a>(<a href="PimpedType.scala.html#27204" title="=&gt; (A, B)">value</a>.<span title="=&gt; A">_1</span>), <a href="#328384" title="(v1: B)BB">_2</a>(<a href="PimpedType.scala.html#27204" title="=&gt; (A, B)">value</a>.<span title="=&gt; B">_2</span>))
+  <span class="keyword">def</span> <a title="[AA, BB](_1: AA,_2: BB)(AA, BB)" id="37507">copy</a>[<a title="&gt;: Nothing &lt;: Any" id="37510">AA</a>, <a title="&gt;: Nothing &lt;: Any" id="37511">BB</a>](<a title="[AA, BB]A" id="328419">_1</a>: <a href="#37510" title="AA">AA</a> = <a href="PimpedType.scala.html#27204" title="=&gt; (A, B)">value</a>.<span title="=&gt; A">_1</span>, <a title="[AA, BB]B" id="328420">_2</a>: <a href="#37511" title="BB">BB</a> = <a href="PimpedType.scala.html#27204" title="=&gt; (A, B)">value</a>.<span title="=&gt; B">_2</span>): <span title="(AA, BB)">(</span>AA, BB) = <span title="(_1: AA,_2: BB)(AA, BB)">(</span><a href="#328419" title="AA">_1</a>, <a href="#328420" title="BB">_2</a>)
+}
+
+<span class="keyword">trait</span> <a title="trait Tuple2Ws extends java.lang.Object with ScalaObject" id="17459">Tuple2Ws</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="[A, B](t: (A, B))scalaz.Tuple2W[A,B]" id="25901">ToTuple2W</a>[<a title="&gt;: Nothing &lt;: Any" id="25904">A</a>, <a title="&gt;: Nothing &lt;: Any" id="25905">B</a>](<a title="(A, B)" id="37493">t</a>: <span title="(A, B)">(</span>A, B)): <a href="#17453" title="scalaz.Tuple2W[A,B]">Tuple2W</a>[A, B] = <a href="#328465" title="java.lang.Object with scalaz.Tuple2W[A,B]{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.Tuple2W[A,B]" id="328465">{</a> <span class="keyword">val</span> <a title="(A, B)" id="328475">value</a> = <a href="#37493" title="(A, B)">t</a> } <span class="keyword">with</span> <a href="#17453" title="scalaz.Tuple2W[A,B]">Tuple2W</a>[A, B]
+}
+
+        </pre>
+    </body>
+</html>

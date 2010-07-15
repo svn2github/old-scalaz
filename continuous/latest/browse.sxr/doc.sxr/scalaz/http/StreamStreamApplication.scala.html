@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/http/StreamStreamApplication.scala</title>
+        <script type="text/javascript" src="../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+<span class="keyword">package</span> http
+
+<span class="keyword">import</span> request.Request
+<span class="keyword">import</span> response.Response
+<span class="keyword">import</span> response.{ResponseHeader, Status}
+
+<span class="keyword">trait</span> <a title="trait StreamStreamApplications extends java.lang.Object with ScalaObject" id="19044">StreamStreamApplications</a> <span title="ScalaObject">{</span>
+  /**
+   * Construct a response from the given status with a version determined by the given request.
+   */
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.http.StreamStreamApplications.responseFromStatus : (s: scalaz.http.response.Status)(implicit req: scalaz.http.request.Request[Stream])scalaz.http.response.Response[Stream]" id="137140">responseFromStatus</a>(<a title="scalaz.http.response.Status" id="521239">s</a>: <a href="response/Status.scala.html#19596" title="scalaz.http.response.Status">Status</a>)(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[Stream]" id="521240">req</a>: <a href="request/Request.scala.html#20592" title="scalaz.http.request.Request[Stream]">Request</a>[Stream]): <a href="response/Response.scala.html#19527" title="scalaz.http.response.Response[Stream]">Response</a>[Stream] =
+    <a href="response/Response.scala.html#19528" title="object scalaz.http.response.Response">Response</a>.<a href="response/Response.scala.html#123127" title="[OUT[_], IN[_]](s: scalaz.http.response.Status)(implicit e: scalaz.Empty[OUT],implicit req: scalaz.http.request.Request[IN])java.lang.Object with scalaz.http.response.Response[OUT]">emptyHeadersBodyStatusResponse</a><span title="(s: scalaz.http.response.Status)(implicit e: scalaz.Empty[Stream],implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]">[</span><span title="Stream">Stream</span>, <span title="Stream">Stream</span>]<a href="../Empty.scala.html#123356" title="(implicit evidence$3: scalaz.CanBuildAnySelf[scala.collection.immutable.Stream])scalaz.Empty[scala.collection.immutable.Stream]">(</a><a href="#521239" title="scalaz.http.response.Status">s</a>)
+
+}
+/**
+ * Functions for web applications whose request and response body and transformed using &lt;code&gt;scala.Stream&lt;/code&gt;.
+ *
+ * @author &lt;a href=&quot;mailto:code@tmorris.net&quot;&gt;Tony Morris&lt;/a&gt;
+ */
+<span class="keyword">object</span> <a title="object scalaz.http.StreamStreamApplication" id="19042">StreamStreamApplication</a> <span title="ScalaObject" class="keyword">extends</span> <a href="#19044" title="scalaz.http.StreamStreamApplications">StreamStreamApplications</a> {
+  /**
+   * Construct a response from the given status, headers and body.
+   */
+  <span class="keyword">def</span> <a title="(s: scalaz.http.response.Status,h: List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])],b: Stream[Byte])(implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]" id="522232">response</a>(<a title="scalaz.http.response.Status" id="522239">s</a>: <a href="response/Status.scala.html#19596" title="scalaz.http.response.Status">Status</a>, <a title="List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])]" id="522240">h</a>: <span title="List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])]">List</span>[(ResponseHeader, NonEmptyList[Char])], <a title="Stream[Byte]" id="522241">b</a>: <span title="Stream[Byte]">Stream</span>[Byte])(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[Stream]" id="522242">req</a>: <a href="request/Request.scala.html#20592" title="scalaz.http.request.Request[Stream]">Request</a>[Stream]) =
+    <a href="response/Response.scala.html#19528" title="object scalaz.http.response.Response">Response</a>.<a href="response/Response.scala.html#123112" title="[OUT[_], IN[_]](s: scalaz.http.response.Status,h: List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])],b: OUT[Byte])(implicit req: scalaz.http.request.Request[IN])java.lang.Object with scalaz.http.response.Response[OUT]">statusResponse</a><span title="(s: scalaz.http.response.Status,h: List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])],b: Stream[Byte])(implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]">[</span><span title="Stream">Stream</span>, <span title="Stream">Stream</span>]<a href="#522242" title="scalaz.http.request.Request[Stream]">(</a><a href="#522239" title="scalaz.http.response.Status">s</a>, <a href="#522240" title="List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])]">h</a>, <a href="#522241" title="Stream[Byte]">b</a>)
+
+  /**
+   * Construct a response from the given status and body.
+   */
+  <span class="keyword">def</span> <a title="(s: scalaz.http.response.Status,b: Stream[Byte])(implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]" id="522233">response</a>(<a title="scalaz.http.response.Status" id="522253">s</a>: <a href="response/Status.scala.html#19596" title="scalaz.http.response.Status">Status</a>, <a title="Stream[Byte]" id="522254">b</a>: <span title="Stream[Byte]">Stream</span>[Byte])(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[Stream]" id="522255">req</a>: <a href="request/Request.scala.html#20592" title="scalaz.http.request.Request[Stream]">Request</a>[Stream]) =
+    <a href="response/Response.scala.html#19528" title="object scalaz.http.response.Response">Response</a>.<a href="response/Response.scala.html#123117" title="[OUT[_], IN[_]](s: scalaz.http.response.Status,b: OUT[Byte])(implicit req: scalaz.http.request.Request[IN])java.lang.Object with scalaz.http.response.Response[OUT]">emptyHeadersStatusResponse</a><span title="(s: scalaz.http.response.Status,b: Stream[Byte])(implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]">[</span><span title="Stream">Stream</span>, <span title="Stream">Stream</span>]<a href="#522255" title="scalaz.http.request.Request[Stream]">(</a><a href="#522253" title="scalaz.http.response.Status">s</a>, <a href="#522254" title="Stream[Byte]">b</a>)
+
+  /**
+   * Construct a response from the given status and headers.
+   */
+  <span class="keyword">def</span> <a title="(s: scalaz.http.response.Status,h: List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])])(implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]" id="522234">response</a>(<a title="scalaz.http.response.Status" id="522264">s</a>: <a href="response/Status.scala.html#19596" title="scalaz.http.response.Status">Status</a>, <a title="List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])]" id="522265">h</a>: <span title="List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])]">List</span>[(ResponseHeader, NonEmptyList[Char])])(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[Stream]" id="522266">req</a>: <a href="request/Request.scala.html#20592" title="scalaz.http.request.Request[Stream]">Request</a>[Stream]) =
+    <a href="response/Response.scala.html#19528" title="object scalaz.http.response.Response">Response</a>.<a href="response/Response.scala.html#123122" title="[OUT[_], IN[_]](s: scalaz.http.response.Status,h: List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])])(implicit e: scalaz.Empty[OUT],implicit req: scalaz.http.request.Request[IN])java.lang.Object with scalaz.http.response.Response[OUT]">emptyStatusResponse</a><span title="(s: scalaz.http.response.Status,h: List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])])(implicit e: scalaz.Empty[Stream],implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]">[</span><span title="Stream">Stream</span>, <span title="Stream">Stream</span>]<a href="../Empty.scala.html#123356" title="(implicit evidence$3: scalaz.CanBuildAnySelf[scala.collection.immutable.Stream])scalaz.Empty[scala.collection.immutable.Stream]">(</a><a href="#522264" title="scalaz.http.response.Status">s</a>, <a href="#522265" title="List[(scalaz.http.response.ResponseHeader, scalaz.NonEmptyList[Char])]">h</a>)
+
+  /**
+   * Create a response with a version derived from the given request that redirects (301 Moved Permanently) to the given location.
+   */
+  <span class="keyword">def</span> <a title="(location: scalaz.NonEmptyList[Char],parameters: (String, String)*)(implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]" id="522235">redirect</a>(<a title="scalaz.NonEmptyList[Char]" id="522369">location</a>: <a href="../NonEmptyList.scala.html#14576" title="scalaz.NonEmptyList[Char]">NonEmptyList</a>[Char], <a title="(String, String)*" id="522370">parameters</a>: <span title="(String, String)*">(</span>String, String)*)(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[Stream]" id="522371">req</a>: <a href="request/Request.scala.html#20592" title="scalaz.http.request.Request[Stream]">Request</a>[Stream]) = <a href="response/Response.scala.html#19528" title="object scalaz.http.response.Response">Response</a>.<a href="response/Response.scala.html#123150" title="[OUT[_], IN[_]](location: scalaz.NonEmptyList[Char],parameters: (String, String)*)(implicit e: scalaz.Empty[OUT],implicit req: scalaz.http.request.Request[IN])java.lang.Object with scalaz.http.response.Response[OUT]">redirect</a><span title="(location: scalaz.NonEmptyList[Char],parameters: (String, String)*)(implicit e: scalaz.Empty[Stream],implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]">[</span><span title="Stream">Stream</span>, <span title="Stream">Stream</span>]<a href="../Empty.scala.html#123356" title="(implicit evidence$3: scalaz.CanBuildAnySelf[scala.collection.immutable.Stream])scalaz.Empty[scala.collection.immutable.Stream]">(</a><a href="#522369" title="scalaz.NonEmptyList[Char]">location</a>, <a href="#522370" title="(String, String)*">parameters</a>: _*)
+
+  /**
+   * Create a response with a version derived from the given request that redirects (301 Moved Permanently) to the given location.
+   * &lt;strong&gt;This function fails if the given string value is empty&lt;/strong&gt;.
+   */
+  <span class="keyword">def</span> <a title="(location: String,parameters: (String, String)*)(implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]" id="522236">redirect</a>(<a title="String" id="522474">location</a>: <a title="String" id="2716">String</a>, <a title="(String, String)*" id="522475">parameters</a>: <span title="(String, String)*">(</span>String, String)*)(<span class="keyword">implicit</span> <a title="scalaz.http.request.Request[Stream]" id="522476">req</a>: <a href="request/Request.scala.html#20592" title="scalaz.http.request.Request[Stream]">Request</a>[Stream]) = <a href="response/Response.scala.html#19528" title="object scalaz.http.response.Response">Response</a>.<a href="response/Response.scala.html#123155" title="[OUT[_], IN[_]](location: String,parameters: (String, String)*)(implicit e: scalaz.Empty[OUT],implicit req: scalaz.http.request.Request[IN])java.lang.Object with scalaz.http.response.Response[OUT]">redirects</a><span title="(location: String,parameters: (String, String)*)(implicit e: scalaz.Empty[Stream],implicit req: scalaz.http.request.Request[Stream])java.lang.Object with scalaz.http.response.Response[Stream]">[</span><span title="Stream">Stream</span>, <span title="Stream">Stream</span>]<a href="../Empty.scala.html#123356" title="(implicit evidence$3: scalaz.CanBuildAnySelf[scala.collection.immutable.Stream])scalaz.Empty[scala.collection.immutable.Stream]">(</a><a href="#522474" title="String">location</a>, <a href="#522475" title="(String, String)*">parameters</a>: _*)
+}
+
+        </pre>
+    </body>
+</html>

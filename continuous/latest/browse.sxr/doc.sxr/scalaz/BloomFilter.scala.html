@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/BloomFilter.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">class</span> <a title="class BloomFilter extends java.lang.Object with ScalaObject" id="9647">BloomFilter</a><span title="ScalaObject">(</span><span class="keyword">val</span> <a title="Int" id="138646">size</a>: <span title="Int">Int</span>, <span class="keyword">val</span> <a title="Int" id="138647">expectedElements</a>: <span title="Int">Int</span>) {
+  <span title="(requirement: Boolean)Unit">require</span>(<a href="#138646" title="(x$1: Int)Boolean">size</a> &gt; <span title="Int(0)" class="int">0</span>)
+  <span title="(requirement: Boolean)Unit">require</span>(<a href="#138647" title="(x$1: Int)Boolean">expectedElements</a> &gt; <span title="Int(0)" class="int">0</span>)
+
+  <span class="keyword">import</span> scala.math._
+
+  <span class="keyword">private</span>[<span class="keyword">this</span>] <span class="keyword">val</span> <a title="BloomFilter.this.BitArray" id="138460">bitArray</a> = <span title="BloomFilter.this.BitArray" class="keyword">new</span> <a href="#138467" title="BloomFilter.this.BitArray">BitArray</a>(<a href="#138646" title="=&gt; Int">size</a>)
+  <span class="keyword">private</span>[<span class="keyword">this</span>] <span class="keyword">val</span> <a title="Int" id="138461">k</a> = <a title="(x: Double)Double" id="39375">ceil</a>(<span title="(x$1: Double)Double">(</span><a href="#138460" title="BloomFilter.this.BitArray">bitArray</a>.<a href="#138478" title="(x$1: Int)Int" id="5139">size</a> / <a href="#138647" title="=&gt; Int">expectedElements</a>) * <a title="(x: Double)Double" id="39368">log</a>(<span title="Double(2.0)" class="double">2.0</span>)).<a title="=&gt; Int" id="5597">toInt</a>
+  <span class="keyword">lazy</span> <span class="keyword">val</span> <a title="Double" id="138463">expectedFalsePositiveProbability</a> = <a title="(x: Double,y: Double)Double" id="39384">pow</a>(<a title="(x$1: Double)Double" id="5213" class="int">1</a> - <a title="(x: Double)Double" id="39366">exp</a>(<a title="(x$1: Double)Double" id="5035">-</a><a href="#138461" title="Int">k</a> <a title="(x$1: Int)Double" id="5687">*</a> <span title="Double(1.0)" class="double">1.0</span> <a title="(x$1: Int)Double" id="5689">*</a> <a href="#138647" title="=&gt; Int">expectedElements</a> / <a href="#138460" title="BloomFilter.this.BitArray">bitArray</a>.<a href="#138478" title="=&gt; Int">size</a>), <a href="#138461" title="=&gt; Double" id="5019">k</a>)
+
+  <span class="keyword">def</span> <a title="(hash: Int)Unit" id="138464">add</a>(<a title="Int" id="138665">hash</a>: <span title="Int">Int</span>) {
+    <span class="keyword">def</span> <a title="(i: Int,seed: Int)Unit" id="138667">add</a>(<a title="Int" id="138668">i</a>: <span title="Int">Int</span>, <a title="Int" id="138669">seed</a>: <span title="Int">Int</span>) {
+      <span title="Unit" class="keyword">if</span> (<a href="#138668" title="(x$1: Int)Boolean">i</a> == <a href="#138461" title="Int">k</a>) <span title="Nothing" class="keyword">return</span>
+      <span class="keyword">val</span> <a title="Int" id="138670">next</a> = <a href="#138466" title="(i: Int)Int">xorRandom</a>(<a href="#138669" title="Int">seed</a>)
+      <a href="#138460" title="BloomFilter.this.BitArray">bitArray</a>.<a href="#138482" title="(index: Int)Unit">set</a>(<a href="#138670" title="Int">next</a>)
+      <a href="#138667" title="(i: Int,seed: Int)Unit">add</a>(<a href="#138668" title="(x$1: Int)Int">i</a> + <span title="Int(1)" class="int">1</span>, <a href="#138670" title="Int">next</a>)
+    }
+    <a href="#138667" title="(i: Int,seed: Int)Unit">add</a>(<span title="Int(0)" class="int">0</span>, <a href="#138665" title="Int">hash</a>)
+  }
+
+  <span class="keyword">def</span> <a title="(hash: Int)Boolean" id="138465">contains</a>(<a title="Int" id="138788">hash</a>: <span title="Int">Int</span>): <span title="Boolean">Boolean</span> = {
+    <span class="keyword">def</span> <a title="(i: Int,seed: Int)Boolean" id="138790">contains</a>(<a title="Int" id="138791">i</a>: <span title="Int">Int</span>, <a title="Int" id="138792">seed</a>: <span title="Int">Int</span>): <span title="Boolean">Boolean</span> = {
+      <span title="Unit" class="keyword">if</span> (<a href="#138791" title="(x$1: Int)Boolean">i</a> == <a href="#138461" title="Int">k</a>) <span title="Nothing" class="keyword">return</span> <span title="Boolean(true)" class="keyword">true</span>
+      <span class="keyword">val</span> <a title="Int" id="138793">next</a> = <a href="#138466" title="(i: Int)Int">xorRandom</a>(<a href="#138792" title="Int">seed</a>)
+      <span title="Unit" class="keyword">if</span> (<a title="=&gt; Boolean" id="4325">!</a><a href="#138460" title="BloomFilter.this.BitArray">bitArray</a>.<a href="#138483" title="(index: Int)Boolean">get</a>(<a href="#138793" title="Int">next</a>)) <span title="Nothing" class="keyword">return</span> <span title="Boolean(false)" class="keyword">false</span>
+      <span title="Nothing" class="keyword">return</span> <a href="#138790" title="(i: Int,seed: Int)Boolean">contains</a>(<a href="#138791" title="(x$1: Int)Int">i</a> + <span title="Int(1)" class="int">1</span>, <a href="#138793" title="Int">next</a>)
+    }
+    <a href="#138790" title="(i: Int,seed: Int)Boolean">contains</a>(<span title="Int(0)" class="int">0</span>, <a href="#138788" title="Int">hash</a>)
+  }
+
+  <span class="keyword">private</span> <span class="keyword">def</span> <a title="(i: Int)Int" id="138466">xorRandom</a>(<a title="Int" id="138676">i</a>: <span title="Int">Int</span>) = {
+    <span class="keyword">var</span> <a title="Int" id="138679">y</a> = <a href="#138676" title="Int">i</a>
+    <a href="#138679" title="Int">y</a> ^= <a href="#138679" title="(x$1: Int)Int">y</a> &lt;&lt; <span title="Int(13)" class="int">13</span>
+    <a href="#138679" title="Int">y</a> ^= <a href="#138679" title="(x$1: Int)Int">y</a> &gt;&gt; <span title="Int(17)" class="int">17</span>
+    <a href="#138679" title="(x$1: Int)Int">y</a> ^ <a href="#138679" title="(x$1: Int)Int">y</a> &lt;&lt; <span title="Int(5)" class="int">5</span>
+  }
+
+  <span class="keyword">private</span> <span class="keyword">class</span> <a title="class BitArray extends java.lang.Object with ScalaObject" id="138467">BitArray</a><span title="ScalaObject">(</span><a title="Int" id="138489">bits</a>: <span title="Int">Int</span>) {
+    <span class="keyword">val</span> <a title="Int" id="138478">size</a> = <a title="(that: Int)Int" id="43261">(</a><span title="(x$1: Int)Int" class="int">1</span> <a title="implicit scala.Predef.intWrapper : (x: Int)scala.runtime.RichInt" id="8923">&lt;&lt;</a> <span title="Int(6)" class="int">6</span>) max <a href="#138488" title="(i: Int)Int">nextPow2</a>(<a href="#138489" title="Int">bits</a>)
+    <span title="(requirement: Boolean)Unit">require</span>(<a href="#138487" title="(i: Int)Boolean">isPowerOf2</a>(<a href="#138478" title="=&gt; Int">size</a>))
+    <span class="keyword">private</span> <span class="keyword">val</span> <a title="Array[Long]" id="138480">data</a> = <span title="Array[Long]" class="keyword">new</span> <a title="Array[Long]" id="2025">Array</a>[Long](<a href="#138478" title="(x$1: Int)Int">size</a> &gt;&gt; <span title="Int(6)" class="int">6</span>)
+
+    <span class="keyword">def</span> <a title="(index: Int)Unit" id="138482">set</a>(<a title="Int" id="138723">index</a>: <span title="Int">Int</span>) = <a href="#138480" title="(i: Int,x: Long)Unit" id="23947">data</a><a title="(x$1: Long)Long" id="5379">(</a><a href="#138486" title="(index: Int)Int">idx</a><a href="#138764" title="Int">(</a><a href="#138723" title="Int">index</a>)) |= (<span title="(x$1: Int)Long" class="long">1L</span> &lt;&lt; <a href="#138723" title="Int">index</a>)
+
+    <span class="keyword">def</span> <a title="(index: Int)Boolean" id="138483">get</a>(<a title="Int" id="138800">index</a>: <span title="Int">Int</span>) = <a title="(x$1: Int)Boolean" id="5331">(</a><a href="#138480" title="(i: Int)Long">data</a><a title="(x$1: Long)Long" id="5381">(</a><a href="#138486" title="(index: Int)Int">idx</a>(<a href="#138800" title="Int">index</a>)) &amp; (<span title="(x$1: Int)Long" class="long">1L</span> &lt;&lt; <a href="#138800" title="Int">index</a>)) != <span title="Int(0)" class="int">0</span>
+
+    <span class="keyword">private</span> <span class="keyword">val</span> <a title="Int" id="138484">mask</a> = <a href="#138478" title="(x$1: Int)Int">size</a> - <span title="Int(1)" class="int">1</span>
+
+    <span class="keyword">private</span> <span class="keyword">def</span> <a title="(index: Int)Int" id="138486">idx</a>(<a title="Int" id="138736">index</a>: <span title="Int">Int</span>) = <span title="(x$1: Int)Int">(</span><a href="#138736" title="(x$1: Int)Int">index</a> &amp; <a href="#138484" title="=&gt; Int">mask</a>) &gt;&gt; <span title="Int(6)" class="int">6</span>
+
+    <span class="keyword">private</span> <span class="keyword">def</span> <a title="(i: Int)Boolean" id="138487">isPowerOf2</a>(<a title="Int" id="138567">i</a>: <span title="Int">Int</span>) = <span title="(x$1: Int)Boolean">(</span><span title="(x$1: Int)Int">(</span><a href="#138567" title="(x$1: Int)Int">i</a> - <span title="Int(1)" class="int">1</span>) &amp; <a href="#138567" title="Int">i</a>) == <span title="Int(0)" class="int">0</span>
+
+    <span class="keyword">private</span> <span class="keyword">def</span> <a title="(i: Int)Int" id="138488">nextPow2</a>(<a title="Int" id="138514">i</a>: <span title="Int">Int</span>) = {
+      <span class="keyword">def</span> <a title="(remainder: Int,c: Int)Int" id="138517">highestBit</a>(<a title="Int" id="138519">remainder</a>: <span title="Int">Int</span>, <a title="Int" id="138520">c</a>: <span title="Int">Int</span>): <span title="Int">Int</span> = <span title="Int" class="keyword">if</span> (<a href="#138519" title="(x$1: Int)Boolean">remainder</a> &gt; <span title="Int(0)" class="int">0</span>) <a href="#138517" title="(remainder: Int,c: Int)Int">highestBit</a>(<a href="#138519" title="(x$1: Int)Int">remainder</a> &gt;&gt; <span title="Int(1)" class="int">1</span>, <a href="#138520" title="(x$1: Int)Int">c</a> + <span title="Int(1)" class="int">1</span>) <span class="keyword">else</span> <a href="#138520" title="Int">c</a>
+      <a title="(requirement: Boolean,message: =&gt; Any)Unit" id="8817">require</a>(<a href="#138514" title="(x$1: Int)Boolean" id="5127">i</a> &lt;= (<span title="(x$1: Int)Int" class="int">1</span> &lt;&lt; <span title="Int(30)" class="int">30</span>), <a title="(args: Any*)String" id="9017" class="string">&quot;size was %s has to be smaller or equal to %s&quot;</a> format (<a href="#138514" title="Int">i</a>, <span title="(x$1: Int)Int" class="int">1</span> &lt;&lt; <span title="Int(30)" class="int">30</span>))
+      <span class="keyword">val</span> <a title="Int" id="138518">n</a> = <span title="Int" class="keyword">if</span> (<a href="#138487" title="(i: Int)Boolean">isPowerOf2</a>(<a href="#138514" title="Int">i</a>)) <a href="#138514" title="Int">i</a> <span class="keyword">else</span> <span title="(x$1: Int)Int" class="int">1</span> &lt;&lt; <a href="#138517" title="(remainder: Int,c: Int)Int">highestBit</a>(<a href="#138514" title="Int">i</a>, <span title="Int(0)" class="int">0</span>)
+      <a title="(assertion: Boolean)Unit" id="8786">assert</a>(<a href="#138518" title="(x$1: Int)Boolean" id="5131">n</a> <span title="(x$1: Boolean)Boolean">&gt;=</span> <a href="#138514" title="Int">i</a> <span title="(x$1: Boolean)Boolean">&amp;&amp;</span> <a href="#138514" title="(x$1: Int)Int" id="5137">i</a> <span title="(x$1: Int)Boolean">*</span> <span title="Int(2)" class="int">2</span> &gt; <a href="#138518" title="Int">n</a> &amp;&amp; <a href="#138487" title="(i: Int)Boolean">isPowerOf2</a>(<a href="#138518" title="Int">n</a>))
+      <a href="#138518" title="Int">n</a>
+    }
+  }
+}
+
+
+        </pre>
+    </body>
+</html>

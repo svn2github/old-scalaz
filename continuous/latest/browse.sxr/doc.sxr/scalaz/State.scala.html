@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/State.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait State[S, +A] extends java.lang.Object with ScalaObject" id="15614">State</a>[<a title="&gt;: Nothing &lt;: Any" id="21833">S</a>, +<a title="&gt;: Nothing &lt;: Any" id="21834">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(s: S)(S, A)" id="28777">apply</a>(<a title="S" id="97115">s</a>: <a href="#21833" title="S">S</a>): <a title="(S, A)" id="630">(</a>S, A)
+
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#15252" title="object scalaz.Scalaz">Scalaz</a>._
+  
+  <span class="keyword">def</span> <a title="[B](f: (A) =&gt; B)scalaz.State[S,B]" id="28779">map</a>[<a title="&gt;: Nothing &lt;: Any" id="28781">B</a>](<a title="(A) =&gt; B" id="45854">f</a>: A =&gt; B): <a href="#15614" title="scalaz.State[S,B]">State</a>[S, B] = <a href="#25869" title="(f: (S) =&gt; (S, B))scalaz.State[S,B]">state</a>(<a href="#28777" title="(s: S)(S, A)">apply</a>(<a href="#268114" title="S">_</a>) <span title="(S, B)" class="keyword">match</span> {
+    <span title="(S, B)" class="keyword">case</span> (<a title="S" id="268118">s</a>, <a title="A" id="268119">a</a>) =&gt; <span title="(_1: S,_2: B)(S, B)">(</span><a href="#268118" title="S">s</a>, <a href="#45854" title="(v1: A)B">f</a>(<a href="#268119" title="A">a</a>))
+  })
+
+  <span class="keyword">def</span> <a title="[B](f: (A) =&gt; scalaz.State[S,B])scalaz.State[S,B]" id="28782">flatMap</a>[<a title="&gt;: Nothing &lt;: Any" id="28784">B</a>](<a title="(A) =&gt; scalaz.State[S,B]" id="45805">f</a>: A =&gt; State[S, B]): <a href="#15614" title="scalaz.State[S,B]">State</a>[S, B] = <a href="#25869" title="(f: (S) =&gt; (S, B))scalaz.State[S,B]">state</a>(<a href="#28777" title="(s: S)(S, A)">apply</a>(<a href="#268136" title="S">_</a>) <span title="(S, B)" class="keyword">match</span> {
+    <span title="(S, B)" class="keyword">case</span> (<a title="S" id="268140">s</a>, <a title="A" id="268141">a</a>) =&gt; <a href="#45805" title="(v1: A)scalaz.State[S,B]">f</a><a href="#28777" title="(s: S)(S, B)">(</a><a href="#268141" title="A">a</a>)(<a href="#268140" title="S">s</a>)
+  })
+
+  <span class="keyword">def</span> <a title="(s: S)A" id="28785">!</a>(<a title="S" id="53993">s</a>: <a href="#21833" title="S">S</a>): <a href="#21834" title="A">A</a> = <a href="#28777" title="(s: S)(S, A)">apply</a>(<a href="#53993" title="S">s</a>).<span title="=&gt; A">_2</span>
+
+  <span class="keyword">def</span> <a title="(s: S)S" id="28786">~&gt;</a>(<a title="S" id="268150">s</a>: <a href="#21833" title="S">S</a>): <a href="#21833" title="S">S</a> = <a href="#28777" title="(s: S)(S, A)">apply</a>(<a href="#268150" title="S">s</a>).<span title="=&gt; S">_1</span>
+
+  <span class="keyword">def</span> <a title="(f: (S) =&gt; S)scalaz.State[S,A]" id="28787">withs</a>(<a title="(S) =&gt; S" id="268154">f</a>: S =&gt; S): <a href="#15614" title="scalaz.State[S,A]">State</a>[S, A] = <a href="#25869" title="(f: (S) =&gt; (S, A))scalaz.State[S,A]">state</a>(<a href="#268154" title="(g: (S) =&gt; (S, A))(S) =&gt; (S, A)" id="27177">f</a> andThen (<a href="#28777" title="(s: S)(S, A)">apply</a>(<a href="#268163" title="S">_</a>)))
+}
+
+/**
+ * State monad transformer
+ **/
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait StateT[M[_], S, A] extends java.lang.Object with ScalaObject" id="15659">StateT</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="21835">M</a>[<a title="&gt;: Nothing &lt;: Any" id="49381">_</a>], <a title="&gt;: Nothing &lt;: Any" id="21836">S</a>, <a title="&gt;: Nothing &lt;: Any" id="21837">A</a>] <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="(s: S)M[(S, A)]" id="49365">apply</a>(<a title="S" id="99184">s</a>: <a href="#21836" title="S">S</a>): <a href="#21835" title="M[(S, A)]">M</a>[(S, A)]
+
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#15252" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">def</span> <a title="(s: S)(implicit m: scalaz.Functor[M])M[A]" id="49367">!</a>(<a title="S" id="268171">s</a>: <a href="#21836" title="S">S</a>)(<span class="keyword">implicit</span> <a title="scalaz.Functor[M]" id="268172">m</a>: <a href="Functor.scala.html#13439" title="scalaz.Functor[M]">Functor</a>[M]): <a href="#21835" title="M[A]">M</a>[A] = <a href="#49365" title="(s: S)M[(S, A)]">apply</a><a href="MA.scala.html#27369" title="(f: ((S, A)) =&gt; A)(implicit t: scalaz.Functor[M])M[A]">(</a><a href="#268171" title="S">s</a>) <a href="#268172" title="scalaz.Functor[M]">map</a> (<a href="#268350" title="(S, A)">_</a>.<span title="=&gt; A">_2</span>)
+  <span class="keyword">def</span> <a title="(s: S)(implicit m: scalaz.Functor[M])M[S]" id="49368">~&gt;</a>(<a title="S" id="268374">s</a>: <a href="#21836" title="S">S</a>)(<span class="keyword">implicit</span> <a title="scalaz.Functor[M]" id="268375">m</a>: <a href="Functor.scala.html#13439" title="scalaz.Functor[M]">Functor</a>[M]): <a href="#21835" title="M[S]">M</a>[S] = <a href="#49365" title="(s: S)M[(S, A)]">apply</a><a href="MA.scala.html#27369" title="(f: ((S, A)) =&gt; S)(implicit t: scalaz.Functor[M])M[S]">(</a><a href="#268374" title="S">s</a>) <a href="#268375" title="scalaz.Functor[M]">map</a> (<a href="#268549" title="(S, A)">_</a>.<span title="=&gt; S">_1</span>)
+  <span class="keyword">def</span> <a title="[N[_], B](f: (M[(S, A)]) =&gt; N[(S, B)])scalaz.StateT[N,S,B]" id="49369">maps</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="49372">N</a>[<a title="&gt;: Nothing &lt;: Any" id="268574">_</a>], <a title="&gt;: Nothing &lt;: Any" id="49373">B</a>](<a title="(M[(S, A)]) =&gt; N[(S, B)]" id="268573">f</a>: M[(S, A)] =&gt; N[(S, B)]): <a href="#15659" title="scalaz.StateT[N,S,B]">StateT</a>[N, S, B] = 
+    <a href="#25874" title="(f: (S) =&gt; N[(S, B)])scalaz.StateT[N,S,B]">stateT</a>(<a href="MA.scala.html#27369" title="(f: (M[(S, A)]) =&gt; N[(S, B)])(implicit t: scalaz.Functor[[B](S) =&gt; B])(S) =&gt; N[(S, B)]">(</a><a href="#49365" title="(s: S)M[(S, A)]">apply</a><a href="Scalaz.scala.html#25220" title="(f: (S) =&gt; M[(S, A)])scalaz.MA[[B](S) =&gt; B,M[(S, A)]]">(</a><a href="#268585" title="S">_</a>)) <a href="Functor.scala.html#46125" title="scalaz.Functor[[B](S) =&gt; B]">map</a> <a href="#268573" title="(M[(S, A)]) =&gt; N[(S, B)]">f</a>)
+  <span class="keyword">def</span> <a title="(f: (S) =&gt; S)scalaz.StateT[M,S,A]" id="49374">withs</a>(<a title="(S) =&gt; S" id="268782">f</a>: S =&gt; S) =
+    <a href="#25874" title="(f: (S) =&gt; M[(S, A)])scalaz.StateT[M,S,A]">stateT</a>(<a href="MA.scala.html#27369" title="(f: (S) =&gt; M[(S, A)])(implicit t: scalaz.Functor[[B](S) =&gt; B])(S) =&gt; M[(S, A)]">f</a> <a href="Functor.scala.html#46125" title="scalaz.Functor[[B](S) =&gt; B]">map</a> (<a href="#49365" title="(s: S)M[(S, A)]">apply</a>(<a href="#268898" title="S">_</a>)))
+  <span class="keyword">def</span> <a title="[B](f: (A) =&gt; B)(implicit m: scalaz.Functor[M])scalaz.StateT[M,S,B]" id="49375">map</a>[<a title="&gt;: Nothing &lt;: Any" id="49377">B</a>](<a title="(A) =&gt; B" id="268986">f</a>: A =&gt; B)(<span class="keyword">implicit</span> <a title="scalaz.Functor[M]" id="268987">m</a>: <a href="Functor.scala.html#13439" title="scalaz.Functor[M]">Functor</a>[M]): <a href="#15659" title="scalaz.StateT[M,S,B]">StateT</a>[M, S, B] =
+    <a href="#25874" title="(f: (S) =&gt; M[(S, B)])scalaz.StateT[M,S,B]">stateT</a>(<a title="S" id="268998">s</a> =&gt; <a href="#49365" title="(s: S)M[(S, A)]">apply</a><a href="MA.scala.html#27369" title="(f: ((S, A)) =&gt; (S, B))(implicit t: scalaz.Functor[M])M[(S, B)]">(</a><a href="#268998" title="S">s</a>) <a href="#268987" title="scalaz.Functor[M]">map</a> (<a href="MAB.scala.html#27206" title="(g: (A) =&gt; B)(implicit b: scalaz.Bifunctor[Tuple2])(S, B)">_</a> <a href="Bifunctor.scala.html#269229" title="=&gt; scalaz.Bifunctor[Tuple2]">:-&gt;</a> <a href="#268986" title="(A) =&gt; B">f</a>))
+  <span class="keyword">def</span> <a title="[B](f: (A) =&gt; scalaz.StateT[M,S,B])(implicit m: scalaz.Bind[M])scalaz.StateT[M,S,B]" id="49378">flatMap</a>[<a title="&gt;: Nothing &lt;: Any" id="49380">B</a>](<a title="(A) =&gt; scalaz.StateT[M,S,B]" id="99173">f</a>: A =&gt; StateT[M, S, B])(<span class="keyword">implicit</span> <a title="scalaz.Bind[M]" id="99174">m</a>: <a href="Bind.scala.html#9605" title="scalaz.Bind[M]">Bind</a>[M]) =
+    <a href="#25874" title="[M[_], S, A](f: (S) =&gt; M[(S, A)])scalaz.StateT[M,S,A]">stateT</a><span title="(f: (S) =&gt; M[(S, B)])scalaz.StateT[M,S,B]">[</span><a href="#21835" title="M">M</a>,<a href="#21836" title="S">S</a>,<a href="#49380" title="B">B</a>](<a title="S" id="99183">s</a> =&gt; <a href="#49365" title="(s: S)M[(S, A)]">apply</a><a href="MA.scala.html#27459" title="(f: ((S, A)) =&gt; M[(S, B)])(implicit b: scalaz.Bind[M])M[(S, B)]">(</a><a href="#99183" title="S">s</a>) <a href="#99174" title="scalaz.Bind[M]">&gt;&gt;=</a> <a href="#99366" title="M[(S, B)]">{</a> <span title="M[(S, B)]" class="keyword">case</span> (<a title="S" id="99369">sp</a>, <a title="A" id="99370">a</a>) =&gt; <a href="#99173" title="(v1: A)scalaz.StateT[M,S,B]">f</a><a href="#49365" title="(s: S)M[(S, B)]">(</a><a href="#99370" title="A">a</a>)(<a href="#99369" title="S">sp</a>) })
+}
+
+<span class="keyword">trait</span> <a title="trait States extends java.lang.Object with ScalaObject" id="15632">States</a> <span title="ScalaObject">{</span>
+  <span class="keyword">def</span> <a title="[S, A](f: (S) =&gt; (S, A))scalaz.State[S,A]" id="25869">state</a>[<a title="&gt;: Nothing &lt;: Any" id="25872">S</a>, <a title="&gt;: Nothing &lt;: Any" id="25873">A</a>](<a title="(S) =&gt; (S, A)" id="45821">f</a>: S =&gt; (S, A)): <a href="#15614" title="scalaz.State[S,A]">State</a>[S, A] = <a href="#269260" title="java.lang.Object with scalaz.State[S,A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.State[S,A]" id="269260">State</a>[S, A] {
+    <span class="keyword">def</span> <a title="(s: S)(S, A)" id="269264">apply</a>(<a title="S" id="269265">s</a>: <a href="#25872" title="S">S</a>) = <a href="#45821" title="(v1: S)(S, A)">f</a>(<a href="#269265" title="S">s</a>)
+  }
+
+  <span class="keyword">def</span> <a title="[M[_], S, A](f: (S) =&gt; M[(S, A)])scalaz.StateT[M,S,A]" id="25874">stateT</a>[<a title="[_]&gt;: Nothing &lt;: Any" id="25878">M</a>[<a title="&gt;: Nothing &lt;: Any" id="99178">_</a>], <a title="&gt;: Nothing &lt;: Any" id="25879">S</a>, <a title="&gt;: Nothing &lt;: Any" id="25880">A</a>](<a title="(S) =&gt; M[(S, A)]" id="99177">f</a>: S =&gt; M[(S, A)]): <a href="#15659" title="scalaz.StateT[M,S,A]">StateT</a>[M, S, A] =
+    <a href="#269275" title="java.lang.Object with scalaz.StateT[M,S,A]" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.StateT[M,S,A]" id="269275">StateT</a>[M, S, A] {
+      <span class="keyword">def</span> <a title="(s: S)M[(S, A)]" id="269279">apply</a>(<a title="S" id="269280">s</a>: <a href="#25879" title="S">S</a>) = <a href="#99177" title="(v1: S)M[(S, A)]">f</a>(<a href="#269280" title="S">s</a>)
+    }
+
+  <span class="keyword">def</span> <a title="[S]scalaz.State[S,S]" id="25881">init</a>[<a title="&gt;: Nothing &lt;: Any" id="25883">S</a>]: <a href="#15614" title="scalaz.State[S,S]">State</a>[S, S] = <a href="#25869" title="[S, A](f: (S) =&gt; (S, A))scalaz.State[S,A]">state</a><span title="(f: (S) =&gt; (S, S))scalaz.State[S,S]">[</span><a href="#25883" title="S">S</a>, <a href="#25883" title="S">S</a>](<a title="S" id="269292">s</a> =&gt; <span title="(_1: S,_2: S)(S, S)">(</span><a href="#269292" title="S">s</a>, <a href="#269292" title="S">s</a>))
+
+  <span class="keyword">def</span> <a title="[S](f: (S) =&gt; S)scalaz.State[S,Unit]" id="25884">modify</a>[<a title="&gt;: Nothing &lt;: Any" id="25886">S</a>](<a title="(S) =&gt; S" id="45813">f</a>: S =&gt; S) = <a href="#25881" title="[S]scalaz.State[S,S]">init</a><a href="#28782" title="(f: (S) =&gt; scalaz.State[S,Unit])scalaz.State[S,Unit]">[</a><a href="#25886" title="S">S</a>] flatMap (<a title="S" id="45820">s</a> =&gt; <a href="#25869" title="(f: (S) =&gt; (S, Unit))scalaz.State[S,Unit]">state</a>(<a title="S" id="45828">_</a> =&gt; <span title="(_1: S,_2: Unit)(S, Unit)">(</span><a href="#45813" title="(v1: S)S">f</a>(<a href="#45820" title="S">s</a>), <span title="Unit">(</span>))))
+}
+
+        </pre>
+    </body>
+</html>

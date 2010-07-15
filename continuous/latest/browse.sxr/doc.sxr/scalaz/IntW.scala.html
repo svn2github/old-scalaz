@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/IntW.scala</title>
+        <script type="text/javascript" src="../jquery-all.js"></script>
+        <script type="text/javascript" src="../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz
+
+<span class="keyword">sealed</span> <span class="keyword">trait</span> <a title="trait IntW extends java.lang.Object with scalaz.PimpedType[Int] with ScalaObject" id="13637">IntW</a> <span title="ScalaObject" class="keyword">extends</span> <a href="PimpedType.scala.html#14849" title="scalaz.PimpedType[Int]">PimpedType</a>[Int] {
+  <span class="keyword">import</span> <a href="Scalaz.scala.html#15252" title="object scalaz.Scalaz">Scalaz</a>._
+
+  <span class="keyword">def</span> <a title="=&gt; scalaz.IntMultiplication" id="42728">∏</a> : <a href="Multiplications.scala.html#13628" title="scalaz.IntMultiplication">IntMultiplication</a> = <a href="Multiplications.scala.html#25752" title="(n: Int)scalaz.IntMultiplication">multiplication</a>(<a href="PimpedType.scala.html#27204" title="=&gt; Int">value</a>)
+
+  <span class="keyword">def</span> <a title="=&gt; scalaz.Ordering" id="42729">ordering</a>: <a href="Ordering.scala.html#14762" title="scalaz.Ordering">Ordering</a> = <span title="scalaz.Ordering" class="keyword">if</span> (<a href="PimpedType.scala.html#27204" title="(x$1: Int)Boolean" id="5125">value</a> &lt; <span title="Int(0)" class="int">0</span>) <a href="Ordering.scala.html#14154" title="object scalaz.LT">LT</a> <span class="keyword">else</span> <span title="scalaz.Ordering" class="keyword">if</span> (<a href="PimpedType.scala.html#27204" title="(x$1: Int)Boolean" id="5129">value</a> &gt; <span title="Int(0)" class="int">0</span>) <a href="Ordering.scala.html#13482" title="object scalaz.GT">GT</a> <span class="keyword">else</span> <a href="Ordering.scala.html#10269" title="object scalaz.EQ">EQ</a>
+}
+
+<span class="keyword">trait</span> <a title="trait Ints extends java.lang.Object with ScalaObject" id="13634">Ints</a> <span title="ScalaObject">{</span>
+  <span class="keyword">implicit</span> <span class="keyword">def</span> <a title="implicit scalaz.Ints.IntTo : (n: Int)scalaz.IntW" id="25646">IntTo</a>(<a title="Int" id="38651">n</a>: <a title="Int" id="4361">Int</a>): <a href="#13637" title="scalaz.IntW">IntW</a> = <a href="#324593" title="java.lang.Object with scalaz.IntW{}" class="keyword">new</a> <a title="anonymous class $anon extends java.lang.Object with scalaz.IntW" id="324593">IntW</a> {
+    <span class="keyword">val</span> <a title="Int" id="324597">value</a> = <a href="#38651" title="Int">n</a>
+  }
+}
+
+        </pre>
+    </body>
+</html>

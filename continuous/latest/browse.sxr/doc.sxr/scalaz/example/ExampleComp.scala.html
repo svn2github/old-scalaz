@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>scalaz/example/ExampleComp.scala</title>
+        <script type="text/javascript" src="../../jquery-all.js"></script>
+        <script type="text/javascript" src="../../linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> scalaz.example
+
+<span class="keyword">import</span> scalaz._
+
+
+<span class="keyword">object</span> <a title="object scalaz.example.ExampleComp" id="18298">ExampleComp</a> <a title="ScalaObject" id="1443">{</a>
+  <span class="keyword">def</span> <a title="(args: Array[String])Unit" id="24211">main</a>(<a title="Array[String]" id="506601">args</a>: <a title="Array[String]" id="2025">Array</a>[String]) = <a href="#24213" title="=&gt; Unit">run</a>
+
+  <span class="keyword">import</span> Scalaz._
+
+  <span class="keyword">def</span> <a title="=&gt; Unit" id="24213">run</a> <span title="Unit">{</span>
+    // The composition of two functors is also a functor.
+//    (List(List(1)).comp.map {2 +}) assert_≟ List(List(3))
+//    List(List(1)).comp.fpair assert_≟ List(List((1, 1)))
+//    List(&quot;123&quot;.toStream).comp.digits assert_≟ List(Stream(some(_1), some(_2), some(_3)))
+
+    // The composition of two applicative functors is also a an applicative functor.
+//    (some(some(1)).comp &lt;*&gt; some(some(2))) {_ + _} assert_≟ some(some(3))
+  }
+}
+        </pre>
+    </body>
+</html>
