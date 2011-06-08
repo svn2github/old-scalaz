@@ -27,8 +27,7 @@ If you find further issues, please email the mailing list, and we can help.
   * Removed a few of the unicode aliases
   * Resource handling API
   * A lifted getOrElse called fromMaybeM that is lazy in its second argument Issue 24 http://code.google.com/p/scalaz/issues/detail?id=24
-  * Removed DList because it is not stack-friendly. Scalaz 7 has
-surprises in store here!
+  * Removed DList because it is not stack-friendly. Scalaz 7 has surprises in store here!
   * General composition of functors and applicative functors
   * Semigroup instances for First and Last Option value
   * List functions such as scanr and unzip
