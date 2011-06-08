@@ -12,6 +12,13 @@ The Monad instance for Validation has been moved out of the implicit scope, to a
 
 If you find further issues, please email the mailing list, and we can help.
 
+= Documentation =
+
+API Documentation and Examples are available online:
+  * [http://scalaz.github.com/scalaz/scalaz-2.9.0-1-6.0/doc/index.html Scaladoc] 6.0
+  * [http://scalaz.github.com/scalaz/scalaz-2.9.0-1-6.0/doc.sxr/index.html Annotated Sources] 6.0 
+    * [http://scalaz.github.com/scalaz/scalaz-2.9.0-1-6.0/doc.sxr/scalaz/example/Example.scala.html Examples]
+
 = What's New =
 
   * Iteratee implementation
