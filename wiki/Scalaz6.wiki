@@ -46,8 +46,7 @@ surprises in store here!
   * Multi-way tree and zipper
   * Concatenation list (rope)
   * Use of Type Lambdas rather than PartialApplyNofM traits
-  * Name / Need / Value: data types to represent call-by-name,
-call-by-need, and strict evaluation
+  * Name / Need / Value: data types to represent call-by-name, call-by-need, and strict evaluation
   * Heap: An efficient, asymptotically optimal, implementation of priority queues extended with support for efficient size
   * EphemeralStream: A stream built on weak references that recomputes
 elements if they are GC-ed.
