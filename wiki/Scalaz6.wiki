@@ -1,0 +1,53 @@
+#summary What's new in Scalaz 6.0
+
+= Introduction =
+
+Scalaz 6.0 adds new data structures and type classes. The overall structure is largely the same as in version 5.0.
+
+= Migration =
+
+You will need to recompile your code against this release.
+
+The Monad instance for Validation has been moved out of the implicit scope, to avoid accidental fail-fast semantics when error accumulation is desired.[https://groups.google.com/d/msg/scalaz/NsMoXKlU4WQ/qeqGsFjMY18J Details]
+
+If you find further issues, please email the mailing list, and we can help.
+
+= What's New =
+
+  * Iteratee implementation
+  * Lenses and API -- putting coalgebra in yo costate comonad
+  * Type-system effect-tracking with IO and ST type constructors
+(scalaz.effects)
+  * List and Stream monad transformers implemented using step
+  * Fix issue 14 https://github.com/scalaz/scalaz/issues/14
+  * A lazy option data type
+  * Logger -- a specialised WriterT
+  * OptionT monad transformer
+  * More APIs for WriterT monad transformer
+  * Removed a few of the unicode aliases
+  * Resource handling API
+  * A lifted getOrElse called fromMaybeM that is lazy in its second
+argument Issue 24 http://code.google.com/p/scalaz/issues/detail?id=24
+  * Removed DList because it is not stack-friendly. Scalaz 7 has
+surprises in store here!
+  * General composition of functors and applicative functors
+  * Semigroup instances for First and Last Option value
+  * List functions such as scanr and unzip
+  * Stack friendly Traversable implementation of Traverse
+  * EphemeralStream for a garbage-collector-friendly lazy cons list
+  * Generalized category, Leibniz and Liskov
+  * Liskov substitution (a better <:<) with category instance to compose
+  * Leibniz equality (a better =:=) with category instance to compose
+  * Groupoids
+  * Cofree and generalized recursion
+  * Fixed stack overflow in Endo(morphism) semigroup
+  * List zipper
+  * Equal, Show, and Order instances for scala.Symbol
+  * Multi-way tree and zipper
+  * Concatenation list (rope)
+  * Use of Type Lambdas rather than PartialApplyNofM traits
+  * Name / Need / Value: data types to represent call-by-name,
+call-by-need, and strict evaluation
+  * Heap: An efficient, asymptotically optimal, implementation of priority queues extended with support for efficient size
+  * EphemeralStream: A stream built on weak references that recomputes
+elements if they are GC-ed.
