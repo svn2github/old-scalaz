@@ -23,8 +23,7 @@ API Documentation and Examples are available online:
 
   * Iteratee implementation
   * Lenses and API -- putting coalgebra in yo costate comonad
-  * Type-system effect-tracking with IO and ST type constructors
-(scalaz.effects)
+  * Type-system effect-tracking with IO and ST type constructors (scalaz.effects)
   * List and Stream monad transformers implemented using step
   * Fix issue 14 https://github.com/scalaz/scalaz/issues/14
   * A lazy option data type
