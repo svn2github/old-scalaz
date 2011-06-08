@@ -12,6 +12,10 @@ The Monad instance for Validation has been moved out of the implicit scope, to a
 
 If you find further issues, please email the mailing list, and we can help.
 
+= Obtaining =
+
+You can download the .zip of the distributions from the [http://code.google.com/p/scalaz/downloads/list Downloads] page; or obtain with Maven or SBT from the [http://scala-tools.org/repo-releases/org/scalaz/ Scala Tools repository]. Note that the Group ID is now "org.scalaz".
+
 = Documentation =
 
 API Documentation and Examples are available online:
