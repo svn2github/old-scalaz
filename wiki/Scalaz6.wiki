@@ -10,6 +10,8 @@ You will need to recompile your code against this release.
 
 The Monad instance for Validation has been moved out of the implicit scope, to avoid accidental fail-fast semantics when error accumulation is desired.[https://groups.google.com/d/msg/scalaz/NsMoXKlU4WQ/qeqGsFjMY18J Details]
 
+scalaz.Cofunctor was renamed to scalaz.Contravariant.
+
 If you find further issues, please email the mailing list, and we can help.
 
 = Obtaining =
