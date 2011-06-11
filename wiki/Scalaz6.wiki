@@ -58,4 +58,8 @@ API Documentation and Examples are available online:
   * Use of Type Lambdas rather than PartialApplyNofM traits
   * Name / Need / Value: data types to represent call-by-name, call-by-need, and strict evaluation
   * Heap: An efficient, asymptotically optimal, implementation of priority queues extended with support for efficient size
+
+== Fixes in Scalaz 6.0.1 ==
+
+See the [https://github.com/scalaz/scalaz/compare/6.0-for-2.8.x...6.0.1-for-2.8.x commit log] for the bug fixes between Scalaz 6.0 and 6.0.1.
   
