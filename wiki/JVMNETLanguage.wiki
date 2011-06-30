@@ -20,6 +20,7 @@ Haskell-like syntax
     * Finger-tree based
     * Lazy list based
   * Recorder selectors are on a type-class
+    * Lens library
   * Applicative comprehensions (two versions)
     * [| f a b |]
     * Using a keyword ap: ap { x <- f; y <- a; z <- b; pure (f a b) }
