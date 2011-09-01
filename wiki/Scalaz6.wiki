@@ -4,7 +4,11 @@
 
 Scalaz 6.0 adds new data structures and type classes. The overall structure is largely the same as in version 5.0.
 
-= Migration =
+= Migration 6.0.1 to 6.0.2 =
+
+See the [https://github.com/scalaz/scalaz/blob/master/notes/6.0.2.markdown Release notes]
+
+= Migration 5.x to 6.0 =
 
 You will need to recompile your code against this release.
 
@@ -16,14 +20,14 @@ If you find further issues, please email the mailing list, and we can help.
 
 = Obtaining =
 
-You can download the .zip of the distributions from the [http://code.google.com/p/scalaz/downloads/list Downloads] page; or obtain with Maven or SBT from the [http://scala-tools.org/repo-releases/org/scalaz/ Scala Tools repository]. Note that the Group ID is now "org.scalaz".
+You can download the full of the distribution from Scala Tools repository [scalaz-full_2.9.1-6.0.2.jar http://scala-tools.org/repo-releases/org/scalaz/scalaz-full_2.9.1/6.0.2/scalaz-full_2.9.1-6.0.2.jar] , or you can obtain the individual modules with Maven or SBT from the [http://scala-tools.org/repo-releases/org/scalaz/ Scala Tools repository]. Note that the Group ID is now "org.scalaz".
 
 = Documentation =
 
 API Documentation and Examples are available online:
-  * [http://scalaz.github.com/scalaz/scalaz-2.9.0-1-6.0/doc/index.html Scaladoc] 6.0
-  * [http://scalaz.github.com/scalaz/scalaz-2.9.0-1-6.0/doc.sxr/index.html Annotated Sources] 6.0 
-    * [http://scalaz.github.com/scalaz/scalaz-2.9.0-1-6.0/doc.sxr/scalaz/example/Example.scala.html Examples]
+  * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.2/doc/index.html Scaladoc] 6.0.2
+  * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.2/doc.sxr/index.html Annotated Sources] 6.0.2 
+    * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.2/doc.sxr/scalaz/example/Example.scala.html Examples]
 
 = What's New =
 
@@ -62,4 +66,8 @@ API Documentation and Examples are available online:
 == Fixes in Scalaz 6.0.1 ==
 
 See the [https://github.com/scalaz/scalaz/compare/6.0-for-2.8.x...6.0.1-for-2.8.x commit log] for the bug fixes between Scalaz 6.0 and 6.0.1.
+
+== Fixes in Scalaz 6.0.2 ==
+
+See the [https://github.com/scalaz/scalaz/compare/6.0.1-for-2.8.x...6.0.2 commit log] for the bug fixes between Scalaz 6.0.1 and 6.0.2.
   
