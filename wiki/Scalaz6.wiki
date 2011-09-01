@@ -12,7 +12,7 @@ See the [https://github.com/scalaz/scalaz/blob/master/notes/6.0.2.markdown Relea
 
 You will need to recompile your code against this release.
 
-The Monad instance for Validation has been moved out of the implicit scope, to avoid accidental fail-fast semantics when error accumulation is desired.[https://groups.google.com/d/msg/scalaz/NsMoXKlU4WQ/qeqGsFjMY18J Details]
+The Monad instance for Validation has been moved out of the implicit scope, to avoid accidental fail-fast semantics when error accumulation is desired. [https://groups.google.com/d/msg/scalaz/NsMoXKlU4WQ/qeqGsFjMY18J Details]
 
 scalaz.Cofunctor was renamed to scalaz.Contravariant.
 
@@ -20,7 +20,7 @@ If you find further issues, please email the mailing list, and we can help.
 
 = Obtaining =
 
-You can download the full of the distribution from Scala Tools repository [scalaz-full_2.9.1-6.0.2.jar http://scala-tools.org/repo-releases/org/scalaz/scalaz-full_2.9.1/6.0.2/scalaz-full_2.9.1-6.0.2.jar] , or you can obtain the individual modules with Maven or SBT from the [http://scala-tools.org/repo-releases/org/scalaz/ Scala Tools repository]. Note that the Group ID is now "org.scalaz".
+You can download the full of the distribution from Scala Tools repository [http://scala-tools.org/repo-releases/org/scalaz/scalaz-full_2.9.1/6.0.2/scalaz-full_2.9.1-6.0.2.jar scalaz-full_2.9.1-6.0.2.jar ], or you can obtain the individual modules with Maven or SBT from the [http://scala-tools.org/repo-releases/org/scalaz/ Scala Tools repository]. Note that the Group ID is now "org.scalaz".
 
 = Documentation =
 
