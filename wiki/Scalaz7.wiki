@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The organization of type classes and functions in Scalaz 6 has a few weaknesses. Type classes that from other type classes can lead to surprising results in implicit search; there isn't a way to implement an optimized version of derived functions (e.g. `liftA2`) for a given type; and the functionality provided by `import scalaz._, Scalaz._` is hard to use on an a-la-carte basis.
+The organization of type classes and functions in Scalaz 6 has a few weaknesses. Type classes that inherit from other type classes can lead to surprising results in implicit search; there isn't a way to implement an optimized version of derived functions (e.g. `liftA2`) for a given type; and the functionality provided by `import scalaz._, Scalaz._` is hard to use on an a-la-carte basis.
 
 We are trying out a few alternatives to improve this. You can see the [https://github.com/scalaz/scalaz/tree/scalaz7 scalaz7 branch] for the first attempt, which removes type class inheritance, emphasises Monad transformers and isomorphisms between types. This led to a [https://github.com/pchiusano/scalaz7-experimental scalaz7-experimental], which brings back type class inheritance (in a controlled manner), and moves a number of derived functions into the type classes.
 
