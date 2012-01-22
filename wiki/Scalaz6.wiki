@@ -78,3 +78,9 @@ See the [https://github.com/scalaz/scalaz/compare/6.0-for-2.8.x...6.0.1-for-2.8.
 [https://github.com/scalaz/scalaz/blob/master/notes/6.0.3.markdown Release Notes]
 
 [https://github.com/scalaz/scalaz/compare/6.0.2...6.0.3 Diff]
+
+== Fixes in Scalaz 6.0.4 ==
+
+[https://github.com/scalaz/scalaz/blob/master/notes/6.0.4.markdown Release Notes]
+
+[https://github.com/scalaz/scalaz/compare/6.0.3...6.0.4 Diff]
