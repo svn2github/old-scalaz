@@ -83,4 +83,4 @@ See the [https://github.com/scalaz/scalaz/compare/6.0-for-2.8.x...6.0.1-for-2.8.
 
 [https://github.com/scalaz/scalaz/blob/master/notes/6.0.4.markdown Release Notes]
 
-[https://github.com/scalaz/scalaz/compare/6.0.3...6.0.4 Diff]
+[https://github.com/scalaz/scalaz/compare/6.0.3...v6.0.4 Diff]
