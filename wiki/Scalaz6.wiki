@@ -20,7 +20,7 @@ If you find further issues, please email the mailing list, and we can help.
 
 = Obtaining =
 
-You can download the full of the distribution from Scala Tools repository [http://scala-tools.org/repo-releases/org/scalaz/scalaz-full_2.9.1/6.0.3/scalaz-full_2.9.1-6.0.3.jar scalaz-full_2.9.1-6.0.3.jar ], or you can obtain the individual modules with Maven or SBT from the [http://scala-tools.org/repo-releases/org/scalaz/ Scala Tools repository]. Note that the Group ID is now "org.scalaz".
+You can download the full of the distribution from Scala Tools repository [http://scala-tools.org/repo-releases/org/scalaz/scalaz-full_2.9.1/6.0.4/scalaz-full_2.9.1-6.0.4.jar scalaz-full_2.9.1-6.0.4.jar ], or you can obtain the individual modules with Maven or SBT from the [http://scala-tools.org/repo-releases/org/scalaz/ Scala Tools repository]. Note that the Group ID is now "org.scalaz".
 
 = Documentation =
 
