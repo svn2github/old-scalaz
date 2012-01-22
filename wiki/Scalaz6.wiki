@@ -25,9 +25,9 @@ You can download the full of the distribution from Scala Tools repository [http:
 = Documentation =
 
 API Documentation and Examples are available online:
-  * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.2/doc/index.html Scaladoc] 6.0.2
-  * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.2/doc.sxr/index.html Annotated Sources] 6.0.2 
-    * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.2/doc.sxr/scalaz/example/Example.scala.html Examples]
+  * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc/index.html Scaladoc] 6.0.4
+  * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/index.html Annotated Sources] 6.0.4 
+    * [http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/example/Example.scala.html Examples]
 
 = What's New =
 
